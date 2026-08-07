@@ -22,6 +22,17 @@
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
+        <div class="sort-bar" id="sort-bar">
+          <label for="sort-key">Sort by</label>
+          <select id="sort-key" aria-label="Sort matchups by">
+            <option value="overallAbs">Overall Edge</option>
+            <option value="diffTeamWAR">Team WAR</option>
+            <option value="diffXFIP">xFIP</option>
+            <option value="diffXwOBA">xwOBA</option>
+            <option value="matchup">Matchup</option>
+          </select>
+          <button type="button" id="sort-dir" aria-label="Toggle sort direction" title="Toggle ascending/descending">↓</button>
+        </div>
       </header>
 
       <div class="table-wrap">

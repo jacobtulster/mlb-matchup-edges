@@ -63,11 +63,11 @@
       : { away: "better", home: "worse" };
   }
 
-  function metricCell(awayVal, homeVal, homeDiff, away, home, digits) {
+  function metricCell(awayVal, homeVal, homeDiff, away, home, digits, label) {
     const edge = edgeFor(homeDiff, away, home, digits);
     const cls = betterClasses(homeDiff);
     return `
-      <td class="metric">
+      <td class="metric" data-label="${label}">
         <div class="stack">
           <div class="stat-line ${cls.away}"><span class="abb">${away}</span><span class="val">${fmt(awayVal, digits)}</span></div>
           <div class="stat-line ${cls.home}"><span class="abb">${home}</span><span class="val">${fmt(homeVal, digits)}</span></div>
@@ -81,13 +81,18 @@
     const edge = edgeFor(m.overallEdge, m.away, m.home, 2);
     const cls = betterClasses(m.overallEdge);
     return `
-      <td class="metric overall-cell">
+      <td class="metric overall-cell" data-label="Overall Edge">
         <div class="stack">
           <div class="edge overall ${edge.cls} ${cls.home === "better" ? "fav-home" : cls.away === "better" ? "fav-away" : ""}">${edge.text}</div>
           <div class="favored-note">Favors <strong class="${edge.team ? "better-team" : ""}">${m.favored || "—"}</strong></div>
         </div>
       </td>
     `;
+  }
+
+  function syncSortControls() {
+    if (sortKeyEl) sortKeyEl.value = sortKey;
+    if (sortDirBtn) sortDirBtn.textContent = sortDir === "asc" ? "↑" : "↓";
   }
 
   function render() {
@@ -106,20 +111,38 @@
       const h = m.homeStats || {};
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td class="matchup">
+        <td class="matchup" data-label="Matchup">
           <span class="away">${m.away}</span>
           <span class="at">@</span>
           <span class="home">${m.home}</span>
         </td>
-        ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2)}
-        ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2)}
-        ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3)}
+        ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
+        ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
+        ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
         ${overallCell(m)}
       `;
       frag.appendChild(tr);
     }
     tbody.appendChild(frag);
     updateHeaderState();
+    syncSortControls();
+  }
+
+  const sortKeyEl = document.querySelector("#sort-key");
+  const sortDirBtn = document.querySelector("#sort-dir");
+
+  if (sortKeyEl) {
+    sortKeyEl.addEventListener("change", () => {
+      sortKey = sortKeyEl.value;
+      sortDir = sortKey === "matchup" ? "asc" : "desc";
+      render();
+    });
+  }
+  if (sortDirBtn) {
+    sortDirBtn.addEventListener("click", () => {
+      sortDir = sortDir === "asc" ? "desc" : "asc";
+      render();
+    });
   }
 
   headers.forEach((th) => {
