@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
     <title>MLB Matchup Edges</title>
     <meta
       name="description"
@@ -15,10 +16,12 @@
       <header class="page-header">
         <h1>MLB Matchup Edges</h1>
         <p class="lede">
-          Net diffs in combined Team WAR, xFIP, and xwOBA for today’s slate, plus an
-          equal-weight z-score Overall Edge. Positive values favor the home team.
+          Each metric shows both teams’ values, then the edge with the team that owns it
+          (e.g. <span class="example">+13.03 MIL</span>). Overall Edge is an equal-weight
+          z-score blend of Team WAR, xFIP, and xwOBA.
         </p>
         <p id="meta" class="meta">Loading…</p>
+        <p id="refresh" class="refresh">Loading refresh schedule…</p>
       </header>
 
       <div class="table-wrap">
@@ -26,11 +29,10 @@
           <thead>
             <tr>
               <th data-key="matchup" data-type="string">Matchup</th>
-              <th data-key="diffTeamWAR" data-type="number" class="num">Δ Team WAR</th>
-              <th data-key="diffXFIP" data-type="number" class="num">Δ xFIP</th>
-              <th data-key="diffXwOBA" data-type="number" class="num">Δ xwOBA</th>
-              <th data-key="overallEdge" data-type="number" class="num sorted-desc">Overall Edge</th>
-              <th data-key="favored" data-type="string">Favored</th>
+              <th data-key="diffTeamWAR" data-type="number" class="num">Team WAR</th>
+              <th data-key="diffXFIP" data-type="number" class="num">xFIP</th>
+              <th data-key="diffXwOBA" data-type="number" class="num">xwOBA</th>
+              <th data-key="overallAbs" data-type="number" class="num sorted-desc">Overall Edge</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -41,9 +43,11 @@
 
       <footer class="notes">
         <p>
-          Sources: FanGraphs team dashboard (bat + pit) and MLB Stats API schedule.
-          Overall Edge = z(Δ Team WAR) + z(Δ xFIP) + z(Δ xwOBA). Δ xFIP is flipped so
-          lower xFIP favors that side.
+          Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA) and MLB Stats API
+          schedule. Team WAR = batting WAR + pitching WAR. xFIP edge flips so the lower
+          (better) staff gets the plus. Data refreshes automatically about every 6 hours via
+          GitHub Actions; the slate date is “today” in Eastern time, so tomorrow’s games
+          appear on the next successful run after midnight ET.
         </p>
       </footer>
     </main>
