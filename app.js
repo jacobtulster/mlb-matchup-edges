@@ -17,6 +17,20 @@
   // Columns activated via click/dropdown — avoids the first click on the
   // pre-sorted Model header flipping highest-edge-first into ascending.
   const sortActivated = new Set();
+  let moneyLiveAt = null;
+  let moneyLiveStatus = "pending"; // pending | live | cached | error
+
+  const KALSHI_SERIES = "KXMLBGAME";
+  const KALSHI_TEAM_SET = new Set([
+    "ATL", "AZ", "BAL", "BOS", "CHC", "CIN", "CLE", "COL", "CWS", "DET",
+    "HOU", "KC", "LAA", "LAD", "MIA", "MIL", "MIN", "NYM", "NYY", "ATH",
+    "PHI", "PIT", "SD", "SEA", "SF", "STL", "TB", "TEX", "TOR", "WSH",
+  ]);
+  const KALSHI_SPLIT_ORDER = [...KALSHI_TEAM_SET].sort((a, b) => b.length - a.length);
+  const KALSHI_MONTHS = [
+    "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
+  ];
 
   function fmt(n, digits) {
     if (n == null || Number.isNaN(n)) return "—";
@@ -540,8 +554,286 @@
       dateStyle: "medium",
       timeStyle: "short",
     });
-    const updatedNote = isoUpdated ? `Last data pull: ${formatUpdated(isoUpdated)}. ` : "";
-    return `${updatedNote}Next scheduled refresh: ~${nextEt} ET (every 6 hours). Hard-refresh the page after that to see new numbers.`;
+    const updatedNote = isoUpdated ? `Last stats/odds pull: ${formatUpdated(isoUpdated)}. ` : "";
+    const moneyNote =
+      moneyLiveStatus === "live" && moneyLiveAt
+        ? `Money (Kalshi) refreshed live at ${formatUpdated(moneyLiveAt)}. `
+        : moneyLiveStatus === "error"
+          ? "Money live refresh failed — showing last saved volumes. "
+          : moneyLiveStatus === "cached"
+            ? "Money from last saved data (live refresh unavailable). "
+            : "Refreshing Money from Kalshi… ";
+    return `${updatedNote}${moneyNote}Next scheduled stats refresh: ~${nextEt} ET (every 6 hours).`;
+  }
+
+  function kalshiDatePrefix(dateStr) {
+    const parts = String(dateStr || "").split("-").map(Number);
+    if (parts.length !== 3 || parts.some((n) => !Number.isFinite(n))) return "";
+    const [y, m, d] = parts;
+    return `${String(y % 100).padStart(2, "0")}${KALSHI_MONTHS[m - 1]}${String(d).padStart(2, "0")}`;
+  }
+
+  function splitKalshiTeams(blob) {
+    const s = String(blob || "").toUpperCase();
+    for (const away of KALSHI_SPLIT_ORDER) {
+      if (!s.startsWith(away)) continue;
+      const home = s.slice(away.length);
+      if (KALSHI_TEAM_SET.has(home)) return [away, home];
+    }
+    return null;
+  }
+
+  function parseKalshiEventTicker(eventTicker) {
+    const raw = String(eventTicker || "").toUpperCase();
+    const prefix = `${KALSHI_SERIES}-`;
+    if (!raw.startsWith(prefix)) return null;
+    const rest = raw.slice(prefix.length);
+    const m = rest.match(/^(\d{2}[A-Z]{3}\d{2})(\d{4})([A-Z]+)$/);
+    if (!m) return null;
+    const teams = splitKalshiTeams(m[3]);
+    if (!teams) return null;
+    const hhmm = m[2];
+    const etMinutes = Number(hhmm.slice(0, 2)) * 60 + Number(hhmm.slice(2));
+    return {
+      eventTicker: raw,
+      datePrefix: m[1],
+      hhmm,
+      etMinutes: Number.isFinite(etMinutes) ? etMinutes : null,
+      away: teams[0],
+      home: teams[1],
+    };
+  }
+
+  function kalshiVol(market) {
+    const raw = market?.volume_fp ?? market?.volume ?? 0;
+    const n = Number(raw);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  function kalshiCents(market) {
+    for (const key of ["last_price_dollars", "yes_ask_dollars", "yes_bid_dollars"]) {
+      const n = Number(market?.[key]);
+      if (Number.isFinite(n)) return Math.round(n * 100);
+    }
+    return null;
+  }
+
+  function enrichKalshiSides(awayVol, homeVol, awayCents, homeCents) {
+    const awayMult = homeVol > 0 ? awayVol / homeVol : awayVol > 0 ? Infinity : NaN;
+    const homeMult = awayVol > 0 ? homeVol / awayVol : homeVol > 0 ? Infinity : NaN;
+    const finite = (x) => (Number.isFinite(x) ? Math.round(x * 10000) / 10000 : null);
+    const awayM = finite(awayMult);
+    const homeM = finite(homeMult);
+    const maxMult = Math.max(awayM || 0, homeM || 0);
+    let favoriteSide = null;
+    if (awayCents != null && homeCents != null) {
+      if (awayCents > homeCents) favoriteSide = "away";
+      else if (homeCents > awayCents) favoriteSide = "home";
+    }
+    let tone = "muted";
+    if (favoriteSide === "away" && awayM != null && homeM != null && awayM < homeM) tone = "green";
+    else if (favoriteSide === "home" && homeM != null && awayM != null && homeM < awayM) tone = "green";
+    else if (maxMult >= 5) tone = "red";
+    else if (maxMult >= 2) tone = "yellow";
+    const highSide = awayVol >= homeVol ? "away" : "home";
+    return {
+      awayVol: Math.round(awayVol * 100) / 100,
+      homeVol: Math.round(homeVol * 100) / 100,
+      awayCents,
+      homeCents,
+      awayMult: awayM,
+      homeMult: homeM,
+      maxMult: maxMult || null,
+      totalVol: Math.round((awayVol + homeVol) * 100) / 100,
+      highSide,
+      highMult: highSide === "away" ? awayM : homeM,
+      favoriteSide,
+      tone,
+    };
+  }
+
+  function teamFromMarketTicker(marketTicker, eventTicker) {
+    const et = String(eventTicker || "").toUpperCase();
+    const mt = String(marketTicker || "").toUpperCase();
+    if (et && mt.startsWith(`${et}-`)) {
+      const code = mt.slice(et.length + 1);
+      return KALSHI_TEAM_SET.has(code) ? code : null;
+    }
+    return null;
+  }
+
+  function buildKalshiFromEvent(evt) {
+    const parsed = parseKalshiEventTicker(evt?.event_ticker);
+    if (!parsed) return null;
+    const byTeam = {};
+    for (const mk of evt.markets || []) {
+      const code = teamFromMarketTicker(mk.ticker, parsed.eventTicker);
+      if (code) byTeam[code] = mk;
+    }
+    const awayMk = byTeam[parsed.away];
+    const homeMk = byTeam[parsed.home];
+    if (!awayMk || !homeMk) return null;
+    return {
+      ...parsed,
+      ...enrichKalshiSides(
+        kalshiVol(awayMk),
+        kalshiVol(homeMk),
+        kalshiCents(awayMk),
+        kalshiCents(homeMk)
+      ),
+    };
+  }
+
+  /** Kalshi blocks browser Origin; jina.ai returns the JSON with CORS. */
+  async function fetchKalshiViaProxy(apiUrl) {
+    const res = await fetch(`https://r.jina.ai/${apiUrl}`, {
+      headers: { Accept: "application/json" },
+      cache: "no-store",
+    });
+    if (!res.ok) throw new Error(`proxy HTTP ${res.status}`);
+    const wrap = await res.json();
+    const content = wrap?.data?.content;
+    if (typeof content !== "string" || !content.trim()) {
+      throw new Error("empty proxy payload");
+    }
+    return JSON.parse(content);
+  }
+
+  async function loadLiveKalshiEvents(dateStr) {
+    const want = kalshiDatePrefix(dateStr);
+    if (!want) return [];
+    const out = [];
+    let cursor = "";
+    for (let page = 0; page < 8; page++) {
+      const qs = new URLSearchParams({
+        series_ticker: KALSHI_SERIES,
+        limit: "200",
+        with_nested_markets: "true",
+      });
+      if (cursor) qs.set("cursor", cursor);
+      const apiUrl = `https://api.elections.kalshi.com/trade-api/v2/events?${qs.toString()}`;
+      const data = await fetchKalshiViaProxy(apiUrl);
+      for (const evt of data.events || []) {
+        const built = buildKalshiFromEvent(evt);
+        if (built && built.datePrefix === want) out.push(built);
+      }
+      cursor = data.cursor || "";
+      if (!cursor) break;
+    }
+    return out;
+  }
+
+  function etMinutesFromIso(iso) {
+    if (!iso) return null;
+    try {
+      const d = new Date(iso);
+      if (!Number.isFinite(d.getTime())) return null;
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+      }).formatToParts(d);
+      const hour = Number(parts.find((p) => p.type === "hour")?.value);
+      const minute = Number(parts.find((p) => p.type === "minute")?.value);
+      if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
+      return hour * 60 + minute;
+    } catch {
+      return null;
+    }
+  }
+
+  function matchKalshiToGame(m, events, used) {
+    const candidates = events.filter(
+      (e) => e.away === m.away && e.home === m.home && !used.has(e.eventTicker)
+    );
+    if (!candidates.length) {
+      if (m.kalshi?.eventTicker) {
+        return events.find((e) => e.eventTicker === m.kalshi.eventTicker) || null;
+      }
+      return null;
+    }
+    if (candidates.length === 1) return candidates[0];
+    const want = etMinutesFromIso(m.gameDate);
+    if (want != null) {
+      candidates.sort(
+        (a, b) =>
+          Math.abs((a.etMinutes ?? 1e9) - want) - Math.abs((b.etMinutes ?? 1e9) - want)
+      );
+      if (Math.abs((candidates[0].etMinutes ?? 1e9) - want) <= 180) return candidates[0];
+    }
+    return candidates[0];
+  }
+
+  function kalshiPayloadFromEvent(ev) {
+    return {
+      eventTicker: ev.eventTicker,
+      awayVol: ev.awayVol,
+      homeVol: ev.homeVol,
+      awayCents: ev.awayCents,
+      homeCents: ev.homeCents,
+      awayMult: ev.awayMult,
+      homeMult: ev.homeMult,
+      maxMult: ev.maxMult,
+      totalVol: ev.totalVol,
+      highSide: ev.highSide,
+      highMult: ev.highMult,
+      favoriteSide: ev.favoriteSide,
+      tone: ev.tone,
+    };
+  }
+
+  function applyLiveKalshiToPayload(events) {
+    if (!payload) return 0;
+    const used = new Set();
+    let applied = 0;
+    const groups = [];
+    if (payload.windows) {
+      for (const win of Object.values(payload.windows)) {
+        if (win?.matchups) groups.push(win.matchups);
+      }
+    }
+    if (payload.matchups) groups.push(payload.matchups);
+
+    // Match once from the first group (same games across windows), then copy by gamePk.
+    const primary = groups[0] || [];
+    const byPk = new Map();
+    for (const m of primary) {
+      const ev = matchKalshiToGame(m, events, used);
+      if (!ev) continue;
+      used.add(ev.eventTicker);
+      const k = kalshiPayloadFromEvent(ev);
+      byPk.set(m.gamePk, k);
+      m.kalshi = k;
+      applied += 1;
+    }
+    for (let i = 1; i < groups.length; i++) {
+      for (const m of groups[i]) {
+        if (byPk.has(m.gamePk)) m.kalshi = { ...byPk.get(m.gamePk) };
+      }
+    }
+    return applied;
+  }
+
+  async function refreshMoneyLive() {
+    if (!payload?.date) return;
+    moneyLiveStatus = "pending";
+    refreshEl.textContent = formatNextRefresh(payload.updatedAt);
+    try {
+      const events = await loadLiveKalshiEvents(payload.date);
+      const n = applyLiveKalshiToPayload(events);
+      if (n > 0) {
+        moneyLiveAt = new Date().toISOString();
+        moneyLiveStatus = "live";
+        applyWindow(activeWindow, { persist: false });
+      } else {
+        moneyLiveStatus = "cached";
+      }
+    } catch (err) {
+      console.warn("[Money] live Kalshi refresh failed", err);
+      moneyLiveStatus = "error";
+    }
+    refreshEl.textContent = formatNextRefresh(payload.updatedAt);
   }
 
   function windowData(id) {
@@ -583,7 +875,11 @@
     });
     const n = rows.length;
     const range = win.dateRange ? ` · FG ${win.dateRange}` : "";
-    meta.textContent = `Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt)}`;
+    const moneyBit =
+      moneyLiveStatus === "live" && moneyLiveAt
+        ? ` · Money live ${formatUpdated(moneyLiveAt)}`
+        : "";
+    meta.textContent = `Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt)}${moneyBit}`;
     render();
   }
 
@@ -596,13 +892,14 @@
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     })
-    .then((data) => {
+    .then(async (data) => {
       payload = data;
       if (!data.windows?.l7 && activeWindow === "l7") activeWindow = "season";
       refreshEl.textContent = formatNextRefresh(data.updatedAt);
       applyWindow(activeWindow, { persist: false });
       if (countdownTimer) clearInterval(countdownTimer);
       countdownTimer = setInterval(refreshCountdowns, 1000);
+      await refreshMoneyLive();
     })
     .catch((err) => {
       meta.textContent = `Failed to load data: ${err.message}`;
