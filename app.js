@@ -326,8 +326,8 @@
     return `
       <td class="odds model-cell" data-label="Model">
         <div class="odds-stack">
-          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
           <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         ${valueHtml}
       </td>
@@ -341,8 +341,8 @@
       return `
         <td class="odds market-cell" data-label="Market">
           <div class="odds-stack">
-            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
             <div class="odds-line"><span class="abb">${m.away}</span><span class="price">—</span></div>
+            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
           </div>
           <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
         </td>
@@ -353,8 +353,8 @@
     return `
       <td class="odds market-cell" data-label="Market" title="${title}">
         <div class="odds-stack">
-          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
           <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
         </div>
         <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
       </td>
@@ -395,8 +395,8 @@
       return `
         <td class="odds money-cell" data-label="Money">
           <div class="odds-stack">
-            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
             <div class="odds-line"><span class="abb">${m.away}</span><span class="price">—</span></div>
+            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
           </div>
           <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
         </td>
@@ -416,8 +416,8 @@
     return `
       <td class="odds money-cell" data-label="Money" title="${title}">
         <div class="odds-stack money-stack">
-          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${formatUsd(k.homeVol)}</span></div>
           <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${formatUsd(k.awayVol)}</span></div>
+          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${formatUsd(k.homeVol)}</span></div>
         </div>
         <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}</div>
       </td>
