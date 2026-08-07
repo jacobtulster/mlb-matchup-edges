@@ -239,6 +239,11 @@
           <span class="away">${m.away}</span>
           <span class="at">@</span>
           <span class="home">${m.home}</span>
+          ${
+            m.showGameNumber || m.isDoubleHeader || (m.gameNumber && Number(m.gameNumber) > 1)
+              ? `<span class="game-num">G${m.gameNumber || "?"}</span>`
+              : ""
+          }
         </td>
         ${startCellHtml(m)}
         ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}

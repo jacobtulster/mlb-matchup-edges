@@ -5,10 +5,12 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import statistics
 import sys
 import urllib.parse
 import urllib.request
+from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -224,6 +226,8 @@ def load_games(date_str: str) -> list[dict]:
             home = g.get("teams", {}).get("home", {}).get("team", {})
             if not away.get("abbreviation") or not home.get("abbreviation"):
                 continue
+            dh = g.get("doubleHeader") or "N"
+            game_number = int(g.get("gameNumber") or 1)
             games.append(
                 {
                     "gamePk": g.get("gamePk"),
@@ -232,11 +236,25 @@ def load_games(date_str: str) -> list[dict]:
                     "awayName": away.get("name") or away["abbreviation"],
                     "homeName": home.get("name") or home["abbreviation"],
                     "gameDate": g.get("gameDate"),
+                    "gameNumber": game_number,
+                    "doubleHeader": dh,
+                    "isDoubleHeader": dh in ("Y", "S"),
+                    "description": g.get("description"),
                     "status": (g.get("status") or {}).get("detailedState"),
                     "abstractGameState": (g.get("status") or {}).get("abstractGameState"),
                     "startTimeTBD": bool((g.get("status") or {}).get("startTimeTBD")),
                 }
             )
+
+    # Same-day rematches (official DH or makeup twin bill) always get a game label.
+    pair_counts: dict[tuple[str, str], int] = {}
+    for g in games:
+        key = (g["away"], g["home"])
+        pair_counts[key] = pair_counts.get(key, 0) + 1
+    for g in games:
+        key = (g["away"], g["home"])
+        g["sameDayPairCount"] = pair_counts[key]
+        g["showGameNumber"] = g["isDoubleHeader"] or pair_counts[key] > 1
     return games
 
 
@@ -258,8 +276,37 @@ def _parse_american(raw) -> str | None:
     return str(n)
 
 
-def load_espn_odds(date_str: str) -> dict[tuple[str, str], dict]:
-    """DraftKings moneylines from ESPN's free scoreboard API (no key)."""
+def _parse_game_number(*texts: str | None) -> int | None:
+    for text in texts:
+        if not text:
+            continue
+        m = re.search(r"Game\s*(\d+)", str(text), flags=re.IGNORECASE)
+        if m:
+            return int(m.group(1))
+    return None
+
+
+def _game_start_ms(iso: str | None) -> float | None:
+    if not iso:
+        return None
+    s = str(iso).strip()
+    try:
+        if s.endswith("Z"):
+            s = s[:-1] + "+00:00"
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}", s):
+            s = s + ":00+00:00"
+        elif re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}", s):
+            s = s + "+00:00"
+        dt = datetime.fromisoformat(s)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.timestamp() * 1000
+    except Exception:
+        return None
+
+
+def load_espn_odds(date_str: str) -> list[dict]:
+    """ESPN scoreboard events with optional DraftKings moneylines (supports doubleheaders)."""
     ymd = date_str.replace("-", "")
     url = (
         "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"
@@ -269,9 +316,9 @@ def load_espn_odds(date_str: str) -> dict[tuple[str, str], dict]:
         payload = http_json(url, ESPN_UA)
     except Exception as exc:
         print(f"  warning: ESPN odds fetch failed: {exc}", flush=True)
-        return {}
+        return []
 
-    out: dict[tuple[str, str], dict] = {}
+    out: list[dict] = []
     for event in payload.get("events") or []:
         comps = event.get("competitions") or []
         if not comps:
@@ -290,10 +337,18 @@ def load_espn_odds(date_str: str) -> dict[tuple[str, str], dict]:
         if not away or not home:
             continue
 
+        note_text = " ".join(
+            str(n.get("headline") or "") for n in (comp.get("notes") or [])
+        )
+        game_number = _parse_game_number(
+            note_text,
+            event.get("name"),
+            event.get("shortName"),
+            event.get("description"),
+        )
+
+        odds_payload = None
         odds_list = comp.get("odds") or []
-        if not odds_list:
-            continue
-        # Prefer DraftKings (priority 1), else first entry with moneyline.
         pick = None
         for entry in odds_list:
             name = ((entry.get("provider") or {}).get("name") or "").lower()
@@ -305,45 +360,143 @@ def load_espn_odds(date_str: str) -> dict[tuple[str, str], dict]:
                 if entry.get("moneyline"):
                     pick = entry
                     break
-        if pick is None:
-            continue
+        if pick is not None:
+            ml = pick.get("moneyline") or {}
+            home_raw = ((ml.get("home") or {}).get("close") or {}).get("odds")
+            away_raw = ((ml.get("away") or {}).get("close") or {}).get("odds")
+            if home_raw is None:
+                home_raw = ((ml.get("home") or {}).get("open") or {}).get("odds")
+            if away_raw is None:
+                away_raw = ((ml.get("away") or {}).get("open") or {}).get("odds")
+            home_ml = _parse_american(home_raw)
+            away_ml = _parse_american(away_raw)
+            if home_ml and away_ml:
+                provider = (pick.get("provider") or {}).get("displayName") or (
+                    (pick.get("provider") or {}).get("name")
+                ) or "ESPN"
+                odds_payload = {
+                    "provider": provider,
+                    "home": home_ml,
+                    "away": away_ml,
+                }
 
-        ml = pick.get("moneyline") or {}
-        home_raw = ((ml.get("home") or {}).get("close") or {}).get("odds")
-        away_raw = ((ml.get("away") or {}).get("close") or {}).get("odds")
-        # Fallbacks if close missing
-        if home_raw is None:
-            home_raw = ((ml.get("home") or {}).get("open") or {}).get("odds")
-        if away_raw is None:
-            away_raw = ((ml.get("away") or {}).get("open") or {}).get("odds")
-        home_ml = _parse_american(home_raw)
-        away_ml = _parse_american(away_raw)
-        if not home_ml or not away_ml:
-            continue
-
-        provider = (pick.get("provider") or {}).get("displayName") or (
-            (pick.get("provider") or {}).get("name")
-        ) or "ESPN"
-        out[(away, home)] = {
-            "provider": provider,
-            "home": home_ml,
-            "away": away_ml,
-        }
+        out.append(
+            {
+                "espnId": event.get("id"),
+                "away": away,
+                "home": home,
+                "gameDate": event.get("date") or comp.get("date") or comp.get("startDate"),
+                "gameNumber": game_number,
+                "note": note_text or None,
+                "odds": odds_payload,
+            }
+        )
     return out
 
 
-def apply_odds(matchups: list[dict], odds_map: dict[tuple[str, str], dict]) -> None:
-    for m in matchups:
-        o = odds_map.get((m["away"], m["home"]))
-        m["odds"] = (
-            {
-                "provider": o["provider"],
-                "home": o["home"],
-                "away": o["away"],
-            }
-            if o
-            else None
+def apply_odds(matchups: list[dict], espn_events: list[dict]) -> None:
+    """Attach odds per game, distinguishing doubleheaders by game number / start time."""
+    by_pair: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for ev in espn_events:
+        by_pair[(ev["away"], ev["home"])].append(ev)
+
+    for events in by_pair.values():
+        events.sort(
+            key=lambda e: (
+                _game_start_ms(e.get("gameDate")) is None,
+                _game_start_ms(e.get("gameDate")) or 0,
+            )
         )
+
+    # Fill missing ESPN game numbers within a pair by start-time order.
+    for events in by_pair.values():
+        if len(events) <= 1:
+            continue
+        if all(e.get("gameNumber") for e in events):
+            continue
+        for idx, ev in enumerate(events, start=1):
+            if not ev.get("gameNumber"):
+                ev["gameNumber"] = idx
+
+    used_espn_ids: set[str] = set()
+
+    def take_event(events: list[dict], pred) -> dict | None:
+        for ev in events:
+            eid = str(ev.get("espnId") or "")
+            if eid and eid in used_espn_ids:
+                continue
+            if pred(ev):
+                if eid:
+                    used_espn_ids.add(eid)
+                return ev
+        return None
+
+    pair_matchups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for m in matchups:
+        pair_matchups[(m["away"], m["home"])].append(m)
+    for group in pair_matchups.values():
+        group.sort(
+            key=lambda m: (
+                _game_start_ms(m.get("gameDate")) is None,
+                _game_start_ms(m.get("gameDate")) or 0,
+                m.get("gameNumber") or 1,
+            )
+        )
+
+    for m in matchups:
+        m["odds"] = None
+        key = (m["away"], m["home"])
+        events = by_pair.get(key) or []
+        if not events:
+            continue
+
+        want_num = m.get("gameNumber")
+        ev = None
+        if want_num and any(e.get("gameNumber") == want_num for e in events):
+            ev = take_event(events, lambda e, n=want_num: e.get("gameNumber") == n)
+
+        if ev is None:
+            m_ms = _game_start_ms(m.get("gameDate"))
+            if m_ms is not None:
+                candidates = [
+                    e
+                    for e in events
+                    if (not e.get("espnId") or str(e.get("espnId")) not in used_espn_ids)
+                    and _game_start_ms(e.get("gameDate")) is not None
+                ]
+                if candidates:
+                    candidates.sort(
+                        key=lambda e: abs((_game_start_ms(e.get("gameDate")) or 0) - m_ms)
+                    )
+                    best = candidates[0]
+                    if abs((_game_start_ms(best.get("gameDate")) or 0) - m_ms) <= 3 * 3600 * 1000:
+                        ev = take_event(events, lambda e, b_id=best.get("espnId"): e.get("espnId") == b_id)
+
+        if ev is None:
+            group = pair_matchups[key]
+            try:
+                idx = group.index(m)
+            except ValueError:
+                idx = 0
+            unused = [
+                e
+                for e in events
+                if not e.get("espnId") or str(e.get("espnId")) not in used_espn_ids
+            ]
+            if idx < len(unused):
+                ev = unused[idx]
+                eid = str(ev.get("espnId") or "")
+                if eid:
+                    used_espn_ids.add(eid)
+
+        if ev and ev.get("odds"):
+            m["odds"] = {
+                "provider": ev["odds"]["provider"],
+                "home": ev["odds"]["home"],
+                "away": ev["odds"]["away"],
+                "espnId": ev.get("espnId"),
+                "espnGameNumber": ev.get("gameNumber"),
+            }
 
 
 def zscores(values: list[float]) -> list[float]:
@@ -384,6 +537,11 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
                 "awayName": g["awayName"],
                 "homeName": g["homeName"],
                 "gameDate": g.get("gameDate"),
+                "gameNumber": g.get("gameNumber") or 1,
+                "doubleHeader": g.get("doubleHeader") or "N",
+                "isDoubleHeader": bool(g.get("isDoubleHeader")),
+                "showGameNumber": bool(g.get("showGameNumber")),
+                "description": g.get("description"),
                 "status": g["status"],
                 "abstractGameState": g.get("abstractGameState"),
                 "startTimeTBD": g.get("startTimeTBD", False),
@@ -441,17 +599,17 @@ def main() -> int:
     print(f"  {len(games)} games", flush=True)
 
     print("Fetching ESPN moneylines...", flush=True)
-    odds_map = load_espn_odds(date_str)
-    print(f"  {len(odds_map)} games with odds", flush=True)
+    odds_events = load_espn_odds(date_str)
+    print(f"  {len(odds_events)} ESPN events ({sum(1 for e in odds_events if e.get('odds'))} with moneylines)", flush=True)
 
     print(f"Fetching FanGraphs season team stats for {season}...", flush=True)
     season_window = build_window("season", "Season", season, 0, games)
-    apply_odds(season_window["matchups"], odds_map)
+    apply_odds(season_window["matchups"], odds_events)
     print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}", flush=True)
 
     print("Fetching FanGraphs last-7-days team stats...", flush=True)
     l7_window = build_window("l7", "Last 7 days", season, 1, games)
-    apply_odds(l7_window["matchups"], odds_map)
+    apply_odds(l7_window["matchups"], odds_events)
     print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
     payload = {
