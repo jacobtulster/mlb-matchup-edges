@@ -19,7 +19,8 @@
           Each metric shows both teams’ values, then the edge with the team that owns it
           (e.g. <span class="example">+13.03 MIL</span>). <strong>Model</strong> turns Overall
           Edge into fair moneylines; <strong>Market</strong> shows de-vigged ESPN/DraftKings
-          prices for a like-for-like compare.
+          prices for a like-for-like compare; <strong>Money</strong> is Kalshi Game Winner
+          dollar volume on each team (with the volume ratio vs the other side).
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
@@ -34,6 +35,8 @@
             <select id="sort-key" aria-label="Sort matchups by">
               <option value="valueAbs">Value vs market</option>
               <option value="overallAbs">Model edge</option>
+              <option value="moneyMaxMult">Money ratio</option>
+              <option value="moneyTotal">Money total $</option>
               <option value="homeMl">Market home ML</option>
               <option value="gameStart">Game start</option>
               <option value="diffTeamWAR">Team WAR</option>
@@ -57,6 +60,7 @@
               <th data-key="diffXwOBA" data-type="number" class="num">xwOBA</th>
               <th data-key="valueAbs" data-type="number" class="num sorted-desc">Model</th>
               <th data-key="homeMl" data-type="number" class="num">Market</th>
+              <th data-key="moneyMaxMult" data-type="number" class="num">Money</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -68,11 +72,14 @@
       <footer class="notes">
         <p>
           Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA), MLB Stats API
-          schedule, and ESPN scoreboard moneylines (DraftKings). Model fair odds use a logistic
-          of Overall Edge (scale 4). Market odds are multiplicatively de-vigged so both sides sum
-          to 100%. Value is model win% minus de-vigged market win% on the best side. Toggle
-          <strong>Season</strong>, <strong>Last 7 days</strong>, or <strong>SZN + L7</strong> (equal-weight
-          average of season and L7 team stats before edges).
+          schedule, ESPN scoreboard moneylines (DraftKings), and Kalshi Game Winner volumes.
+          Model fair odds use a logistic of Overall Edge (scale 4). Market odds are
+          multiplicatively de-vigged so both sides sum to 100%. Value is model win% minus
+          de-vigged market win% on the best side. <strong>Money</strong> shows Kalshi dollar
+          volume per team and the ratio vs the other side (same idea as Ticker Tracker’s
+          Game Winner volume ratio: ≥2× yellow, ≥5× red; green when the price favorite has
+          less relative money). Toggle <strong>Season</strong>, <strong>Last 7 days</strong>,
+          or <strong>SZN + L7</strong> (equal-weight average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>

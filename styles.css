@@ -446,6 +446,36 @@ tr.game-past {
   font-weight: 500;
 }
 
+.money-stack .odds-line {
+  grid-template-columns: 2.4rem minmax(4.2rem, auto);
+}
+
+.money-stack .odds-line .price {
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.money-mult {
+  font-variant-numeric: tabular-nums;
+}
+
+.money-mult.money-yellow {
+  color: #eab308;
+}
+
+.money-mult.money-red {
+  color: #ef4444;
+}
+
+.money-mult.money-green {
+  color: #22c55e;
+}
+
+.money-mult.money-muted {
+  color: var(--muted);
+}
+
 .odds-missing {
   color: var(--muted);
 }
@@ -553,7 +583,8 @@ tr.game-past {
   }
 
   tbody td.model-cell,
-  tbody td.market-cell {
+  tbody td.market-cell,
+  tbody td.money-cell {
     grid-column: span 1;
     padding-top: 0.25rem;
     border-top: 1px solid var(--line);
@@ -567,8 +598,13 @@ tr.game-past {
     grid-column: 2 / 3;
   }
 
+  tbody td.money-cell {
+    grid-column: 1 / -1;
+  }
+
   tbody td.model-cell::before,
-  tbody td.market-cell::before {
+  tbody td.market-cell::before,
+  tbody td.money-cell::before {
     content: attr(data-label);
     display: block;
     margin-bottom: 0.35rem;
@@ -620,7 +656,8 @@ tr.game-past {
   }
 
   tbody td.model-cell,
-  tbody td.market-cell {
+  tbody td.market-cell,
+  tbody td.money-cell {
     border-top: 1px solid var(--line);
     grid-column: 1 / -1;
   }

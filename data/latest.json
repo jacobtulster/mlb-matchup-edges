@@ -2,19 +2,21 @@
   "date": "2026-08-07",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-08-07T21:04:57Z",
+  "updatedAt": "2026-08-07T21:35:56Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)"
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)",
+    "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
     "diffTeamWAR": "(batWAR_h + pitWAR_h) - (batWAR_a + pitWAR_a)",
     "diffXFIP": "xFIP_a - xFIP_h",
     "diffXwOBA": "xwOBA_h - xwOBA_a",
     "overallEdge": "z(diffTeamWAR) + z(diffXFIP) + z(diffXwOBA)",
-    "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores."
+    "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
+    "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team."
   },
   "windows": {
     "season": {
@@ -279,6 +281,21 @@
             "away": "+158",
             "espnId": "401816434",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940MINMIL",
+            "awayVol": 58408.35,
+            "homeVol": 266763.55,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 0.219,
+            "homeMult": 4.5672,
+            "maxMult": 4.5672,
+            "totalVol": 325171.9,
+            "highSide": "home",
+            "highMult": 4.5672,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -324,6 +341,21 @@
             "away": "+240",
             "espnId": "401816425",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910ATHBOS",
+            "awayVol": 72526.65,
+            "homeVol": 224032.88,
+            "awayCents": 29,
+            "homeCents": 72,
+            "awayMult": 0.3237,
+            "homeMult": 3.089,
+            "maxMult": 3.089,
+            "totalVol": 296559.53,
+            "highSide": "home",
+            "highMult": 3.089,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -369,6 +401,21 @@
             "away": "+187",
             "espnId": "401816429",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840TORPHI",
+            "awayVol": 213744.34,
+            "homeVol": 273612.29,
+            "awayCents": 34,
+            "homeCents": 67,
+            "awayMult": 0.7812,
+            "homeMult": 1.2801,
+            "maxMult": 1.2801,
+            "totalVol": 487356.63,
+            "highSide": "home",
+            "highMult": 1.2801,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -414,6 +461,21 @@
             "away": "+153",
             "espnId": "401816433",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015COLSTL",
+            "awayVol": 19630.52,
+            "homeVol": 156039.81,
+            "awayCents": 38,
+            "homeCents": 62,
+            "awayMult": 0.1258,
+            "homeMult": 7.9488,
+            "maxMult": 7.9488,
+            "totalVol": 175670.33,
+            "highSide": "home",
+            "highMult": 7.9488,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -459,6 +521,21 @@
             "away": "+111",
             "espnId": "401816427",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071845CINWSH",
+            "awayVol": 65065.14,
+            "homeVol": 114124.87,
+            "awayCents": 48,
+            "homeCents": 54,
+            "awayMult": 0.5701,
+            "homeMult": 1.754,
+            "maxMult": 1.754,
+            "totalVol": 179190.01,
+            "highSide": "home",
+            "highMult": 1.754,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -504,6 +581,21 @@
             "away": "+114",
             "espnId": "401816426",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071905ATLNYY",
+            "awayVol": 379848.13,
+            "homeVol": 313204.26,
+            "awayCents": 46,
+            "homeCents": 56,
+            "awayMult": 1.2128,
+            "homeMult": 0.8246,
+            "maxMult": 1.2128,
+            "totalVol": 693052.39,
+            "highSide": "away",
+            "highMult": 1.2128,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -549,6 +641,21 @@
             "away": "+137",
             "espnId": "401816424",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910LAAMIA",
+            "awayVol": 111296.23,
+            "homeVol": 1364155.78,
+            "awayCents": 41,
+            "homeCents": 60,
+            "awayMult": 0.0816,
+            "homeMult": 12.257,
+            "maxMult": 12.257,
+            "totalVol": 1475452.01,
+            "highSide": "home",
+            "highMult": 12.257,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -594,6 +701,21 @@
             "away": "+104",
             "espnId": "401816438",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072145TBSEA",
+            "awayVol": 289894.07,
+            "homeVol": 51347.08,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 5.6458,
+            "homeMult": 0.1771,
+            "maxMult": 5.6458,
+            "totalVol": 341241.15,
+            "highSide": "away",
+            "highMult": 5.6458,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -639,6 +761,21 @@
             "away": "+120",
             "espnId": "401816428",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840NYMPIT",
+            "awayVol": 253672.87,
+            "homeVol": 110255.76,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 2.3008,
+            "homeMult": 0.4346,
+            "maxMult": 2.3008,
+            "totalVol": 363928.63,
+            "highSide": "away",
+            "highMult": 2.3008,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -684,6 +821,21 @@
             "away": "+101",
             "espnId": "401816436",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140HOUSD",
+            "awayVol": 83739.27,
+            "homeVol": 113228.38,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 0.7396,
+            "homeMult": 1.3522,
+            "maxMult": 1.3522,
+            "totalVol": 196967.65,
+            "highSide": "home",
+            "highMult": 1.3522,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -729,6 +881,21 @@
             "away": "-135",
             "espnId": "401816432",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940CLECWS",
+            "awayVol": 168652.33,
+            "homeVol": 69305.81,
+            "awayCents": 58,
+            "homeCents": 44,
+            "awayMult": 2.4335,
+            "homeMult": 0.4109,
+            "maxMult": 2.4335,
+            "totalVol": 237958.14,
+            "highSide": "away",
+            "highMult": 2.4335,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -774,6 +941,21 @@
             "away": "+129",
             "espnId": "401816430",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015BALTEX",
+            "awayVol": 36435.88,
+            "homeVol": 50241.62,
+            "awayCents": 43,
+            "homeCents": 58,
+            "awayMult": 0.7252,
+            "homeMult": 1.3789,
+            "maxMult": 1.3789,
+            "totalVol": 86677.5,
+            "highSide": "home",
+            "highMult": 1.3789,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -819,6 +1001,21 @@
             "away": "-129",
             "espnId": "401816435",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072215DETSF",
+            "awayVol": 123360.9,
+            "homeVol": 15858.49,
+            "awayCents": 56,
+            "homeCents": 45,
+            "awayMult": 7.7789,
+            "homeMult": 0.1286,
+            "maxMult": 7.7789,
+            "totalVol": 139219.39,
+            "highSide": "away",
+            "highMult": 7.7789,
+            "favoriteSide": "away",
+            "tone": "red"
           }
         },
         {
@@ -860,10 +1057,25 @@
           "favored": "CHC",
           "odds": {
             "provider": "DraftKings",
-            "home": "+153",
-            "away": "-165",
+            "home": "+151",
+            "away": "-162",
             "espnId": "401816431",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072010CHCKC",
+            "awayVol": 89626.35,
+            "homeVol": 30838.28,
+            "awayCents": 62,
+            "homeCents": 38,
+            "awayMult": 2.9063,
+            "homeMult": 0.3441,
+            "maxMult": 2.9063,
+            "totalVol": 120464.63,
+            "highSide": "away",
+            "highMult": 2.9063,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -878,7 +1090,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -909,6 +1121,21 @@
             "away": "-170",
             "espnId": "401816437",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140LADAZ",
+            "awayVol": 282541.2,
+            "homeVol": 98048.51,
+            "awayCents": 62,
+            "homeCents": 39,
+            "awayMult": 2.8816,
+            "homeMult": 0.347,
+            "maxMult": 2.8816,
+            "totalVol": 380589.71,
+            "highSide": "away",
+            "highMult": 2.8816,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         }
       ]
@@ -1175,6 +1402,21 @@
             "away": "+240",
             "espnId": "401816425",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910ATHBOS",
+            "awayVol": 72526.65,
+            "homeVol": 224032.88,
+            "awayCents": 29,
+            "homeCents": 72,
+            "awayMult": 0.3237,
+            "homeMult": 3.089,
+            "maxMult": 3.089,
+            "totalVol": 296559.53,
+            "highSide": "home",
+            "highMult": 3.089,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -1220,6 +1462,21 @@
             "away": "+158",
             "espnId": "401816434",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940MINMIL",
+            "awayVol": 58408.35,
+            "homeVol": 266763.55,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 0.219,
+            "homeMult": 4.5672,
+            "maxMult": 4.5672,
+            "totalVol": 325171.9,
+            "highSide": "home",
+            "highMult": 4.5672,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -1265,6 +1522,21 @@
             "away": "+187",
             "espnId": "401816429",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840TORPHI",
+            "awayVol": 213744.34,
+            "homeVol": 273612.29,
+            "awayCents": 34,
+            "homeCents": 67,
+            "awayMult": 0.7812,
+            "homeMult": 1.2801,
+            "maxMult": 1.2801,
+            "totalVol": 487356.63,
+            "highSide": "home",
+            "highMult": 1.2801,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -1310,6 +1582,21 @@
             "away": "+137",
             "espnId": "401816424",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910LAAMIA",
+            "awayVol": 111296.23,
+            "homeVol": 1364155.78,
+            "awayCents": 41,
+            "homeCents": 60,
+            "awayMult": 0.0816,
+            "homeMult": 12.257,
+            "maxMult": 12.257,
+            "totalVol": 1475452.01,
+            "highSide": "home",
+            "highMult": 12.257,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -1324,7 +1611,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -1355,6 +1642,21 @@
             "away": "-170",
             "espnId": "401816437",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140LADAZ",
+            "awayVol": 282541.2,
+            "homeVol": 98048.51,
+            "awayCents": 62,
+            "homeCents": 39,
+            "awayMult": 2.8816,
+            "homeMult": 0.347,
+            "maxMult": 2.8816,
+            "totalVol": 380589.71,
+            "highSide": "away",
+            "highMult": 2.8816,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -1400,6 +1702,21 @@
             "away": "+153",
             "espnId": "401816433",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015COLSTL",
+            "awayVol": 19630.52,
+            "homeVol": 156039.81,
+            "awayCents": 38,
+            "homeCents": 62,
+            "awayMult": 0.1258,
+            "homeMult": 7.9488,
+            "maxMult": 7.9488,
+            "totalVol": 175670.33,
+            "highSide": "home",
+            "highMult": 7.9488,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -1445,6 +1762,21 @@
             "away": "-135",
             "espnId": "401816432",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940CLECWS",
+            "awayVol": 168652.33,
+            "homeVol": 69305.81,
+            "awayCents": 58,
+            "homeCents": 44,
+            "awayMult": 2.4335,
+            "homeMult": 0.4109,
+            "maxMult": 2.4335,
+            "totalVol": 237958.14,
+            "highSide": "away",
+            "highMult": 2.4335,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -1490,6 +1822,21 @@
             "away": "+120",
             "espnId": "401816428",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840NYMPIT",
+            "awayVol": 253672.87,
+            "homeVol": 110255.76,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 2.3008,
+            "homeMult": 0.4346,
+            "maxMult": 2.3008,
+            "totalVol": 363928.63,
+            "highSide": "away",
+            "highMult": 2.3008,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -1535,6 +1882,21 @@
             "away": "+114",
             "espnId": "401816426",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071905ATLNYY",
+            "awayVol": 379848.13,
+            "homeVol": 313204.26,
+            "awayCents": 46,
+            "homeCents": 56,
+            "awayMult": 1.2128,
+            "homeMult": 0.8246,
+            "maxMult": 1.2128,
+            "totalVol": 693052.39,
+            "highSide": "away",
+            "highMult": 1.2128,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -1580,6 +1942,21 @@
             "away": "+104",
             "espnId": "401816438",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072145TBSEA",
+            "awayVol": 289894.07,
+            "homeVol": 51347.08,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 5.6458,
+            "homeMult": 0.1771,
+            "maxMult": 5.6458,
+            "totalVol": 341241.15,
+            "highSide": "away",
+            "highMult": 5.6458,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -1625,6 +2002,21 @@
             "away": "+101",
             "espnId": "401816436",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140HOUSD",
+            "awayVol": 83739.27,
+            "homeVol": 113228.38,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 0.7396,
+            "homeMult": 1.3522,
+            "maxMult": 1.3522,
+            "totalVol": 196967.65,
+            "highSide": "home",
+            "highMult": 1.3522,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -1670,6 +2062,21 @@
             "away": "+129",
             "espnId": "401816430",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015BALTEX",
+            "awayVol": 36435.88,
+            "homeVol": 50241.62,
+            "awayCents": 43,
+            "homeCents": 58,
+            "awayMult": 0.7252,
+            "homeMult": 1.3789,
+            "maxMult": 1.3789,
+            "totalVol": 86677.5,
+            "highSide": "home",
+            "highMult": 1.3789,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -1711,10 +2118,25 @@
           "favored": "CHC",
           "odds": {
             "provider": "DraftKings",
-            "home": "+153",
-            "away": "-165",
+            "home": "+151",
+            "away": "-162",
             "espnId": "401816431",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072010CHCKC",
+            "awayVol": 89626.35,
+            "homeVol": 30838.28,
+            "awayCents": 62,
+            "homeCents": 38,
+            "awayMult": 2.9063,
+            "homeMult": 0.3441,
+            "maxMult": 2.9063,
+            "totalVol": 120464.63,
+            "highSide": "away",
+            "highMult": 2.9063,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -1760,6 +2182,21 @@
             "away": "+111",
             "espnId": "401816427",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071845CINWSH",
+            "awayVol": 65065.14,
+            "homeVol": 114124.87,
+            "awayCents": 48,
+            "homeCents": 54,
+            "awayMult": 0.5701,
+            "homeMult": 1.754,
+            "maxMult": 1.754,
+            "totalVol": 179190.01,
+            "highSide": "home",
+            "highMult": 1.754,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -1805,6 +2242,21 @@
             "away": "-129",
             "espnId": "401816435",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072215DETSF",
+            "awayVol": 123360.9,
+            "homeVol": 15858.49,
+            "awayCents": 56,
+            "homeCents": 45,
+            "awayMult": 7.7789,
+            "homeMult": 0.1286,
+            "maxMult": 7.7789,
+            "totalVol": 139219.39,
+            "highSide": "away",
+            "highMult": 7.7789,
+            "favoriteSide": "away",
+            "tone": "red"
           }
         }
       ]
@@ -2071,6 +2523,21 @@
             "away": "+240",
             "espnId": "401816425",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910ATHBOS",
+            "awayVol": 72526.65,
+            "homeVol": 224032.88,
+            "awayCents": 29,
+            "homeCents": 72,
+            "awayMult": 0.3237,
+            "homeMult": 3.089,
+            "maxMult": 3.089,
+            "totalVol": 296559.53,
+            "highSide": "home",
+            "highMult": 3.089,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -2116,6 +2583,21 @@
             "away": "+158",
             "espnId": "401816434",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940MINMIL",
+            "awayVol": 58408.35,
+            "homeVol": 266763.55,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 0.219,
+            "homeMult": 4.5672,
+            "maxMult": 4.5672,
+            "totalVol": 325171.9,
+            "highSide": "home",
+            "highMult": 4.5672,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -2161,6 +2643,21 @@
             "away": "+187",
             "espnId": "401816429",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840TORPHI",
+            "awayVol": 213744.34,
+            "homeVol": 273612.29,
+            "awayCents": 34,
+            "homeCents": 67,
+            "awayMult": 0.7812,
+            "homeMult": 1.2801,
+            "maxMult": 1.2801,
+            "totalVol": 487356.63,
+            "highSide": "home",
+            "highMult": 1.2801,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -2206,6 +2703,21 @@
             "away": "+137",
             "espnId": "401816424",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071910LAAMIA",
+            "awayVol": 111296.23,
+            "homeVol": 1364155.78,
+            "awayCents": 41,
+            "homeCents": 60,
+            "awayMult": 0.0816,
+            "homeMult": 12.257,
+            "maxMult": 12.257,
+            "totalVol": 1475452.01,
+            "highSide": "home",
+            "highMult": 12.257,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -2251,6 +2763,21 @@
             "away": "+153",
             "espnId": "401816433",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015COLSTL",
+            "awayVol": 19630.52,
+            "homeVol": 156039.81,
+            "awayCents": 38,
+            "homeCents": 62,
+            "awayMult": 0.1258,
+            "homeMult": 7.9488,
+            "maxMult": 7.9488,
+            "totalVol": 175670.33,
+            "highSide": "home",
+            "highMult": 7.9488,
+            "favoriteSide": "home",
+            "tone": "red"
           }
         },
         {
@@ -2296,6 +2823,21 @@
             "away": "+114",
             "espnId": "401816426",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071905ATLNYY",
+            "awayVol": 379848.13,
+            "homeVol": 313204.26,
+            "awayCents": 46,
+            "homeCents": 56,
+            "awayMult": 1.2128,
+            "homeMult": 0.8246,
+            "maxMult": 1.2128,
+            "totalVol": 693052.39,
+            "highSide": "away",
+            "highMult": 1.2128,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -2341,6 +2883,21 @@
             "away": "+120",
             "espnId": "401816428",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071840NYMPIT",
+            "awayVol": 253672.87,
+            "homeVol": 110255.76,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 2.3008,
+            "homeMult": 0.4346,
+            "maxMult": 2.3008,
+            "totalVol": 363928.63,
+            "highSide": "away",
+            "highMult": 2.3008,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -2386,6 +2943,21 @@
             "away": "+111",
             "espnId": "401816427",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071845CINWSH",
+            "awayVol": 65065.14,
+            "homeVol": 114124.87,
+            "awayCents": 48,
+            "homeCents": 54,
+            "awayMult": 0.5701,
+            "homeMult": 1.754,
+            "maxMult": 1.754,
+            "totalVol": 179190.01,
+            "highSide": "home",
+            "highMult": 1.754,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -2431,6 +3003,21 @@
             "away": "+104",
             "espnId": "401816438",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072145TBSEA",
+            "awayVol": 289894.07,
+            "homeVol": 51347.08,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 5.6458,
+            "homeMult": 0.1771,
+            "maxMult": 5.6458,
+            "totalVol": 341241.15,
+            "highSide": "away",
+            "highMult": 5.6458,
+            "favoriteSide": "home",
+            "tone": "green"
           }
         },
         {
@@ -2476,6 +3063,21 @@
             "away": "-135",
             "espnId": "401816432",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG071940CLECWS",
+            "awayVol": 168652.33,
+            "homeVol": 69305.81,
+            "awayCents": 58,
+            "homeCents": 44,
+            "awayMult": 2.4335,
+            "homeMult": 0.4109,
+            "maxMult": 2.4335,
+            "totalVol": 237958.14,
+            "highSide": "away",
+            "highMult": 2.4335,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -2521,6 +3123,21 @@
             "away": "+101",
             "espnId": "401816436",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140HOUSD",
+            "awayVol": 83739.27,
+            "homeVol": 113228.38,
+            "awayCents": 49,
+            "homeCents": 52,
+            "awayMult": 0.7396,
+            "homeMult": 1.3522,
+            "maxMult": 1.3522,
+            "totalVol": 196967.65,
+            "highSide": "home",
+            "highMult": 1.3522,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -2566,6 +3183,21 @@
             "away": "+129",
             "espnId": "401816430",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072015BALTEX",
+            "awayVol": 36435.88,
+            "homeVol": 50241.62,
+            "awayCents": 43,
+            "homeCents": 58,
+            "awayMult": 0.7252,
+            "homeMult": 1.3789,
+            "maxMult": 1.3789,
+            "totalVol": 86677.5,
+            "highSide": "home",
+            "highMult": 1.3789,
+            "favoriteSide": "home",
+            "tone": "muted"
           }
         },
         {
@@ -2580,7 +3212,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -2611,6 +3243,21 @@
             "away": "-170",
             "espnId": "401816437",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072140LADAZ",
+            "awayVol": 282541.2,
+            "homeVol": 98048.51,
+            "awayCents": 62,
+            "homeCents": 39,
+            "awayMult": 2.8816,
+            "homeMult": 0.347,
+            "maxMult": 2.8816,
+            "totalVol": 380589.71,
+            "highSide": "away",
+            "highMult": 2.8816,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -2652,10 +3299,25 @@
           "favored": "CHC",
           "odds": {
             "provider": "DraftKings",
-            "home": "+153",
-            "away": "-165",
+            "home": "+151",
+            "away": "-162",
             "espnId": "401816431",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072010CHCKC",
+            "awayVol": 89626.35,
+            "homeVol": 30838.28,
+            "awayCents": 62,
+            "homeCents": 38,
+            "awayMult": 2.9063,
+            "homeMult": 0.3441,
+            "maxMult": 2.9063,
+            "totalVol": 120464.63,
+            "highSide": "away",
+            "highMult": 2.9063,
+            "favoriteSide": "away",
+            "tone": "yellow"
           }
         },
         {
@@ -2701,6 +3363,21 @@
             "away": "-129",
             "espnId": "401816435",
             "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG072215DETSF",
+            "awayVol": 123360.9,
+            "homeVol": 15858.49,
+            "awayCents": 56,
+            "homeCents": 45,
+            "awayMult": 7.7789,
+            "homeMult": 0.1286,
+            "maxMult": 7.7789,
+            "totalVol": 139219.39,
+            "highSide": "away",
+            "highMult": 7.7789,
+            "favoriteSide": "away",
+            "tone": "red"
           }
         }
       ]
@@ -2962,6 +3639,21 @@
         "away": "+158",
         "espnId": "401816434",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071940MINMIL",
+        "awayVol": 58408.35,
+        "homeVol": 266763.55,
+        "awayCents": 37,
+        "homeCents": 63,
+        "awayMult": 0.219,
+        "homeMult": 4.5672,
+        "maxMult": 4.5672,
+        "totalVol": 325171.9,
+        "highSide": "home",
+        "highMult": 4.5672,
+        "favoriteSide": "home",
+        "tone": "yellow"
       }
     },
     {
@@ -3007,6 +3699,21 @@
         "away": "+240",
         "espnId": "401816425",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071910ATHBOS",
+        "awayVol": 72526.65,
+        "homeVol": 224032.88,
+        "awayCents": 29,
+        "homeCents": 72,
+        "awayMult": 0.3237,
+        "homeMult": 3.089,
+        "maxMult": 3.089,
+        "totalVol": 296559.53,
+        "highSide": "home",
+        "highMult": 3.089,
+        "favoriteSide": "home",
+        "tone": "yellow"
       }
     },
     {
@@ -3052,6 +3759,21 @@
         "away": "+187",
         "espnId": "401816429",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071840TORPHI",
+        "awayVol": 213744.34,
+        "homeVol": 273612.29,
+        "awayCents": 34,
+        "homeCents": 67,
+        "awayMult": 0.7812,
+        "homeMult": 1.2801,
+        "maxMult": 1.2801,
+        "totalVol": 487356.63,
+        "highSide": "home",
+        "highMult": 1.2801,
+        "favoriteSide": "home",
+        "tone": "muted"
       }
     },
     {
@@ -3097,6 +3819,21 @@
         "away": "+153",
         "espnId": "401816433",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072015COLSTL",
+        "awayVol": 19630.52,
+        "homeVol": 156039.81,
+        "awayCents": 38,
+        "homeCents": 62,
+        "awayMult": 0.1258,
+        "homeMult": 7.9488,
+        "maxMult": 7.9488,
+        "totalVol": 175670.33,
+        "highSide": "home",
+        "highMult": 7.9488,
+        "favoriteSide": "home",
+        "tone": "red"
       }
     },
     {
@@ -3142,6 +3879,21 @@
         "away": "+111",
         "espnId": "401816427",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071845CINWSH",
+        "awayVol": 65065.14,
+        "homeVol": 114124.87,
+        "awayCents": 48,
+        "homeCents": 54,
+        "awayMult": 0.5701,
+        "homeMult": 1.754,
+        "maxMult": 1.754,
+        "totalVol": 179190.01,
+        "highSide": "home",
+        "highMult": 1.754,
+        "favoriteSide": "home",
+        "tone": "muted"
       }
     },
     {
@@ -3187,6 +3939,21 @@
         "away": "+114",
         "espnId": "401816426",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071905ATLNYY",
+        "awayVol": 379848.13,
+        "homeVol": 313204.26,
+        "awayCents": 46,
+        "homeCents": 56,
+        "awayMult": 1.2128,
+        "homeMult": 0.8246,
+        "maxMult": 1.2128,
+        "totalVol": 693052.39,
+        "highSide": "away",
+        "highMult": 1.2128,
+        "favoriteSide": "home",
+        "tone": "green"
       }
     },
     {
@@ -3232,6 +3999,21 @@
         "away": "+137",
         "espnId": "401816424",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071910LAAMIA",
+        "awayVol": 111296.23,
+        "homeVol": 1364155.78,
+        "awayCents": 41,
+        "homeCents": 60,
+        "awayMult": 0.0816,
+        "homeMult": 12.257,
+        "maxMult": 12.257,
+        "totalVol": 1475452.01,
+        "highSide": "home",
+        "highMult": 12.257,
+        "favoriteSide": "home",
+        "tone": "red"
       }
     },
     {
@@ -3277,6 +4059,21 @@
         "away": "+104",
         "espnId": "401816438",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072145TBSEA",
+        "awayVol": 289894.07,
+        "homeVol": 51347.08,
+        "awayCents": 49,
+        "homeCents": 52,
+        "awayMult": 5.6458,
+        "homeMult": 0.1771,
+        "maxMult": 5.6458,
+        "totalVol": 341241.15,
+        "highSide": "away",
+        "highMult": 5.6458,
+        "favoriteSide": "home",
+        "tone": "green"
       }
     },
     {
@@ -3322,6 +4119,21 @@
         "away": "+120",
         "espnId": "401816428",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071840NYMPIT",
+        "awayVol": 253672.87,
+        "homeVol": 110255.76,
+        "awayCents": 45,
+        "homeCents": 56,
+        "awayMult": 2.3008,
+        "homeMult": 0.4346,
+        "maxMult": 2.3008,
+        "totalVol": 363928.63,
+        "highSide": "away",
+        "highMult": 2.3008,
+        "favoriteSide": "home",
+        "tone": "green"
       }
     },
     {
@@ -3367,6 +4179,21 @@
         "away": "+101",
         "espnId": "401816436",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072140HOUSD",
+        "awayVol": 83739.27,
+        "homeVol": 113228.38,
+        "awayCents": 49,
+        "homeCents": 52,
+        "awayMult": 0.7396,
+        "homeMult": 1.3522,
+        "maxMult": 1.3522,
+        "totalVol": 196967.65,
+        "highSide": "home",
+        "highMult": 1.3522,
+        "favoriteSide": "home",
+        "tone": "muted"
       }
     },
     {
@@ -3412,6 +4239,21 @@
         "away": "-135",
         "espnId": "401816432",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG071940CLECWS",
+        "awayVol": 168652.33,
+        "homeVol": 69305.81,
+        "awayCents": 58,
+        "homeCents": 44,
+        "awayMult": 2.4335,
+        "homeMult": 0.4109,
+        "maxMult": 2.4335,
+        "totalVol": 237958.14,
+        "highSide": "away",
+        "highMult": 2.4335,
+        "favoriteSide": "away",
+        "tone": "yellow"
       }
     },
     {
@@ -3457,6 +4299,21 @@
         "away": "+129",
         "espnId": "401816430",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072015BALTEX",
+        "awayVol": 36435.88,
+        "homeVol": 50241.62,
+        "awayCents": 43,
+        "homeCents": 58,
+        "awayMult": 0.7252,
+        "homeMult": 1.3789,
+        "maxMult": 1.3789,
+        "totalVol": 86677.5,
+        "highSide": "home",
+        "highMult": 1.3789,
+        "favoriteSide": "home",
+        "tone": "muted"
       }
     },
     {
@@ -3502,6 +4359,21 @@
         "away": "-129",
         "espnId": "401816435",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072215DETSF",
+        "awayVol": 123360.9,
+        "homeVol": 15858.49,
+        "awayCents": 56,
+        "homeCents": 45,
+        "awayMult": 7.7789,
+        "homeMult": 0.1286,
+        "maxMult": 7.7789,
+        "totalVol": 139219.39,
+        "highSide": "away",
+        "highMult": 7.7789,
+        "favoriteSide": "away",
+        "tone": "red"
       }
     },
     {
@@ -3543,10 +4415,25 @@
       "favored": "CHC",
       "odds": {
         "provider": "DraftKings",
-        "home": "+153",
-        "away": "-165",
+        "home": "+151",
+        "away": "-162",
         "espnId": "401816431",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072010CHCKC",
+        "awayVol": 89626.35,
+        "homeVol": 30838.28,
+        "awayCents": 62,
+        "homeCents": 38,
+        "awayMult": 2.9063,
+        "homeMult": 0.3441,
+        "maxMult": 2.9063,
+        "totalVol": 120464.63,
+        "highSide": "away",
+        "highMult": 2.9063,
+        "favoriteSide": "away",
+        "tone": "yellow"
       }
     },
     {
@@ -3561,7 +4448,7 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
+      "status": "Pre-Game",
       "abstractGameState": "Preview",
       "startTimeTBD": false,
       "awayStats": {
@@ -3592,6 +4479,21 @@
         "away": "-170",
         "espnId": "401816437",
         "espnGameNumber": null
+      },
+      "kalshi": {
+        "eventTicker": "KXMLBGAME-26AUG072140LADAZ",
+        "awayVol": 282541.2,
+        "homeVol": 98048.51,
+        "awayCents": 62,
+        "homeCents": 39,
+        "awayMult": 2.8816,
+        "homeMult": 0.347,
+        "maxMult": 2.8816,
+        "totalVol": 380589.71,
+        "highSide": "away",
+        "highMult": 2.8816,
+        "favoriteSide": "away",
+        "tone": "yellow"
       }
     }
   ],

@@ -141,6 +141,15 @@
       return sortDir === "asc" ? an - bn : bn - an;
     }
 
+    if (sortKey === "moneyMaxMult" || sortKey === "moneyTotal") {
+      const an = Number(a[sortKey]);
+      const bn = Number(b[sortKey]);
+      if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
+      if (Number.isNaN(an)) return 1;
+      if (Number.isNaN(bn)) return -1;
+      return sortDir === "asc" ? an - bn : bn - an;
+    }
+
     if (sortKey === "valueAbs") {
       // Highest Val % first (desc). Missing market odds sink to bottom.
       const an = Number(a.valueAbs);
@@ -336,6 +345,52 @@
     `;
   }
 
+  function formatUsd(n) {
+    if (n == null || !Number.isFinite(Number(n))) return "—";
+    return (
+      "$" +
+      Math.round(Number(n)).toLocaleString("en-US", {
+        maximumFractionDigits: 0,
+      })
+    );
+  }
+
+  function formatMult(n) {
+    if (n == null || !Number.isFinite(Number(n)) || Number(n) <= 0) return "—";
+    return `${Number(n).toFixed(1)}x`;
+  }
+
+  function moneyCell(m) {
+    const k = m.kalshi;
+    if (!k) {
+      return `
+        <td class="odds money-cell" data-label="Money">
+          <div class="odds-stack">
+            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
+            <div class="odds-line"><span class="abb">${m.away}</span><span class="price">—</span></div>
+          </div>
+          <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
+        </td>
+      `;
+    }
+    const homeMore = (k.homeVol || 0) > (k.awayVol || 0) + 1e-9;
+    const awayMore = (k.awayVol || 0) > (k.homeVol || 0) + 1e-9;
+    const homeCls = homeMore ? "home better" : awayMore ? "home worse" : "home";
+    const awayCls = awayMore ? "away better" : homeMore ? "away worse" : "away";
+    const highTeam = k.highSide === "home" ? m.home : m.away;
+    const tone = k.tone || "muted";
+    const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)}`;
+    return `
+      <td class="odds money-cell" data-label="Money" title="${title}">
+        <div class="odds-stack money-stack">
+          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${formatUsd(k.homeVol)}</span></div>
+          <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${formatUsd(k.awayVol)}</span></div>
+        </div>
+        <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}</div>
+      </td>
+    `;
+  }
+
   function syncSortControls() {
     if (sortKeyEl) sortKeyEl.value = sortKey;
     if (sortDirBtn) sortDirBtn.textContent = sortDir === "asc" ? "↑" : "↓";
@@ -398,6 +453,7 @@
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
         ${modelCell(m)}
         ${marketCell(m)}
+        ${moneyCell(m)}
       `;
       frag.appendChild(tr);
     }
@@ -516,10 +572,13 @@
     const win = windowData(id);
     rows = (win.matchups || []).map((m) => {
       const value = valueVsMarket(m);
+      const k = m.kalshi;
       return {
         ...m,
         overallAbs: Math.abs(Number(m.overallEdge) || 0),
         valueAbs: value ? Math.abs(value.edge) : Number.NaN,
+        moneyMaxMult: k && k.maxMult != null ? Number(k.maxMult) : Number.NaN,
+        moneyTotal: k && k.totalVol != null ? Number(k.totalVol) : Number.NaN,
       };
     });
     const n = rows.length;
