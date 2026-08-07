@@ -4,10 +4,13 @@
   const refreshEl = document.querySelector("#refresh");
   const empty = document.querySelector("#empty");
   const headers = [...document.querySelectorAll("#matchups thead th")];
+  const sortKeyEl = document.querySelector("#sort-key");
+  const sortDirBtn = document.querySelector("#sort-dir");
 
   let rows = [];
   let sortKey = "overallAbs";
   let sortDir = "desc";
+  let countdownTimer = null;
 
   function fmt(n, digits) {
     if (n == null || Number.isNaN(n)) return "—";
@@ -30,12 +33,93 @@
     };
   }
 
+  function gameStartMs(m) {
+    const t = Date.parse(m.gameDate);
+    return Number.isFinite(t) ? t : null;
+  }
+
+  function isGamePast(m, now = Date.now()) {
+    const state = m.abstractGameState || "";
+    if (state === "Live" || state === "Final") return true;
+    const detailed = (m.status || "").toLowerCase();
+    if (detailed.includes("final") || detailed.includes("completed") || detailed.includes("in progress")) {
+      return true;
+    }
+    const t = gameStartMs(m);
+    return t != null && t <= now;
+  }
+
+  function formatStartEt(iso) {
+    if (!iso) return "TBD";
+    try {
+      return new Date(iso).toLocaleString("en-US", {
+        timeZone: "America/New_York",
+        hour: "numeric",
+        minute: "2-digit",
+      }) + " ET";
+    } catch {
+      return "TBD";
+    }
+  }
+
+  function formatCountdown(m, now = Date.now()) {
+    if (m.startTimeTBD && !m.gameDate) return "TBD";
+    const state = m.abstractGameState || "";
+    if (state === "Live" || (m.status || "").toLowerCase().includes("in progress")) {
+      return "Live";
+    }
+    if (state === "Final" || (m.status || "").toLowerCase().includes("final")) {
+      return m.status && m.status !== "Final" ? m.status : "Final";
+    }
+    const t = gameStartMs(m);
+    if (t == null) return "TBD";
+    const diff = t - now;
+    if (diff <= 0) {
+      return state === "Preview" ? "Starting soon" : m.status || "Started";
+    }
+    const totalSec = Math.floor(diff / 1000);
+    const hours = Math.floor(totalSec / 3600);
+    const mins = Math.floor((totalSec % 3600) / 60);
+    const secs = totalSec % 60;
+    if (hours > 0) return `${hours}h ${mins}m`;
+    if (mins > 0) return `${mins}m ${secs}s`;
+    return `${secs}s`;
+  }
+
+  function startCellHtml(m) {
+    const time = formatStartEt(m.gameDate);
+    const count = formatCountdown(m);
+    const past = isGamePast(m);
+    return `
+      <td class="start ${past ? "past" : "upcoming"}" data-label="Start" data-game-pk="${m.gamePk || ""}">
+        <span class="start-time">${time}</span>
+        <span class="start-sep">|</span>
+        <span class="countdown">${count}</span>
+      </td>
+    `;
+  }
+
   function compare(a, b) {
     if (sortKey === "matchup") {
       const as = `${a.away} @ ${a.home}`;
       const bs = `${b.away} @ ${b.home}`;
       return sortDir === "asc" ? as.localeCompare(bs) : bs.localeCompare(as);
     }
+
+    if (sortKey === "gameStart") {
+      const now = Date.now();
+      const aPast = isGamePast(a, now);
+      const bPast = isGamePast(b, now);
+      if (aPast !== bPast) return aPast ? 1 : -1; // upcoming first, past at bottom
+      const at = gameStartMs(a);
+      const bt = gameStartMs(b);
+      if (at == null && bt == null) return 0;
+      if (at == null) return 1;
+      if (bt == null) return -1;
+      // asc = closest tip first among upcoming; among past, earlier start first
+      return sortDir === "asc" ? at - bt : bt - at;
+    }
+
     const an = Number(a[sortKey]);
     const bn = Number(b[sortKey]);
     if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
@@ -57,7 +141,6 @@
     if (homeDiff == null || Number.isNaN(homeDiff) || Math.abs(homeDiff) < 1e-12) {
       return { away: "", home: "" };
     }
-    // homeDiff > 0 means home is better on this metric (xFIP already flipped in JSON).
     return homeDiff > 0
       ? { away: "worse", home: "better" }
       : { away: "better", home: "worse" };
@@ -95,6 +178,12 @@
     if (sortDirBtn) sortDirBtn.textContent = sortDir === "asc" ? "↑" : "↓";
   }
 
+  function defaultDirFor(key) {
+    if (key === "matchup") return "asc";
+    if (key === "gameStart") return "asc";
+    return "desc";
+  }
+
   function render() {
     const sorted = [...rows].sort(compare);
     tbody.replaceChildren();
@@ -110,12 +199,14 @@
       const a = m.awayStats || {};
       const h = m.homeStats || {};
       const tr = document.createElement("tr");
+      if (isGamePast(m)) tr.classList.add("game-past");
       tr.innerHTML = `
         <td class="matchup" data-label="Matchup">
           <span class="away">${m.away}</span>
           <span class="at">@</span>
           <span class="home">${m.home}</span>
         </td>
+        ${startCellHtml(m)}
         ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
         ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
@@ -128,13 +219,27 @@
     syncSortControls();
   }
 
-  const sortKeyEl = document.querySelector("#sort-key");
-  const sortDirBtn = document.querySelector("#sort-dir");
+  function refreshCountdowns() {
+    if (sortKey === "gameStart") {
+      render();
+      return;
+    }
+    for (const m of rows) {
+      const cell = tbody.querySelector(`.start[data-game-pk="${m.gamePk}"]`);
+      if (!cell) continue;
+      const cd = cell.querySelector(".countdown");
+      if (cd) cd.textContent = formatCountdown(m);
+      cell.classList.toggle("past", isGamePast(m));
+      cell.classList.toggle("upcoming", !isGamePast(m));
+      const tr = cell.closest("tr");
+      if (tr) tr.classList.toggle("game-past", isGamePast(m));
+    }
+  }
 
   if (sortKeyEl) {
     sortKeyEl.addEventListener("change", () => {
       sortKey = sortKeyEl.value;
-      sortDir = sortKey === "matchup" ? "asc" : "desc";
+      sortDir = defaultDirFor(sortKey);
       render();
     });
   }
@@ -152,7 +257,7 @@
         sortDir = sortDir === "asc" ? "desc" : "asc";
       } else {
         sortKey = key;
-        sortDir = th.dataset.type === "number" ? "desc" : "asc";
+        sortDir = defaultDirFor(key);
       }
       render();
     });
@@ -211,6 +316,8 @@
       meta.textContent = `Slate: ${data.date || "—"} (ET) · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(data.updatedAt)}`;
       refreshEl.textContent = formatNextRefresh(data.updatedAt);
       render();
+      if (countdownTimer) clearInterval(countdownTimer);
+      countdownTimer = setInterval(refreshCountdowns, 1000);
     })
     .catch((err) => {
       meta.textContent = `Failed to load data: ${err.message}`;

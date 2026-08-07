@@ -26,6 +26,7 @@
           <label for="sort-key">Sort by</label>
           <select id="sort-key" aria-label="Sort matchups by">
             <option value="overallAbs">Overall Edge</option>
+            <option value="gameStart">Game start</option>
             <option value="diffTeamWAR">Team WAR</option>
             <option value="diffXFIP">xFIP</option>
             <option value="diffXwOBA">xwOBA</option>
@@ -40,6 +41,7 @@
           <thead>
             <tr>
               <th data-key="matchup" data-type="string">Matchup</th>
+              <th data-key="gameStart" data-type="number">Start</th>
               <th data-key="diffTeamWAR" data-type="number" class="num">Team WAR</th>
               <th data-key="diffXFIP" data-type="number" class="num">xFIP</th>
               <th data-key="diffXwOBA" data-type="number" class="num">xwOBA</th>

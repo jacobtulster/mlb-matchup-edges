@@ -74,7 +74,7 @@ main {
 }
 
 .sort-bar {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
@@ -198,6 +198,33 @@ tbody tr:hover td {
 
 .home {
   color: var(--home);
+}
+
+.start {
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.start .start-sep {
+  margin: 0 0.35rem;
+  color: #4a5565;
+}
+
+.start .countdown {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.start.past .countdown {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+tr.game-past {
+  opacity: 0.72;
 }
 
 .metric {
@@ -325,10 +352,6 @@ tbody tr:hover td {
     line-height: 1.4;
   }
 
-  .sort-bar {
-    display: flex;
-  }
-
   .table-wrap {
     margin-top: 1rem;
     overflow: visible;
@@ -380,10 +403,22 @@ tbody tr:hover td {
 
   tbody td.matchup {
     grid-column: 1 / -1;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+    font-size: 1.15rem;
+  }
+
+  tbody td.start {
+    grid-column: 1 / -1;
     padding-bottom: 0.55rem;
     margin-bottom: 0.15rem;
     border-bottom: 1px solid var(--line);
-    font-size: 1.15rem;
+    white-space: normal;
+  }
+
+  tbody td.start::before {
+    content: none;
   }
 
   tbody td.overall-cell {

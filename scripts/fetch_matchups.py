@@ -188,7 +188,10 @@ def load_games(date_str: str) -> list[dict]:
                     "home": home["abbreviation"],
                     "awayName": away.get("name") or away["abbreviation"],
                     "homeName": home.get("name") or home["abbreviation"],
+                    "gameDate": g.get("gameDate"),
                     "status": (g.get("status") or {}).get("detailedState"),
+                    "abstractGameState": (g.get("status") or {}).get("abstractGameState"),
+                    "startTimeTBD": bool((g.get("status") or {}).get("startTimeTBD")),
                 }
             )
     return games
@@ -231,7 +234,10 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
                 "home": g["home"],
                 "awayName": g["awayName"],
                 "homeName": g["homeName"],
+                "gameDate": g.get("gameDate"),
                 "status": g["status"],
+                "abstractGameState": g.get("abstractGameState"),
+                "startTimeTBD": g.get("startTimeTBD", False),
                 "awayStats": {
                     "batWAR": round(a["batWAR"], 3),
                     "pitWAR": round(a["pitWAR"], 3),
