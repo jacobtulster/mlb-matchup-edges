@@ -41,13 +41,20 @@
     return Number.isFinite(t) ? t : null;
   }
 
-  function isGamePast(m, now = Date.now()) {
+  function isGameStartedOrFinal(m) {
     const state = m.abstractGameState || "";
     if (state === "Live" || state === "Final") return true;
     const detailed = (m.status || "").toLowerCase();
-    if (detailed.includes("final") || detailed.includes("completed") || detailed.includes("in progress")) {
-      return true;
-    }
+    return (
+      detailed.includes("final") ||
+      detailed.includes("completed") ||
+      detailed.includes("in progress") ||
+      detailed === "live"
+    );
+  }
+
+  function isGamePast(m, now = Date.now()) {
+    if (isGameStartedOrFinal(m)) return true;
     const t = gameStartMs(m);
     return t != null && t <= now;
   }
@@ -110,15 +117,15 @@
     }
 
     if (sortKey === "gameStart") {
-      const now = Date.now();
-      const aPast = isGamePast(a, now);
-      const bPast = isGamePast(b, now);
-      if (aPast !== bPast) return aPast ? 1 : -1;
+      const aDone = isGameStartedOrFinal(a);
+      const bDone = isGameStartedOrFinal(b);
+      if (aDone !== bDone) return aDone ? 1 : -1; // upcoming first; live/final at bottom
       const at = gameStartMs(a);
       const bt = gameStartMs(b);
       if (at == null && bt == null) return 0;
       if (at == null) return 1;
       if (bt == null) return -1;
+      // asc = closest tip first among games still to be played
       return sortDir === "asc" ? at - bt : bt - at;
     }
 
@@ -273,43 +280,54 @@
     return { team: m.away, edge: awayEdge, side: "away" };
   }
 
-  function pricesCells(m) {
+  function modelCell(m) {
     const model = modelOddsFromEdge(m.overallEdge);
-    const fair = m.odds ? devigMoneylines(m.odds.home, m.odds.away) : null;
-    const modelHl = model
+    const hl = model
       ? oddsHighlight(model.homeProb, model.awayProb)
       : { homeCls: "home", awayCls: "away" };
-    const marketHl = fair
-      ? oddsHighlight(fair.homeProb, fair.awayProb)
-      : { homeCls: "home", awayCls: "away" };
+    const homePrice = model ? formatAmerican(model.home) : "—";
+    const awayPrice = model ? formatAmerican(model.away) : "—";
     const value = valueVsMarket(m);
-    const modelHome = model ? formatAmerican(model.home) : "—";
-    const modelAway = model ? formatAmerican(model.away) : "—";
-    const marketHome = fair ? fair.home : "—";
-    const marketAway = fair ? fair.away : "—";
     const valueHtml =
       value && Math.abs(value.edge) >= 0.005
         ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
              Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%
            </div>`
-        : "";
-    const marketTitle = m.odds
-      ? `${m.odds.provider || "ESPN"} raw ${m.odds.home}/${m.odds.away}`
-      : "No market odds";
-
+        : `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     return `
-      <td class="prices-cell model-col" data-label="Model">
+      <td class="odds model-cell" data-label="Model">
         <div class="odds-stack">
-          <div class="odds-line ${modelHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${modelHome}</span></div>
-          <div class="odds-line ${modelHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${modelAway}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
+          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
         </div>
         ${valueHtml}
       </td>
-      <td class="prices-cell market-col" data-label="Market" title="${marketTitle}">
+    `;
+  }
+
+  function marketCell(m) {
+    const o = m.odds;
+    const fair = o ? devigMoneylines(o.home, o.away) : null;
+    if (!fair) {
+      return `
+        <td class="odds market-cell" data-label="Market">
+          <div class="odds-stack">
+            <div class="odds-line"><span class="abb">${m.home}</span><span class="price">—</span></div>
+            <div class="odds-line"><span class="abb">${m.away}</span><span class="price">—</span></div>
+          </div>
+          <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
+        </td>
+      `;
+    }
+    const hl = oddsHighlight(fair.homeProb, fair.awayProb);
+    const title = `${o.provider || "ESPN"} raw ${o.home}/${o.away}`;
+    return `
+      <td class="odds market-cell" data-label="Market" title="${title}">
         <div class="odds-stack">
-          <div class="odds-line ${marketHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${marketHome}</span></div>
-          <div class="odds-line ${marketHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${marketAway}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
+          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
         </div>
+        <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
       </td>
     `;
   }
@@ -356,7 +374,8 @@
         ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
         ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
-        ${pricesCells(m)}
+        ${modelCell(m)}
+        ${marketCell(m)}
       `;
       frag.appendChild(tr);
     }

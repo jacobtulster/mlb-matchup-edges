@@ -372,25 +372,31 @@ tr.game-past {
   color: var(--home);
 }
 
-.prices-cell {
+.odds {
   white-space: nowrap;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  vertical-align: top;
   font-size: 0.88rem;
+  vertical-align: top;
 }
 
 .odds-stack {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.15rem;
+  min-height: 3.1rem;
 }
 
 .value-line {
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
+  min-height: 1.1rem;
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.value-line.spacer {
+  visibility: hidden;
 }
 
 .value-line.plus {
@@ -403,12 +409,12 @@ tr.game-past {
 
 .odds-line {
   display: grid;
-  grid-template-columns: 2.4rem auto;
+  grid-template-columns: 2.4rem 3rem;
   gap: 0.45rem;
   align-items: baseline;
   padding: 0.12rem 0.35rem;
   border-radius: 0.25rem;
-  min-height: 1.55rem;
+  min-height: 1.35rem;
   box-sizing: border-box;
 }
 
@@ -420,7 +426,7 @@ tr.game-past {
 .odds-line .price {
   color: var(--muted);
   font-weight: 600;
-  min-width: 2.75rem;
+  text-align: right;
 }
 
 .odds-line.better {
@@ -545,41 +551,32 @@ tr.game-past {
     content: none;
   }
 
-  tbody td.prices-cell {
-    grid-column: auto;
-  }
-
-  tbody td.model-col,
-  tbody td.market-col {
+  tbody td.model-cell,
+  tbody td.market-cell {
     grid-column: span 1;
     padding-top: 0.25rem;
     border-top: 1px solid var(--line);
   }
 
-  tbody td.model-col {
+  tbody td.model-cell {
     grid-column: 1 / 2;
   }
 
-  tbody td.market-col {
+  tbody td.market-cell {
     grid-column: 2 / 3;
   }
 
-  tbody td.prices-cell::before {
+  tbody td.model-cell::before,
+  tbody td.market-cell::before {
     content: attr(data-label);
     display: block;
     margin-bottom: 0.35rem;
-    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--muted);
     text-align: left;
-  }
-
-  .price-compare {
-    min-width: 0;
-    width: 100%;
   }
 
   tbody td.metric::before {
@@ -621,9 +618,9 @@ tr.game-past {
     grid-template-columns: 1fr;
   }
 
-  tbody td.model-col,
-  tbody td.market-col {
-    grid-column: 1 / -1;
+  tbody td.model-cell,
+  tbody td.market-cell {
     border-top: 1px solid var(--line);
+    grid-column: 1 / -1;
   }
 }
