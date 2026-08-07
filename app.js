@@ -662,11 +662,9 @@
     return null;
   }
 
-  function buildKalshiFromEvent(evt) {
-    const parsed = parseKalshiEventTicker(evt?.event_ticker);
-    if (!parsed) return null;
+  function buildKalshiFromMarkets(parsed, markets) {
     const byTeam = {};
-    for (const mk of evt.markets || []) {
+    for (const mk of markets || []) {
       const code = teamFromMarketTicker(mk.ticker, parsed.eventTicker);
       if (code) byTeam[code] = mk;
     }
@@ -682,6 +680,12 @@
         kalshiCents(homeMk)
       ),
     };
+  }
+
+  function buildKalshiFromEvent(evt) {
+    const parsed = parseKalshiEventTicker(evt?.event_ticker);
+    if (!parsed) return null;
+    return buildKalshiFromMarkets(parsed, evt.markets || []);
   }
 
   /** Kalshi blocks browser Origin; jina.ai returns the JSON with CORS. */
@@ -702,25 +706,72 @@
   async function loadLiveKalshiEvents(dateStr) {
     const want = kalshiDatePrefix(dateStr);
     if (!want) return [];
-    const out = [];
-    let cursor = "";
-    for (let page = 0; page < 8; page++) {
-      const qs = new URLSearchParams({
-        series_ticker: KALSHI_SERIES,
-        limit: "200",
-        with_nested_markets: "true",
-      });
-      if (cursor) qs.set("cursor", cursor);
-      const apiUrl = `https://api.elections.kalshi.com/trade-api/v2/events?${qs.toString()}`;
-      const data = await fetchKalshiViaProxy(apiUrl);
-      for (const evt of data.events || []) {
-        const built = buildKalshiFromEvent(evt);
-        if (built && built.datePrefix === want) out.push(built);
+
+    // Prefer event tickers already matched in latest.json (fast path on refresh).
+    const known = new Set();
+    const groups = [];
+    if (payload?.windows) {
+      for (const win of Object.values(payload.windows)) {
+        if (win?.matchups) groups.push(win.matchups);
       }
-      cursor = data.cursor || "";
-      if (!cursor) break;
     }
-    return out;
+    if (payload?.matchups) groups.push(payload.matchups);
+    for (const list of groups) {
+      for (const m of list) {
+        const t = m?.kalshi?.eventTicker;
+        if (t) known.add(String(t).toUpperCase());
+      }
+    }
+
+    let parsedList = [...known]
+      .map((t) => parseKalshiEventTicker(t))
+      .filter((p) => p && p.datePrefix === want);
+
+    // Fallback: discover today's slate from Kalshi events list
+    if (!parsedList.length) {
+      parsedList = [];
+      let cursor = "";
+      for (let page = 0; page < 8; page++) {
+        const qs = new URLSearchParams({
+          series_ticker: KALSHI_SERIES,
+          limit: "200",
+        });
+        if (cursor) qs.set("cursor", cursor);
+        const apiUrl = `https://api.elections.kalshi.com/trade-api/v2/events?${qs.toString()}`;
+        const data = await fetchKalshiViaProxy(apiUrl);
+        let pageHits = 0;
+        for (const evt of data.events || []) {
+          const parsed = parseKalshiEventTicker(evt?.event_ticker);
+          if (!parsed || parsed.datePrefix !== want) continue;
+          parsedList.push(parsed);
+          pageHits += 1;
+        }
+        cursor = data.cursor || "";
+        if (!cursor) break;
+        if (pageHits === 0 && parsedList.length > 0) break;
+      }
+    }
+
+    if (!parsedList.length) return [];
+
+    // Fetch Game Winner volumes per event in parallel
+    const results = await Promise.all(
+      parsedList.map(async (parsed) => {
+        const qs = new URLSearchParams({
+          event_ticker: parsed.eventTicker,
+          limit: "20",
+        });
+        const apiUrl = `https://api.elections.kalshi.com/trade-api/v2/markets?${qs.toString()}`;
+        try {
+          const data = await fetchKalshiViaProxy(apiUrl);
+          return buildKalshiFromMarkets(parsed, data.markets || []);
+        } catch (err) {
+          console.warn("[Money] markets fetch failed", parsed.eventTicker, err);
+          return null;
+        }
+      })
+    );
+    return results.filter(Boolean);
   }
 
   function etMinutesFromIso(iso) {
