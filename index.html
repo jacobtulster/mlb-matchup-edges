@@ -27,6 +27,7 @@
           <div class="window-toggle" role="group" aria-label="Stats window">
             <button type="button" id="window-season" class="window-btn" data-window="season">Season</button>
             <button type="button" id="window-l7" class="window-btn active" data-window="l7">Last 7 days</button>
+            <button type="button" id="window-blend" class="window-btn" data-window="blend">SZN + L7</button>
           </div>
           <div class="sort-bar" id="sort-bar">
             <label for="sort-key">Sort by</label>
@@ -70,7 +71,8 @@
           schedule, and ESPN scoreboard moneylines (DraftKings). Model fair odds use a logistic
           of Overall Edge (scale 4). Market odds are multiplicatively de-vigged so both sides sum
           to 100%. Value is model win% minus de-vigged market win% on the best side. Toggle
-          <strong>Season</strong> vs <strong>Last 7 days</strong> for the FanGraphs sample window.
+          <strong>Season</strong>, <strong>Last 7 days</strong>, or <strong>SZN + L7</strong> (equal-weight
+          average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>

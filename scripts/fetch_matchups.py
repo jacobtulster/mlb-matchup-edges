@@ -213,6 +213,54 @@ def build_window(window_id: str, label: str, season: int, month: int, games: lis
     }
 
 
+def _avg_num(a, b) -> float | None:
+    if a is None and b is None:
+        return None
+    if a is None:
+        return float(b)
+    if b is None:
+        return float(a)
+    return (float(a) + float(b)) / 2.0
+
+
+def blend_windows(season_window: dict, l7_window: dict, games: list[dict]) -> dict:
+    """Equal-weight average of season + L7 team stats, then recompute matchup edges."""
+    s_teams = season_window.get("teams") or {}
+    l_teams = l7_window.get("teams") or {}
+    blended: dict[str, dict] = {}
+    for abb in sorted(set(s_teams) | set(l_teams)):
+        s = s_teams.get(abb) or {}
+        l = l_teams.get(abb) or {}
+        bat = _avg_num(s.get("batWAR"), l.get("batWAR"))
+        pit = _avg_num(s.get("pitWAR"), l.get("pitWAR"))
+        xfip = _avg_num(s.get("xFIP"), l.get("xFIP"))
+        xwoba = _avg_num(s.get("xwOBA"), l.get("xwOBA"))
+        if bat is not None and pit is not None:
+            team_war = bat + pit
+        else:
+            team_war = _avg_num(s.get("teamWAR"), l.get("teamWAR"))
+        blended[abb] = {
+            "batWAR": bat,
+            "pitWAR": pit,
+            "teamWAR": team_war,
+            "xFIP": xfip,
+            "xwOBA": xwoba,
+        }
+
+    matchups = build_matchups(games, blended)
+    s_range = season_window.get("dateRange") or "season"
+    l_range = l7_window.get("dateRange") or "last 7 days"
+    return {
+        "id": "blend",
+        "label": "SZN + L7",
+        "month": None,
+        "dateRange": f"avg({s_range} · {l_range})",
+        "teamCount": len(blended),
+        "teams": serialize_teams(blended),
+        "matchups": matchups,
+    }
+
+
 def load_games(date_str: str) -> list[dict]:
     url = (
         "https://statsapi.mlb.com/api/v1/schedule"
@@ -612,14 +660,19 @@ def main() -> int:
     apply_odds(l7_window["matchups"], odds_events)
     print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
+    print("Building SZN + L7 blend...", flush=True)
+    blend_window = blend_windows(season_window, l7_window, games)
+    apply_odds(blend_window["matchups"], odds_events)
+    print(f"  blend: {blend_window['teamCount']} teams, {len(blend_window['matchups'])} matchups", flush=True)
+
     payload = {
         "date": date_str,
         "timezone": "America/New_York",
         "season": season,
         "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "defaultWindow": "season",
+        "defaultWindow": "l7",
         "source": {
-            "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days",
+            "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days; blend=equal-weight avg",
             "mlb": "statsapi.mlb.com schedule",
             "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)",
         },
@@ -628,11 +681,12 @@ def main() -> int:
             "diffXFIP": "xFIP_a - xFIP_h",
             "diffXwOBA": "xwOBA_h - xwOBA_a",
             "overallEdge": "z(diffTeamWAR) + z(diffXFIP) + z(diffXwOBA)",
-            "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window.",
+            "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores.",
         },
         "windows": {
             "season": season_window,
             "l7": l7_window,
+            "blend": blend_window,
         },
         # Back-compat aliases (season window)
         "teams": season_window["teams"],
@@ -643,7 +697,7 @@ def main() -> int:
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print(
-        f"Wrote {OUT_PATH} (season={len(season_window['matchups'])}, l7={len(l7_window['matchups'])})",
+        f"Wrote {OUT_PATH} (season={len(season_window['matchups'])}, l7={len(l7_window['matchups'])}, blend={len(blend_window['matchups'])})",
         flush=True,
     )
     return 0

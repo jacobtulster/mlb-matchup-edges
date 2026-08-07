@@ -503,7 +503,9 @@
 
   function applyWindow(id, { persist = true } = {}) {
     if (!payload) return;
-    if (!payload.windows?.[id] && id !== "season") id = "season";
+    if (!payload.windows?.[id]) {
+      id = payload.windows?.l7 ? "l7" : "season";
+    }
     activeWindow = id;
     if (persist) localStorage.setItem("mlbEdgeWindowV2", id);
 
