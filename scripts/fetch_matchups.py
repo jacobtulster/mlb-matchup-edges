@@ -201,23 +201,45 @@ def abb_from_row(row: dict) -> str | None:
 
 
 def serialize_teams(teams: dict[str, dict]) -> dict[str, dict]:
+    def r3(v):
+        return round(v, 3) if v is not None else None
+
+    def r4(v):
+        return round(v, 4) if v is not None else None
+
     return {
         abb: {
-            "batWAR": round(t.get("batWAR") or 0, 3) if t.get("batWAR") is not None else None,
-            "pitWAR": round(t.get("pitWAR") or 0, 3) if t.get("pitWAR") is not None else None,
-            "teamWAR": round(t["teamWAR"], 3) if t.get("teamWAR") is not None else None,
-            "xFIP": round(t["xFIP"], 3) if t.get("xFIP") is not None else None,
-            "xwOBA": round(t["xwOBA"], 4) if t.get("xwOBA") is not None else None,
+            "batWAR": r3(t.get("batWAR")),
+            "pitWAR": r3(t.get("pitWAR")),
+            "teamWAR": r3(t.get("teamWAR")),
+            "wRCp": r3(t.get("wRCp")),
+            "BsR": r3(t.get("BsR")),
+            "xwOBA": r4(t.get("xwOBA")),
+            "xFIP": r3(t.get("xFIP")),
+            "SIERA": r3(t.get("SIERA")),
+            "OAA": r3(t.get("OAA")),
         }
         for abb, t in sorted(teams.items())
     }
 
 
+def _float_or_none(row: dict, *keys: str) -> float | None:
+    for key in keys:
+        if key in row and row[key] is not None:
+            try:
+                return float(row[key])
+            except (TypeError, ValueError):
+                continue
+    return None
+
+
 def load_team_stats(season: int, month: int = 0) -> tuple[dict[str, dict], str | None]:
     pit = http_json(fangraphs_url("pit", season, month), FG_UA)
     bat = http_json(fangraphs_url("bat", season, month), FG_UA)
+    fld = http_json(fangraphs_url("fld", season, month), FG_UA)
     pit_rows = pit.get("data", []) if isinstance(pit, dict) else pit
     bat_rows = bat.get("data", []) if isinstance(bat, dict) else bat
+    fld_rows = fld.get("data", []) if isinstance(fld, dict) else fld
     date_range = None
     if isinstance(pit, dict):
         date_range = pit.get("dateRange") or pit.get("dateRangeSeason")
@@ -231,7 +253,8 @@ def load_team_stats(season: int, month: int = 0) -> tuple[dict[str, dict], str |
             continue
         teams.setdefault(abb, {})
         teams[abb]["pitWAR"] = float(row.get("WAR") or 0)
-        teams[abb]["xFIP"] = float(row["xFIP"]) if row.get("xFIP") is not None else None
+        teams[abb]["xFIP"] = _float_or_none(row, "xFIP")
+        teams[abb]["SIERA"] = _float_or_none(row, "SIERA")
         teams[abb]["fgAbb"] = row.get("TeamNameAbb") or row.get("team_name_abb")
 
     for row in bat_rows:
@@ -240,7 +263,18 @@ def load_team_stats(season: int, month: int = 0) -> tuple[dict[str, dict], str |
             continue
         teams.setdefault(abb, {})
         teams[abb]["batWAR"] = float(row.get("WAR") or 0)
-        teams[abb]["xwOBA"] = float(row["xwOBA"]) if row.get("xwOBA") is not None else None
+        teams[abb]["xwOBA"] = _float_or_none(row, "xwOBA")
+        teams[abb]["wRCp"] = _float_or_none(row, "wRC+")
+        # FanGraphs team BsR ≈ wBsR (weighted baserunning runs)
+        teams[abb]["BsR"] = _float_or_none(row, "wBsR", "BaseRunning")
+        teams[abb]["fgAbb"] = row.get("TeamNameAbb") or row.get("team_name_abb")
+
+    for row in fld_rows:
+        abb = abb_from_row(row)
+        if not abb:
+            continue
+        teams.setdefault(abb, {})
+        teams[abb]["OAA"] = _float_or_none(row, "OAA")
         teams[abb]["fgAbb"] = row.get("TeamNameAbb") or row.get("team_name_abb")
 
     for abb, t in teams.items():
@@ -283,24 +317,16 @@ def blend_windows(season_window: dict, l7_window: dict, games: list[dict]) -> di
     s_teams = season_window.get("teams") or {}
     l_teams = l7_window.get("teams") or {}
     blended: dict[str, dict] = {}
+    keys = ("batWAR", "pitWAR", "teamWAR", "wRCp", "BsR", "xwOBA", "xFIP", "SIERA", "OAA")
     for abb in sorted(set(s_teams) | set(l_teams)):
         s = s_teams.get(abb) or {}
         l = l_teams.get(abb) or {}
-        bat = _avg_num(s.get("batWAR"), l.get("batWAR"))
-        pit = _avg_num(s.get("pitWAR"), l.get("pitWAR"))
-        xfip = _avg_num(s.get("xFIP"), l.get("xFIP"))
-        xwoba = _avg_num(s.get("xwOBA"), l.get("xwOBA"))
+        row = {k: _avg_num(s.get(k), l.get(k)) for k in keys}
+        bat = row["batWAR"]
+        pit = row["pitWAR"]
         if bat is not None and pit is not None:
-            team_war = bat + pit
-        else:
-            team_war = _avg_num(s.get("teamWAR"), l.get("teamWAR"))
-        blended[abb] = {
-            "batWAR": bat,
-            "pitWAR": pit,
-            "teamWAR": team_war,
-            "xFIP": xfip,
-            "xwOBA": xwoba,
-        }
+            row["teamWAR"] = bat + pit
+        blended[abb] = row
 
     matchups = build_matchups(games, blended)
     s_range = season_window.get("dateRange") or "season"
@@ -853,16 +879,31 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
         h = teams.get(g["home"])
         if not a or not h:
             continue
-        if a.get("teamWAR") is None or h.get("teamWAR") is None:
-            continue
-        if a.get("xFIP") is None or h.get("xFIP") is None:
-            continue
-        if a.get("xwOBA") is None or h.get("xwOBA") is None:
+        required = ("teamWAR", "wRCp", "BsR", "xwOBA", "xFIP", "SIERA", "OAA")
+        if any(a.get(k) is None or h.get(k) is None for k in required):
             continue
 
+        # Positive diffs favor home. Lower-is-better pitching: flip xFIP / SIERA.
         d_war = h["teamWAR"] - a["teamWAR"]
-        d_xfip = a["xFIP"] - h["xFIP"]  # lower xFIP better → positive favors home
+        d_wrcp = h["wRCp"] - a["wRCp"]
+        d_bsr = h["BsR"] - a["BsR"]
         d_xwoba = h["xwOBA"] - a["xwOBA"]
+        d_xfip = a["xFIP"] - h["xFIP"]
+        d_siera = a["SIERA"] - h["SIERA"]
+        d_oaa = h["OAA"] - a["OAA"]
+
+        def stats_blob(t: dict) -> dict:
+            return {
+                "batWAR": round(t["batWAR"], 3) if t.get("batWAR") is not None else None,
+                "pitWAR": round(t["pitWAR"], 3) if t.get("pitWAR") is not None else None,
+                "teamWAR": round(t["teamWAR"], 3),
+                "wRCp": round(t["wRCp"], 3),
+                "BsR": round(t["BsR"], 3),
+                "xwOBA": round(t["xwOBA"], 4),
+                "xFIP": round(t["xFIP"], 3),
+                "SIERA": round(t["SIERA"], 3),
+                "OAA": round(t["OAA"], 3),
+            }
 
         raw.append(
             {
@@ -880,43 +921,55 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
                 "status": g["status"],
                 "abstractGameState": g.get("abstractGameState"),
                 "startTimeTBD": g.get("startTimeTBD", False),
-                "awayStats": {
-                    "batWAR": round(a["batWAR"], 3),
-                    "pitWAR": round(a["pitWAR"], 3),
-                    "teamWAR": round(a["teamWAR"], 3),
-                    "xFIP": round(a["xFIP"], 3),
-                    "xwOBA": round(a["xwOBA"], 4),
-                },
-                "homeStats": {
-                    "batWAR": round(h["batWAR"], 3),
-                    "pitWAR": round(h["pitWAR"], 3),
-                    "teamWAR": round(h["teamWAR"], 3),
-                    "xFIP": round(h["xFIP"], 3),
-                    "xwOBA": round(h["xwOBA"], 4),
-                },
+                "awayStats": stats_blob(a),
+                "homeStats": stats_blob(h),
                 "diffTeamWAR": d_war,
-                "diffXFIP": d_xfip,
+                "diffWRCp": d_wrcp,
+                "diffBsR": d_bsr,
                 "diffXwOBA": d_xwoba,
+                "diffXFIP": d_xfip,
+                "diffSIERA": d_siera,
+                "diffOAA": d_oaa,
             }
         )
 
     z_war = zscores([m["diffTeamWAR"] for m in raw])
-    z_xfip = zscores([m["diffXFIP"] for m in raw])
+    z_wrcp = zscores([m["diffWRCp"] for m in raw])
+    z_bsr = zscores([m["diffBsR"] for m in raw])
     z_xwoba = zscores([m["diffXwOBA"] for m in raw])
+    z_xfip = zscores([m["diffXFIP"] for m in raw])
+    z_siera = zscores([m["diffSIERA"] for m in raw])
+    z_oaa = zscores([m["diffOAA"] for m in raw])
 
     out = []
     for i, m in enumerate(raw):
-        overall = z_war[i] + z_xfip[i] + z_xwoba[i]
+        overall = (
+            z_war[i]
+            + z_wrcp[i]
+            + z_bsr[i]
+            + z_xwoba[i]
+            + z_xfip[i]
+            + z_siera[i]
+            + z_oaa[i]
+        )
         favored = m["home"] if overall > 0 else m["away"] if overall < 0 else "EVEN"
         out.append(
             {
                 **m,
                 "diffTeamWAR": round(m["diffTeamWAR"], 3),
-                "diffXFIP": round(m["diffXFIP"], 3),
+                "diffWRCp": round(m["diffWRCp"], 3),
+                "diffBsR": round(m["diffBsR"], 3),
                 "diffXwOBA": round(m["diffXwOBA"], 4),
+                "diffXFIP": round(m["diffXFIP"], 3),
+                "diffSIERA": round(m["diffSIERA"], 3),
+                "diffOAA": round(m["diffOAA"], 3),
                 "zTeamWAR": round(z_war[i], 4),
-                "zXFIP": round(z_xfip[i], 4),
+                "zWRCp": round(z_wrcp[i], 4),
+                "zBsR": round(z_bsr[i], 4),
                 "zXwOBA": round(z_xwoba[i], 4),
+                "zXFIP": round(z_xfip[i], 4),
+                "zSIERA": round(z_siera[i], 4),
+                "zOAA": round(z_oaa[i], 4),
                 "overallEdge": round(overall, 4),
                 "favored": favored,
             }
@@ -966,18 +1019,22 @@ def main() -> int:
         "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "defaultWindow": "l7",
         "source": {
-            "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days; blend=equal-weight avg",
+            "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
             "mlb": "statsapi.mlb.com schedule",
             "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)",
             "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side",
         },
         "formulas": {
             "diffTeamWAR": "(batWAR_h + pitWAR_h) - (batWAR_a + pitWAR_a)",
-            "diffXFIP": "xFIP_a - xFIP_h",
+            "diffWRCp": "wRC+_h - wRC+_a",
+            "diffBsR": "wBsR_h - wBsR_a",
             "diffXwOBA": "xwOBA_h - xwOBA_a",
-            "overallEdge": "z(diffTeamWAR) + z(diffXFIP) + z(diffXwOBA)",
+            "diffXFIP": "xFIP_a - xFIP_h",
+            "diffSIERA": "SIERA_a - SIERA_h",
+            "diffOAA": "OAA_h - OAA_a",
+            "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA)",
             "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
-            "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team.",
+            "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team. Model logistic scale is 6 (client).",
         },
         "windows": {
             "season": season_window,

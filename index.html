@@ -7,9 +7,9 @@
     <title>MLB Matchup Edges</title>
     <meta
       name="description"
-      content="Today's MLB matchups ranked by Team WAR, xFIP, and xwOBA edges."
+      content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=money-hl-2" />
+    <link rel="stylesheet" href="styles.css?v=metrics-3" />
   </head>
   <body>
     <main>
@@ -17,10 +17,11 @@
         <h1>MLB Matchup Edges</h1>
         <p class="lede">
           Each metric shows both teams’ values, then the edge with the team that owns it
-          (e.g. <span class="example">+13.03 MIL</span>). <strong>Model</strong> turns Overall
+          (e.g. <span class="example">+13.03 MIL</span>). Offense: <strong>wRC+</strong>,
+          <strong>BsR</strong>, <strong>xwOBA</strong>. Pitching/defense: <strong>xFIP</strong>,
+          <strong>SIERA</strong>, <strong>OAA</strong>. <strong>Model</strong> turns Overall
           Edge into fair moneylines; <strong>Market</strong> shows de-vigged ESPN/DraftKings
-          prices for a like-for-like compare; <strong>Money</strong> is Kalshi Game Winner
-          dollar volume on each team (with the volume ratio vs the other side).
+          prices; <strong>Money</strong> is Kalshi Game Winner dollar volume per team.
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
@@ -40,8 +41,12 @@
               <option value="homeMl">Market home ML</option>
               <option value="gameStart">Game start</option>
               <option value="diffTeamWAR">Team WAR</option>
-              <option value="diffXFIP">xFIP</option>
+              <option value="diffWRCp">wRC+</option>
+              <option value="diffBsR">BsR</option>
               <option value="diffXwOBA">xwOBA</option>
+              <option value="diffXFIP">xFIP</option>
+              <option value="diffSIERA">SIERA</option>
+              <option value="diffOAA">OAA</option>
               <option value="matchup">Matchup</option>
             </select>
             <button type="button" id="sort-dir" aria-label="Toggle sort direction" title="Toggle ascending/descending">↓</button>
@@ -56,8 +61,12 @@
               <th data-key="matchup" data-type="string">Matchup</th>
               <th data-key="gameStart" data-type="number">Start</th>
               <th data-key="diffTeamWAR" data-type="number" class="num">Team WAR</th>
-              <th data-key="diffXFIP" data-type="number" class="num">xFIP</th>
+              <th data-key="diffWRCp" data-type="number" class="num">wRC+</th>
+              <th data-key="diffBsR" data-type="number" class="num">BsR</th>
               <th data-key="diffXwOBA" data-type="number" class="num">xwOBA</th>
+              <th data-key="diffXFIP" data-type="number" class="num">xFIP</th>
+              <th data-key="diffSIERA" data-type="number" class="num">SIERA</th>
+              <th data-key="diffOAA" data-type="number" class="num">OAA</th>
               <th data-key="valueAbs" data-type="number" class="num sorted-desc">Model</th>
               <th data-key="homeMl" data-type="number" class="num">Market</th>
               <th data-key="moneyMaxMult" data-type="number" class="num">Money</th>
@@ -71,19 +80,19 @@
 
       <footer class="notes">
         <p>
-          Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA), MLB Stats API
-          schedule, ESPN scoreboard moneylines (DraftKings), and Kalshi Game Winner volumes.
-          Model fair odds use a logistic of Overall Edge (scale 4). Market odds are
-          multiplicatively de-vigged so both sides sum to 100%. Value is model win% minus
-          de-vigged market win% on the best side. <strong>Money</strong> shows Kalshi dollar
-          volume per team and the ratio vs the other side (same idea as Ticker Tracker’s
-          Game Winner volume ratio: no highlight under 2×, yellow for 2.0–4.99×, red for 5.0×+).
+          Sources: FanGraphs team dashboard (bat + pit + fielding: WAR, wRC+, BsR/wBsR, xwOBA,
+          xFIP, SIERA, OAA), MLB Stats API schedule, ESPN scoreboard moneylines (DraftKings),
+          and Kalshi Game Winner volumes. Model fair odds use a logistic of Overall Edge
+          (sum of z-scored metric diffs; scale 6). Market odds are multiplicatively de-vigged
+          so both sides sum to 100%. Value is model win% minus de-vigged market win% on the
+          best side. <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
+          vs the other side (no highlight under 2×, yellow for 2.0–4.99×, red for 5.0×+).
           Money volumes re-fetch live from Kalshi on every page load.
           Toggle <strong>Season</strong>, <strong>Last 7 days</strong>,
           or <strong>SZN + L7</strong> (equal-weight average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>
-    <script src="app.js?v=money-hl-2"></script>
+    <script src="app.js?v=metrics-3"></script>
   </body>
 </html>

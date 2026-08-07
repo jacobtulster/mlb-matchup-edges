@@ -227,8 +227,8 @@
     return 100 / (n + 100);
   }
 
-  // Overall Edge → home win prob. Scale ~4 keeps strong slate edges near realistic ML bands.
-  const EDGE_LOGISTIC_SCALE = 4;
+  // Overall Edge → home win prob. Scale scales with # of z-components (~7 now).
+  const EDGE_LOGISTIC_SCALE = 6;
 
   function edgeToHomeProb(edge, scale = EDGE_LOGISTIC_SCALE) {
     const x = Number(edge);
@@ -473,9 +473,13 @@
           }
         </td>
         ${startCellHtml(m)}
-        ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
-        ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
+        ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 1, "Team WAR")}
+        ${metricCell(a.wRCp, h.wRCp, m.diffWRCp, m.away, m.home, 0, "wRC+")}
+        ${metricCell(a.BsR, h.BsR, m.diffBsR, m.away, m.home, 1, "BsR")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
+        ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
+        ${metricCell(a.SIERA, h.SIERA, m.diffSIERA, m.away, m.home, 2, "SIERA")}
+        ${metricCell(a.OAA, h.OAA, m.diffOAA, m.away, m.home, 0, "OAA")}
         ${modelCell(m)}
         ${marketCell(m)}
         ${moneyCell(m)}
