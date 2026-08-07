@@ -128,7 +128,15 @@
       if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
       if (Number.isNaN(an)) return 1;
       if (Number.isNaN(bn)) return -1;
-      // More negative = stronger home favorite; desc puts biggest favorites first.
+      return sortDir === "asc" ? an - bn : bn - an;
+    }
+
+    if (sortKey === "valueAbs") {
+      const an = Number(a.valueAbs);
+      const bn = Number(b.valueAbs);
+      if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
+      if (Number.isNaN(an)) return 1;
+      if (Number.isNaN(bn)) return -1;
       return sortDir === "asc" ? an - bn : bn - an;
     }
 
@@ -174,48 +182,28 @@
 
   function overallCell(m) {
     const edge = edgeFor(m.overallEdge, m.away, m.home, 2);
-    const cls = betterClasses(m.overallEdge);
-    return `
-      <td class="metric overall-cell" data-label="Overall Edge">
-        <div class="stack">
-          <div class="edge overall ${edge.cls} ${cls.home === "better" ? "fav-home" : cls.away === "better" ? "fav-away" : ""}">${edge.text}</div>
-          <div class="favored-note">Favors <strong class="${edge.team ? "better-team" : ""}">${m.favored || "—"}</strong></div>
-        </div>
-      </td>
-    `;
-  }
-
-  function impliedProb(american) {
-    const n = parseMl(american);
-    if (!Number.isFinite(n) || n === 0) return null;
-    if (n < 0) return (-n) / (-n + 100);
-    return 100 / (n + 100);
-  }
-
-  function oddsCell(m) {
-    const o = m.odds;
-    if (!o || (!o.home && !o.away)) {
-      return `<td class="odds" data-label="Odds"><span class="odds-missing">—</span></td>`;
-    }
-    const homeP = impliedProb(o.home);
-    const awayP = impliedProb(o.away);
+    const model = modelOddsFromEdge(m.overallEdge);
+    const homePrice = model ? formatAmerican(model.home) : "—";
+    const awayPrice = model ? formatAmerican(model.away) : "—";
     let homeCls = "home";
     let awayCls = "away";
-    if (homeP != null && awayP != null) {
-      if (homeP > awayP + 1e-9) {
+    if (model) {
+      if (model.homeProb > model.awayProb + 1e-9) {
         homeCls += " better";
         awayCls += " worse";
-      } else if (awayP > homeP + 1e-9) {
+      } else if (model.awayProb > model.homeProb + 1e-9) {
         awayCls += " better";
         homeCls += " worse";
       }
     }
-    // Home on top, away underneath (e.g. LAD -165 / AZ +152).
     return `
-      <td class="odds" data-label="Odds" title="${o.provider ? `Source: ${o.provider}` : "Moneyline"}">
-        <div class="odds-stack">
-          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${o.home || "—"}</span></div>
-          <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${o.away || "—"}</span></div>
+      <td class="metric overall-cell" data-label="Model">
+        <div class="stack">
+          <div class="edge overall ${edge.cls}">${edge.text}</div>
+          <div class="odds-stack model-odds" title="Fair moneylines from Overall Edge (logistic)">
+            <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
+            <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
+          </div>
         </div>
       </td>
     `;
@@ -225,6 +213,124 @@
     if (raw == null) return NaN;
     const n = Number(String(raw).replace("+", ""));
     return Number.isFinite(n) ? n : NaN;
+  }
+
+  function impliedProb(american) {
+    const n = parseMl(american);
+    if (!Number.isFinite(n) || n === 0) return null;
+    if (n < 0) return -n / (-n + 100);
+    return 100 / (n + 100);
+  }
+
+  // Overall Edge → home win prob. Scale 2 keeps typical slate edges in a realistic ML band.
+  const EDGE_LOGISTIC_SCALE = 2;
+
+  function edgeToHomeProb(edge, scale = EDGE_LOGISTIC_SCALE) {
+    const x = Number(edge);
+    if (!Number.isFinite(x)) return null;
+    return 1 / (1 + Math.exp(-x / scale));
+  }
+
+  function probToAmerican(p) {
+    if (p == null || !Number.isFinite(p) || p <= 0 || p >= 1) return null;
+    if (Math.abs(p - 0.5) < 1e-12) return 100;
+    if (p > 0.5) return Math.round((-100 * p) / (1 - p));
+    return Math.round((100 * (1 - p)) / p);
+  }
+
+  function formatAmerican(n) {
+    if (n == null || Number.isNaN(n)) return "—";
+    const v = Math.round(Number(n));
+    return v > 0 ? `+${v}` : `${v}`;
+  }
+
+  function modelOddsFromEdge(edge) {
+    const homeProb = edgeToHomeProb(edge);
+    if (homeProb == null) return null;
+    return {
+      homeProb,
+      awayProb: 1 - homeProb,
+      home: probToAmerican(homeProb),
+      away: probToAmerican(1 - homeProb),
+    };
+  }
+
+  /** Multiplicative (proportional) de-vig of two-way American moneylines. */
+  function devigMoneylines(homeMl, awayMl) {
+    const ih = impliedProb(homeMl);
+    const ia = impliedProb(awayMl);
+    if (ih == null || ia == null) return null;
+    const total = ih + ia;
+    if (!(total > 0)) return null;
+    const homeProb = ih / total;
+    const awayProb = ia / total;
+    return {
+      homeProb,
+      awayProb,
+      home: formatAmerican(probToAmerican(homeProb)),
+      away: formatAmerican(probToAmerican(awayProb)),
+      homeRaw: homeMl,
+      awayRaw: awayMl,
+      overround: total - 1,
+    };
+  }
+
+  function oddsHighlight(homeProb, awayProb) {
+    let homeCls = "home";
+    let awayCls = "away";
+    if (homeProb != null && awayProb != null) {
+      if (homeProb > awayProb + 1e-9) {
+        homeCls += " better";
+        awayCls += " worse";
+      } else if (awayProb > homeProb + 1e-9) {
+        awayCls += " better";
+        homeCls += " worse";
+      }
+    }
+    return { homeCls, awayCls };
+  }
+
+  function valueVsMarket(m) {
+    const model = modelOddsFromEdge(m.overallEdge);
+    const market = m.odds ? devigMoneylines(m.odds.home, m.odds.away) : null;
+    if (!model || !market) return null;
+    const homeEdge = model.homeProb - market.homeProb;
+    const awayEdge = model.awayProb - market.awayProb;
+    if (homeEdge >= awayEdge) {
+      return { team: m.home, edge: homeEdge, side: "home" };
+    }
+    return { team: m.away, edge: awayEdge, side: "away" };
+  }
+
+  function oddsCell(m) {
+    const o = m.odds;
+    if (!o || (!o.home && !o.away)) {
+      return `<td class="odds" data-label="Market"><span class="odds-missing">—</span></td>`;
+    }
+    const fair = devigMoneylines(o.home, o.away);
+    if (!fair) {
+      return `<td class="odds" data-label="Market"><span class="odds-missing">—</span></td>`;
+    }
+    const { homeCls, awayCls } = oddsHighlight(fair.homeProb, fair.awayProb);
+    const value = valueVsMarket(m);
+    const vigPct = (fair.overround * 100).toFixed(1);
+    const valueHtml =
+      value && Math.abs(value.edge) >= 0.005
+        ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
+             Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%
+           </div>`
+        : "";
+    return `
+      <td class="odds" data-label="Market" title="${o.provider || "ESPN"} raw ${o.home}/${o.away} · vig ${(fair.overround * 100).toFixed(1)}%">
+        <div class="odds-meta">De-vig · ${vigPct}% vig</div>
+        <div class="odds-stack market-odds">
+          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
+          <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
+        </div>
+        <div class="odds-raw">Raw ${o.home} / ${o.away}</div>
+        ${valueHtml}
+      </td>
+    `;
   }
 
   function syncSortControls() {
@@ -386,10 +492,14 @@
     });
 
     const win = windowData(id);
-    rows = (win.matchups || []).map((m) => ({
-      ...m,
-      overallAbs: Math.abs(Number(m.overallEdge) || 0),
-    }));
+    rows = (win.matchups || []).map((m) => {
+      const value = valueVsMarket(m);
+      return {
+        ...m,
+        overallAbs: Math.abs(Number(m.overallEdge) || 0),
+        valueAbs: value ? Math.abs(value.edge) : Number.NaN,
+      };
+    });
     const n = rows.length;
     const range = win.dateRange ? ` · FG ${win.dateRange}` : "";
     meta.textContent = `Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt)}`;
