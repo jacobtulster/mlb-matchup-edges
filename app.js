@@ -180,35 +180,6 @@
     `;
   }
 
-  function overallCell(m) {
-    const edge = edgeFor(m.overallEdge, m.away, m.home, 2);
-    const model = modelOddsFromEdge(m.overallEdge);
-    const homePrice = model ? formatAmerican(model.home) : "—";
-    const awayPrice = model ? formatAmerican(model.away) : "—";
-    let homeCls = "home";
-    let awayCls = "away";
-    if (model) {
-      if (model.homeProb > model.awayProb + 1e-9) {
-        homeCls += " better";
-        awayCls += " worse";
-      } else if (model.awayProb > model.homeProb + 1e-9) {
-        awayCls += " better";
-        homeCls += " worse";
-      }
-    }
-    return `
-      <td class="metric overall-cell" data-label="Model">
-        <div class="stack">
-          <div class="edge overall ${edge.cls}">${edge.text}</div>
-          <div class="odds-stack model-odds" title="Fair moneylines from Overall Edge (logistic)">
-            <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
-            <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
-          </div>
-        </div>
-      </td>
-    `;
-  }
-
   function parseMl(raw) {
     if (raw == null) return NaN;
     const n = Number(String(raw).replace("+", ""));
@@ -302,28 +273,45 @@
     return { team: m.away, edge: awayEdge, side: "away" };
   }
 
-  function oddsCell(m) {
-    const o = m.odds;
-    if (!o || (!o.home && !o.away)) {
-      return `<td class="odds" data-label="Market"><span class="odds-missing">—</span></td>`;
-    }
-    const fair = devigMoneylines(o.home, o.away);
-    if (!fair) {
-      return `<td class="odds" data-label="Market"><span class="odds-missing">—</span></td>`;
-    }
-    const { homeCls, awayCls } = oddsHighlight(fair.homeProb, fair.awayProb);
+  function pricesCell(m) {
+    const model = modelOddsFromEdge(m.overallEdge);
+    const fair = m.odds ? devigMoneylines(m.odds.home, m.odds.away) : null;
+    const modelHl = model
+      ? oddsHighlight(model.homeProb, model.awayProb)
+      : { homeCls: "home", awayCls: "away" };
+    const marketHl = fair
+      ? oddsHighlight(fair.homeProb, fair.awayProb)
+      : { homeCls: "home", awayCls: "away" };
     const value = valueVsMarket(m);
+    const modelHome = model ? formatAmerican(model.home) : "—";
+    const modelAway = model ? formatAmerican(model.away) : "—";
+    const marketHome = fair ? fair.home : "—";
+    const marketAway = fair ? fair.away : "—";
     const valueHtml =
       value && Math.abs(value.edge) >= 0.005
         ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
              Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%
            </div>`
         : "";
+    const marketTitle = m.odds
+      ? `${m.odds.provider || "ESPN"} raw ${m.odds.home}/${m.odds.away}`
+      : "No market odds";
+
     return `
-      <td class="odds" data-label="Market" title="${o.provider || "ESPN"} raw ${o.home}/${o.away}">
-        <div class="odds-stack market-odds">
-          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
-          <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
+      <td class="prices-cell" data-label="Model / Market">
+        <div class="price-compare" title="${marketTitle}">
+          <div class="price-row head">
+            <span class="price-label">Model</span>
+            <span class="price-label">Market</span>
+          </div>
+          <div class="price-row">
+            <div class="odds-line ${modelHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${modelHome}</span></div>
+            <div class="odds-line ${marketHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${marketHome}</span></div>
+          </div>
+          <div class="price-row">
+            <div class="odds-line ${modelHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${modelAway}</span></div>
+            <div class="odds-line ${marketHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${marketAway}</span></div>
+          </div>
         </div>
         ${valueHtml}
       </td>
@@ -372,8 +360,7 @@
         ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
         ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
-        ${overallCell(m)}
-        ${oddsCell(m)}
+        ${pricesCell(m)}
       `;
       frag.appendChild(tr);
     }
