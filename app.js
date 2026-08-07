@@ -273,7 +273,7 @@
     return { team: m.away, edge: awayEdge, side: "away" };
   }
 
-  function pricesCell(m) {
+  function pricesCells(m) {
     const model = modelOddsFromEdge(m.overallEdge);
     const fair = m.odds ? devigMoneylines(m.odds.home, m.odds.away) : null;
     const modelHl = model
@@ -298,22 +298,18 @@
       : "No market odds";
 
     return `
-      <td class="prices-cell" data-label="Model / Market">
-        <div class="price-compare" title="${marketTitle}">
-          <div class="price-row head">
-            <span class="price-label">Model</span>
-            <span class="price-label">Market</span>
-          </div>
-          <div class="price-row">
-            <div class="odds-line ${modelHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${modelHome}</span></div>
-            <div class="odds-line ${marketHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${marketHome}</span></div>
-          </div>
-          <div class="price-row">
-            <div class="odds-line ${modelHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${modelAway}</span></div>
-            <div class="odds-line ${marketHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${marketAway}</span></div>
-          </div>
+      <td class="prices-cell model-col" data-label="Model">
+        <div class="odds-stack">
+          <div class="odds-line ${modelHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${modelHome}</span></div>
+          <div class="odds-line ${modelHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${modelAway}</span></div>
         </div>
         ${valueHtml}
+      </td>
+      <td class="prices-cell market-col" data-label="Market" title="${marketTitle}">
+        <div class="odds-stack">
+          <div class="odds-line ${marketHl.homeCls}"><span class="abb">${m.home}</span><span class="price">${marketHome}</span></div>
+          <div class="odds-line ${marketHl.awayCls}"><span class="abb">${m.away}</span><span class="price">${marketAway}</span></div>
+        </div>
       </td>
     `;
   }
@@ -360,7 +356,7 @@
         ${metricCell(a.teamWAR, h.teamWAR, m.diffTeamWAR, m.away, m.home, 2, "Team WAR")}
         ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
-        ${pricesCell(m)}
+        ${pricesCells(m)}
       `;
       frag.appendChild(tr);
     }

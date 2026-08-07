@@ -372,45 +372,19 @@ tr.game-past {
   color: var(--home);
 }
 
-.odds {
-  white-space: nowrap;
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  font-size: 0.88rem;
-}
-
 .prices-cell {
   white-space: nowrap;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   vertical-align: top;
+  font-size: 0.88rem;
 }
 
-.price-compare {
-  display: flex;
+.odds-stack {
+  display: inline-flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.15rem;
-  min-width: 15rem;
-}
-
-.price-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.price-row.head {
-  margin-bottom: 0.1rem;
-}
-
-.price-label {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .value-line {
@@ -434,7 +408,8 @@ tr.game-past {
   align-items: baseline;
   padding: 0.12rem 0.35rem;
   border-radius: 0.25rem;
-  justify-self: start;
+  min-height: 1.55rem;
+  box-sizing: border-box;
 }
 
 .odds-line .abb {
@@ -571,13 +546,35 @@ tr.game-past {
   }
 
   tbody td.prices-cell {
-    grid-column: 1 / -1;
+    grid-column: auto;
+  }
+
+  tbody td.model-col,
+  tbody td.market-col {
+    grid-column: span 1;
     padding-top: 0.25rem;
     border-top: 1px solid var(--line);
   }
 
+  tbody td.model-col {
+    grid-column: 1 / 2;
+  }
+
+  tbody td.market-col {
+    grid-column: 2 / 3;
+  }
+
   tbody td.prices-cell::before {
-    content: none;
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
   }
 
   .price-compare {
@@ -624,7 +621,9 @@ tr.game-past {
     grid-template-columns: 1fr;
   }
 
-  tbody td.prices-cell {
+  tbody td.model-col,
+  tbody td.market-col {
+    grid-column: 1 / -1;
     border-top: 1px solid var(--line);
   }
 }
