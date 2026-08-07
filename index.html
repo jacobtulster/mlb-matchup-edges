@@ -22,17 +22,23 @@
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
-        <div class="sort-bar" id="sort-bar">
-          <label for="sort-key">Sort by</label>
-          <select id="sort-key" aria-label="Sort matchups by">
-            <option value="overallAbs">Overall Edge</option>
-            <option value="gameStart">Game start</option>
-            <option value="diffTeamWAR">Team WAR</option>
-            <option value="diffXFIP">xFIP</option>
-            <option value="diffXwOBA">xwOBA</option>
-            <option value="matchup">Matchup</option>
-          </select>
-          <button type="button" id="sort-dir" aria-label="Toggle sort direction" title="Toggle ascending/descending">↓</button>
+        <div class="controls-row">
+          <div class="window-toggle" role="group" aria-label="Stats window">
+            <button type="button" id="window-season" class="window-btn active" data-window="season">Season</button>
+            <button type="button" id="window-l7" class="window-btn" data-window="l7">Last 7 days</button>
+          </div>
+          <div class="sort-bar" id="sort-bar">
+            <label for="sort-key">Sort by</label>
+            <select id="sort-key" aria-label="Sort matchups by">
+              <option value="overallAbs">Overall Edge</option>
+              <option value="gameStart">Game start</option>
+              <option value="diffTeamWAR">Team WAR</option>
+              <option value="diffXFIP">xFIP</option>
+              <option value="diffXwOBA">xwOBA</option>
+              <option value="matchup">Matchup</option>
+            </select>
+            <button type="button" id="sort-dir" aria-label="Toggle sort direction" title="Toggle ascending/descending">↓</button>
+          </div>
         </div>
       </header>
 
@@ -57,10 +63,10 @@
       <footer class="notes">
         <p>
           Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA) and MLB Stats API
-          schedule. Team WAR = batting WAR + pitching WAR. xFIP edge flips so the lower
-          (better) staff gets the plus. Data refreshes automatically about every 6 hours via
-          GitHub Actions; the slate date is “today” in Eastern time, so tomorrow’s games
-          appear on the next successful run after midnight ET.
+          schedule. Toggle <strong>Season</strong> vs <strong>Last 7 days</strong> for the FanGraphs
+          sample window (edges recalculate per window). Team WAR = batting WAR + pitching WAR.
+          xFIP edge flips so the lower (better) staff gets the plus. Data refreshes automatically
+          about every 6 hours via GitHub Actions; the slate date is “today” in Eastern time.
         </p>
       </footer>
     </main>

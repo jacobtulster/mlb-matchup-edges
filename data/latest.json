@@ -2,9 +2,10 @@
   "date": "2026-08-07",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-08-07T20:19:40Z",
+  "updatedAt": "2026-08-07T20:22:39Z",
+  "defaultWindow": "season",
   "source": {
-    "fangraphs": "leaders/major-league team splits (type=8)",
+    "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days",
     "mlb": "statsapi.mlb.com schedule"
   },
   "formulas": {
@@ -12,7 +13,1441 @@
     "diffXFIP": "xFIP_a - xFIP_h",
     "diffXwOBA": "xwOBA_h - xwOBA_a",
     "overallEdge": "z(diffTeamWAR) + z(diffXFIP) + z(diffXwOBA)",
-    "note": "Positive diffs / Overall Edge favor the home team."
+    "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window."
+  },
+  "windows": {
+    "season": {
+      "id": "season",
+      "label": "Season",
+      "month": 0,
+      "dateRange": "2026-01-01 and 2026-12-31",
+      "teamCount": 30,
+      "teams": {
+        "ATH": {
+          "batWAR": 10.444,
+          "pitWAR": 1.546,
+          "teamWAR": 11.991,
+          "xFIP": 4.59,
+          "xwOBA": 0.3123
+        },
+        "ATL": {
+          "batWAR": 14.161,
+          "pitWAR": 11.226,
+          "teamWAR": 25.386,
+          "xFIP": 4.109,
+          "xwOBA": 0.3205
+        },
+        "AZ": {
+          "batWAR": 12.241,
+          "pitWAR": 7.194,
+          "teamWAR": 19.435,
+          "xFIP": 4.521,
+          "xwOBA": 0.3121
+        },
+        "BAL": {
+          "batWAR": 14.304,
+          "pitWAR": 11.116,
+          "teamWAR": 25.419,
+          "xFIP": 4.271,
+          "xwOBA": 0.3241
+        },
+        "BOS": {
+          "batWAR": 14.504,
+          "pitWAR": 15.633,
+          "teamWAR": 30.136,
+          "xFIP": 3.815,
+          "xwOBA": 0.3105
+        },
+        "CHC": {
+          "batWAR": 25.461,
+          "pitWAR": 4.157,
+          "teamWAR": 29.618,
+          "xFIP": 4.243,
+          "xwOBA": 0.3214
+        },
+        "CIN": {
+          "batWAR": 7.3,
+          "pitWAR": 7.466,
+          "teamWAR": 14.767,
+          "xFIP": 4.681,
+          "xwOBA": 0.319
+        },
+        "CLE": {
+          "batWAR": 12.368,
+          "pitWAR": 13.072,
+          "teamWAR": 25.44,
+          "xFIP": 3.884,
+          "xwOBA": 0.3026
+        },
+        "COL": {
+          "batWAR": 6.674,
+          "pitWAR": 6.164,
+          "teamWAR": 12.839,
+          "xFIP": 4.677,
+          "xwOBA": 0.3063
+        },
+        "CWS": {
+          "batWAR": 14.98,
+          "pitWAR": 10.749,
+          "teamWAR": 25.73,
+          "xFIP": 4.328,
+          "xwOBA": 0.3176
+        },
+        "DET": {
+          "batWAR": 14.742,
+          "pitWAR": 13.145,
+          "teamWAR": 27.887,
+          "xFIP": 4.02,
+          "xwOBA": 0.3223
+        },
+        "HOU": {
+          "batWAR": 16.801,
+          "pitWAR": 4.359,
+          "teamWAR": 21.16,
+          "xFIP": 4.536,
+          "xwOBA": 0.3186
+        },
+        "KC": {
+          "batWAR": 12.954,
+          "pitWAR": 3.038,
+          "teamWAR": 15.992,
+          "xFIP": 4.568,
+          "xwOBA": 0.3115
+        },
+        "LAA": {
+          "batWAR": 7.995,
+          "pitWAR": 8.348,
+          "teamWAR": 16.343,
+          "xFIP": 4.307,
+          "xwOBA": 0.3072
+        },
+        "LAD": {
+          "batWAR": 21.216,
+          "pitWAR": 15.041,
+          "teamWAR": 36.257,
+          "xFIP": 3.906,
+          "xwOBA": 0.342
+        },
+        "MIA": {
+          "batWAR": 13.707,
+          "pitWAR": 11.743,
+          "teamWAR": 25.449,
+          "xFIP": 4.19,
+          "xwOBA": 0.3088
+        },
+        "MIL": {
+          "batWAR": 15.828,
+          "pitWAR": 18.545,
+          "teamWAR": 34.374,
+          "xFIP": 3.646,
+          "xwOBA": 0.3213
+        },
+        "MIN": {
+          "batWAR": 13.001,
+          "pitWAR": 8.342,
+          "teamWAR": 21.343,
+          "xFIP": 4.501,
+          "xwOBA": 0.3098
+        },
+        "NYM": {
+          "batWAR": 8.624,
+          "pitWAR": 11.776,
+          "teamWAR": 20.4,
+          "xFIP": 4.001,
+          "xwOBA": 0.3196
+        },
+        "NYY": {
+          "batWAR": 16.797,
+          "pitWAR": 15.884,
+          "teamWAR": 32.681,
+          "xFIP": 3.798,
+          "xwOBA": 0.321
+        },
+        "PHI": {
+          "batWAR": 9.427,
+          "pitWAR": 16.182,
+          "teamWAR": 25.609,
+          "xFIP": 3.56,
+          "xwOBA": 0.3178
+        },
+        "PIT": {
+          "batWAR": 15.174,
+          "pitWAR": 13.576,
+          "teamWAR": 28.75,
+          "xFIP": 4.051,
+          "xwOBA": 0.3182
+        },
+        "SD": {
+          "batWAR": 12.485,
+          "pitWAR": 10.702,
+          "teamWAR": 23.187,
+          "xFIP": 4.282,
+          "xwOBA": 0.3151
+        },
+        "SEA": {
+          "batWAR": 10.921,
+          "pitWAR": 12.913,
+          "teamWAR": 23.834,
+          "xFIP": 3.841,
+          "xwOBA": 0.3187
+        },
+        "SF": {
+          "batWAR": 11.639,
+          "pitWAR": 7.28,
+          "teamWAR": 18.92,
+          "xFIP": 4.37,
+          "xwOBA": 0.3098
+        },
+        "STL": {
+          "batWAR": 11.158,
+          "pitWAR": 8.589,
+          "teamWAR": 19.747,
+          "xFIP": 4.269,
+          "xwOBA": 0.3223
+        },
+        "TB": {
+          "batWAR": 16.365,
+          "pitWAR": 12.08,
+          "teamWAR": 28.445,
+          "xFIP": 4.014,
+          "xwOBA": 0.3067
+        },
+        "TEX": {
+          "batWAR": 14.844,
+          "pitWAR": 12.044,
+          "teamWAR": 26.888,
+          "xFIP": 4.087,
+          "xwOBA": 0.309
+        },
+        "TOR": {
+          "batWAR": 10.63,
+          "pitWAR": 12.723,
+          "teamWAR": 23.353,
+          "xFIP": 3.983,
+          "xwOBA": 0.2955
+        },
+        "WSH": {
+          "batWAR": 19.291,
+          "pitWAR": 1.676,
+          "teamWAR": 20.967,
+          "xFIP": 4.539,
+          "xwOBA": 0.3297
+        }
+      },
+      "matchups": [
+        {
+          "gamePk": 823750,
+          "away": "MIN",
+          "home": "MIL",
+          "awayName": "Minnesota Twins",
+          "homeName": "Milwaukee Brewers",
+          "gameDate": "2026-08-07T23:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 13.001,
+            "pitWAR": 8.342,
+            "teamWAR": 21.343,
+            "xFIP": 4.501,
+            "xwOBA": 0.3098
+          },
+          "homeStats": {
+            "batWAR": 15.828,
+            "pitWAR": 18.545,
+            "teamWAR": 34.374,
+            "xFIP": 3.646,
+            "xwOBA": 0.3213
+          },
+          "diffTeamWAR": 13.03,
+          "diffXFIP": 0.855,
+          "diffXwOBA": 0.0116,
+          "zTeamWAR": 1.1735,
+          "zXFIP": 1.7867,
+          "zXwOBA": 0.7789,
+          "overallEdge": 3.7391,
+          "favored": "MIL"
+        },
+        {
+          "gamePk": 824727,
+          "away": "ATH",
+          "home": "BOS",
+          "awayName": "Athletics",
+          "homeName": "Boston Red Sox",
+          "gameDate": "2026-08-07T23:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 10.444,
+            "pitWAR": 1.546,
+            "teamWAR": 11.991,
+            "xFIP": 4.59,
+            "xwOBA": 0.3123
+          },
+          "homeStats": {
+            "batWAR": 14.504,
+            "pitWAR": 15.633,
+            "teamWAR": 30.136,
+            "xFIP": 3.815,
+            "xwOBA": 0.3105
+          },
+          "diffTeamWAR": 18.145,
+          "diffXFIP": 0.775,
+          "diffXwOBA": -0.0018,
+          "zTeamWAR": 1.7211,
+          "zXFIP": 1.5908,
+          "zXwOBA": -0.2082,
+          "overallEdge": 3.1037,
+          "favored": "BOS"
+        },
+        {
+          "gamePk": 823428,
+          "away": "TOR",
+          "home": "PHI",
+          "awayName": "Toronto Blue Jays",
+          "homeName": "Philadelphia Phillies",
+          "gameDate": "2026-08-07T22:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 10.63,
+            "pitWAR": 12.723,
+            "teamWAR": 23.353,
+            "xFIP": 3.983,
+            "xwOBA": 0.2955
+          },
+          "homeStats": {
+            "batWAR": 9.427,
+            "pitWAR": 16.182,
+            "teamWAR": 25.609,
+            "xFIP": 3.56,
+            "xwOBA": 0.3178
+          },
+          "diffTeamWAR": 2.256,
+          "diffXFIP": 0.423,
+          "diffXwOBA": 0.0223,
+          "zTeamWAR": 0.0199,
+          "zXFIP": 0.7309,
+          "zXwOBA": 1.5721,
+          "overallEdge": 2.3228,
+          "favored": "PHI"
+        },
+        {
+          "gamePk": 823024,
+          "away": "COL",
+          "home": "STL",
+          "awayName": "Colorado Rockies",
+          "homeName": "St. Louis Cardinals",
+          "gameDate": "2026-08-08T00:15:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 6.674,
+            "pitWAR": 6.164,
+            "teamWAR": 12.839,
+            "xFIP": 4.677,
+            "xwOBA": 0.3063
+          },
+          "homeStats": {
+            "batWAR": 11.158,
+            "pitWAR": 8.589,
+            "teamWAR": 19.747,
+            "xFIP": 4.269,
+            "xwOBA": 0.3223
+          },
+          "diffTeamWAR": 6.908,
+          "diffXFIP": 0.409,
+          "diffXwOBA": 0.016,
+          "zTeamWAR": 0.518,
+          "zXFIP": 0.6957,
+          "zXwOBA": 1.1025,
+          "overallEdge": 2.3162,
+          "favored": "STL"
+        },
+        {
+          "gamePk": 822699,
+          "away": "CIN",
+          "home": "WSH",
+          "awayName": "Cincinnati Reds",
+          "homeName": "Washington Nationals",
+          "gameDate": "2026-08-07T22:45:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 7.3,
+            "pitWAR": 7.466,
+            "teamWAR": 14.767,
+            "xFIP": 4.681,
+            "xwOBA": 0.319
+          },
+          "homeStats": {
+            "batWAR": 19.291,
+            "pitWAR": 1.676,
+            "teamWAR": 20.967,
+            "xFIP": 4.539,
+            "xwOBA": 0.3297
+          },
+          "diffTeamWAR": 6.2,
+          "diffXFIP": 0.142,
+          "diffXwOBA": 0.0106,
+          "zTeamWAR": 0.4422,
+          "zXFIP": 0.0452,
+          "zXwOBA": 0.709,
+          "overallEdge": 1.1963,
+          "favored": "WSH"
+        },
+        {
+          "gamePk": 823515,
+          "away": "ATL",
+          "home": "NYY",
+          "awayName": "Atlanta Braves",
+          "homeName": "New York Yankees",
+          "gameDate": "2026-08-07T23:05:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 14.161,
+            "pitWAR": 11.226,
+            "teamWAR": 25.386,
+            "xFIP": 4.109,
+            "xwOBA": 0.3205
+          },
+          "homeStats": {
+            "batWAR": 16.797,
+            "pitWAR": 15.884,
+            "teamWAR": 32.681,
+            "xFIP": 3.798,
+            "xwOBA": 0.321
+          },
+          "diffTeamWAR": 7.294,
+          "diffXFIP": 0.311,
+          "diffXwOBA": 0.0005,
+          "zTeamWAR": 0.5593,
+          "zXFIP": 0.4578,
+          "zXwOBA": -0.0377,
+          "overallEdge": 0.9794,
+          "favored": "NYY"
+        },
+        {
+          "gamePk": 823836,
+          "away": "LAA",
+          "home": "MIA",
+          "awayName": "Los Angeles Angels",
+          "homeName": "Miami Marlins",
+          "gameDate": "2026-08-07T23:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 7.995,
+            "pitWAR": 8.348,
+            "teamWAR": 16.343,
+            "xFIP": 4.307,
+            "xwOBA": 0.3072
+          },
+          "homeStats": {
+            "batWAR": 13.707,
+            "pitWAR": 11.743,
+            "teamWAR": 25.449,
+            "xFIP": 4.19,
+            "xwOBA": 0.3088
+          },
+          "diffTeamWAR": 9.106,
+          "diffXFIP": 0.117,
+          "diffXwOBA": 0.0015,
+          "zTeamWAR": 0.7533,
+          "zXFIP": -0.0169,
+          "zXwOBA": 0.0356,
+          "overallEdge": 0.772,
+          "favored": "MIA"
+        },
+        {
+          "gamePk": 823103,
+          "away": "TB",
+          "home": "SEA",
+          "awayName": "Tampa Bay Rays",
+          "homeName": "Seattle Mariners",
+          "gameDate": "2026-08-08T01:45:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 16.365,
+            "pitWAR": 12.08,
+            "teamWAR": 28.445,
+            "xFIP": 4.014,
+            "xwOBA": 0.3067
+          },
+          "homeStats": {
+            "batWAR": 10.921,
+            "pitWAR": 12.913,
+            "teamWAR": 23.834,
+            "xFIP": 3.841,
+            "xwOBA": 0.3187
+          },
+          "diffTeamWAR": -4.61,
+          "diffXFIP": 0.174,
+          "diffXwOBA": 0.012,
+          "zTeamWAR": -0.7152,
+          "zXFIP": 0.1215,
+          "zXwOBA": 0.8117,
+          "overallEdge": 0.218,
+          "favored": "SEA"
+        },
+        {
+          "gamePk": 823349,
+          "away": "NYM",
+          "home": "PIT",
+          "awayName": "New York Mets",
+          "homeName": "Pittsburgh Pirates",
+          "gameDate": "2026-08-07T22:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 8.624,
+            "pitWAR": 11.776,
+            "teamWAR": 20.4,
+            "xFIP": 4.001,
+            "xwOBA": 0.3196
+          },
+          "homeStats": {
+            "batWAR": 15.174,
+            "pitWAR": 13.576,
+            "teamWAR": 28.75,
+            "xFIP": 4.051,
+            "xwOBA": 0.3182
+          },
+          "diffTeamWAR": 8.35,
+          "diffXFIP": -0.051,
+          "diffXwOBA": -0.0013,
+          "zTeamWAR": 0.6724,
+          "zXFIP": -0.4265,
+          "zXwOBA": -0.1752,
+          "overallEdge": 0.0708,
+          "favored": "PIT"
+        },
+        {
+          "gamePk": 823266,
+          "away": "HOU",
+          "home": "SD",
+          "awayName": "Houston Astros",
+          "homeName": "San Diego Padres",
+          "gameDate": "2026-08-08T01:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 16.801,
+            "pitWAR": 4.359,
+            "teamWAR": 21.16,
+            "xFIP": 4.536,
+            "xwOBA": 0.3186
+          },
+          "homeStats": {
+            "batWAR": 12.485,
+            "pitWAR": 10.702,
+            "teamWAR": 23.187,
+            "xFIP": 4.282,
+            "xwOBA": 0.3151
+          },
+          "diffTeamWAR": 2.027,
+          "diffXFIP": 0.254,
+          "diffXwOBA": -0.0034,
+          "zTeamWAR": -0.0046,
+          "zXFIP": 0.3169,
+          "zXwOBA": -0.3308,
+          "overallEdge": -0.0184,
+          "favored": "HOU"
+        },
+        {
+          "gamePk": 824566,
+          "away": "CLE",
+          "home": "CWS",
+          "awayName": "Cleveland Guardians",
+          "homeName": "Chicago White Sox",
+          "gameDate": "2026-08-07T23:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 12.368,
+            "pitWAR": 13.072,
+            "teamWAR": 25.44,
+            "xFIP": 3.884,
+            "xwOBA": 0.3026
+          },
+          "homeStats": {
+            "batWAR": 14.98,
+            "pitWAR": 10.749,
+            "teamWAR": 25.73,
+            "xFIP": 4.328,
+            "xwOBA": 0.3176
+          },
+          "diffTeamWAR": 0.29,
+          "diffXFIP": -0.444,
+          "diffXwOBA": 0.015,
+          "zTeamWAR": -0.1906,
+          "zXFIP": -1.3876,
+          "zXwOBA": 1.0297,
+          "overallEdge": -0.5485,
+          "favored": "CLE"
+        },
+        {
+          "gamePk": 822863,
+          "away": "BAL",
+          "home": "TEX",
+          "awayName": "Baltimore Orioles",
+          "homeName": "Texas Rangers",
+          "gameDate": "2026-08-08T00:15:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 14.304,
+            "pitWAR": 11.116,
+            "teamWAR": 25.419,
+            "xFIP": 4.271,
+            "xwOBA": 0.3241
+          },
+          "homeStats": {
+            "batWAR": 14.844,
+            "pitWAR": 12.044,
+            "teamWAR": 26.888,
+            "xFIP": 4.087,
+            "xwOBA": 0.309
+          },
+          "diffTeamWAR": 1.469,
+          "diffXFIP": 0.183,
+          "diffXwOBA": -0.0151,
+          "zTeamWAR": -0.0644,
+          "zXFIP": 0.1453,
+          "zXwOBA": -1.1921,
+          "overallEdge": -1.1111,
+          "favored": "BAL"
+        },
+        {
+          "gamePk": 823191,
+          "away": "DET",
+          "home": "SF",
+          "awayName": "Detroit Tigers",
+          "homeName": "San Francisco Giants",
+          "gameDate": "2026-08-08T02:15:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 14.742,
+            "pitWAR": 13.145,
+            "teamWAR": 27.887,
+            "xFIP": 4.02,
+            "xwOBA": 0.3223
+          },
+          "homeStats": {
+            "batWAR": 11.639,
+            "pitWAR": 7.28,
+            "teamWAR": 18.92,
+            "xFIP": 4.37,
+            "xwOBA": 0.3098
+          },
+          "diffTeamWAR": -8.967,
+          "diffXFIP": -0.349,
+          "diffXwOBA": -0.0125,
+          "zTeamWAR": -1.1817,
+          "zXFIP": -1.1562,
+          "zXwOBA": -1.0024,
+          "overallEdge": -3.3403,
+          "favored": "DET"
+        },
+        {
+          "gamePk": 824081,
+          "away": "CHC",
+          "home": "KC",
+          "awayName": "Chicago Cubs",
+          "homeName": "Kansas City Royals",
+          "gameDate": "2026-08-08T00:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 25.461,
+            "pitWAR": 4.157,
+            "teamWAR": 29.618,
+            "xFIP": 4.243,
+            "xwOBA": 0.3214
+          },
+          "homeStats": {
+            "batWAR": 12.954,
+            "pitWAR": 3.038,
+            "teamWAR": 15.992,
+            "xFIP": 4.568,
+            "xwOBA": 0.3115
+          },
+          "diffTeamWAR": -13.626,
+          "diffXFIP": -0.325,
+          "diffXwOBA": -0.0099,
+          "zTeamWAR": -1.6805,
+          "zXFIP": -1.0968,
+          "zXwOBA": -0.809,
+          "overallEdge": -3.5863,
+          "favored": "CHC"
+        },
+        {
+          "gamePk": 825051,
+          "away": "LAD",
+          "home": "AZ",
+          "awayName": "Los Angeles Dodgers",
+          "homeName": "Arizona Diamondbacks",
+          "gameDate": "2026-08-08T01:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 21.216,
+            "pitWAR": 15.041,
+            "teamWAR": 36.257,
+            "xFIP": 3.906,
+            "xwOBA": 0.342
+          },
+          "homeStats": {
+            "batWAR": 12.241,
+            "pitWAR": 7.194,
+            "teamWAR": 19.435,
+            "xFIP": 4.521,
+            "xwOBA": 0.3121
+          },
+          "diffTeamWAR": -16.822,
+          "diffXFIP": -0.615,
+          "diffXwOBA": -0.0299,
+          "zTeamWAR": -2.0227,
+          "zXFIP": -1.8066,
+          "zXwOBA": -2.2843,
+          "overallEdge": -6.1136,
+          "favored": "LAD"
+        }
+      ]
+    },
+    "l7": {
+      "id": "l7",
+      "label": "Last 7 days",
+      "month": 1,
+      "dateRange": "2026-07-31 and 2026-08-06",
+      "teamCount": 30,
+      "teams": {
+        "ATH": {
+          "batWAR": -0.213,
+          "pitWAR": -0.068,
+          "teamWAR": -0.281,
+          "xFIP": 4.635,
+          "xwOBA": 0.294
+        },
+        "ATL": {
+          "batWAR": 1.902,
+          "pitWAR": 1.242,
+          "teamWAR": 3.144,
+          "xFIP": 4.399,
+          "xwOBA": 0.3528
+        },
+        "AZ": {
+          "batWAR": 0.932,
+          "pitWAR": 0.963,
+          "teamWAR": 1.895,
+          "xFIP": 4.772,
+          "xwOBA": 0.3019
+        },
+        "BAL": {
+          "batWAR": 0.086,
+          "pitWAR": 0.652,
+          "teamWAR": 0.738,
+          "xFIP": 3.983,
+          "xwOBA": 0.319
+        },
+        "BOS": {
+          "batWAR": 2.22,
+          "pitWAR": 0.988,
+          "teamWAR": 3.209,
+          "xFIP": 3.718,
+          "xwOBA": 0.3552
+        },
+        "CHC": {
+          "batWAR": 1.379,
+          "pitWAR": 0.723,
+          "teamWAR": 2.102,
+          "xFIP": 3.924,
+          "xwOBA": 0.3084
+        },
+        "CIN": {
+          "batWAR": 1.074,
+          "pitWAR": 1.412,
+          "teamWAR": 2.486,
+          "xFIP": 4.279,
+          "xwOBA": 0.3208
+        },
+        "CLE": {
+          "batWAR": 1.001,
+          "pitWAR": -0.021,
+          "teamWAR": 0.98,
+          "xFIP": 4.262,
+          "xwOBA": 0.3289
+        },
+        "COL": {
+          "batWAR": 0.967,
+          "pitWAR": 0.591,
+          "teamWAR": 1.558,
+          "xFIP": 4.51,
+          "xwOBA": 0.308
+        },
+        "CWS": {
+          "batWAR": 0.355,
+          "pitWAR": 0.542,
+          "teamWAR": 0.897,
+          "xFIP": 4.412,
+          "xwOBA": 0.2916
+        },
+        "DET": {
+          "batWAR": 3.088,
+          "pitWAR": 0.971,
+          "teamWAR": 4.059,
+          "xFIP": 4.004,
+          "xwOBA": 0.3437
+        },
+        "HOU": {
+          "batWAR": 2.292,
+          "pitWAR": 1.033,
+          "teamWAR": 3.325,
+          "xFIP": 3.347,
+          "xwOBA": 0.3517
+        },
+        "KC": {
+          "batWAR": 0.147,
+          "pitWAR": 0.375,
+          "teamWAR": 0.523,
+          "xFIP": 4.831,
+          "xwOBA": 0.2838
+        },
+        "LAA": {
+          "batWAR": -0.63,
+          "pitWAR": 0.331,
+          "teamWAR": -0.299,
+          "xFIP": 4.546,
+          "xwOBA": 0.2545
+        },
+        "LAD": {
+          "batWAR": 0.581,
+          "pitWAR": -0.53,
+          "teamWAR": 0.051,
+          "xFIP": 5.073,
+          "xwOBA": 0.3183
+        },
+        "MIA": {
+          "batWAR": -0.29,
+          "pitWAR": 0.739,
+          "teamWAR": 0.448,
+          "xFIP": 3.868,
+          "xwOBA": 0.2895
+        },
+        "MIL": {
+          "batWAR": 0.497,
+          "pitWAR": 1.653,
+          "teamWAR": 2.15,
+          "xFIP": 2.654,
+          "xwOBA": 0.3291
+        },
+        "MIN": {
+          "batWAR": 0.349,
+          "pitWAR": 0.655,
+          "teamWAR": 1.004,
+          "xFIP": 4.731,
+          "xwOBA": 0.3154
+        },
+        "NYM": {
+          "batWAR": 1.186,
+          "pitWAR": 0.703,
+          "teamWAR": 1.89,
+          "xFIP": 4.588,
+          "xwOBA": 0.3218
+        },
+        "NYY": {
+          "batWAR": 0.151,
+          "pitWAR": 0.867,
+          "teamWAR": 1.018,
+          "xFIP": 3.692,
+          "xwOBA": 0.3057
+        },
+        "PHI": {
+          "batWAR": 1.451,
+          "pitWAR": 1.229,
+          "teamWAR": 2.68,
+          "xFIP": 3.692,
+          "xwOBA": 0.3735
+        },
+        "PIT": {
+          "batWAR": -0.405,
+          "pitWAR": 0.263,
+          "teamWAR": -0.141,
+          "xFIP": 3.93,
+          "xwOBA": 0.2783
+        },
+        "SD": {
+          "batWAR": 1.352,
+          "pitWAR": 1.061,
+          "teamWAR": 2.412,
+          "xFIP": 4.388,
+          "xwOBA": 0.3334
+        },
+        "SEA": {
+          "batWAR": 0.371,
+          "pitWAR": -0.306,
+          "teamWAR": 0.065,
+          "xFIP": 4.012,
+          "xwOBA": 0.3176
+        },
+        "SF": {
+          "batWAR": -0.405,
+          "pitWAR": 0.766,
+          "teamWAR": 0.361,
+          "xFIP": 4.232,
+          "xwOBA": 0.2726
+        },
+        "STL": {
+          "batWAR": 0.665,
+          "pitWAR": 0.201,
+          "teamWAR": 0.866,
+          "xFIP": 4.534,
+          "xwOBA": 0.317
+        },
+        "TB": {
+          "batWAR": 0.84,
+          "pitWAR": 0.933,
+          "teamWAR": 1.773,
+          "xFIP": 3.472,
+          "xwOBA": 0.3095
+        },
+        "TEX": {
+          "batWAR": 0.61,
+          "pitWAR": 0.225,
+          "teamWAR": 0.835,
+          "xFIP": 4.976,
+          "xwOBA": 0.2694
+        },
+        "TOR": {
+          "batWAR": 0.059,
+          "pitWAR": 1.425,
+          "teamWAR": 1.484,
+          "xFIP": 4.021,
+          "xwOBA": 0.2701
+        },
+        "WSH": {
+          "batWAR": -0.023,
+          "pitWAR": -0.554,
+          "teamWAR": -0.577,
+          "xFIP": 4.806,
+          "xwOBA": 0.2859
+        }
+      },
+      "matchups": [
+        {
+          "gamePk": 824727,
+          "away": "ATH",
+          "home": "BOS",
+          "awayName": "Athletics",
+          "homeName": "Boston Red Sox",
+          "gameDate": "2026-08-07T23:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": -0.213,
+            "pitWAR": -0.068,
+            "teamWAR": -0.281,
+            "xFIP": 4.635,
+            "xwOBA": 0.294
+          },
+          "homeStats": {
+            "batWAR": 2.22,
+            "pitWAR": 0.988,
+            "teamWAR": 3.209,
+            "xFIP": 3.718,
+            "xwOBA": 0.3552
+          },
+          "diffTeamWAR": 3.49,
+          "diffXFIP": 0.918,
+          "diffXwOBA": 0.0612,
+          "zTeamWAR": 2.1041,
+          "zXFIP": 1.012,
+          "zXwOBA": 1.5198,
+          "overallEdge": 4.6359,
+          "favored": "BOS"
+        },
+        {
+          "gamePk": 823750,
+          "away": "MIN",
+          "home": "MIL",
+          "awayName": "Minnesota Twins",
+          "homeName": "Milwaukee Brewers",
+          "gameDate": "2026-08-07T23:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.349,
+            "pitWAR": 0.655,
+            "teamWAR": 1.004,
+            "xFIP": 4.731,
+            "xwOBA": 0.3154
+          },
+          "homeStats": {
+            "batWAR": 0.497,
+            "pitWAR": 1.653,
+            "teamWAR": 2.15,
+            "xFIP": 2.654,
+            "xwOBA": 0.3291
+          },
+          "diffTeamWAR": 1.146,
+          "diffXFIP": 2.077,
+          "diffXwOBA": 0.0137,
+          "zTeamWAR": 0.8653,
+          "zXFIP": 2.4192,
+          "zXwOBA": 0.4686,
+          "overallEdge": 3.7531,
+          "favored": "MIL"
+        },
+        {
+          "gamePk": 823428,
+          "away": "TOR",
+          "home": "PHI",
+          "awayName": "Toronto Blue Jays",
+          "homeName": "Philadelphia Phillies",
+          "gameDate": "2026-08-07T22:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.059,
+            "pitWAR": 1.425,
+            "teamWAR": 1.484,
+            "xFIP": 4.021,
+            "xwOBA": 0.2701
+          },
+          "homeStats": {
+            "batWAR": 1.451,
+            "pitWAR": 1.229,
+            "teamWAR": 2.68,
+            "xFIP": 3.692,
+            "xwOBA": 0.3735
+          },
+          "diffTeamWAR": 1.196,
+          "diffXFIP": 0.329,
+          "diffXwOBA": 0.1035,
+          "zTeamWAR": 0.8919,
+          "zXFIP": 0.2978,
+          "zXwOBA": 2.4563,
+          "overallEdge": 3.646,
+          "favored": "PHI"
+        },
+        {
+          "gamePk": 823836,
+          "away": "LAA",
+          "home": "MIA",
+          "awayName": "Los Angeles Angels",
+          "homeName": "Miami Marlins",
+          "gameDate": "2026-08-07T23:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": -0.63,
+            "pitWAR": 0.331,
+            "teamWAR": -0.299,
+            "xFIP": 4.546,
+            "xwOBA": 0.2545
+          },
+          "homeStats": {
+            "batWAR": -0.29,
+            "pitWAR": 0.739,
+            "teamWAR": 0.448,
+            "xFIP": 3.868,
+            "xwOBA": 0.2895
+          },
+          "diffTeamWAR": 0.748,
+          "diffXFIP": 0.678,
+          "diffXwOBA": 0.035,
+          "zTeamWAR": 0.655,
+          "zXFIP": 0.7217,
+          "zXwOBA": 0.9403,
+          "overallEdge": 2.3169,
+          "favored": "MIA"
+        },
+        {
+          "gamePk": 825051,
+          "away": "LAD",
+          "home": "AZ",
+          "awayName": "Los Angeles Dodgers",
+          "homeName": "Arizona Diamondbacks",
+          "gameDate": "2026-08-08T01:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.581,
+            "pitWAR": -0.53,
+            "teamWAR": 0.051,
+            "xFIP": 5.073,
+            "xwOBA": 0.3183
+          },
+          "homeStats": {
+            "batWAR": 0.932,
+            "pitWAR": 0.963,
+            "teamWAR": 1.895,
+            "xFIP": 4.772,
+            "xwOBA": 0.3019
+          },
+          "diffTeamWAR": 1.845,
+          "diffXFIP": 0.301,
+          "diffXwOBA": -0.0164,
+          "zTeamWAR": 1.2348,
+          "zXFIP": 0.2636,
+          "zXwOBA": -0.1976,
+          "overallEdge": 1.3007,
+          "favored": "AZ"
+        },
+        {
+          "gamePk": 823024,
+          "away": "COL",
+          "home": "STL",
+          "awayName": "Colorado Rockies",
+          "homeName": "St. Louis Cardinals",
+          "gameDate": "2026-08-08T00:15:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.967,
+            "pitWAR": 0.591,
+            "teamWAR": 1.558,
+            "xFIP": 4.51,
+            "xwOBA": 0.308
+          },
+          "homeStats": {
+            "batWAR": 0.665,
+            "pitWAR": 0.201,
+            "teamWAR": 0.866,
+            "xFIP": 4.534,
+            "xwOBA": 0.317
+          },
+          "diffTeamWAR": -0.693,
+          "diffXFIP": -0.024,
+          "diffXwOBA": 0.009,
+          "zTeamWAR": -0.1062,
+          "zXFIP": -0.1307,
+          "zXwOBA": 0.3646,
+          "overallEdge": 0.1277,
+          "favored": "STL"
+        },
+        {
+          "gamePk": 824566,
+          "away": "CLE",
+          "home": "CWS",
+          "awayName": "Cleveland Guardians",
+          "homeName": "Chicago White Sox",
+          "gameDate": "2026-08-07T23:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.001,
+            "pitWAR": -0.021,
+            "teamWAR": 0.98,
+            "xFIP": 4.262,
+            "xwOBA": 0.3289
+          },
+          "homeStats": {
+            "batWAR": 0.355,
+            "pitWAR": 0.542,
+            "teamWAR": 0.897,
+            "xFIP": 4.412,
+            "xwOBA": 0.2916
+          },
+          "diffTeamWAR": -0.083,
+          "diffXFIP": -0.15,
+          "diffXwOBA": -0.0372,
+          "zTeamWAR": 0.2159,
+          "zXFIP": -0.2841,
+          "zXwOBA": -0.6583,
+          "overallEdge": -0.7265,
+          "favored": "CLE"
+        },
+        {
+          "gamePk": 823349,
+          "away": "NYM",
+          "home": "PIT",
+          "awayName": "New York Mets",
+          "homeName": "Pittsburgh Pirates",
+          "gameDate": "2026-08-07T22:40:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.186,
+            "pitWAR": 0.703,
+            "teamWAR": 1.89,
+            "xFIP": 4.588,
+            "xwOBA": 0.3218
+          },
+          "homeStats": {
+            "batWAR": -0.405,
+            "pitWAR": 0.263,
+            "teamWAR": -0.141,
+            "xFIP": 3.93,
+            "xwOBA": 0.2783
+          },
+          "diffTeamWAR": -2.031,
+          "diffXFIP": 0.659,
+          "diffXwOBA": -0.0435,
+          "zTeamWAR": -0.8135,
+          "zXFIP": 0.6976,
+          "zXwOBA": -0.7975,
+          "overallEdge": -0.9133,
+          "favored": "NYM"
+        },
+        {
+          "gamePk": 823515,
+          "away": "ATL",
+          "home": "NYY",
+          "awayName": "Atlanta Braves",
+          "homeName": "New York Yankees",
+          "gameDate": "2026-08-07T23:05:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.902,
+            "pitWAR": 1.242,
+            "teamWAR": 3.144,
+            "xFIP": 4.399,
+            "xwOBA": 0.3528
+          },
+          "homeStats": {
+            "batWAR": 0.151,
+            "pitWAR": 0.867,
+            "teamWAR": 1.018,
+            "xFIP": 3.692,
+            "xwOBA": 0.3057
+          },
+          "diffTeamWAR": -2.126,
+          "diffXFIP": 0.707,
+          "diffXwOBA": -0.0471,
+          "zTeamWAR": -0.8637,
+          "zXFIP": 0.7562,
+          "zXwOBA": -0.8768,
+          "overallEdge": -0.9843,
+          "favored": "ATL"
+        },
+        {
+          "gamePk": 823103,
+          "away": "TB",
+          "home": "SEA",
+          "awayName": "Tampa Bay Rays",
+          "homeName": "Seattle Mariners",
+          "gameDate": "2026-08-08T01:45:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.84,
+            "pitWAR": 0.933,
+            "teamWAR": 1.773,
+            "xFIP": 3.472,
+            "xwOBA": 0.3095
+          },
+          "homeStats": {
+            "batWAR": 0.371,
+            "pitWAR": -0.306,
+            "teamWAR": 0.065,
+            "xFIP": 4.012,
+            "xwOBA": 0.3176
+          },
+          "diffTeamWAR": -1.709,
+          "diffXFIP": -0.54,
+          "diffXwOBA": 0.0082,
+          "zTeamWAR": -0.6432,
+          "zXFIP": -0.7568,
+          "zXwOBA": 0.3471,
+          "overallEdge": -1.0529,
+          "favored": "TB"
+        },
+        {
+          "gamePk": 823266,
+          "away": "HOU",
+          "home": "SD",
+          "awayName": "Houston Astros",
+          "homeName": "San Diego Padres",
+          "gameDate": "2026-08-08T01:40:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 2.292,
+            "pitWAR": 1.033,
+            "teamWAR": 3.325,
+            "xFIP": 3.347,
+            "xwOBA": 0.3517
+          },
+          "homeStats": {
+            "batWAR": 1.352,
+            "pitWAR": 1.061,
+            "teamWAR": 2.412,
+            "xFIP": 4.388,
+            "xwOBA": 0.3334
+          },
+          "diffTeamWAR": -0.913,
+          "diffXFIP": -1.041,
+          "diffXwOBA": -0.0184,
+          "zTeamWAR": -0.2226,
+          "zXFIP": -1.3656,
+          "zXwOBA": -0.2403,
+          "overallEdge": -1.8284,
+          "favored": "HOU"
+        },
+        {
+          "gamePk": 822863,
+          "away": "BAL",
+          "home": "TEX",
+          "awayName": "Baltimore Orioles",
+          "homeName": "Texas Rangers",
+          "gameDate": "2026-08-08T00:15:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.086,
+            "pitWAR": 0.652,
+            "teamWAR": 0.738,
+            "xFIP": 3.983,
+            "xwOBA": 0.319
+          },
+          "homeStats": {
+            "batWAR": 0.61,
+            "pitWAR": 0.225,
+            "teamWAR": 0.835,
+            "xFIP": 4.976,
+            "xwOBA": 0.2694
+          },
+          "diffTeamWAR": 0.097,
+          "diffXFIP": -0.994,
+          "diffXwOBA": -0.0496,
+          "zTeamWAR": 0.3109,
+          "zXFIP": -1.308,
+          "zXwOBA": -0.9317,
+          "overallEdge": -1.9288,
+          "favored": "BAL"
+        },
+        {
+          "gamePk": 824081,
+          "away": "CHC",
+          "home": "KC",
+          "awayName": "Chicago Cubs",
+          "homeName": "Kansas City Royals",
+          "gameDate": "2026-08-08T00:10:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.379,
+            "pitWAR": 0.723,
+            "teamWAR": 2.102,
+            "xFIP": 3.924,
+            "xwOBA": 0.3084
+          },
+          "homeStats": {
+            "batWAR": 0.147,
+            "pitWAR": 0.375,
+            "teamWAR": 0.523,
+            "xFIP": 4.831,
+            "xwOBA": 0.2838
+          },
+          "diffTeamWAR": -1.58,
+          "diffXFIP": -0.907,
+          "diffXwOBA": -0.0246,
+          "zTeamWAR": -0.5751,
+          "zXFIP": -1.2029,
+          "zXwOBA": -0.3782,
+          "overallEdge": -2.1562,
+          "favored": "CHC"
+        },
+        {
+          "gamePk": 822699,
+          "away": "CIN",
+          "home": "WSH",
+          "awayName": "Cincinnati Reds",
+          "homeName": "Washington Nationals",
+          "gameDate": "2026-08-07T22:45:00Z",
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.074,
+            "pitWAR": 1.412,
+            "teamWAR": 2.486,
+            "xFIP": 4.279,
+            "xwOBA": 0.3208
+          },
+          "homeStats": {
+            "batWAR": -0.023,
+            "pitWAR": -0.554,
+            "teamWAR": -0.577,
+            "xFIP": 4.806,
+            "xwOBA": 0.2859
+          },
+          "diffTeamWAR": -3.063,
+          "diffXFIP": -0.527,
+          "diffXwOBA": -0.035,
+          "zTeamWAR": -1.359,
+          "zXFIP": -0.7414,
+          "zXwOBA": -0.6077,
+          "overallEdge": -2.7081,
+          "favored": "CIN"
+        },
+        {
+          "gamePk": 823191,
+          "away": "DET",
+          "home": "SF",
+          "awayName": "Detroit Tigers",
+          "homeName": "San Francisco Giants",
+          "gameDate": "2026-08-08T02:15:00Z",
+          "status": "Scheduled",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 3.088,
+            "pitWAR": 0.971,
+            "teamWAR": 4.059,
+            "xFIP": 4.004,
+            "xwOBA": 0.3437
+          },
+          "homeStats": {
+            "batWAR": -0.405,
+            "pitWAR": 0.766,
+            "teamWAR": 0.361,
+            "xFIP": 4.232,
+            "xwOBA": 0.2726
+          },
+          "diffTeamWAR": -3.698,
+          "diffXFIP": -0.228,
+          "diffXwOBA": -0.0711,
+          "zTeamWAR": -1.6946,
+          "zXFIP": -0.3785,
+          "zXwOBA": -1.4086,
+          "overallEdge": -3.4818,
+          "favored": "DET"
+        }
+      ]
+    }
   },
   "teams": {
     "ATH": {
@@ -722,5 +2157,6 @@
       "overallEdge": -6.1136,
       "favored": "LAD"
     }
-  ]
+  ],
+  "dateRange": "2026-01-01 and 2026-12-31"
 }

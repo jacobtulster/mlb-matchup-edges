@@ -98,7 +98,8 @@ def season_year(date_str: str) -> int:
     return int(date_str[:4])
 
 
-def fangraphs_url(stats: str, season: int) -> str:
+def fangraphs_url(stats: str, season: int, month: int = 0) -> str:
+    # FanGraphs month presets: 0=season, 1=last 7 days, 2=last 14, 3=last 30, …
     params = {
         "age": "",
         "pos": "all",
@@ -107,9 +108,9 @@ def fangraphs_url(stats: str, season: int) -> str:
         "qual": "0",
         "season": str(season),
         "season1": str(season),
-        "startdate": f"{season}-03-01",
-        "enddate": f"{season}-11-01",
-        "month": "0",
+        "startdate": "" if month else f"{season}-03-01",
+        "enddate": "" if month else f"{season}-11-01",
+        "month": str(month),
         "hand": "",
         "team": "0,ts",
         "pageitems": "50",
@@ -132,11 +133,29 @@ def abb_from_row(row: dict) -> str | None:
     return FG_TO_MLB.get(str(raw).upper(), str(raw).upper())
 
 
-def load_team_stats(season: int) -> dict[str, dict]:
-    pit = http_json(fangraphs_url("pit", season), FG_UA)
-    bat = http_json(fangraphs_url("bat", season), FG_UA)
+def serialize_teams(teams: dict[str, dict]) -> dict[str, dict]:
+    return {
+        abb: {
+            "batWAR": round(t.get("batWAR") or 0, 3) if t.get("batWAR") is not None else None,
+            "pitWAR": round(t.get("pitWAR") or 0, 3) if t.get("pitWAR") is not None else None,
+            "teamWAR": round(t["teamWAR"], 3) if t.get("teamWAR") is not None else None,
+            "xFIP": round(t["xFIP"], 3) if t.get("xFIP") is not None else None,
+            "xwOBA": round(t["xwOBA"], 4) if t.get("xwOBA") is not None else None,
+        }
+        for abb, t in sorted(teams.items())
+    }
+
+
+def load_team_stats(season: int, month: int = 0) -> tuple[dict[str, dict], str | None]:
+    pit = http_json(fangraphs_url("pit", season, month), FG_UA)
+    bat = http_json(fangraphs_url("bat", season, month), FG_UA)
     pit_rows = pit.get("data", []) if isinstance(pit, dict) else pit
     bat_rows = bat.get("data", []) if isinstance(bat, dict) else bat
+    date_range = None
+    if isinstance(pit, dict):
+        date_range = pit.get("dateRange") or pit.get("dateRangeSeason")
+    if not date_range and isinstance(bat, dict):
+        date_range = bat.get("dateRange") or bat.get("dateRangeSeason")
 
     teams: dict[str, dict] = {}
     for row in pit_rows:
@@ -165,7 +184,21 @@ def load_team_stats(season: int) -> dict[str, dict]:
         else:
             t["teamWAR"] = None
 
-    return teams
+    return teams, date_range if isinstance(date_range, str) else None
+
+
+def build_window(window_id: str, label: str, season: int, month: int, games: list[dict]) -> dict:
+    teams, date_range = load_team_stats(season, month)
+    matchups = build_matchups(games, teams)
+    return {
+        "id": window_id,
+        "label": label,
+        "month": month,
+        "dateRange": date_range,
+        "teamCount": len(teams),
+        "teams": serialize_teams(teams),
+        "matchups": matchups,
+    }
 
 
 def load_games(date_str: str) -> list[dict]:
@@ -287,28 +320,26 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
 def main() -> int:
     date_str = sys.argv[1] if len(sys.argv) > 1 else et_today()
     season = season_year(date_str)
-    print(f"Fetching FanGraphs team stats for {season}...", flush=True)
-    teams = load_team_stats(season)
-    print(f"  {len(teams)} teams loaded", flush=True)
     print(f"Fetching MLB schedule for {date_str}...", flush=True)
     games = load_games(date_str)
     print(f"  {len(games)} games", flush=True)
-    matchups = build_matchups(games, teams)
-    missing = [
-        g
-        for g in games
-        if g["away"] not in teams or g["home"] not in teams
-    ]
-    if missing:
-        print(f"  warning: {len(missing)} games missing FG stats", flush=True)
+
+    print(f"Fetching FanGraphs season team stats for {season}...", flush=True)
+    season_window = build_window("season", "Season", season, 0, games)
+    print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}", flush=True)
+
+    print("Fetching FanGraphs last-7-days team stats...", flush=True)
+    l7_window = build_window("l7", "Last 7 days", season, 1, games)
+    print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
     payload = {
         "date": date_str,
         "timezone": "America/New_York",
         "season": season,
         "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "defaultWindow": "season",
         "source": {
-            "fangraphs": "leaders/major-league team splits (type=8)",
+            "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days",
             "mlb": "statsapi.mlb.com schedule",
         },
         "formulas": {
@@ -316,24 +347,24 @@ def main() -> int:
             "diffXFIP": "xFIP_a - xFIP_h",
             "diffXwOBA": "xwOBA_h - xwOBA_a",
             "overallEdge": "z(diffTeamWAR) + z(diffXFIP) + z(diffXwOBA)",
-            "note": "Positive diffs / Overall Edge favor the home team.",
+            "note": "Positive diffs / Overall Edge favor the home team. Edges are recomputed per stats window.",
         },
-        "teams": {
-            abb: {
-                "batWAR": round(t.get("batWAR") or 0, 3) if t.get("batWAR") is not None else None,
-                "pitWAR": round(t.get("pitWAR") or 0, 3) if t.get("pitWAR") is not None else None,
-                "teamWAR": round(t["teamWAR"], 3) if t.get("teamWAR") is not None else None,
-                "xFIP": round(t["xFIP"], 3) if t.get("xFIP") is not None else None,
-                "xwOBA": round(t["xwOBA"], 4) if t.get("xwOBA") is not None else None,
-            }
-            for abb, t in sorted(teams.items())
+        "windows": {
+            "season": season_window,
+            "l7": l7_window,
         },
-        "matchups": matchups,
+        # Back-compat aliases (season window)
+        "teams": season_window["teams"],
+        "matchups": season_window["matchups"],
+        "dateRange": season_window["dateRange"],
     }
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT_PATH} ({len(matchups)} matchups)", flush=True)
+    print(
+        f"Wrote {OUT_PATH} (season={len(season_window['matchups'])}, l7={len(l7_window['matchups'])})",
+        flush=True,
+    )
     return 0
 
 

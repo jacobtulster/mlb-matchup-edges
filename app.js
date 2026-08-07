@@ -11,6 +11,9 @@
   let sortKey = "overallAbs";
   let sortDir = "desc";
   let countdownTimer = null;
+  let payload = null;
+  let activeWindow = localStorage.getItem("mlbEdgeWindow") || "season";
+  const windowBtns = [...document.querySelectorAll(".window-btn")];
 
   function fmt(n, digits) {
     if (n == null || Number.isNaN(n)) return "—";
@@ -302,20 +305,54 @@
     return `${updatedNote}Next scheduled refresh: ~${nextEt} ET (every 6 hours). Hard-refresh the page after that to see new numbers.`;
   }
 
+  function windowData(id) {
+    if (payload?.windows?.[id]) return payload.windows[id];
+    if (id === "season" || !payload?.windows) {
+      return {
+        id: "season",
+        label: "Season",
+        dateRange: payload?.dateRange || null,
+        matchups: payload?.matchups || [],
+      };
+    }
+    return payload.windows.season || { matchups: [] };
+  }
+
+  function applyWindow(id, { persist = true } = {}) {
+    if (!payload) return;
+    if (!payload.windows?.[id] && id !== "season") id = "season";
+    activeWindow = id;
+    if (persist) localStorage.setItem("mlbEdgeWindow", id);
+
+    windowBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.window === id);
+    });
+
+    const win = windowData(id);
+    rows = (win.matchups || []).map((m) => ({
+      ...m,
+      overallAbs: Math.abs(Number(m.overallEdge) || 0),
+    }));
+    const n = rows.length;
+    const range = win.dateRange ? ` · FG ${win.dateRange}` : "";
+    meta.textContent = `Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt)}`;
+    render();
+  }
+
+  windowBtns.forEach((btn) => {
+    btn.addEventListener("click", () => applyWindow(btn.dataset.window));
+  });
+
   fetch(`data/latest.json?t=${Date.now()}`)
     .then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     })
     .then((data) => {
-      rows = (data.matchups || []).map((m) => ({
-        ...m,
-        overallAbs: Math.abs(Number(m.overallEdge) || 0),
-      }));
-      const n = rows.length;
-      meta.textContent = `Slate: ${data.date || "—"} (ET) · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(data.updatedAt)}`;
+      payload = data;
+      if (!data.windows?.l7 && activeWindow === "l7") activeWindow = "season";
       refreshEl.textContent = formatNextRefresh(data.updatedAt);
-      render();
+      applyWindow(activeWindow, { persist: false });
       if (countdownTimer) clearInterval(countdownTimer);
       countdownTimer = setInterval(refreshCountdowns, 1000);
     })
