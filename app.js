@@ -79,11 +79,13 @@
   function formatStartEt(iso) {
     if (!iso) return "TBD";
     try {
-      return new Date(iso).toLocaleString("en-US", {
-        timeZone: "America/New_York",
-        hour: "numeric",
-        minute: "2-digit",
-      }) + " ET";
+      return (
+        new Date(iso).toLocaleString("en-US", {
+          timeZone: "America/New_York",
+          hour: "numeric",
+          minute: "2-digit",
+        }) + " ET"
+      );
     } catch {
       return "TBD";
     }
@@ -361,12 +363,18 @@
 
   function formatUsd(n) {
     if (n == null || !Number.isFinite(Number(n))) return "—";
-    return (
-      "$" +
-      Math.round(Number(n)).toLocaleString("en-US", {
-        maximumFractionDigits: 0,
-      })
-    );
+    const v = Math.round(Number(n));
+    const abs = Math.abs(v);
+    if (abs >= 1_000_000) {
+      const m = v / 1_000_000;
+      return `$${m.toFixed(m >= 10 ? 0 : 1)}M`;
+    }
+    if (abs >= 10_000) return `$${Math.round(v / 1000)}k`;
+    if (abs >= 1000) {
+      const k = v / 1000;
+      return `$${k.toFixed(1)}k`;
+    }
+    return `$${v.toLocaleString("en-US")}`;
   }
 
   function formatMult(n) {
