@@ -14,6 +14,9 @@
   let payload = null;
   let activeWindow = localStorage.getItem("mlbEdgeWindow") || "season";
   const windowBtns = [...document.querySelectorAll(".window-btn")];
+  // Columns activated via click/dropdown — avoids the first click on the
+  // pre-sorted Model header flipping highest-edge-first into ascending.
+  const sortActivated = new Set();
 
   function fmt(n, digits) {
     if (n == null || Number.isNaN(n)) return "—";
@@ -340,7 +343,25 @@
   function defaultDirFor(key) {
     if (key === "matchup") return "asc";
     if (key === "gameStart") return "asc";
+    // Model edge / value / metrics: strongest first
     return "desc";
+  }
+
+  function setSort(key, { forceDefault = false, toggle = false } = {}) {
+    if (forceDefault || sortKey !== key) {
+      sortKey = key;
+      sortDir = defaultDirFor(key);
+    } else if (toggle) {
+      if (!sortActivated.has(key)) {
+        // First interaction on the initially active column: keep preferred dir
+        sortDir = defaultDirFor(key);
+      } else {
+        sortDir = sortDir === "asc" ? "desc" : "asc";
+      }
+    } else {
+      sortDir = defaultDirFor(key);
+    }
+    sortActivated.add(key);
   }
 
   function render() {
@@ -403,14 +424,14 @@
 
   if (sortKeyEl) {
     sortKeyEl.addEventListener("change", () => {
-      sortKey = sortKeyEl.value;
-      sortDir = defaultDirFor(sortKey);
+      setSort(sortKeyEl.value, { forceDefault: true });
       render();
     });
   }
   if (sortDirBtn) {
     sortDirBtn.addEventListener("click", () => {
       sortDir = sortDir === "asc" ? "desc" : "asc";
+      sortActivated.add(sortKey);
       render();
     });
   }
@@ -418,11 +439,10 @@
   headers.forEach((th) => {
     th.addEventListener("click", () => {
       const key = th.dataset.key;
-      if (sortKey === key) {
-        sortDir = sortDir === "asc" ? "desc" : "asc";
+      if (sortKey !== key) {
+        setSort(key, { forceDefault: true });
       } else {
-        sortKey = key;
-        sortDir = defaultDirFor(key);
+        setSort(key, { toggle: true });
       }
       render();
     });
