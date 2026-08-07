@@ -1,0 +1,37 @@
+name: Update matchup data
+
+on:
+  schedule:
+    # Every 6 hours during the day (UTC) — covers afternoon/evening ET slates
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch matchups
+        run: python scripts/fetch_matchups.py
+
+      - name: Commit data if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json
+          if git diff --staged --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Update matchup data $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

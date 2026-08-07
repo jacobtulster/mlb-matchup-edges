@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MLB Matchup Edges</title>
+    <meta
+      name="description"
+      content="Today's MLB matchups ranked by Team WAR, xFIP, and xwOBA edges."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <h1>MLB Matchup Edges</h1>
+        <p class="lede">
+          Net diffs in combined Team WAR, xFIP, and xwOBA for today’s slate, plus an
+          equal-weight z-score Overall Edge. Positive values favor the home team.
+        </p>
+        <p id="meta" class="meta">Loading…</p>
+      </header>
+
+      <div class="table-wrap">
+        <table id="matchups">
+          <thead>
+            <tr>
+              <th data-key="matchup" data-type="string">Matchup</th>
+              <th data-key="diffTeamWAR" data-type="number" class="num">Δ Team WAR</th>
+              <th data-key="diffXFIP" data-type="number" class="num">Δ xFIP</th>
+              <th data-key="diffXwOBA" data-type="number" class="num">Δ xwOBA</th>
+              <th data-key="overallEdge" data-type="number" class="num sorted-desc">Overall Edge</th>
+              <th data-key="favored" data-type="string">Favored</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <p id="empty" class="empty" hidden>No matchups available for this date.</p>
+
+      <footer class="notes">
+        <p>
+          Sources: FanGraphs team dashboard (bat + pit) and MLB Stats API schedule.
+          Overall Edge = z(Δ Team WAR) + z(Δ xFIP) + z(Δ xwOBA). Δ xFIP is flipped so
+          lower xFIP favors that side.
+        </p>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
