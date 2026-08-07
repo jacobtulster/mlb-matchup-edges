@@ -53,13 +53,24 @@
     });
   }
 
+  function betterClasses(homeDiff) {
+    if (homeDiff == null || Number.isNaN(homeDiff) || Math.abs(homeDiff) < 1e-12) {
+      return { away: "", home: "" };
+    }
+    // homeDiff > 0 means home is better on this metric (xFIP already flipped in JSON).
+    return homeDiff > 0
+      ? { away: "worse", home: "better" }
+      : { away: "better", home: "worse" };
+  }
+
   function metricCell(awayVal, homeVal, homeDiff, away, home, digits) {
     const edge = edgeFor(homeDiff, away, home, digits);
+    const cls = betterClasses(homeDiff);
     return `
       <td class="metric">
         <div class="stack">
-          <div class="stat-line"><span class="abb">${away}</span><span class="val">${fmt(awayVal, digits)}</span></div>
-          <div class="stat-line"><span class="abb">${home}</span><span class="val">${fmt(homeVal, digits)}</span></div>
+          <div class="stat-line ${cls.away}"><span class="abb">${away}</span><span class="val">${fmt(awayVal, digits)}</span></div>
+          <div class="stat-line ${cls.home}"><span class="abb">${home}</span><span class="val">${fmt(homeVal, digits)}</span></div>
           <div class="edge ${edge.cls}">${edge.text}</div>
         </div>
       </td>
@@ -68,11 +79,12 @@
 
   function overallCell(m) {
     const edge = edgeFor(m.overallEdge, m.away, m.home, 2);
+    const cls = betterClasses(m.overallEdge);
     return `
       <td class="metric overall-cell">
         <div class="stack">
-          <div class="edge overall ${edge.cls}">${edge.text}</div>
-          <div class="favored-note">Favors <strong>${m.favored || "—"}</strong></div>
+          <div class="edge overall ${edge.cls} ${cls.home === "better" ? "fav-home" : cls.away === "better" ? "fav-away" : ""}">${edge.text}</div>
+          <div class="favored-note">Favors <strong class="${edge.team ? "better-team" : ""}">${m.favored || "—"}</strong></div>
         </div>
       </td>
     `;
