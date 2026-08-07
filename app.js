@@ -138,7 +138,7 @@
     }
   }
 
-  /** Cron is 0 */6 * * * UTC → next :00 UTC on a 6h boundary. */
+  // Cron: every 6 hours at :00 UTC → next boundary below.
   function nextCronUtc(from = new Date()) {
     const out = new Date(
       Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate(), from.getUTCHours(), 0, 0, 0)
