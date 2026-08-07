@@ -8,7 +8,7 @@
   const sortDirBtn = document.querySelector("#sort-dir");
 
   let rows = [];
-  let sortKey = "overallAbs";
+  let sortKey = "valueAbs";
   let sortDir = "desc";
   let countdownTimer = null;
   let payload = null;
@@ -142,6 +142,7 @@
     }
 
     if (sortKey === "valueAbs") {
+      // Highest Val % first (desc). Missing market odds sink to bottom.
       const an = Number(a.valueAbs);
       const bn = Number(b.valueAbs);
       if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
