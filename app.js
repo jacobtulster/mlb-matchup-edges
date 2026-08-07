@@ -222,8 +222,8 @@
     return 100 / (n + 100);
   }
 
-  // Overall Edge → home win prob. Scale 2 keeps typical slate edges in a realistic ML band.
-  const EDGE_LOGISTIC_SCALE = 2;
+  // Overall Edge → home win prob. Scale ~4 keeps strong slate edges near realistic ML bands.
+  const EDGE_LOGISTIC_SCALE = 4;
 
   function edgeToHomeProb(edge, scale = EDGE_LOGISTIC_SCALE) {
     const x = Number(edge);
