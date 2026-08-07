@@ -391,23 +391,34 @@ tr.game-past {
   grid-template-columns: 2.4rem auto;
   gap: 0.45rem;
   align-items: baseline;
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.25rem;
 }
 
 .odds-line .abb {
-  font-weight: 700;
-}
-
-.odds-line.home .abb {
-  color: var(--home);
-}
-
-.odds-line.away .abb {
-  color: var(--away);
+  font-weight: 600;
+  color: var(--muted);
 }
 
 .odds-line .price {
-  color: var(--ink);
+  color: var(--muted);
   font-weight: 600;
+}
+
+.odds-line.better {
+  background: var(--pos-bg);
+}
+
+.odds-line.better .abb,
+.odds-line.better .price {
+  color: var(--home);
+  font-weight: 700;
+}
+
+.odds-line.worse .abb,
+.odds-line.worse .price {
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .odds-missing {

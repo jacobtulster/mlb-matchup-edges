@@ -185,17 +185,37 @@
     `;
   }
 
+  function impliedProb(american) {
+    const n = parseMl(american);
+    if (!Number.isFinite(n) || n === 0) return null;
+    if (n < 0) return (-n) / (-n + 100);
+    return 100 / (n + 100);
+  }
+
   function oddsCell(m) {
     const o = m.odds;
     if (!o || (!o.home && !o.away)) {
       return `<td class="odds" data-label="Odds"><span class="odds-missing">—</span></td>`;
     }
+    const homeP = impliedProb(o.home);
+    const awayP = impliedProb(o.away);
+    let homeCls = "home";
+    let awayCls = "away";
+    if (homeP != null && awayP != null) {
+      if (homeP > awayP + 1e-9) {
+        homeCls += " better";
+        awayCls += " worse";
+      } else if (awayP > homeP + 1e-9) {
+        awayCls += " better";
+        homeCls += " worse";
+      }
+    }
     // Home on top, away underneath (e.g. LAD -165 / AZ +152).
     return `
       <td class="odds" data-label="Odds" title="${o.provider ? `Source: ${o.provider}` : "Moneyline"}">
         <div class="odds-stack">
-          <div class="odds-line home"><span class="abb">${m.home}</span><span class="price">${o.home || "—"}</span></div>
-          <div class="odds-line away"><span class="abb">${m.away}</span><span class="price">${o.away || "—"}</span></div>
+          <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${o.home || "—"}</span></div>
+          <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${o.away || "—"}</span></div>
         </div>
       </td>
     `;
