@@ -394,15 +394,17 @@
         </td>
       `;
     }
+    // Always derive from ratio — ignore any baked "green underrated fav" tone.
     const tone = moneyTone(k.maxMult ?? k.highMult);
+    k.tone = tone;
     const homeHigh = (k.homeVol || 0) > (k.awayVol || 0) + 1e-9;
     const awayHigh = (k.awayVol || 0) > (k.homeVol || 0) + 1e-9;
     const homeCls =
-      homeHigh && tone !== "muted" ? `home money-hl money-hl-${tone}` : "home";
+      homeHigh && tone !== "muted" ? `money-hl money-hl-${tone}` : "";
     const awayCls =
-      awayHigh && tone !== "muted" ? `away money-hl money-hl-${tone}` : "away";
+      awayHigh && tone !== "muted" ? `money-hl money-hl-${tone}` : "";
     const highTeam = k.highSide === "home" ? m.home : m.away;
-    const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)}`;
+    const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)} · ${formatMult(k.highMult)}`;
     return `
       <td class="odds money-cell" data-label="Money" title="${title}">
         <div class="odds-stack money-stack">
