@@ -313,7 +313,6 @@
     }
     const { homeCls, awayCls } = oddsHighlight(fair.homeProb, fair.awayProb);
     const value = valueVsMarket(m);
-    const vigPct = (fair.overround * 100).toFixed(1);
     const valueHtml =
       value && Math.abs(value.edge) >= 0.005
         ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
@@ -321,13 +320,11 @@
            </div>`
         : "";
     return `
-      <td class="odds" data-label="Market" title="${o.provider || "ESPN"} raw ${o.home}/${o.away} · vig ${(fair.overround * 100).toFixed(1)}%">
-        <div class="odds-meta">De-vig · ${vigPct}% vig</div>
+      <td class="odds" data-label="Market" title="${o.provider || "ESPN"} raw ${o.home}/${o.away}">
         <div class="odds-stack market-odds">
           <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
           <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
         </div>
-        <div class="odds-raw">Raw ${o.home} / ${o.away}</div>
         ${valueHtml}
       </td>
     `;
