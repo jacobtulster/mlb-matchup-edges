@@ -468,12 +468,28 @@ tr.game-past {
   color: #ef4444;
 }
 
-.money-mult.money-green {
-  color: #22c55e;
-}
-
 .money-mult.money-muted {
   color: var(--muted);
+}
+
+.odds-line.money-hl-yellow {
+  background: rgba(234, 179, 8, 0.16);
+}
+
+.odds-line.money-hl-yellow .abb,
+.odds-line.money-hl-yellow .price {
+  color: #eab308;
+  font-weight: 700;
+}
+
+.odds-line.money-hl-red {
+  background: rgba(239, 68, 68, 0.16);
+}
+
+.odds-line.money-hl-red .abb,
+.odds-line.money-hl-red .price {
+  color: #ef4444;
+  font-weight: 700;
 }
 
 .odds-missing {

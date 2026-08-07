@@ -374,6 +374,13 @@
     return `${Number(n).toFixed(1)}x`;
   }
 
+  function moneyTone(maxMult) {
+    const n = Number(maxMult);
+    if (!Number.isFinite(n) || n < 2) return "muted";
+    if (n >= 5) return "red";
+    return "yellow";
+  }
+
   function moneyCell(m) {
     const k = m.kalshi;
     if (!k) {
@@ -387,12 +394,14 @@
         </td>
       `;
     }
-    const homeMore = (k.homeVol || 0) > (k.awayVol || 0) + 1e-9;
-    const awayMore = (k.awayVol || 0) > (k.homeVol || 0) + 1e-9;
-    const homeCls = homeMore ? "home better" : awayMore ? "home worse" : "home";
-    const awayCls = awayMore ? "away better" : homeMore ? "away worse" : "away";
+    const tone = moneyTone(k.maxMult ?? k.highMult);
+    const homeHigh = (k.homeVol || 0) > (k.awayVol || 0) + 1e-9;
+    const awayHigh = (k.awayVol || 0) > (k.homeVol || 0) + 1e-9;
+    const homeCls =
+      homeHigh && tone !== "muted" ? `home money-hl money-hl-${tone}` : "home";
+    const awayCls =
+      awayHigh && tone !== "muted" ? `away money-hl money-hl-${tone}` : "away";
     const highTeam = k.highSide === "home" ? m.home : m.away;
-    const tone = k.tone || "muted";
     const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)}`;
     return `
       <td class="odds money-cell" data-label="Money" title="${title}">
@@ -630,10 +639,9 @@
       if (awayCents > homeCents) favoriteSide = "away";
       else if (homeCents > awayCents) favoriteSide = "home";
     }
+    // Ratio bands: <2 none, 2–4.99 yellow, 5+ red
     let tone = "muted";
-    if (favoriteSide === "away" && awayM != null && homeM != null && awayM < homeM) tone = "green";
-    else if (favoriteSide === "home" && homeM != null && awayM != null && homeM < awayM) tone = "green";
-    else if (maxMult >= 5) tone = "red";
+    if (maxMult >= 5) tone = "red";
     else if (maxMult >= 2) tone = "yellow";
     const highSide = awayVol >= homeVol ? "away" : "home";
     return {

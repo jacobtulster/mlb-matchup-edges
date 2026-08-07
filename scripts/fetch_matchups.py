@@ -702,13 +702,9 @@ def enrich_kalshi_sides(away_vol: float, home_vol: float, away_cents: float | No
         elif home_cents > away_cents:
             fav = "home"
 
-    # Favorite with less relative money → green (contrarian); heavy skew → yellow/red
+    # Ratio bands: <2 none, 2–4.99 yellow, 5+ red
     tone = "muted"
-    if fav == "away" and away_m is not None and home_m is not None and away_m < home_m:
-        tone = "green"
-    elif fav == "home" and home_m is not None and away_m is not None and home_m < away_m:
-        tone = "green"
-    elif max_mult >= 5:
+    if max_mult >= 5:
         tone = "red"
     elif max_mult >= 2:
         tone = "yellow"
