@@ -113,14 +113,23 @@
       const now = Date.now();
       const aPast = isGamePast(a, now);
       const bPast = isGamePast(b, now);
-      if (aPast !== bPast) return aPast ? 1 : -1; // upcoming first, past at bottom
+      if (aPast !== bPast) return aPast ? 1 : -1;
       const at = gameStartMs(a);
       const bt = gameStartMs(b);
       if (at == null && bt == null) return 0;
       if (at == null) return 1;
       if (bt == null) return -1;
-      // asc = closest tip first among upcoming; among past, earlier start first
       return sortDir === "asc" ? at - bt : bt - at;
+    }
+
+    if (sortKey === "homeMl") {
+      const an = parseMl(a.odds && a.odds.home);
+      const bn = parseMl(b.odds && b.odds.home);
+      if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
+      if (Number.isNaN(an)) return 1;
+      if (Number.isNaN(bn)) return -1;
+      // More negative = stronger home favorite; desc puts biggest favorites first.
+      return sortDir === "asc" ? an - bn : bn - an;
     }
 
     const an = Number(a[sortKey]);
@@ -176,6 +185,28 @@
     `;
   }
 
+  function oddsCell(m) {
+    const o = m.odds;
+    if (!o || (!o.home && !o.away)) {
+      return `<td class="odds" data-label="Odds"><span class="odds-missing">—</span></td>`;
+    }
+    // Home on top, away underneath (e.g. LAD -165 / AZ +152).
+    return `
+      <td class="odds" data-label="Odds" title="${o.provider ? `Source: ${o.provider}` : "Moneyline"}">
+        <div class="odds-stack">
+          <div class="odds-line home"><span class="abb">${m.home}</span><span class="price">${o.home || "—"}</span></div>
+          <div class="odds-line away"><span class="abb">${m.away}</span><span class="price">${o.away || "—"}</span></div>
+        </div>
+      </td>
+    `;
+  }
+
+  function parseMl(raw) {
+    if (raw == null) return NaN;
+    const n = Number(String(raw).replace("+", ""));
+    return Number.isFinite(n) ? n : NaN;
+  }
+
   function syncSortControls() {
     if (sortKeyEl) sortKeyEl.value = sortKey;
     if (sortDirBtn) sortDirBtn.textContent = sortDir === "asc" ? "↑" : "↓";
@@ -214,6 +245,7 @@
         ${metricCell(a.xFIP, h.xFIP, m.diffXFIP, m.away, m.home, 2, "xFIP")}
         ${metricCell(a.xwOBA, h.xwOBA, m.diffXwOBA, m.away, m.home, 3, "xwOBA")}
         ${overallCell(m)}
+        ${oddsCell(m)}
       `;
       frag.appendChild(tr);
     }

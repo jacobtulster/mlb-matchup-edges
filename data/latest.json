@@ -2,11 +2,12 @@
   "date": "2026-08-07",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-08-07T20:22:39Z",
+  "updatedAt": "2026-08-07T20:28:13Z",
   "defaultWindow": "season",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days",
-    "mlb": "statsapi.mlb.com schedule"
+    "mlb": "statsapi.mlb.com schedule",
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)"
   },
   "formulas": {
     "diffTeamWAR": "(batWAR_h + pitWAR_h) - (batWAR_a + pitWAR_a)",
@@ -266,7 +267,12 @@
           "zXFIP": 1.7867,
           "zXwOBA": 0.7789,
           "overallEdge": 3.7391,
-          "favored": "MIL"
+          "favored": "MIL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-170",
+            "away": "+158"
+          }
         },
         {
           "gamePk": 824727,
@@ -299,7 +305,12 @@
           "zXFIP": 1.5908,
           "zXwOBA": -0.2082,
           "overallEdge": 3.1037,
-          "favored": "BOS"
+          "favored": "BOS",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-260",
+            "away": "+240"
+          }
         },
         {
           "gamePk": 823428,
@@ -332,7 +343,12 @@
           "zXFIP": 0.7309,
           "zXwOBA": 1.5721,
           "overallEdge": 2.3228,
-          "favored": "PHI"
+          "favored": "PHI",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-202",
+            "away": "+187"
+          }
         },
         {
           "gamePk": 823024,
@@ -365,7 +381,12 @@
           "zXFIP": 0.6957,
           "zXwOBA": 1.1025,
           "overallEdge": 2.3162,
-          "favored": "STL"
+          "favored": "STL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-165",
+            "away": "+153"
+          }
         },
         {
           "gamePk": 822699,
@@ -398,7 +419,12 @@
           "zXFIP": 0.0452,
           "zXwOBA": 0.709,
           "overallEdge": 1.1963,
-          "favored": "WSH"
+          "favored": "WSH",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-108",
+            "away": "+100"
+          }
         },
         {
           "gamePk": 823515,
@@ -431,7 +457,12 @@
           "zXFIP": 0.4578,
           "zXwOBA": -0.0377,
           "overallEdge": 0.9794,
-          "favored": "NYY"
+          "favored": "NYY",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-122",
+            "away": "+114"
+          }
         },
         {
           "gamePk": 823836,
@@ -464,7 +495,12 @@
           "zXFIP": -0.0169,
           "zXwOBA": 0.0356,
           "overallEdge": 0.772,
-          "favored": "MIA"
+          "favored": "MIA",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-147",
+            "away": "+137"
+          }
         },
         {
           "gamePk": 823103,
@@ -497,7 +533,12 @@
           "zXFIP": 0.1215,
           "zXwOBA": 0.8117,
           "overallEdge": 0.218,
-          "favored": "SEA"
+          "favored": "SEA",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-112",
+            "away": "+104"
+          }
         },
         {
           "gamePk": 823349,
@@ -530,7 +571,12 @@
           "zXFIP": -0.4265,
           "zXwOBA": -0.1752,
           "overallEdge": 0.0708,
-          "favored": "PIT"
+          "favored": "PIT",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-129",
+            "away": "+120"
+          }
         },
         {
           "gamePk": 823266,
@@ -563,7 +609,12 @@
           "zXFIP": 0.3169,
           "zXwOBA": -0.3308,
           "overallEdge": -0.0184,
-          "favored": "HOU"
+          "favored": "HOU",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-108",
+            "away": "+101"
+          }
         },
         {
           "gamePk": 824566,
@@ -596,7 +647,12 @@
           "zXFIP": -1.3876,
           "zXwOBA": 1.0297,
           "overallEdge": -0.5485,
-          "favored": "CLE"
+          "favored": "CLE",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+125",
+            "away": "-135"
+          }
         },
         {
           "gamePk": 822863,
@@ -629,7 +685,12 @@
           "zXFIP": 0.1453,
           "zXwOBA": -1.1921,
           "overallEdge": -1.1111,
-          "favored": "BAL"
+          "favored": "BAL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-139",
+            "away": "+129"
+          }
         },
         {
           "gamePk": 823191,
@@ -662,7 +723,12 @@
           "zXFIP": -1.1562,
           "zXwOBA": -1.0024,
           "overallEdge": -3.3403,
-          "favored": "DET"
+          "favored": "DET",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+120",
+            "away": "-128"
+          }
         },
         {
           "gamePk": 824081,
@@ -695,7 +761,12 @@
           "zXFIP": -1.0968,
           "zXwOBA": -0.809,
           "overallEdge": -3.5863,
-          "favored": "CHC"
+          "favored": "CHC",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+153",
+            "away": "-165"
+          }
         },
         {
           "gamePk": 825051,
@@ -728,7 +799,12 @@
           "zXFIP": -1.8066,
           "zXwOBA": -2.2843,
           "overallEdge": -6.1136,
-          "favored": "LAD"
+          "favored": "LAD",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+158",
+            "away": "-170"
+          }
         }
       ]
     },
@@ -982,7 +1058,12 @@
           "zXFIP": 1.012,
           "zXwOBA": 1.5198,
           "overallEdge": 4.6359,
-          "favored": "BOS"
+          "favored": "BOS",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-260",
+            "away": "+240"
+          }
         },
         {
           "gamePk": 823750,
@@ -1015,7 +1096,12 @@
           "zXFIP": 2.4192,
           "zXwOBA": 0.4686,
           "overallEdge": 3.7531,
-          "favored": "MIL"
+          "favored": "MIL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-170",
+            "away": "+158"
+          }
         },
         {
           "gamePk": 823428,
@@ -1048,7 +1134,12 @@
           "zXFIP": 0.2978,
           "zXwOBA": 2.4563,
           "overallEdge": 3.646,
-          "favored": "PHI"
+          "favored": "PHI",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-202",
+            "away": "+187"
+          }
         },
         {
           "gamePk": 823836,
@@ -1081,7 +1172,12 @@
           "zXFIP": 0.7217,
           "zXwOBA": 0.9403,
           "overallEdge": 2.3169,
-          "favored": "MIA"
+          "favored": "MIA",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-147",
+            "away": "+137"
+          }
         },
         {
           "gamePk": 825051,
@@ -1114,7 +1210,12 @@
           "zXFIP": 0.2636,
           "zXwOBA": -0.1976,
           "overallEdge": 1.3007,
-          "favored": "AZ"
+          "favored": "AZ",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+158",
+            "away": "-170"
+          }
         },
         {
           "gamePk": 823024,
@@ -1147,7 +1248,12 @@
           "zXFIP": -0.1307,
           "zXwOBA": 0.3646,
           "overallEdge": 0.1277,
-          "favored": "STL"
+          "favored": "STL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-165",
+            "away": "+153"
+          }
         },
         {
           "gamePk": 824566,
@@ -1180,7 +1286,12 @@
           "zXFIP": -0.2841,
           "zXwOBA": -0.6583,
           "overallEdge": -0.7265,
-          "favored": "CLE"
+          "favored": "CLE",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+125",
+            "away": "-135"
+          }
         },
         {
           "gamePk": 823349,
@@ -1213,7 +1324,12 @@
           "zXFIP": 0.6976,
           "zXwOBA": -0.7975,
           "overallEdge": -0.9133,
-          "favored": "NYM"
+          "favored": "NYM",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-129",
+            "away": "+120"
+          }
         },
         {
           "gamePk": 823515,
@@ -1246,7 +1362,12 @@
           "zXFIP": 0.7562,
           "zXwOBA": -0.8768,
           "overallEdge": -0.9843,
-          "favored": "ATL"
+          "favored": "ATL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-122",
+            "away": "+114"
+          }
         },
         {
           "gamePk": 823103,
@@ -1279,7 +1400,12 @@
           "zXFIP": -0.7568,
           "zXwOBA": 0.3471,
           "overallEdge": -1.0529,
-          "favored": "TB"
+          "favored": "TB",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-112",
+            "away": "+104"
+          }
         },
         {
           "gamePk": 823266,
@@ -1312,7 +1438,12 @@
           "zXFIP": -1.3656,
           "zXwOBA": -0.2403,
           "overallEdge": -1.8284,
-          "favored": "HOU"
+          "favored": "HOU",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-108",
+            "away": "+101"
+          }
         },
         {
           "gamePk": 822863,
@@ -1345,7 +1476,12 @@
           "zXFIP": -1.308,
           "zXwOBA": -0.9317,
           "overallEdge": -1.9288,
-          "favored": "BAL"
+          "favored": "BAL",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-139",
+            "away": "+129"
+          }
         },
         {
           "gamePk": 824081,
@@ -1378,7 +1514,12 @@
           "zXFIP": -1.2029,
           "zXwOBA": -0.3782,
           "overallEdge": -2.1562,
-          "favored": "CHC"
+          "favored": "CHC",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+153",
+            "away": "-165"
+          }
         },
         {
           "gamePk": 822699,
@@ -1411,7 +1552,12 @@
           "zXFIP": -0.7414,
           "zXwOBA": -0.6077,
           "overallEdge": -2.7081,
-          "favored": "CIN"
+          "favored": "CIN",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-108",
+            "away": "+100"
+          }
         },
         {
           "gamePk": 823191,
@@ -1444,7 +1590,12 @@
           "zXFIP": -0.3785,
           "zXwOBA": -1.4086,
           "overallEdge": -3.4818,
-          "favored": "DET"
+          "favored": "DET",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "+120",
+            "away": "-128"
+          }
         }
       ]
     }
@@ -1693,7 +1844,12 @@
       "zXFIP": 1.7867,
       "zXwOBA": 0.7789,
       "overallEdge": 3.7391,
-      "favored": "MIL"
+      "favored": "MIL",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-170",
+        "away": "+158"
+      }
     },
     {
       "gamePk": 824727,
@@ -1726,7 +1882,12 @@
       "zXFIP": 1.5908,
       "zXwOBA": -0.2082,
       "overallEdge": 3.1037,
-      "favored": "BOS"
+      "favored": "BOS",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-260",
+        "away": "+240"
+      }
     },
     {
       "gamePk": 823428,
@@ -1759,7 +1920,12 @@
       "zXFIP": 0.7309,
       "zXwOBA": 1.5721,
       "overallEdge": 2.3228,
-      "favored": "PHI"
+      "favored": "PHI",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-202",
+        "away": "+187"
+      }
     },
     {
       "gamePk": 823024,
@@ -1792,7 +1958,12 @@
       "zXFIP": 0.6957,
       "zXwOBA": 1.1025,
       "overallEdge": 2.3162,
-      "favored": "STL"
+      "favored": "STL",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-165",
+        "away": "+153"
+      }
     },
     {
       "gamePk": 822699,
@@ -1825,7 +1996,12 @@
       "zXFIP": 0.0452,
       "zXwOBA": 0.709,
       "overallEdge": 1.1963,
-      "favored": "WSH"
+      "favored": "WSH",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-108",
+        "away": "+100"
+      }
     },
     {
       "gamePk": 823515,
@@ -1858,7 +2034,12 @@
       "zXFIP": 0.4578,
       "zXwOBA": -0.0377,
       "overallEdge": 0.9794,
-      "favored": "NYY"
+      "favored": "NYY",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-122",
+        "away": "+114"
+      }
     },
     {
       "gamePk": 823836,
@@ -1891,7 +2072,12 @@
       "zXFIP": -0.0169,
       "zXwOBA": 0.0356,
       "overallEdge": 0.772,
-      "favored": "MIA"
+      "favored": "MIA",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-147",
+        "away": "+137"
+      }
     },
     {
       "gamePk": 823103,
@@ -1924,7 +2110,12 @@
       "zXFIP": 0.1215,
       "zXwOBA": 0.8117,
       "overallEdge": 0.218,
-      "favored": "SEA"
+      "favored": "SEA",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-112",
+        "away": "+104"
+      }
     },
     {
       "gamePk": 823349,
@@ -1957,7 +2148,12 @@
       "zXFIP": -0.4265,
       "zXwOBA": -0.1752,
       "overallEdge": 0.0708,
-      "favored": "PIT"
+      "favored": "PIT",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-129",
+        "away": "+120"
+      }
     },
     {
       "gamePk": 823266,
@@ -1990,7 +2186,12 @@
       "zXFIP": 0.3169,
       "zXwOBA": -0.3308,
       "overallEdge": -0.0184,
-      "favored": "HOU"
+      "favored": "HOU",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-108",
+        "away": "+101"
+      }
     },
     {
       "gamePk": 824566,
@@ -2023,7 +2224,12 @@
       "zXFIP": -1.3876,
       "zXwOBA": 1.0297,
       "overallEdge": -0.5485,
-      "favored": "CLE"
+      "favored": "CLE",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "+125",
+        "away": "-135"
+      }
     },
     {
       "gamePk": 822863,
@@ -2056,7 +2262,12 @@
       "zXFIP": 0.1453,
       "zXwOBA": -1.1921,
       "overallEdge": -1.1111,
-      "favored": "BAL"
+      "favored": "BAL",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "-139",
+        "away": "+129"
+      }
     },
     {
       "gamePk": 823191,
@@ -2089,7 +2300,12 @@
       "zXFIP": -1.1562,
       "zXwOBA": -1.0024,
       "overallEdge": -3.3403,
-      "favored": "DET"
+      "favored": "DET",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "+120",
+        "away": "-128"
+      }
     },
     {
       "gamePk": 824081,
@@ -2122,7 +2338,12 @@
       "zXFIP": -1.0968,
       "zXwOBA": -0.809,
       "overallEdge": -3.5863,
-      "favored": "CHC"
+      "favored": "CHC",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "+153",
+        "away": "-165"
+      }
     },
     {
       "gamePk": 825051,
@@ -2155,7 +2376,12 @@
       "zXFIP": -1.8066,
       "zXwOBA": -2.2843,
       "overallEdge": -6.1136,
-      "favored": "LAD"
+      "favored": "LAD",
+      "odds": {
+        "provider": "DraftKings",
+        "home": "+158",
+        "away": "-170"
+      }
     }
   ],
   "dateRange": "2026-01-01 and 2026-12-31"

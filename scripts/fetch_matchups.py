@@ -17,6 +17,7 @@ OUT_PATH = ROOT / "data" / "latest.json"
 
 FG_UA = "okhttp/4.12.0"
 MLB_UA = "mlb-matchup-edges/1.0"
+ESPN_UA = "mlb-matchup-edges/1.0"
 
 
 def _eastern_tz():
@@ -81,6 +82,15 @@ FG_TO_MLB = {
     "TEX": "TEX",
     "TOR": "TOR",
     "WSN": "WSH",
+}
+
+# ESPN scoreboard abbreviations -> MLB Stats API abbreviation
+ESPN_TO_MLB = {
+    "ARI": "AZ",
+    "CHW": "CWS",
+    "WSH": "WSH",
+    "ATH": "ATH",
+    "OAK": "ATH",
 }
 
 
@@ -230,6 +240,112 @@ def load_games(date_str: str) -> list[dict]:
     return games
 
 
+def _parse_american(raw) -> str | None:
+    if raw is None:
+        return None
+    s = str(raw).strip().replace("−", "-")
+    if not s or s in {"null", "None", "EVEN", "even"}:
+        return None
+    try:
+        n = int(float(s))
+    except ValueError:
+        if s[0] in "+-" and s[1:].isdigit():
+            n = int(s)
+        else:
+            return None
+    if n > 0:
+        return f"+{n}"
+    return str(n)
+
+
+def load_espn_odds(date_str: str) -> dict[tuple[str, str], dict]:
+    """DraftKings moneylines from ESPN's free scoreboard API (no key)."""
+    ymd = date_str.replace("-", "")
+    url = (
+        "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"
+        f"?dates={urllib.parse.quote(ymd)}"
+    )
+    try:
+        payload = http_json(url, ESPN_UA)
+    except Exception as exc:
+        print(f"  warning: ESPN odds fetch failed: {exc}", flush=True)
+        return {}
+
+    out: dict[tuple[str, str], dict] = {}
+    for event in payload.get("events") or []:
+        comps = event.get("competitions") or []
+        if not comps:
+            continue
+        comp = comps[0]
+        away = home = None
+        for c in comp.get("competitors") or []:
+            abb = ((c.get("team") or {}).get("abbreviation") or "").upper()
+            if not abb:
+                continue
+            abb = ESPN_TO_MLB.get(abb, abb)
+            if c.get("homeAway") == "away":
+                away = abb
+            elif c.get("homeAway") == "home":
+                home = abb
+        if not away or not home:
+            continue
+
+        odds_list = comp.get("odds") or []
+        if not odds_list:
+            continue
+        # Prefer DraftKings (priority 1), else first entry with moneyline.
+        pick = None
+        for entry in odds_list:
+            name = ((entry.get("provider") or {}).get("name") or "").lower()
+            if "draftkings" in name and entry.get("moneyline"):
+                pick = entry
+                break
+        if pick is None:
+            for entry in odds_list:
+                if entry.get("moneyline"):
+                    pick = entry
+                    break
+        if pick is None:
+            continue
+
+        ml = pick.get("moneyline") or {}
+        home_raw = ((ml.get("home") or {}).get("close") or {}).get("odds")
+        away_raw = ((ml.get("away") or {}).get("close") or {}).get("odds")
+        # Fallbacks if close missing
+        if home_raw is None:
+            home_raw = ((ml.get("home") or {}).get("open") or {}).get("odds")
+        if away_raw is None:
+            away_raw = ((ml.get("away") or {}).get("open") or {}).get("odds")
+        home_ml = _parse_american(home_raw)
+        away_ml = _parse_american(away_raw)
+        if not home_ml or not away_ml:
+            continue
+
+        provider = (pick.get("provider") or {}).get("displayName") or (
+            (pick.get("provider") or {}).get("name")
+        ) or "ESPN"
+        out[(away, home)] = {
+            "provider": provider,
+            "home": home_ml,
+            "away": away_ml,
+        }
+    return out
+
+
+def apply_odds(matchups: list[dict], odds_map: dict[tuple[str, str], dict]) -> None:
+    for m in matchups:
+        o = odds_map.get((m["away"], m["home"]))
+        m["odds"] = (
+            {
+                "provider": o["provider"],
+                "home": o["home"],
+                "away": o["away"],
+            }
+            if o
+            else None
+        )
+
+
 def zscores(values: list[float]) -> list[float]:
     if not values:
         return []
@@ -324,12 +440,18 @@ def main() -> int:
     games = load_games(date_str)
     print(f"  {len(games)} games", flush=True)
 
+    print("Fetching ESPN moneylines...", flush=True)
+    odds_map = load_espn_odds(date_str)
+    print(f"  {len(odds_map)} games with odds", flush=True)
+
     print(f"Fetching FanGraphs season team stats for {season}...", flush=True)
     season_window = build_window("season", "Season", season, 0, games)
+    apply_odds(season_window["matchups"], odds_map)
     print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}", flush=True)
 
     print("Fetching FanGraphs last-7-days team stats...", flush=True)
     l7_window = build_window("l7", "Last 7 days", season, 1, games)
+    apply_odds(l7_window["matchups"], odds_map)
     print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
     payload = {
@@ -341,6 +463,7 @@ def main() -> int:
         "source": {
             "fangraphs": "leaders/major-league team splits (type=8); month=0 season, month=1 last 7 days",
             "mlb": "statsapi.mlb.com schedule",
+            "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)",
         },
         "formulas": {
             "diffTeamWAR": "(batWAR_h + pitWAR_h) - (batWAR_a + pitWAR_a)",

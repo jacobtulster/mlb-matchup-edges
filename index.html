@@ -31,6 +31,7 @@
             <label for="sort-key">Sort by</label>
             <select id="sort-key" aria-label="Sort matchups by">
               <option value="overallAbs">Overall Edge</option>
+              <option value="homeMl">Odds (home ML)</option>
               <option value="gameStart">Game start</option>
               <option value="diffTeamWAR">Team WAR</option>
               <option value="diffXFIP">xFIP</option>
@@ -52,6 +53,7 @@
               <th data-key="diffXFIP" data-type="number" class="num">xFIP</th>
               <th data-key="diffXwOBA" data-type="number" class="num">xwOBA</th>
               <th data-key="overallAbs" data-type="number" class="num sorted-desc">Overall Edge</th>
+              <th data-key="homeMl" data-type="number" class="num">Odds</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -62,11 +64,12 @@
 
       <footer class="notes">
         <p>
-          Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA) and MLB Stats API
-          schedule. Toggle <strong>Season</strong> vs <strong>Last 7 days</strong> for the FanGraphs
-          sample window (edges recalculate per window). Team WAR = batting WAR + pitching WAR.
-          xFIP edge flips so the lower (better) staff gets the plus. Data refreshes automatically
-          about every 6 hours via GitHub Actions; the slate date is “today” in Eastern time.
+          Sources: FanGraphs team dashboard (bat + pit WAR, xFIP, xwOBA), MLB Stats API
+          schedule, and ESPN scoreboard moneylines (DraftKings). Toggle
+          <strong>Season</strong> vs <strong>Last 7 days</strong> for the FanGraphs sample
+          window (edges recalculate per window). Team WAR = batting WAR + pitching WAR.
+          xFIP edge flips so the lower (better) staff gets the plus. Data refreshes
+          automatically about every 6 hours via GitHub Actions.
         </p>
       </footer>
     </main>
