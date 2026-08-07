@@ -12,7 +12,7 @@
   let sortDir = "desc";
   let countdownTimer = null;
   let payload = null;
-  let activeWindow = localStorage.getItem("mlbEdgeWindow") || "season";
+  let activeWindow = localStorage.getItem("mlbEdgeWindowV2") || "l7";
   const windowBtns = [...document.querySelectorAll(".window-btn")];
   // Columns activated via click/dropdown — avoids the first click on the
   // pre-sorted Model header flipping highest-edge-first into ascending.
@@ -505,7 +505,7 @@
     if (!payload) return;
     if (!payload.windows?.[id] && id !== "season") id = "season";
     activeWindow = id;
-    if (persist) localStorage.setItem("mlbEdgeWindow", id);
+    if (persist) localStorage.setItem("mlbEdgeWindowV2", id);
 
     windowBtns.forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.window === id);
