@@ -254,7 +254,7 @@ def blend_windows(season_window: dict, l7_window: dict, games: list[dict]) -> di
         "id": "blend",
         "label": "SZN + L7",
         "month": None,
-        "dateRange": f"avg({s_range} · {l_range})",
+        "dateRange": f"avg({s_range} / {l_range})",
         "teamCount": len(blended),
         "teams": serialize_teams(blended),
         "matchups": matchups,
