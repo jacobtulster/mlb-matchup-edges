@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 0,
-        "hitRate": null,
-        "stakedDollars": 0.0,
-        "profitDollars": 0.0,
-        "roi": null
+        "hitRate": 1.0,
+        "stakedDollars": 100.0,
+        "profitDollars": 131.0,
+        "roi": 1.31
       },
       "model": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 1.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 0.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
-        "stakedDollars": 0.0,
-        "profitDollars": 0.0,
-        "roi": null
+        "hitRate": 0.0,
+        "stakedDollars": 141.0,
+        "profitDollars": -141.0,
+        "roi": -1.0
       },
       "model": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 0.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 0.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 0,
-        "hitRate": null,
-        "stakedDollars": 0.0,
-        "profitDollars": 0.0,
-        "roi": null
+        "hitRate": 1.0,
+        "stakedDollars": 100.0,
+        "profitDollars": 131.0,
+        "roi": 1.31
       },
       "model": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 0.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 0,
+        "n": 1,
         "wins": 0,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": null,
+        "hitRate": 0.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -341,12 +341,90 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 3,
+        "status": "Final",
+        "detailedState": "Game Over",
+        "awayScore": 4,
         "homeScore": 5,
-        "winner": null,
-        "grades": {}
+        "winner": "NYY",
+        "grades": {
+          "model": {
+            "pick": "ATL",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "ATL",
+            "side": "away",
+            "edgePct": 0.01868,
+            "marketMl": -141.0,
+            "stakeDollars": 141.0,
+            "outcome": "loss",
+            "profitDollars": -141.0
+          },
+          "money": {
+            "pick": "ATL",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "NYY",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "NYY",
+              "side": "home",
+              "edgePct": 0.132081,
+              "marketMl": 131.0,
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 131.0
+            },
+            "money": {
+              "pick": "ATL",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "ATL",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "ATL",
+              "side": "away",
+              "edgePct": 0.01868,
+              "marketMl": -141.0,
+              "stakeDollars": 141.0,
+              "outcome": "loss",
+              "profitDollars": -141.0
+            },
+            "money": {
+              "pick": "ATL",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "ATL",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "NYY",
+              "side": "home",
+              "edgePct": 0.056392,
+              "marketMl": 131.0,
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 131.0
+            },
+            "money": {
+              "pick": "ATL",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-08T22:03:34Z"
       }
     },
     {
@@ -593,7 +671,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 3,
+        "awayScore": 5,
         "homeScore": 2,
         "winner": null,
         "grades": {}
@@ -844,11 +922,261 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 0,
-        "homeScore": 4,
+        "homeScore": 7,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 823426,
+      "away": "TOR",
+      "home": "PHI",
+      "awayName": "Toronto Blue Jays",
+      "homeName": "Philadelphia Phillies",
+      "gameDate": "2026-08-08T22:05:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-08T22:03:34Z",
+      "windows": {
+        "season": {
+          "gamePk": 823426,
+          "away": "TOR",
+          "home": "PHI",
+          "awayName": "Toronto Blue Jays",
+          "homeName": "Philadelphia Phillies",
+          "gameDate": "2026-08-08T22:05:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 11.261,
+            "pitWAR": 12.594,
+            "teamWAR": 23.855,
+            "wRCp": 90.694,
+            "BsR": 0.576,
+            "xwOBA": 0.2955,
+            "xFIP": 3.995,
+            "SIERA": 3.977,
+            "OAA": 6.0
+          },
+          "homeStats": {
+            "batWAR": 9.545,
+            "pitWAR": 16.122,
+            "teamWAR": 25.667,
+            "wRCp": 92.736,
+            "BsR": 5.721,
+            "xwOBA": 0.3178,
+            "xFIP": 3.574,
+            "SIERA": 3.516,
+            "OAA": -10.0
+          },
+          "diffTeamWAR": 1.812,
+          "diffWRCp": 2.043,
+          "diffBsR": 5.145,
+          "diffXwOBA": 0.0223,
+          "diffXFIP": 0.421,
+          "diffSIERA": 0.461,
+          "diffOAA": -16.0,
+          "zTeamWAR": -0.0118,
+          "zWRCp": 0.2335,
+          "zBsR": 0.3497,
+          "zXwOBA": 1.591,
+          "zXFIP": 0.7149,
+          "zSIERA": 0.9606,
+          "zOAA": -0.7988,
+          "overallEdge": 3.039,
+          "favored": "PHI",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-168",
+            "away": "+156",
+            "espnId": "401816444",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG081805TORPHI",
+            "awayVol": 120816.43,
+            "homeVol": 416539.36,
+            "awayCents": 39,
+            "homeCents": 63,
+            "awayMult": 0.29,
+            "homeMult": 3.4477,
+            "maxMult": 3.4477,
+            "totalVol": 537355.79,
+            "highSide": "home",
+            "highMult": 3.4477,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        },
+        "l7": {
+          "gamePk": 823426,
+          "away": "TOR",
+          "home": "PHI",
+          "awayName": "Toronto Blue Jays",
+          "homeName": "Philadelphia Phillies",
+          "gameDate": "2026-08-08T22:05:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.236,
+            "pitWAR": 1.011,
+            "teamWAR": 1.247,
+            "wRCp": 69.237,
+            "BsR": 1.098,
+            "xwOBA": 0.2605,
+            "xFIP": 4.497,
+            "SIERA": 4.73,
+            "OAA": 6.0
+          },
+          "homeStats": {
+            "batWAR": 1.443,
+            "pitWAR": 1.157,
+            "teamWAR": 2.6,
+            "wRCp": 122.421,
+            "BsR": 0.131,
+            "xwOBA": 0.3665,
+            "xFIP": 3.893,
+            "SIERA": 3.691,
+            "OAA": -10.0
+          },
+          "diffTeamWAR": 1.352,
+          "diffWRCp": 53.184,
+          "diffBsR": -0.967,
+          "diffXwOBA": 0.1059,
+          "diffXFIP": 0.604,
+          "diffSIERA": 1.039,
+          "diffOAA": -16.0,
+          "zTeamWAR": 0.9633,
+          "zWRCp": 1.4964,
+          "zBsR": -0.4844,
+          "zXwOBA": 2.3544,
+          "zXFIP": 0.594,
+          "zSIERA": 1.0648,
+          "zOAA": -0.7988,
+          "overallEdge": 5.1898,
+          "favored": "PHI",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-168",
+            "away": "+156",
+            "espnId": "401816444",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG081805TORPHI",
+            "awayVol": 120816.43,
+            "homeVol": 416539.36,
+            "awayCents": 39,
+            "homeCents": 63,
+            "awayMult": 0.29,
+            "homeMult": 3.4477,
+            "maxMult": 3.4477,
+            "totalVol": 537355.79,
+            "highSide": "home",
+            "highMult": 3.4477,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        },
+        "blend": {
+          "gamePk": 823426,
+          "away": "TOR",
+          "home": "PHI",
+          "awayName": "Toronto Blue Jays",
+          "homeName": "Philadelphia Phillies",
+          "gameDate": "2026-08-08T22:05:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 5.748,
+            "pitWAR": 6.802,
+            "teamWAR": 12.551,
+            "wRCp": 79.965,
+            "BsR": 0.837,
+            "xwOBA": 0.278,
+            "xFIP": 4.246,
+            "SIERA": 4.354,
+            "OAA": 6.0
+          },
+          "homeStats": {
+            "batWAR": 5.494,
+            "pitWAR": 8.639,
+            "teamWAR": 14.133,
+            "wRCp": 107.579,
+            "BsR": 2.926,
+            "xwOBA": 0.3422,
+            "xFIP": 3.733,
+            "SIERA": 3.603,
+            "OAA": -10.0
+          },
+          "diffTeamWAR": 1.583,
+          "diffWRCp": 27.613,
+          "diffBsR": 2.089,
+          "diffXwOBA": 0.0641,
+          "diffXFIP": 0.513,
+          "diffSIERA": 0.75,
+          "diffOAA": -16.0,
+          "zTeamWAR": 0.174,
+          "zWRCp": 1.5289,
+          "zBsR": 0.2627,
+          "zXwOBA": 2.4919,
+          "zXFIP": 0.6911,
+          "zSIERA": 1.1405,
+          "zOAA": -0.7988,
+          "overallEdge": 5.4902,
+          "favored": "PHI",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-168",
+            "away": "+156",
+            "espnId": "401816444",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG081805TORPHI",
+            "awayVol": 120816.43,
+            "homeVol": 416539.36,
+            "awayCents": 39,
+            "homeCents": 63,
+            "awayMult": 0.29,
+            "homeMult": 3.4477,
+            "maxMult": 3.4477,
+            "totalVol": 537355.79,
+            "highSide": "home",
+            "highMult": 3.4477,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        }
+      },
+      "result": {
+        "status": "Live",
+        "detailedState": "Warmup",
+        "awayScore": 0,
+        "homeScore": 0,
         "winner": null,
         "grades": {}
       }
     }
   ],
-  "updatedAt": "2026-08-08T21:33:27Z"
+  "updatedAt": "2026-08-08T22:03:34Z"
 }
