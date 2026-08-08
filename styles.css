@@ -210,6 +210,13 @@ main {
   gap: 0.15rem;
 }
 
+.edge-filter-toggle[hidden],
+.hist-date-wrap[hidden],
+.equity-wrap[hidden],
+.hist-summary[hidden] {
+  display: none !important;
+}
+
 .edge-filter-btn {
   appearance: none;
   border: none;
