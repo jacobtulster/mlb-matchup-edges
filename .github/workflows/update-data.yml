@@ -2,8 +2,9 @@ name: Update matchup data
 
 on:
   schedule:
-    # Every 6 hours during the day (UTC) — covers afternoon/evening ET slates
-    - cron: "0 */6 * * *"
+    # Every 15 minutes during MLB-ish hours (UTC ~11:00–06:45 covers ET day/evening)
+    - cron: "*/15 11-23 * * *"
+    - cron: "*/15 0-6 * * *"
   workflow_dispatch:
 
 permissions:
@@ -24,11 +25,14 @@ jobs:
       - name: Fetch matchups
         run: python scripts/fetch_matchups.py
 
+      - name: Snapshot pre-game locks and grade Finals
+        run: python scripts/snapshot_and_grade.py
+
       - name: Commit data if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json
+          git add data/latest.json data/history
           if git diff --staged --quiet; then
             echo "No data changes"
           else

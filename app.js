@@ -2,16 +2,25 @@
   const tbody = document.querySelector("#matchups tbody");
   const meta = document.querySelector("#meta");
   const refreshEl = document.querySelector("#refresh");
+  const histSummaryEl = document.querySelector("#hist-summary");
   const empty = document.querySelector("#empty");
   const headers = [...document.querySelectorAll("#matchups thead th")];
   const sortKeyEl = document.querySelector("#sort-key");
   const sortDirBtn = document.querySelector("#sort-dir");
+  const modeBtns = [...document.querySelectorAll(".mode-btn")];
+  const histDateWrap = document.querySelector("#hist-date-wrap");
+  const histDateEl = document.querySelector("#hist-date");
 
   let rows = [];
   let sortKey = "valueAbs";
   let sortDir = "desc";
   let countdownTimer = null;
   let payload = null;
+  let livePayload = null;
+  let histIndex = null;
+  let histDay = null;
+  let viewMode = "live"; // live | historical
+  let histDate = null;
   let activeWindow = localStorage.getItem("mlbEdgeWindowV2") || "l7";
   const windowBtns = [...document.querySelectorAll(".window-btn")];
   // Columns activated via click/dropdown — avoids the first click on the
@@ -119,13 +128,49 @@
     const time = formatStartEt(m.gameDate);
     const count = formatCountdown(m);
     const past = isGamePast(m);
+    const res = m._result;
+    let scoreHtml = "";
+    if (res && (res.awayScore != null || res.homeScore != null)) {
+      scoreHtml = `<span class="final-score">${m.away} ${res.awayScore ?? "—"}–${res.homeScore ?? "—"} ${m.home}${
+        res.winner ? ` · ${res.winner} win` : ""
+      }</span>`;
+    }
     return `
       <td class="start ${past ? "past" : "upcoming"}" data-label="Start" data-game-pk="${m.gamePk || ""}">
         <span class="start-time">${time}</span>
         <span class="start-sep">|</span>
         <span class="countdown">${count}</span>
+        ${scoreHtml}
       </td>
     `;
+  }
+
+  function gradeBadge(grade, { showPnl = false } = {}) {
+    if (!grade || viewMode !== "historical") return "";
+    const outcome = grade.outcome || "push";
+    const label = outcome === "win" ? "W" : outcome === "loss" ? "L" : "—";
+    let pnl = "";
+    if (showPnl && grade.profitDollars != null && Number.isFinite(Number(grade.profitDollars))) {
+      const p = Number(grade.profitDollars);
+      pnl = ` <span class="grade-pnl ${p >= 0 ? "plus" : "minus"}">${p >= 0 ? "+" : ""}$${p.toFixed(0)}</span>`;
+    }
+    return `<span class="grade-badge grade-${outcome}" title="${grade.pick || "—"} @ ${
+      grade.marketMl != null ? grade.marketMl : "n/a"
+    }">${label}${pnl}</span>`;
+  }
+
+  function gradesFor(m) {
+    const res = m._result;
+    if (!res) return null;
+    const byWin = res.gradesByWindow || {};
+    return byWin[activeWindow] || res.grades || null;
+  }
+
+  function formatMoneySigned(n) {
+    if (n == null || !Number.isFinite(Number(n))) return "—";
+    const v = Number(n);
+    const sign = v > 0 ? "+" : v < 0 ? "−" : "";
+    return `${sign}$${Math.abs(Math.round(v)).toLocaleString("en-US")}`;
   }
 
   function compare(a, b) {
@@ -317,10 +362,13 @@
     const homePrice = model ? formatAmerican(model.home) : "—";
     const awayPrice = model ? formatAmerican(model.away) : "—";
     const value = valueVsMarket(m);
+    const g = gradesFor(m);
+    const modelBadge = gradeBadge(g && g.model);
+    const valueBadge = gradeBadge(g && g.value, { showPnl: true });
     const valueHtml =
       value && Math.abs(value.edge) >= 0.005
         ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
-             Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%
+             Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%${valueBadge}
            </div>`
         : `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     return `
@@ -330,6 +378,7 @@
           <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         ${valueHtml}
+        ${modelBadge ? `<div class="grade-row">Model ${modelBadge}</div>` : ""}
       </td>
     `;
   }
@@ -413,13 +462,14 @@
       awayHigh && tone !== "muted" ? `money-hl money-hl-${tone}` : "";
     const highTeam = k.highSide === "home" ? m.home : m.away;
     const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)} · ${formatMult(k.highMult)}`;
+    const moneyBadge = gradeBadge(gradesFor(m) && gradesFor(m).money);
     return `
       <td class="odds money-cell" data-label="Money" title="${title}">
         <div class="odds-stack money-stack">
           <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${formatUsd(k.awayVol)}</span></div>
           <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${formatUsd(k.homeVol)}</span></div>
         </div>
-        <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}</div>
+        <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}${moneyBadge}</div>
       </td>
     `;
   }
@@ -889,6 +939,7 @@
   }
 
   async function refreshMoneyLive() {
+    if (viewMode !== "live") return;
     if (!payload?.date) return;
     moneyLiveStatus = "pending";
     refreshEl.textContent = formatNextRefresh(payload.updatedAt);
@@ -922,6 +973,42 @@
     return payload.windows.season || { matchups: [] };
   }
 
+  function renderHistSummary() {
+    if (!histSummaryEl) return;
+    if (viewMode !== "historical" || !histDay) {
+      histSummaryEl.hidden = true;
+      histSummaryEl.textContent = "";
+      return;
+    }
+    const winSum = (histDay.summary || {})[activeWindow] || {};
+    const edge = winSum.edge || {};
+    const model = winSum.model || {};
+    const money = winSum.money || {};
+    const at = (histIndex && histIndex.allTimeEdge && histIndex.allTimeEdge[activeWindow]) || {};
+    const decided = (edge.wins || 0) + (edge.losses || 0);
+    const hit =
+      decided > 0
+        ? `${edge.wins}-${edge.losses} (${((edge.hitRate || 0) * 100).toFixed(0)}%)`
+        : "—";
+    const dayPnL = formatMoneySigned(edge.profitDollars);
+    const dayRoi =
+      edge.roi != null ? `${(edge.roi * 100).toFixed(1)}% ROI` : "—";
+    const atDecided = (at.wins || 0) + (at.losses || 0);
+    const atHit =
+      atDecided > 0 ? `${at.wins}-${at.losses} (${((at.hitRate || 0) * 100).toFixed(0)}%)` : "—";
+    const atPnL = formatMoneySigned(at.profitDollars);
+    histSummaryEl.hidden = false;
+    histSummaryEl.innerHTML = `
+      <strong>Edge (Val)</strong> ${hit} · ${dayPnL} · ${dayRoi}
+      <span class="hist-sep">·</span>
+      Model ${(model.wins || 0)}-${(model.losses || 0)}
+      <span class="hist-sep">·</span>
+      Money ${(money.wins || 0)}-${(money.losses || 0)}
+      <span class="hist-sep">·</span>
+      <strong>All-time edge</strong> ${atHit} · ${atPnL}
+    `;
+  }
+
   function applyWindow(id, { persist = true } = {}) {
     if (!payload) return;
     if (!payload.windows?.[id]) {
@@ -949,16 +1036,145 @@
     const n = rows.length;
     const range = win.dateRange ? ` · FG ${win.dateRange}` : "";
     const moneyBit =
-      moneyLiveStatus === "live" && moneyLiveAt
+      viewMode === "live" && moneyLiveStatus === "live" && moneyLiveAt
         ? ` · Money live ${formatUpdated(moneyLiveAt)}`
-        : "";
-    meta.textContent = `Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt)}${moneyBit}`;
+        : viewMode === "historical"
+          ? " · Pre-game freeze"
+          : "";
+    const modeBit = viewMode === "historical" ? "Historical" : "Live";
+    meta.textContent = `${modeBit} · Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
+    renderHistSummary();
     render();
+  }
+
+  function historyToPayload(day) {
+    const windows = {};
+    for (const wid of ["season", "l7", "blend"]) {
+      const matchups = [];
+      for (const g of day.games || []) {
+        const m = (g.windows || {})[wid];
+        if (!m) continue;
+        matchups.push({
+          ...m,
+          _result: g.result || null,
+          _frozenAt: g.frozenAt || null,
+        });
+      }
+      windows[wid] = {
+        id: wid,
+        label: wid === "l7" ? "Last 7 days" : wid === "blend" ? "SZN + L7" : "Season",
+        matchups,
+        dateRange: null,
+      };
+    }
+    return {
+      date: day.date,
+      updatedAt: day.updatedAt || null,
+      windows,
+      matchups: (windows.l7 || windows.season || { matchups: [] }).matchups,
+    };
+  }
+
+  function fillHistDates() {
+    if (!histDateEl) return;
+    const dates = (histIndex && histIndex.dates) || [];
+    histDateEl.replaceChildren();
+    if (!dates.length) {
+      const opt = document.createElement("option");
+      opt.value = "";
+      opt.textContent = "No history yet";
+      histDateEl.appendChild(opt);
+      return;
+    }
+    for (const d of [...dates].reverse()) {
+      const opt = document.createElement("option");
+      opt.value = d;
+      opt.textContent = d;
+      histDateEl.appendChild(opt);
+    }
+    if (!histDate || !dates.includes(histDate)) {
+      histDate = dates[dates.length - 1];
+    }
+    histDateEl.value = histDate;
+  }
+
+  async function loadHistIndex() {
+    const r = await fetch(`data/history/index.json?t=${Date.now()}`);
+    if (!r.ok) throw new Error(`history index HTTP ${r.status}`);
+    histIndex = await r.json();
+    fillHistDates();
+  }
+
+  async function loadHistDay(dateStr) {
+    const r = await fetch(`data/history/${dateStr}.json?t=${Date.now()}`);
+    if (!r.ok) throw new Error(`history ${dateStr} HTTP ${r.status}`);
+    histDay = await r.json();
+    histDate = dateStr;
+    payload = historyToPayload(histDay);
+    applyWindow(activeWindow, { persist: false });
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ market ML ($100 dogs / risk |ML| favorites).`;
+  }
+
+  async function setViewMode(mode) {
+    viewMode = mode;
+    modeBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.mode === mode);
+    });
+    if (histDateWrap) histDateWrap.hidden = mode !== "historical";
+
+    if (mode === "live") {
+      histDay = null;
+      if (histSummaryEl) {
+        histSummaryEl.hidden = true;
+        histSummaryEl.textContent = "";
+      }
+      payload = livePayload;
+      if (!payload) {
+        meta.textContent = "Loading live slate…";
+        return;
+      }
+      refreshEl.textContent = formatNextRefresh(payload.updatedAt);
+      applyWindow(activeWindow, { persist: false });
+      await refreshMoneyLive();
+      return;
+    }
+
+    try {
+      if (!histIndex) await loadHistIndex();
+      else fillHistDates();
+      if (!histDate) {
+        meta.textContent = "No historical freezes yet. They appear once games lock ~15 min before start.";
+        refreshEl.textContent = "";
+        rows = [];
+        render();
+        return;
+      }
+      await loadHistDay(histDate);
+    } catch (err) {
+      meta.textContent = `Historical load failed: ${err.message}`;
+      refreshEl.textContent = "History builds after the first pre-game freezes land.";
+      rows = [];
+      render();
+    }
   }
 
   windowBtns.forEach((btn) => {
     btn.addEventListener("click", () => applyWindow(btn.dataset.window));
   });
+
+  modeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => setViewMode(btn.dataset.mode));
+  });
+
+  if (histDateEl) {
+    histDateEl.addEventListener("change", () => {
+      if (viewMode === "historical" && histDateEl.value) {
+        loadHistDay(histDateEl.value).catch((err) => {
+          meta.textContent = `Historical load failed: ${err.message}`;
+        });
+      }
+    });
+  }
 
   fetch(`data/latest.json?t=${Date.now()}`)
     .then((r) => {
@@ -966,6 +1182,7 @@
       return r.json();
     })
     .then(async (data) => {
+      livePayload = data;
       payload = data;
       if (!data.windows?.l7 && activeWindow === "l7") activeWindow = "season";
       refreshEl.textContent = formatNextRefresh(data.updatedAt);
@@ -973,6 +1190,8 @@
       if (countdownTimer) clearInterval(countdownTimer);
       countdownTimer = setInterval(refreshCountdowns, 1000);
       await refreshMoneyLive();
+      // Prefetch history index so Historical is ready
+      loadHistIndex().catch(() => {});
     })
     .catch((err) => {
       meta.textContent = `Failed to load data: ${err.message}`;

@@ -90,6 +90,126 @@ main {
   gap: 0.15rem;
 }
 
+.mode-toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  gap: 0.15rem;
+}
+
+.mode-btn,
+.window-btn {
+  appearance: none;
+  border: none;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 650;
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mode-btn:hover,
+.window-btn:hover {
+  color: var(--ink);
+}
+
+.mode-btn.active,
+.window-btn.active {
+  background: rgba(94, 224, 181, 0.16);
+  color: var(--home);
+}
+
+.hist-date-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hist-date-wrap label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hist-date-wrap select {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.hist-summary {
+  margin: 0.45rem 0 0;
+  font-size: 0.86rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.hist-summary .hist-sep {
+  color: var(--muted);
+  margin: 0 0.15rem;
+}
+
+.grade-badge {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0.05rem 0.28rem;
+  border-radius: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+}
+
+.grade-win {
+  background: rgba(94, 224, 181, 0.18);
+  color: var(--home);
+}
+
+.grade-loss {
+  background: rgba(239, 68, 68, 0.18);
+  color: #ef4444;
+}
+
+.grade-push {
+  background: rgba(154, 166, 181, 0.16);
+  color: var(--muted);
+}
+
+.grade-pnl.plus {
+  color: var(--home);
+}
+
+.grade-pnl.minus {
+  color: #ef4444;
+}
+
+.grade-row {
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.final-score {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .window-btn {
   appearance: none;
   border: none;

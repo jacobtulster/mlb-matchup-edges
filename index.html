@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=fit-4" />
+    <link rel="stylesheet" href="styles.css?v=hist-1" />
   </head>
   <body>
     <main>
@@ -25,7 +25,16 @@
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
+        <p id="hist-summary" class="hist-summary" hidden></p>
         <div class="controls-row">
+          <div class="mode-toggle" role="group" aria-label="Live or historical">
+            <button type="button" id="mode-live" class="mode-btn active" data-mode="live">Live</button>
+            <button type="button" id="mode-hist" class="mode-btn" data-mode="historical">Historical</button>
+          </div>
+          <div class="hist-date-wrap" id="hist-date-wrap" hidden>
+            <label for="hist-date">Date</label>
+            <select id="hist-date" aria-label="Historical slate date"></select>
+          </div>
           <div class="window-toggle" role="group" aria-label="Stats window">
             <button type="button" id="window-season" class="window-btn" data-window="season">Season</button>
             <button type="button" id="window-l7" class="window-btn active" data-window="l7">Last 7 days</button>
@@ -87,12 +96,15 @@
           so both sides sum to 100%. Value is model win% minus de-vigged market win% on the
           best side. <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
           vs the other side (no highlight under 2×, yellow for 2.0–4.99×, red for 5.0×+).
-          Money volumes re-fetch live from Kalshi on every page load.
+          Money volumes re-fetch live from Kalshi on every page load in Live mode.
+          <strong>Historical</strong> locks each game ~15 minutes before first pitch (edges +
+          market + money), then grades Finals. Edge-system P&amp;L: bet the Val side at freeze
+          market ML — $100 on plus-money, risk $|ML| to win $100 on favorites.
           Toggle <strong>Season</strong>, <strong>Last 7 days</strong>,
           or <strong>SZN + L7</strong> (equal-weight average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>
-    <script src="app.js?v=away-order-5"></script>
+    <script src="app.js?v=hist-1"></script>
   </body>
 </html>
