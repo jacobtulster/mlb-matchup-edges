@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=hist-1" />
+    <link rel="stylesheet" href="styles.css?v=equity-1" />
   </head>
   <body>
     <main>
@@ -26,6 +26,13 @@
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
         <p id="hist-summary" class="hist-summary" hidden></p>
+        <div id="equity-wrap" class="equity-wrap" hidden>
+          <div class="equity-head">
+            <span class="equity-title">Edge equity</span>
+            <span id="equity-meta" class="equity-meta"></span>
+          </div>
+          <svg id="equity-chart" class="equity-chart" viewBox="0 0 800 220" preserveAspectRatio="none" aria-label="Cumulative edge profit chart"></svg>
+        </div>
         <div class="controls-row">
           <div class="mode-toggle" role="group" aria-label="Live or historical">
             <button type="button" id="mode-live" class="mode-btn active" data-mode="live">Live</button>
@@ -34,6 +41,11 @@
           <div class="hist-date-wrap" id="hist-date-wrap" hidden>
             <label for="hist-date">Date</label>
             <select id="hist-date" aria-label="Historical slate date"></select>
+          </div>
+          <div class="edge-filter-toggle" id="edge-filter-wrap" role="group" aria-label="Edge bet filter" hidden>
+            <button type="button" class="edge-filter-btn active" data-top="0">All edges</button>
+            <button type="button" class="edge-filter-btn" data-top="3">Top 3/day</button>
+            <button type="button" class="edge-filter-btn" data-top="5">Top 5/day</button>
           </div>
           <div class="window-toggle" role="group" aria-label="Stats window">
             <button type="button" id="window-season" class="window-btn" data-window="season">Season</button>
@@ -105,6 +117,6 @@
         </p>
       </footer>
     </main>
-    <script src="app.js?v=hist-1"></script>
+    <script src="app.js?v=equity-1"></script>
   </body>
 </html>

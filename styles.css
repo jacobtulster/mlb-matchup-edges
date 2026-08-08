@@ -162,6 +162,77 @@ main {
   margin: 0 0.15rem;
 }
 
+.equity-wrap {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.85rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(180deg, rgba(21, 27, 36, 0.95), rgba(12, 16, 22, 0.98));
+  overflow: hidden;
+}
+
+.equity-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.equity-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.equity-meta {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.equity-chart {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 22vw, 220px);
+}
+
+.edge-filter-toggle {
+  display: inline-flex;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  gap: 0.15rem;
+}
+
+.edge-filter-btn {
+  appearance: none;
+  border: none;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.edge-filter-btn:hover {
+  color: var(--ink);
+}
+
+.edge-filter-btn.active {
+  background: rgba(126, 184, 255, 0.16);
+  color: var(--accent);
+}
+
 .grade-badge {
   display: inline-block;
   margin-left: 0.3rem;

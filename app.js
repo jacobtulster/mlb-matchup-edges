@@ -3,6 +3,11 @@
   const meta = document.querySelector("#meta");
   const refreshEl = document.querySelector("#refresh");
   const histSummaryEl = document.querySelector("#hist-summary");
+  const equityWrap = document.querySelector("#equity-wrap");
+  const equityChart = document.querySelector("#equity-chart");
+  const equityMeta = document.querySelector("#equity-meta");
+  const edgeFilterWrap = document.querySelector("#edge-filter-wrap");
+  const edgeFilterBtns = [...document.querySelectorAll(".edge-filter-btn")];
   const empty = document.querySelector("#empty");
   const headers = [...document.querySelectorAll("#matchups thead th")];
   const sortKeyEl = document.querySelector("#sort-key");
@@ -19,6 +24,8 @@
   let livePayload = null;
   let histIndex = null;
   let histDay = null;
+  let histCache = new Map(); // date -> day json
+  let edgeTopN = 0; // 0 = all, 3, 5
   let viewMode = "live"; // live | historical
   let histDate = null;
   let activeWindow = localStorage.getItem("mlbEdgeWindowV2") || "l7";
@@ -978,34 +985,287 @@
     if (viewMode !== "historical" || !histDay) {
       histSummaryEl.hidden = true;
       histSummaryEl.textContent = "";
+      if (equityWrap) equityWrap.hidden = true;
       return;
     }
-    const winSum = (histDay.summary || {})[activeWindow] || {};
-    const edge = winSum.edge || {};
-    const model = winSum.model || {};
-    const money = winSum.money || {};
-    const at = (histIndex && histIndex.allTimeEdge && histIndex.allTimeEdge[activeWindow]) || {};
-    const decided = (edge.wins || 0) + (edge.losses || 0);
+
+    const dayStats = summarizeFilteredDay(histDay, activeWindow, edgeTopN);
+    const allStats = summarizeAllTime(activeWindow, edgeTopN);
+    const series = buildEquitySeries(activeWindow, edgeTopN);
+    renderEquityChart(series, allStats);
+
+    const decided = dayStats.wins + dayStats.losses;
     const hit =
       decided > 0
-        ? `${edge.wins}-${edge.losses} (${((edge.hitRate || 0) * 100).toFixed(0)}%)`
+        ? `${dayStats.wins}-${dayStats.losses} (${((dayStats.hitRate || 0) * 100).toFixed(0)}%)`
         : "—";
-    const dayPnL = formatMoneySigned(edge.profitDollars);
+    const dayPnL = formatMoneySigned(dayStats.profitDollars);
     const dayRoi =
-      edge.roi != null ? `${(edge.roi * 100).toFixed(1)}% ROI` : "—";
-    const atDecided = (at.wins || 0) + (at.losses || 0);
+      dayStats.roi != null ? `${(dayStats.roi * 100).toFixed(1)}% ROI` : "—";
+    const atDecided = allStats.wins + allStats.losses;
     const atHit =
-      atDecided > 0 ? `${at.wins}-${at.losses} (${((at.hitRate || 0) * 100).toFixed(0)}%)` : "—";
-    const atPnL = formatMoneySigned(at.profitDollars);
+      atDecided > 0
+        ? `${allStats.wins}-${allStats.losses} (${((allStats.hitRate || 0) * 100).toFixed(0)}%)`
+        : "—";
+    const atPnL = formatMoneySigned(allStats.profitDollars);
+    const filterLabel = edgeTopN > 0 ? `Top ${edgeTopN}/day` : "All edges";
     histSummaryEl.hidden = false;
     histSummaryEl.innerHTML = `
-      <strong>Edge (Val)</strong> ${hit} · ${dayPnL} · ${dayRoi}
+      <strong>Edge (${filterLabel})</strong> ${hit} · ${dayPnL} · ${dayRoi}
       <span class="hist-sep">·</span>
-      Model ${(model.wins || 0)}-${(model.losses || 0)}
-      <span class="hist-sep">·</span>
-      Money ${(money.wins || 0)}-${(money.losses || 0)}
-      <span class="hist-sep">·</span>
-      <strong>All-time edge</strong> ${atHit} · ${atPnL}
+      <strong>All-time</strong> ${atHit} · ${atPnL}
+      ${
+        allStats.roi != null
+          ? `<span class="hist-sep">·</span> ${(allStats.roi * 100).toFixed(1)}% ROI`
+          : ""
+      }
+    `;
+  }
+
+  function valueGradeFromGame(game, wid) {
+    const res = game.result || {};
+    const byWin = res.gradesByWindow || {};
+    const g = byWin[wid] || res.grades || {};
+    return g.value || null;
+  }
+
+  function edgePctOf(game, wid) {
+    const v = valueGradeFromGame(game, wid);
+    if (v && v.edgePct != null && Number.isFinite(Number(v.edgePct))) {
+      return Number(v.edgePct);
+    }
+    // Fallback: recompute from frozen matchup if ungraded yet
+    const m = (game.windows || {})[wid];
+    if (!m) return Number.NEGATIVE_INFINITY;
+    const value = valueVsMarket(m);
+    return value ? Number(value.edge) : Number.NEGATIVE_INFINITY;
+  }
+
+  function topEdgeGamesForDay(day, wid, topN) {
+    const games = [...(day.games || [])];
+    if (!topN || topN <= 0) return games;
+    return [...games]
+      .sort((a, b) => edgePctOf(b, wid) - edgePctOf(a, wid))
+      .slice(0, topN);
+  }
+
+  function summarizeFromBets(bets) {
+    const out = {
+      wins: 0,
+      losses: 0,
+      pushes: 0,
+      stakedDollars: 0,
+      profitDollars: 0,
+      hitRate: null,
+      roi: null,
+    };
+    for (const b of bets) {
+      const outcome = b.outcome || "push";
+      if (outcome === "win") out.wins += 1;
+      else if (outcome === "loss") out.losses += 1;
+      else {
+        out.pushes += 1;
+        continue;
+      }
+      if (b.stakeDollars != null && b.profitDollars != null) {
+        out.stakedDollars += Number(b.stakeDollars);
+        out.profitDollars += Number(b.profitDollars);
+      }
+    }
+    out.stakedDollars = Math.round(out.stakedDollars * 100) / 100;
+    out.profitDollars = Math.round(out.profitDollars * 100) / 100;
+    const decided = out.wins + out.losses;
+    out.hitRate = decided ? out.wins / decided : null;
+    out.roi = out.stakedDollars ? out.profitDollars / out.stakedDollars : null;
+    return out;
+  }
+
+  function summarizeFilteredDay(day, wid, topN) {
+    const picked = topEdgeGamesForDay(day, wid, topN);
+    const bets = picked
+      .map((g) => valueGradeFromGame(g, wid))
+      .filter((v) => v && v.outcome && v.outcome !== "push" && v.profitDollars != null);
+    // Also count W/L without requiring profit (missing ML)
+    const allOutcomes = picked
+      .map((g) => valueGradeFromGame(g, wid))
+      .filter(Boolean);
+    if (!bets.length && allOutcomes.length) {
+      return summarizeFromBets(allOutcomes);
+    }
+    return summarizeFromBets(bets.length ? bets : allOutcomes);
+  }
+
+  function summarizeAllTime(wid, topN) {
+    const bets = [];
+    const dates = (histIndex && histIndex.dates) || [...histCache.keys()].sort();
+    for (const d of dates) {
+      const day = histCache.get(d);
+      if (!day) continue;
+      for (const g of topEdgeGamesForDay(day, wid, topN)) {
+        const v = valueGradeFromGame(g, wid);
+        if (v) bets.push(v);
+      }
+    }
+    return summarizeFromBets(bets);
+  }
+
+  function buildEquitySeries(wid, topN) {
+    const points = [];
+    let cum = 0;
+    const dates = (histIndex && histIndex.dates) || [...histCache.keys()].sort();
+    for (const d of dates) {
+      const day = histCache.get(d);
+      if (!day) continue;
+      const games = topEdgeGamesForDay(day, wid, topN).sort(
+        (a, b) => (parseIsoMs(a.gameDate) || 0) - (parseIsoMs(b.gameDate) || 0)
+      );
+      for (const g of games) {
+        const v = valueGradeFromGame(g, wid);
+        if (!v || v.profitDollars == null || !Number.isFinite(Number(v.profitDollars))) continue;
+        if (v.outcome !== "win" && v.outcome !== "loss") continue;
+        cum += Number(v.profitDollars);
+        points.push({
+          date: d,
+          gamePk: g.gamePk,
+          label: `${g.away}@${g.home}`,
+          profit: Number(v.profitDollars),
+          cum: Math.round(cum * 100) / 100,
+          t: parseIsoMs(g.gameDate) || 0,
+        });
+      }
+    }
+    return points;
+  }
+
+  function parseIsoMs(iso) {
+    const t = Date.parse(iso);
+    return Number.isFinite(t) ? t : null;
+  }
+
+  function renderEquityChart(series, allStats) {
+    if (!equityWrap || !equityChart) return;
+    if (viewMode !== "historical") {
+      equityWrap.hidden = true;
+      return;
+    }
+    equityWrap.hidden = false;
+    const filterLabel = edgeTopN > 0 ? `Top ${edgeTopN}/day` : "All edges";
+    if (equityMeta) {
+      equityMeta.textContent = series.length
+        ? `${filterLabel} · ${formatMoneySigned(allStats.profitDollars)} cumulative · ${series.length} bets`
+        : `${filterLabel} · No graded edge bets yet`;
+    }
+
+    const W = 800;
+    const H = 220;
+    const pad = { t: 16, r: 16, b: 28, l: 48 };
+    const innerW = W - pad.l - pad.r;
+    const innerH = H - pad.t - pad.b;
+
+    if (!series.length) {
+      equityChart.innerHTML = `
+        <rect x="0" y="0" width="${W}" height="${H}" fill="transparent"/>
+        <text x="${W / 2}" y="${H / 2}" text-anchor="middle" fill="#9aa6b5" font-size="14">
+          Equity curve fills in as Finals grade
+        </text>`;
+      return;
+    }
+
+    const vals = series.map((p) => p.cum);
+    let ymin = Math.min(0, ...vals);
+    let ymax = Math.max(0, ...vals);
+    if (ymin === ymax) {
+      ymin -= 50;
+      ymax += 50;
+    }
+    const yPad = (ymax - ymin) * 0.08;
+    ymin -= yPad;
+    ymax += yPad;
+
+    const xAt = (i) => pad.l + (series.length === 1 ? innerW / 2 : (i / (series.length - 1)) * innerW);
+    const yAt = (v) => pad.t + ((ymax - v) / (ymax - ymin)) * innerH;
+    const y0 = yAt(0);
+
+    // Build segments that stay on one side of zero for green/red fills
+    function areaPaths() {
+      const pos = [];
+      const neg = [];
+      for (let i = 0; i < series.length - 1; i++) {
+        const a = series[i].cum;
+        const b = series[i + 1].cum;
+        const x1 = xAt(i);
+        const x2 = xAt(i + 1);
+        const y1 = yAt(a);
+        const y2 = yAt(b);
+        if (a >= 0 && b >= 0) {
+          pos.push(`M ${x1} ${y0} L ${x1} ${y1} L ${x2} ${y2} L ${x2} ${y0} Z`);
+        } else if (a <= 0 && b <= 0) {
+          neg.push(`M ${x1} ${y0} L ${x1} ${y1} L ${x2} ${y2} L ${x2} ${y0} Z`);
+        } else {
+          // Crosses zero — split at intercept
+          const t = Math.abs(a) / (Math.abs(a) + Math.abs(b) || 1);
+          const xc = x1 + (x2 - x1) * t;
+          if (a > 0) {
+            pos.push(`M ${x1} ${y0} L ${x1} ${y1} L ${xc} ${y0} Z`);
+            neg.push(`M ${xc} ${y0} L ${x2} ${y2} L ${x2} ${y0} Z`);
+          } else {
+            neg.push(`M ${x1} ${y0} L ${x1} ${y1} L ${xc} ${y0} Z`);
+            pos.push(`M ${xc} ${y0} L ${x2} ${y2} L ${x2} ${y0} Z`);
+          }
+        }
+      }
+      if (series.length === 1) {
+        const x = xAt(0);
+        const y = yAt(series[0].cum);
+        const bucket = series[0].cum >= 0 ? pos : neg;
+        bucket.push(`M ${x - 6} ${y0} L ${x - 6} ${y} L ${x + 6} ${y} L ${x + 6} ${y0} Z`);
+      }
+      return { pos, neg };
+    }
+
+    const { pos: posPaths, neg: negPaths } = areaPaths();
+    const linePts = series.map((p, i) => `${xAt(i).toFixed(2)},${yAt(p.cum).toFixed(2)}`).join(" ");
+    const end = series[series.length - 1].cum;
+    const stroke = end >= 0 ? "#22c55e" : "#ef4444";
+
+    // Multi-color line: draw per-segment
+    let lineSegs = "";
+    for (let i = 0; i < series.length - 1; i++) {
+      const a = series[i].cum;
+      const b = series[i + 1].cum;
+      const mid = (a + b) / 2;
+      const col = mid >= 0 ? "#22c55e" : "#ef4444";
+      lineSegs += `<line x1="${xAt(i).toFixed(2)}" y1="${yAt(a).toFixed(2)}" x2="${xAt(i + 1).toFixed(2)}" y2="${yAt(b).toFixed(2)}" stroke="${col}" stroke-width="2.6" stroke-linecap="round"/>`;
+    }
+
+    equityChart.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    equityChart.innerHTML = `
+      <defs>
+        <linearGradient id="eqPosGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(34,197,94,0.45)"/>
+          <stop offset="100%" stop-color="rgba(34,197,94,0.04)"/>
+        </linearGradient>
+        <linearGradient id="eqNegGrad" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="rgba(239,68,68,0.45)"/>
+          <stop offset="100%" stop-color="rgba(239,68,68,0.04)"/>
+        </linearGradient>
+        <filter id="eqGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <line x1="${pad.l}" y1="${y0.toFixed(2)}" x2="${(W - pad.r).toFixed(2)}" y2="${y0.toFixed(2)}"
+        stroke="#3d4b5c" stroke-width="1" stroke-dasharray="4 4"/>
+      ${posPaths.map((d) => `<path d="${d}" fill="url(#eqPosGrad)"/>`).join("")}
+      ${negPaths.map((d) => `<path d="${d}" fill="url(#eqNegGrad)"/>`).join("")}
+      <g filter="url(#eqGlow)">${lineSegs}</g>
+      <circle cx="${xAt(series.length - 1).toFixed(2)}" cy="${yAt(end).toFixed(2)}" r="4.5"
+        fill="${stroke}" stroke="#0e1218" stroke-width="2"/>
+      <text x="${pad.l - 8}" y="${yAt(ymax).toFixed(2)}" text-anchor="end" fill="#9aa6b5" font-size="11">${Math.round(ymax)}</text>
+      <text x="${pad.l - 8}" y="${y0.toFixed(2)}" text-anchor="end" fill="#9aa6b5" font-size="11">0</text>
+      <text x="${pad.l - 8}" y="${yAt(ymin).toFixed(2)}" text-anchor="end" fill="#9aa6b5" font-size="11">${Math.round(ymin)}</text>
+      <text x="${pad.l}" y="${H - 8}" fill="#9aa6b5" font-size="11">${series[0].date}</text>
+      <text x="${W - pad.r}" y="${H - 8}" text-anchor="end" fill="#9aa6b5" font-size="11">${series[series.length - 1].date}</text>
     `;
   }
 
@@ -1022,7 +1282,17 @@
     });
 
     const win = windowData(id);
-    rows = (win.matchups || []).map((m) => {
+    let matchups = win.matchups || [];
+
+    // Historical top-N filter: only show that day's largest Val edges
+    if (viewMode === "historical" && histDay && edgeTopN > 0) {
+      const topPks = new Set(
+        topEdgeGamesForDay(histDay, activeWindow, edgeTopN).map((g) => g.gamePk)
+      );
+      matchups = matchups.filter((m) => topPks.has(m.gamePk));
+    }
+
+    rows = matchups.map((m) => {
       const value = valueVsMarket(m);
       const k = m.kalshi;
       return {
@@ -1042,7 +1312,9 @@
           ? " · Pre-game freeze"
           : "";
     const modeBit = viewMode === "historical" ? "Historical" : "Live";
-    meta.textContent = `${modeBit} · Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
+    const filterBit =
+      viewMode === "historical" && edgeTopN > 0 ? ` · Top ${edgeTopN} edges` : "";
+    meta.textContent = `${modeBit} · Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range}${filterBit} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
     renderHistSummary();
     render();
   }
@@ -1105,14 +1377,29 @@
     fillHistDates();
   }
 
+  async function loadAllHistoryDays() {
+    const dates = (histIndex && histIndex.dates) || [];
+    await Promise.all(
+      dates.map(async (d) => {
+        if (histCache.has(d)) return;
+        const r = await fetch(`data/history/${d}.json?t=${Date.now()}`);
+        if (!r.ok) return;
+        histCache.set(d, await r.json());
+      })
+    );
+  }
+
   async function loadHistDay(dateStr) {
-    const r = await fetch(`data/history/${dateStr}.json?t=${Date.now()}`);
-    if (!r.ok) throw new Error(`history ${dateStr} HTTP ${r.status}`);
-    histDay = await r.json();
+    if (!histCache.has(dateStr)) {
+      const r = await fetch(`data/history/${dateStr}.json?t=${Date.now()}`);
+      if (!r.ok) throw new Error(`history ${dateStr} HTTP ${r.status}`);
+      histCache.set(dateStr, await r.json());
+    }
+    histDay = histCache.get(dateStr);
     histDate = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
-    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ market ML ($100 dogs / risk |ML| favorites).`;
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ market ML ($100 dogs / risk |ML| favorites). Top 3/5 filters keep only the largest Val edges that day.`;
   }
 
   async function setViewMode(mode) {
@@ -1121,6 +1408,7 @@
       btn.classList.toggle("active", btn.dataset.mode === mode);
     });
     if (histDateWrap) histDateWrap.hidden = mode !== "historical";
+    if (edgeFilterWrap) edgeFilterWrap.hidden = mode !== "historical";
 
     if (mode === "live") {
       histDay = null;
@@ -1128,6 +1416,7 @@
         histSummaryEl.hidden = true;
         histSummaryEl.textContent = "";
       }
+      if (equityWrap) equityWrap.hidden = true;
       payload = livePayload;
       if (!payload) {
         meta.textContent = "Loading live slate…";
@@ -1142,10 +1431,12 @@
     try {
       if (!histIndex) await loadHistIndex();
       else fillHistDates();
+      await loadAllHistoryDays();
       if (!histDate) {
         meta.textContent = "No historical freezes yet. They appear once games lock ~15 min before start.";
         refreshEl.textContent = "";
         rows = [];
+        if (equityWrap) equityWrap.hidden = true;
         render();
         return;
       }
@@ -1154,6 +1445,7 @@
       meta.textContent = `Historical load failed: ${err.message}`;
       refreshEl.textContent = "History builds after the first pre-game freezes land.";
       rows = [];
+      if (equityWrap) equityWrap.hidden = true;
       render();
     }
   }
@@ -1164,6 +1456,14 @@
 
   modeBtns.forEach((btn) => {
     btn.addEventListener("click", () => setViewMode(btn.dataset.mode));
+  });
+
+  edgeFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      edgeTopN = Number(btn.dataset.top) || 0;
+      edgeFilterBtns.forEach((b) => b.classList.toggle("active", b === btn));
+      if (viewMode === "historical") applyWindow(activeWindow, { persist: false });
+    });
   });
 
   if (histDateEl) {
