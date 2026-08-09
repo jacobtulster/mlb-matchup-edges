@@ -159,36 +159,56 @@
     return "—";
   }
 
+  function formatGradePnl(n) {
+    if (n == null || !Number.isFinite(Number(n))) return "";
+    const p = Number(n);
+    const sign = p > 0 ? "+" : p < 0 ? "−" : "";
+    return `<span class="grade-pnl ${p >= 0 ? "plus" : "minus"}">${sign}$${Math.abs(Math.round(p))}</span>`;
+  }
+
   function gradeBadge(grade, { showPnl = false } = {}) {
     if (!grade || viewMode !== "historical") return "";
     const outcome = grade.outcome || "push";
     const legs = Array.isArray(grade.legs) ? grade.legs : [];
-    // Val: show each leg (ML then run line) so both count visibly — e.g. W W, L W, W L.
-    const label = legs.length
-      ? legs.map((leg) => outcomeLetter(leg.outcome)).join(" ")
-      : outcomeLetter(outcome === "mixed" ? "push" : outcome);
-    let pnl = "";
-    if (showPnl && grade.profitDollars != null && Number.isFinite(Number(grade.profitDollars))) {
-      const p = Number(grade.profitDollars);
-      pnl = ` <span class="grade-pnl ${p >= 0 ? "plus" : "minus"}">${p >= 0 ? "+" : ""}$${p.toFixed(0)}</span>`;
+    let body = "";
+    if (legs.length) {
+      // Val: each leg letter + its $ (ML then run line) — e.g. W +$134 L −$100
+      body = legs
+        .map((leg) => {
+          const letter = outcomeLetter(leg.outcome);
+          if (!showPnl) return letter;
+          const pnl = formatGradePnl(leg.profitDollars);
+          return pnl ? `${letter} ${pnl}` : letter;
+        })
+        .join(" ");
+    } else {
+      body = outcomeLetter(outcome === "mixed" ? "push" : outcome);
+      if (showPnl) {
+        const pnl = formatGradePnl(grade.profitDollars);
+        if (pnl) body += ` ${pnl}`;
+      }
     }
     const legHint = legs
       .map((leg) => {
         const letter = outcomeLetter(leg.outcome);
+        const pnl = Number(leg.profitDollars);
+        const pnlStr = Number.isFinite(pnl)
+          ? ` ${pnl >= 0 ? "+" : "−"}$${Math.abs(Math.round(pnl))}`
+          : "";
         if (leg.type === "spread") {
           const line = Number(leg.line);
           const lineStr = Number.isFinite(line)
             ? `${line > 0 ? "+" : ""}${line}`
             : "?";
-          return `RL ${lineStr} @ ${leg.odds} → ${letter}`;
+          return `RL ${lineStr} @ ${leg.odds} → ${letter}${pnlStr}`;
         }
-        return `ML @ ${leg.odds} → ${letter}`;
+        return `ML @ ${leg.odds} → ${letter}${pnlStr}`;
       })
       .join("; ");
     const title =
       legHint ||
       `${grade.pick || "—"} @ ${grade.marketMl != null ? grade.marketMl : "n/a"}`;
-    return `<span class="grade-badge grade-${outcome}" title="${escapeAttr(title)}">${label}${pnl}</span>`;
+    return `<span class="grade-badge grade-${outcome}" title="${escapeAttr(title)}">${body}</span>`;
   }
 
   function escapeAttr(s) {
