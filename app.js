@@ -152,27 +152,37 @@
     `;
   }
 
+  function outcomeLetter(outcome) {
+    if (outcome === "win") return "W";
+    if (outcome === "loss") return "L";
+    if (outcome === "push") return "P";
+    return "—";
+  }
+
   function gradeBadge(grade, { showPnl = false } = {}) {
     if (!grade || viewMode !== "historical") return "";
     const outcome = grade.outcome || "push";
-    const label =
-      outcome === "win" ? "W" : outcome === "loss" ? "L" : outcome === "mixed" ? "M" : "—";
+    const legs = Array.isArray(grade.legs) ? grade.legs : [];
+    // Val: show each leg (ML then run line) so both count visibly — e.g. W W, L W, W L.
+    const label = legs.length
+      ? legs.map((leg) => outcomeLetter(leg.outcome)).join(" ")
+      : outcomeLetter(outcome === "mixed" ? "push" : outcome);
     let pnl = "";
     if (showPnl && grade.profitDollars != null && Number.isFinite(Number(grade.profitDollars))) {
       const p = Number(grade.profitDollars);
       pnl = ` <span class="grade-pnl ${p >= 0 ? "plus" : "minus"}">${p >= 0 ? "+" : ""}$${p.toFixed(0)}</span>`;
     }
-    const legs = Array.isArray(grade.legs) ? grade.legs : [];
     const legHint = legs
       .map((leg) => {
+        const letter = outcomeLetter(leg.outcome);
         if (leg.type === "spread") {
           const line = Number(leg.line);
           const lineStr = Number.isFinite(line)
             ? `${line > 0 ? "+" : ""}${line}`
             : "?";
-          return `spread ${lineStr} @ ${leg.odds} → ${leg.outcome}`;
+          return `RL ${lineStr} @ ${leg.odds} → ${letter}`;
         }
-        return `ML @ ${leg.odds} → ${leg.outcome}`;
+        return `ML @ ${leg.odds} → ${letter}`;
       })
       .join("; ");
     const title =
@@ -480,7 +490,7 @@
           <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         ${valueHtml}
-        ${modelBadge ? `<div class="grade-row">Model ${modelBadge}</div>` : ""}
+        ${modelBadge ? `<div class="grade-row" title="Did the model favorite win the game?">Fav ${modelBadge}</div>` : ""}
       </td>
     `;
   }
