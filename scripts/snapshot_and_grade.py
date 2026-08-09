@@ -297,19 +297,22 @@ def money_pick(matchup: dict) -> str | None:
 
 def american_stake_and_profit(ml: float | None, won: bool) -> tuple[float | None, float | None]:
     """
-    Flat 1 unit = $100 risk on both favorites and dogs.
-    Plus: win (ml/100)*100. Minus: win 100*(100/|ml|). Loss: -$100.
-    Push handled by caller (stake may still count; profit 0).
+    Stake to win UNIT_STAKE ($100) on every price.
+    Plus (+134): stake 100*100/134 ≈ $74.63; win +$100, loss −stake.
+    Minus (−154): stake 154; win +$100, loss −$154.
     Returns (stakeDollars, profitDollars).
     """
     if ml is None:
         return None, None
-    stake = UNIT_STAKE
+    ml = float(ml)
+    if ml == 0:
+        return None, None
+    if ml > 0:
+        stake = round(UNIT_STAKE * 100.0 / ml, 2)
+    else:
+        stake = round(UNIT_STAKE * abs(ml) / 100.0, 2)
     if won:
-        if ml > 0:
-            profit = (ml / 100.0) * stake
-        else:
-            profit = stake * (100.0 / abs(ml))
+        profit = UNIT_STAKE
     else:
         profit = -stake
     return stake, round(profit, 2)
@@ -801,13 +804,45 @@ def process_date(date_str: str, latest: dict | None, now_ms: float, do_freeze: b
     print(f"Fetching MLB results for {date_str}...", flush=True)
     mlb = load_mlb_results(date_str)
     for entry in day["games"]:
-        # Allow re-grade when we just restored odds onto a Final that lacked Val P&L.
+        # Allow re-grade when we just restored odds onto a Final that lacked Val P&L,
+        # or when stake convention changed (force refresh of stored profitDollars).
         res = entry.get("result") or {}
         if res.get("status") == "Final" and res.get("grades"):
-            # If value grade has no stake but we now have odds, clear grades for regrade.
             val = ((res.get("gradesByWindow") or {}).get("l7") or res.get("grades") or {}).get("value") or {}
             win = (entry.get("windows") or {}).get("l7") or {}
-            if odds_complete(win.get("odds")) and val.get("stakeDollars") is None and val.get("pick"):
+            needs_odds = (
+                odds_complete(win.get("odds"))
+                and val.get("stakeDollars") is None
+                and val.get("pick")
+            )
+            # Detect old flat-risk convention: favorite win with profit < UNIT and stake == UNIT
+            needs_stake_fix = False
+            for leg in val.get("legs") or []:
+                odds = leg.get("odds")
+                stake = leg.get("stakeDollars")
+                profit = leg.get("profitDollars")
+                if (
+                    odds is not None
+                    and float(odds) < 0
+                    and stake is not None
+                    and abs(float(stake) - UNIT_STAKE) < 0.01
+                    and leg.get("outcome") == "win"
+                    and profit is not None
+                    and abs(float(profit) - UNIT_STAKE) > 0.5
+                ):
+                    needs_stake_fix = True
+                    break
+                if (
+                    odds is not None
+                    and float(odds) < 0
+                    and stake is not None
+                    and abs(float(stake) - UNIT_STAKE) < 0.01
+                    and leg.get("outcome") == "loss"
+                ):
+                    # Losses under old scheme always −100; new scheme stakes |ml|
+                    needs_stake_fix = True
+                    break
+            if needs_odds or needs_stake_fix or "--regrade" in sys.argv:
                 res.pop("grades", None)
                 res.pop("gradesByWindow", None)
         grade_game(entry, mlb)
