@@ -499,9 +499,12 @@
     let valueHtml = `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     if (value && Math.abs(value.edge) >= 0.005) {
       valueHtml = `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
-             Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%${valueBadge}
+             Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%
            </div>`;
     }
+    const gradeHtml = valueBadge
+      ? `<div class="value-grade">${valueBadge}</div>`
+      : "";
     return `
       <td class="odds model-cell" data-label="Model">
         <div class="odds-stack">
@@ -509,6 +512,7 @@
           <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         ${valueHtml}
+        ${gradeHtml}
       </td>
     `;
   }
