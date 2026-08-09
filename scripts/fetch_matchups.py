@@ -738,8 +738,8 @@ def _best_spreads_by_line(orders: list | None) -> list[dict]:
 
 def pick_spread_in_band(spreads: list[dict] | None) -> dict | None:
     """
-    Among spreads with odds in [-150, +110], pick closest to -120;
-    tie-break smaller |line|.
+    Among spreads with odds in [-150, +110], prefer ±1.5; else closest to -120.
+    Tie-break: smaller |line|.
     """
     if not spreads:
         return None
@@ -754,7 +754,13 @@ def pick_spread_in_band(spreads: list[dict] | None) -> dict | None:
             in_band.append({"line": line, "odds": odds})
     if not in_band:
         return None
-    in_band.sort(key=lambda s: (abs(s["odds"] - SPREAD_ODDS_TARGET), abs(s["line"])))
+    in_band.sort(
+        key=lambda s: (
+            0 if abs(s["line"]) == 1.5 else 1,
+            abs(s["odds"] - SPREAD_ODDS_TARGET),
+            abs(s["line"]),
+        )
+    )
     best = in_band[0]
     return {"line": best["line"], "odds": best["odds"]}
 
@@ -1344,7 +1350,7 @@ def main() -> int:
             "diffOAA": "OAA_h - OAA_a",
             "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA)",
             "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
-            "valSpread": f"Val side spread with odds in [{SPREAD_ODDS_MIN}, +{SPREAD_ODDS_MAX}], closest to {SPREAD_ODDS_TARGET}",
+            "valSpread": f"Val side spread with odds in [{SPREAD_ODDS_MIN}, +{SPREAD_ODDS_MAX}]; prefer ±1.5, else closest to {SPREAD_ODDS_TARGET}",
             "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team. Model logistic scale is 6 (client). Val grades 1u ML + optional 1u spread.",
         },
         "windows": {

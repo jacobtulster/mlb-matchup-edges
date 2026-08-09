@@ -167,7 +167,7 @@ def value_pick(matchup: dict) -> dict | None:
 
 
 def pick_val_spread(odds: dict, side: str) -> dict | None:
-    """Val-side spread with odds in [-150, +110], closest to -120."""
+    """Val-side spread in [-150, +110]; prefer ±1.5, then closest to -120."""
     spreads_blob = (odds or {}).get("spreads") or {}
     spreads = spreads_blob.get(side) or []
     in_band = []
@@ -183,7 +183,13 @@ def pick_val_spread(odds: dict, side: str) -> dict | None:
             in_band.append({"line": line, "odds": odds_n})
     if not in_band:
         return None
-    in_band.sort(key=lambda s: (abs(s["odds"] - SPREAD_ODDS_TARGET), abs(s["line"])))
+    in_band.sort(
+        key=lambda s: (
+            0 if abs(s["line"]) == 1.5 else 1,
+            abs(s["odds"] - SPREAD_ODDS_TARGET),
+            abs(s["line"]),
+        )
+    )
     best = in_band[0]
     return {"line": best["line"], "odds": best["odds"]}
 

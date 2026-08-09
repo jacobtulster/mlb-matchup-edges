@@ -214,8 +214,10 @@
       if (oddsN >= min && oddsN <= max) inBand.push({ line, odds: oddsN });
     }
     if (!inBand.length) return null;
+    // Baseball: prefer ±1.5 run line when in-band, then closest to -120.
     inBand.sort(
       (a, b) =>
+        (Math.abs(a.line) === 1.5 ? 0 : 1) - (Math.abs(b.line) === 1.5 ? 0 : 1) ||
         Math.abs(a.odds - target) - Math.abs(b.odds - target) ||
         Math.abs(a.line) - Math.abs(b.line)
     );
@@ -440,13 +442,9 @@
     const valueBadge = gradeBadge(g && g.value, { showPnl: true });
     let valueHtml = `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     if (value && Math.abs(value.edge) >= 0.005) {
-      const sp = value.spread;
-      const spreadHtml = sp
-        ? `<div class="value-spread" title="Val spread leg (odds in −150…+110)">${value.team} ${formatSpreadLine(sp.line)} (${formatAmericanRaw(sp.odds)})</div>`
-        : "";
       valueHtml = `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
              Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%${valueBadge}
-           </div>${spreadHtml}`;
+           </div>`;
     }
     return `
       <td class="odds model-cell" data-label="Model">
@@ -475,28 +473,23 @@
       `;
     }
     const hl = oddsHighlight(fair.homeProb, fair.awayProb);
-    const awaySp = pickValSpread(o, "away");
-    const homeSp = pickValSpread(o, "home");
-    const spHint = [
-      awaySp ? `${m.away} ${formatSpreadLine(awaySp.line)} ${formatAmericanRaw(awaySp.odds)}` : null,
-      homeSp ? `${m.home} ${formatSpreadLine(homeSp.line)} ${formatAmericanRaw(homeSp.odds)}` : null,
-    ]
-      .filter(Boolean)
-      .join(" · ");
+    const value = valueVsMarket(m);
+    const sp = value && value.spread ? value.spread : null;
     const title = escapeAttr(
-      `${o.provider || "market"} raw ${o.away}/${o.home}${spHint ? ` · ${spHint}` : ""}`
+      `${o.provider || "market"} raw ${o.away}/${o.home}${
+        sp ? ` · Val ${value.team} ${formatSpreadLine(sp.line)} ${formatAmericanRaw(sp.odds)}` : ""
+      }`
     );
-    // Show raw American (not de-vig) for exchange prices; de-vig still used for Val %.
-    const showRaw = (o.provider || "").toLowerCase() === "4casters";
-    const awayPrice = showRaw ? formatAmericanRaw(parseMl(o.away)) : fair.away;
-    const homePrice = showRaw ? formatAmericanRaw(parseMl(o.home)) : fair.home;
+    const spreadHtml = sp
+      ? `<div class="value-spread" title="Val spread leg (prefer ±1.5 when in −150…+110)">${value.team} ${formatSpreadLine(sp.line)} (${formatAmericanRaw(sp.odds)})</div>`
+      : `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     return `
       <td class="odds market-cell" data-label="Market" title="${title}">
         <div class="odds-stack">
-          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
-          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
+          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
         </div>
-        <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
+        ${spreadHtml}
       </td>
     `;
   }
