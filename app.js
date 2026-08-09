@@ -1593,7 +1593,7 @@
     histDate = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
-    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110), staking to win $100 per leg. Top 3/5 keep the largest Val edges that day; Run line only grades the spread leg alone (no ML).`;
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L: Val @ 4casters (1u ML + 1u spread when −150…+110); +odds risk $100, −odds risk |price| to win $100. Top 3/5 keep largest Val edges; Run line only grades the spread leg alone.`;
   }
 
   async function setViewMode(mode) {

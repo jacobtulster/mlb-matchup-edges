@@ -297,9 +297,9 @@ def money_pick(matchup: dict) -> str | None:
 
 def american_stake_and_profit(ml: float | None, won: bool) -> tuple[float | None, float | None]:
     """
-    Stake to win UNIT_STAKE ($100) on every price.
-    Plus (+134): stake 100*100/134 ≈ $74.63; win +$100, loss −stake.
-    Minus (−154): stake 154; win +$100, loss −$154.
+    Hybrid unit sizing:
+      Plus odds (+134): risk UNIT_STAKE ($100); win +(ml/100)*100, loss −$100.
+      Minus odds (−150): risk |ml| dollars to win UNIT_STAKE; win +$100, loss −$150.
     Returns (stakeDollars, profitDollars).
     """
     if ml is None:
@@ -308,13 +308,11 @@ def american_stake_and_profit(ml: float | None, won: bool) -> tuple[float | None
     if ml == 0:
         return None, None
     if ml > 0:
-        stake = round(UNIT_STAKE * 100.0 / ml, 2)
+        stake = UNIT_STAKE
+        profit = (ml / 100.0) * UNIT_STAKE if won else -stake
     else:
         stake = round(UNIT_STAKE * abs(ml) / 100.0, 2)
-    if won:
-        profit = UNIT_STAKE
-    else:
-        profit = -stake
+        profit = UNIT_STAKE if won else -stake
     return stake, round(profit, 2)
 
 
@@ -815,33 +813,41 @@ def process_date(date_str: str, latest: dict | None, now_ms: float, do_freeze: b
                 and val.get("stakeDollars") is None
                 and val.get("pick")
             )
-            # Detect old flat-risk convention: favorite win with profit < UNIT and stake == UNIT
+            # Detect wrong stake conventions so we can regrade.
+            # Correct: plus → stake UNIT; minus → stake |ml|/100*UNIT.
             needs_stake_fix = False
             for leg in val.get("legs") or []:
                 odds = leg.get("odds")
                 stake = leg.get("stakeDollars")
                 profit = leg.get("profitDollars")
-                if (
-                    odds is not None
-                    and float(odds) < 0
-                    and stake is not None
-                    and abs(float(stake) - UNIT_STAKE) < 0.01
-                    and leg.get("outcome") == "win"
-                    and profit is not None
-                    and abs(float(profit) - UNIT_STAKE) > 0.5
-                ):
-                    needs_stake_fix = True
-                    break
-                if (
-                    odds is not None
-                    and float(odds) < 0
-                    and stake is not None
-                    and abs(float(stake) - UNIT_STAKE) < 0.01
-                    and leg.get("outcome") == "loss"
-                ):
-                    # Losses under old scheme always −100; new scheme stakes |ml|
-                    needs_stake_fix = True
-                    break
+                if odds is None or stake is None:
+                    continue
+                odds_f = float(odds)
+                stake_f = float(stake)
+                if odds_f > 0:
+                    # Plus must risk UNIT; old to-win-all used stake < UNIT
+                    if abs(stake_f - UNIT_STAKE) > 0.01:
+                        needs_stake_fix = True
+                        break
+                    if (
+                        leg.get("outcome") == "win"
+                        and profit is not None
+                        and abs(float(profit) - (odds_f / 100.0) * UNIT_STAKE) > 0.5
+                    ):
+                        needs_stake_fix = True
+                        break
+                elif odds_f < 0:
+                    want_stake = round(UNIT_STAKE * abs(odds_f) / 100.0, 2)
+                    if abs(stake_f - want_stake) > 0.01:
+                        needs_stake_fix = True
+                        break
+                    if (
+                        leg.get("outcome") == "win"
+                        and profit is not None
+                        and abs(float(profit) - UNIT_STAKE) > 0.5
+                    ):
+                        needs_stake_fix = True
+                        break
             if needs_odds or needs_stake_fix or "--regrade" in sys.argv:
                 res.pop("grades", None)
                 res.pop("gradesByWindow", None)
