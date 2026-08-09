@@ -35,8 +35,8 @@ SPREAD_ODDS_MIN = -150
 SPREAD_ODDS_MAX = 110
 SPREAD_ODDS_TARGET = -120
 # Grouped-factor score → expected run delta → win probability
-RUN_DELTA_PER_SCORE = 0.25
-RUN_LOGISTIC_TAU = 2.5
+RUN_DELTA_PER_SCORE = 0.40
+RUN_LOGISTIC_TAU = 2.0
 
 # Kalshi MLB abbreviations (same as MLB Stats API for current clubs)
 KALSHI_TEAM_ABBS = (

@@ -340,8 +340,8 @@
   }
 
   // Grouped factors → runDelta → home win%. Prefer payload fields; recompute from z's if missing.
-  const RUN_DELTA_PER_SCORE = 0.25;
-  const RUN_LOGISTIC_TAU = 2.5;
+  const RUN_DELTA_PER_SCORE = 0.40;
+  const RUN_LOGISTIC_TAU = 2.0;
 
   function modelScoreFromZs(m) {
     const zOff = (Number(m.zWRCp) + Number(m.zXwOBA) + Number(m.zBsR)) / 3;

@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=runs-1" />
+    <link rel="stylesheet" href="styles.css?v=runs-2" />
   </head>
   <body>
     <main>
@@ -105,7 +105,7 @@
           xFIP, SIERA, OAA), MLB Stats API schedule, ESPN scoreboard moneylines (DraftKings),
           and Kalshi Game Winner volumes. Model fair odds use grouped z-factors
           (offense / pitching averaged, then WAR+OAA half-weight) mapped to an expected
-          run delta and a logistic (τ=2.5). Overall Edge remains the raw z-sum for ranking.
+          run delta and a logistic (τ=2.0). Overall Edge remains the raw z-sum for ranking.
           Market odds are multiplicatively de-vigged so both sides sum to 100%. Value is
           model win% minus de-vigged market win% on the best side.
           <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
@@ -119,6 +119,6 @@
         </p>
       </footer>
     </main>
-    <script src="app.js?v=runs-1"></script>
+    <script src="app.js?v=runs-2"></script>
   </body>
 </html>

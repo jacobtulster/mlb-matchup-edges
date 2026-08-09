@@ -2,7 +2,7 @@
   "date": "2026-08-09",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-08-09T13:25:26Z",
+  "updatedAt": "2026-08-09T13:29:24Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
@@ -20,8 +20,8 @@
     "diffOAA": "OAA_h - OAA_a",
     "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA) \u2014 ranking display only",
     "modelScore": "zOff=(zWRCp+zXwOBA+zBsR)/3; zPit=(zXFIP+zSIERA)/2; score=zOff+zPit+0.5*zWAR+0.5*zOAA",
-    "runDelta": "0.25 * modelScore (approx runs home \u2212 away)",
-    "modelHomeProb": "1/(1+exp(-runDelta/2.5))",
+    "runDelta": "0.4 * modelScore (approx runs home \u2212 away)",
+    "modelHomeProb": "1/(1+exp(-runDelta/2.0))",
     "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
     "valSpread": "Val side spread with odds in [-150, +110]; prefer \u00b11.5, else closest to -120",
     "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Model MLs/Val use grouped factors \u2192 runDelta \u2192 logistic (not raw overallEdge sum). Money column is Kalshi Game Winner dollar volume per team. Val grades 1u ML + optional 1u spread."
@@ -419,8 +419,8 @@
           "zOAA": 0.8357,
           "overallEdge": 6.8269,
           "modelScore": 3.1575,
-          "runDelta": 0.7894,
-          "modelHomeProb": 0.578288,
+          "runDelta": 1.263,
+          "modelHomeProb": 0.65283,
           "favored": "MIL",
           "odds": {
             "provider": "4casters",
@@ -443,11 +443,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -173
+                  "odds": -174
                 },
                 {
                   "line": 1.0,
-                  "odds": -357
+                  "odds": -360
                 },
                 {
                   "line": -1.5,
@@ -455,7 +455,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -409
+                  "odds": -413
                 },
                 {
                   "line": -2.0,
@@ -471,7 +471,7 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 247
+                  "odds": 248
                 }
               ],
               "away": [
@@ -497,7 +497,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 385
+                  "odds": 386
                 },
                 {
                   "line": 1.5,
@@ -524,16 +524,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410MINMIL",
-            "awayVol": 19706.74,
-            "homeVol": 83093.26,
+            "awayVol": 19818.71,
+            "homeVol": 83503.11,
             "awayCents": 30,
             "homeCents": 71,
-            "awayMult": 0.2372,
-            "homeMult": 4.2165,
-            "maxMult": 4.2165,
-            "totalVol": 102800.0,
+            "awayMult": 0.2373,
+            "homeMult": 4.2133,
+            "maxMult": 4.2133,
+            "totalVol": 103321.82,
             "highSide": "home",
-            "highMult": 4.2165,
+            "highMult": 4.2133,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -591,8 +591,8 @@
           "zOAA": 1.6636,
           "overallEdge": 5.9879,
           "modelScore": 3.0395,
-          "runDelta": 0.7599,
-          "modelHomeProb": 0.575407,
+          "runDelta": 1.2158,
+          "modelHomeProb": 0.64746,
           "favored": "BOS",
           "odds": {
             "provider": "4casters",
@@ -603,19 +603,19 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -235
+                  "odds": -233
                 },
                 {
                   "line": -0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": 0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": -1.0,
-                  "odds": -179
+                  "odds": -178
                 },
                 {
                   "line": 1.0,
@@ -623,7 +623,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -115
+                  "odds": -116
                 },
                 {
                   "line": 1.5,
@@ -631,7 +631,7 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 109
+                  "odds": 108
                 },
                 {
                   "line": -2.5,
@@ -639,29 +639,29 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 171
+                  "odds": 170
                 },
                 {
                   "line": -3.5,
-                  "odds": 197
+                  "odds": 196
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 225
+                  "odds": 224
                 },
                 {
                   "line": -0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": 0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": -1.0,
-                  "odds": 308
+                  "odds": 304
                 },
                 {
                   "line": 1.0,
@@ -669,43 +669,43 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 340
+                  "odds": 339
                 },
                 {
                   "line": 1.5,
-                  "odds": 108
+                  "odds": 109
                 },
                 {
                   "line": 2.0,
-                  "odds": -115
+                  "odds": -114
                 },
                 {
                   "line": 2.5,
-                  "odds": -141
+                  "odds": -140
                 },
                 {
                   "line": 3.0,
-                  "odds": -180
+                  "odds": -181
                 },
                 {
                   "line": 3.5,
-                  "odds": -210
+                  "odds": -209
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATHBOS",
-            "awayVol": 87227.78,
-            "homeVol": 130736.95,
+            "awayVol": 87321.17,
+            "homeVol": 131870.08,
             "awayCents": 31,
-            "homeCents": 71,
-            "awayMult": 0.6672,
-            "homeMult": 1.4988,
-            "maxMult": 1.4988,
-            "totalVol": 217964.73,
+            "homeCents": 70,
+            "awayMult": 0.6622,
+            "homeMult": 1.5102,
+            "maxMult": 1.5102,
+            "totalVol": 219191.25,
             "highSide": "home",
-            "highMult": 1.4988,
+            "highMult": 1.5102,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -763,8 +763,8 @@
           "zOAA": 1.1117,
           "overallEdge": 4.0675,
           "modelScore": 1.8354,
-          "runDelta": 0.4588,
-          "modelHomeProb": 0.545756,
+          "runDelta": 0.7342,
+          "modelHomeProb": 0.590752,
           "favored": "STL",
           "odds": {
             "provider": "4casters",
@@ -869,15 +869,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091415COLSTL",
             "awayVol": 3709.93,
-            "homeVol": 9379.87,
+            "homeVol": 9414.87,
             "awayCents": 40,
             "homeCents": 61,
-            "awayMult": 0.3955,
-            "homeMult": 2.5283,
-            "maxMult": 2.5283,
-            "totalVol": 13089.8,
+            "awayMult": 0.3941,
+            "homeMult": 2.5377,
+            "maxMult": 2.5377,
+            "totalVol": 13124.8,
             "highSide": "home",
-            "highMult": 2.5283,
+            "highMult": 2.5377,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -935,13 +935,13 @@
           "zOAA": -0.7411,
           "overallEdge": 3.3101,
           "modelScore": 1.2679,
-          "runDelta": 0.317,
-          "modelHomeProb": 0.531656,
+          "runDelta": 0.5072,
+          "modelHomeProb": 0.563059,
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
             "home": "-195",
-            "away": "+188",
+            "away": "+189",
             "gameId": "6a7752c428854bdc8615581c",
             "spreads": {
               "home": [
@@ -959,7 +959,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -140
+                  "odds": -141
                 },
                 {
                   "line": 1.0,
@@ -967,19 +967,19 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 108
+                  "odds": 107
                 },
                 {
                   "line": 1.5,
-                  "odds": -317
+                  "odds": -320
                 },
                 {
                   "line": -2.0,
-                  "odds": 143
+                  "odds": 141
                 },
                 {
                   "line": -2.5,
-                  "odds": 174
+                  "odds": 172
                 },
                 {
                   "line": -3.0,
@@ -1005,19 +1005,19 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": 1.0,
-                  "odds": 134
+                  "odds": 135
                 },
                 {
                   "line": -1.5,
-                  "odds": 300
+                  "odds": 301
                 },
                 {
                   "line": 1.5,
-                  "odds": -113
+                  "odds": -112
                 },
                 {
                   "line": 2.0,
@@ -1025,7 +1025,7 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -183
+                  "odds": -182
                 },
                 {
                   "line": 3.0,
@@ -1040,16 +1040,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335TORPHI",
-            "awayVol": 15237.8,
-            "homeVol": 40079.16,
+            "awayVol": 15364.22,
+            "homeVol": 40111.37,
             "awayCents": 35,
             "homeCents": 66,
-            "awayMult": 0.3802,
-            "homeMult": 2.6302,
-            "maxMult": 2.6302,
-            "totalVol": 55316.96,
+            "awayMult": 0.383,
+            "homeMult": 2.6107,
+            "maxMult": 2.6107,
+            "totalVol": 55475.59,
             "highSide": "home",
-            "highMult": 2.6302,
+            "highMult": 2.6107,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -1107,8 +1107,8 @@
           "zOAA": -0.9776,
           "overallEdge": 3.1768,
           "modelScore": 1.0057,
-          "runDelta": 0.2514,
-          "modelHomeProb": 0.525121,
+          "runDelta": 0.4023,
+          "modelHomeProb": 0.550115,
           "favored": "WSH",
           "odds": {
             "provider": "4casters",
@@ -1212,16 +1212,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091215CINWSH",
-            "awayVol": 93423.93,
-            "homeVol": 88828.67,
+            "awayVol": 95571.03,
+            "homeVol": 89871.77,
             "awayCents": 50,
             "homeCents": 51,
-            "awayMult": 1.0517,
-            "homeMult": 0.9508,
-            "maxMult": 1.0517,
-            "totalVol": 182252.6,
+            "awayMult": 1.0634,
+            "homeMult": 0.9404,
+            "maxMult": 1.0634,
+            "totalVol": 185442.8,
             "highSide": "away",
-            "highMult": 1.0517,
+            "highMult": 1.0634,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -1279,8 +1279,8 @@
           "zOAA": 1.0723,
           "overallEdge": 3.1661,
           "modelScore": 1.416,
-          "runDelta": 0.354,
-          "modelHomeProb": 0.535342,
+          "runDelta": 0.5664,
+          "modelHomeProb": 0.570332,
           "favored": "MIA",
           "odds": {
             "provider": "4casters",
@@ -1385,15 +1385,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091340LAAMIA",
             "awayVol": 6720.24,
-            "homeVol": 30268.99,
+            "homeVol": 30313.62,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 0.222,
-            "homeMult": 4.5042,
-            "maxMult": 4.5042,
-            "totalVol": 36989.23,
+            "awayMult": 0.2217,
+            "homeMult": 4.5108,
+            "maxMult": 4.5108,
+            "totalVol": 37033.86,
             "highSide": "home",
-            "highMult": 4.5042,
+            "highMult": 4.5108,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -1451,8 +1451,8 @@
           "zOAA": 0.0079,
           "overallEdge": 2.5007,
           "modelScore": 0.8824,
-          "runDelta": 0.2206,
-          "modelHomeProb": 0.522046,
+          "runDelta": 0.353,
+          "modelHomeProb": 0.544006,
           "favored": "PIT",
           "odds": {
             "provider": "4casters",
@@ -1483,7 +1483,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 154
+                  "odds": 155
                 },
                 {
                   "line": 1.5,
@@ -1499,11 +1499,11 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 344
+                  "odds": 345
                 },
                 {
                   "line": -3.5,
-                  "odds": 381
+                  "odds": 382
                 }
               ],
               "away": [
@@ -1556,16 +1556,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335NYMPIT",
-            "awayVol": 53720.63,
+            "awayVol": 53851.84,
             "homeVol": 27422.33,
             "awayCents": 44,
             "homeCents": 58,
-            "awayMult": 1.959,
-            "homeMult": 0.5105,
-            "maxMult": 1.959,
-            "totalVol": 81142.96,
+            "awayMult": 1.9638,
+            "homeMult": 0.5092,
+            "maxMult": 1.9638,
+            "totalVol": 81274.17,
             "highSide": "away",
-            "highMult": 1.959,
+            "highMult": 1.9638,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -1623,8 +1623,8 @@
           "zOAA": -0.4257,
           "overallEdge": 1.4472,
           "modelScore": 0.6702,
-          "runDelta": 0.1676,
-          "modelHomeProb": 0.51675,
+          "runDelta": 0.2681,
+          "modelHomeProb": 0.533462,
           "favored": "NYY",
           "odds": {
             "provider": "4casters",
@@ -1728,16 +1728,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATLNYY",
-            "awayVol": 87399.05,
-            "homeVol": 72390.08,
+            "awayVol": 89974.23,
+            "homeVol": 72899.07,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 1.2073,
-            "homeMult": 0.8283,
-            "maxMult": 1.2073,
-            "totalVol": 159789.13,
+            "awayMult": 1.2342,
+            "homeMult": 0.8102,
+            "maxMult": 1.2342,
+            "totalVol": 162873.3,
             "highSide": "away",
-            "highMult": 1.2073,
+            "highMult": 1.2342,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -1795,8 +1795,8 @@
           "zOAA": 0.8357,
           "overallEdge": 0.3637,
           "modelScore": 0.3495,
-          "runDelta": 0.0874,
-          "modelHomeProb": 0.508738,
+          "runDelta": 0.1398,
+          "modelHomeProb": 0.51747,
           "favored": "TEX",
           "odds": {
             "provider": "4casters",
@@ -1819,7 +1819,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 119
+                  "odds": 118
                 },
                 {
                   "line": 1.0,
@@ -1893,23 +1893,23 @@
                 },
                 {
                   "line": 3.5,
-                  "odds": -432
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091435BALTEX",
-            "awayVol": 6496.43,
-            "homeVol": 22321.97,
+            "awayVol": 6603.42,
+            "homeVol": 22326.28,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.291,
-            "homeMult": 3.436,
-            "maxMult": 3.436,
-            "totalVol": 28818.4,
+            "awayMult": 0.2958,
+            "homeMult": 3.381,
+            "maxMult": 3.381,
+            "totalVol": 28929.7,
             "highSide": "home",
-            "highMult": 3.436,
+            "highMult": 3.381,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -1967,8 +1967,8 @@
           "zOAA": 0.1261,
           "overallEdge": 0.1627,
           "modelScore": 0.1355,
-          "runDelta": 0.0339,
-          "modelHomeProb": 0.503388,
+          "runDelta": 0.0542,
+          "modelHomeProb": 0.506775,
           "favored": "SD",
           "odds": {
             "provider": "4casters",
@@ -2053,7 +2053,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -255
+                  "odds": -254
                 },
                 {
                   "line": 2.5,
@@ -2072,16 +2072,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG092020HOUSD",
-            "awayVol": 18499.39,
-            "homeVol": 16894.02,
+            "awayVol": 18780.23,
+            "homeVol": 16911.96,
             "awayCents": 48,
             "homeCents": 54,
-            "awayMult": 1.095,
-            "homeMult": 0.9132,
-            "maxMult": 1.095,
-            "totalVol": 35393.41,
+            "awayMult": 1.1105,
+            "homeMult": 0.9005,
+            "maxMult": 1.1105,
+            "totalVol": 35692.19,
             "highSide": "away",
-            "highMult": 1.095,
+            "highMult": 1.1105,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -2139,121 +2139,121 @@
           "zOAA": -1.3719,
           "overallEdge": -2.8554,
           "modelScore": -1.2836,
-          "runDelta": -0.3209,
-          "modelHomeProb": 0.467955,
+          "runDelta": -0.5134,
+          "modelHomeProb": 0.436171,
           "favored": "TB",
           "odds": {
             "provider": "4casters",
-            "home": "-108",
-            "away": "+102",
+            "home": "-104",
+            "away": "-102",
             "gameId": "6a7752c428854bdc8615581a",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -103
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": -1.0,
-                  "odds": 143
+                  "odds": 148
                 },
                 {
                   "line": 1.0,
-                  "odds": -147
+                  "odds": -140
                 },
                 {
                   "line": -1.5,
-                  "odds": 195
+                  "odds": 203
                 },
                 {
                   "line": 1.5,
-                  "odds": -186
+                  "odds": -175
                 },
                 {
                   "line": -2.0,
-                  "odds": 272
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 308
+                  "odds": 319
                 },
                 {
                   "line": -3.0,
-                  "odds": 441
+                  "odds": 459
                 },
                 {
                   "line": -3.5,
-                  "odds": 480
+                  "odds": 492
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 103
+                  "odds": -101
                 },
                 {
                   "line": -0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": 0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": -1.0,
-                  "odds": 140
+                  "odds": 133
                 },
                 {
                   "line": 1.0,
-                  "odds": -150
+                  "odds": -159
                 },
                 {
                   "line": -1.5,
-                  "odds": 174
+                  "odds": 165
                 },
                 {
                   "line": 1.5,
-                  "odds": -208
+                  "odds": -217
                 },
                 {
                   "line": 2.0,
-                  "odds": -288
+                  "odds": -300
                 },
                 {
                   "line": 2.5,
-                  "odds": -330
+                  "odds": -342
                 },
                 {
                   "line": 3.0,
-                  "odds": -475
+                  "odds": -496
                 },
                 {
                   "line": 3.5,
-                  "odds": -525
+                  "odds": -540
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610TBSEA",
-            "awayVol": 31572.24,
-            "homeVol": 21974.17,
+            "awayVol": 31595.18,
+            "homeVol": 22204.4,
             "awayCents": 49,
             "homeCents": 52,
-            "awayMult": 1.4368,
-            "homeMult": 0.696,
-            "maxMult": 1.4368,
-            "totalVol": 53546.41,
+            "awayMult": 1.4229,
+            "homeMult": 0.7028,
+            "maxMult": 1.4229,
+            "totalVol": 53799.58,
             "highSide": "away",
-            "highMult": 1.4368,
+            "highMult": 1.4229,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -2311,8 +2311,8 @@
           "zOAA": -0.3075,
           "overallEdge": -4.4116,
           "modelScore": -1.9962,
-          "runDelta": -0.499,
-          "modelHomeProb": 0.450261,
+          "runDelta": -0.7985,
+          "modelHomeProb": 0.401497,
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
@@ -2409,23 +2409,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 384
+                  "odds": 385
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CLECWS",
-            "awayVol": 21054.92,
-            "homeVol": 34801.05,
+            "awayVol": 21350.74,
+            "homeVol": 34922.7,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.605,
-            "homeMult": 1.6529,
-            "maxMult": 1.6529,
-            "totalVol": 55855.97,
+            "awayMult": 0.6114,
+            "homeMult": 1.6357,
+            "maxMult": 1.6357,
+            "totalVol": 56273.44,
             "highSide": "home",
-            "highMult": 1.6529,
+            "highMult": 1.6357,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -2483,8 +2483,8 @@
           "zOAA": 0.3233,
           "overallEdge": -5.2312,
           "modelScore": -2.3576,
-          "runDelta": -0.5894,
-          "modelHomeProb": 0.441332,
+          "runDelta": -0.943,
+          "modelHomeProb": 0.384257,
           "favored": "DET",
           "odds": {
             "provider": "4casters",
@@ -2588,16 +2588,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091605DETSF",
-            "awayVol": 117699.64,
+            "awayVol": 117802.55,
             "homeVol": 9196.07,
             "awayCents": 54,
             "homeCents": 47,
-            "awayMult": 12.7989,
+            "awayMult": 12.8101,
             "homeMult": 0.0781,
-            "maxMult": 12.7989,
-            "totalVol": 126895.71,
+            "maxMult": 12.8101,
+            "totalVol": 126998.62,
             "highSide": "away",
-            "highMult": 12.7989,
+            "highMult": 12.8101,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -2655,8 +2655,8 @@
           "zOAA": -2.1603,
           "overallEdge": -9.2061,
           "modelScore": -4.0722,
-          "runDelta": -1.018,
-          "modelHomeProb": 0.399579,
+          "runDelta": -1.6289,
+          "modelHomeProb": 0.306946,
           "favored": "CHC",
           "odds": {
             "provider": "4casters",
@@ -2725,7 +2725,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 1.0,
@@ -2733,7 +2733,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -101
+                  "odds": -100
                 },
                 {
                   "line": 1.5,
@@ -2749,7 +2749,7 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 191
+                  "odds": 192
                 },
                 {
                   "line": -3.5,
@@ -2760,16 +2760,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CHCKC",
-            "awayVol": 28034.88,
-            "homeVol": 6408.07,
+            "awayVol": 28436.38,
+            "homeVol": 6415.26,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.3749,
-            "homeMult": 0.2286,
-            "maxMult": 4.3749,
-            "totalVol": 34442.95,
+            "awayMult": 4.4326,
+            "homeMult": 0.2256,
+            "maxMult": 4.4326,
+            "totalVol": 34851.64,
             "highSide": "away",
-            "highMult": 4.3749,
+            "highMult": 4.4326,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -2827,8 +2827,8 @@
           "zOAA": 0.0079,
           "overallEdge": -9.3055,
           "modelScore": -4.0502,
-          "runDelta": -1.0125,
-          "modelHomeProb": 0.400107,
+          "runDelta": -1.6201,
+          "modelHomeProb": 0.307882,
           "favored": "LAD",
           "odds": {
             "provider": "4casters",
@@ -2843,15 +2843,15 @@
                 },
                 {
                   "line": -0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": 0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": -1.0,
-                  "odds": 201
+                  "odds": 202
                 },
                 {
                   "line": 1.0,
@@ -2859,7 +2859,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 258
                 },
                 {
                   "line": 1.5,
@@ -2871,15 +2871,15 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -197
+                  "odds": -196
                 },
                 {
                   "line": 3.0,
-                  "odds": -267
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
-                  "odds": -304
+                  "odds": -303
                 }
               ],
               "away": [
@@ -2921,27 +2921,27 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 253
+                  "odds": 251
                 },
                 {
                   "line": -3.5,
-                  "odds": 286
+                  "odds": 285
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610LADAZ",
-            "awayVol": 75763.42,
-            "homeVol": 22246.83,
+            "awayVol": 76067.38,
+            "homeVol": 22251.3,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.4056,
-            "homeMult": 0.2936,
-            "maxMult": 3.4056,
-            "totalVol": 98010.25,
+            "awayMult": 3.4186,
+            "homeMult": 0.2925,
+            "maxMult": 3.4186,
+            "totalVol": 98318.68,
             "highSide": "away",
-            "highMult": 3.4056,
+            "highMult": 3.4186,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -3340,8 +3340,8 @@
           "zOAA": 1.6636,
           "overallEdge": 11.2241,
           "modelScore": 4.8284,
-          "runDelta": 1.2071,
-          "modelHomeProb": 0.618419,
+          "runDelta": 1.9314,
+          "modelHomeProb": 0.724259,
           "favored": "BOS",
           "odds": {
             "provider": "4casters",
@@ -3352,19 +3352,19 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -235
+                  "odds": -233
                 },
                 {
                   "line": -0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": 0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": -1.0,
-                  "odds": -179
+                  "odds": -178
                 },
                 {
                   "line": 1.0,
@@ -3372,7 +3372,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -115
+                  "odds": -116
                 },
                 {
                   "line": 1.5,
@@ -3380,7 +3380,7 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 109
+                  "odds": 108
                 },
                 {
                   "line": -2.5,
@@ -3388,29 +3388,29 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 171
+                  "odds": 170
                 },
                 {
                   "line": -3.5,
-                  "odds": 197
+                  "odds": 196
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 225
+                  "odds": 224
                 },
                 {
                   "line": -0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": 0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": -1.0,
-                  "odds": 308
+                  "odds": 304
                 },
                 {
                   "line": 1.0,
@@ -3418,43 +3418,43 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 340
+                  "odds": 339
                 },
                 {
                   "line": 1.5,
-                  "odds": 108
+                  "odds": 109
                 },
                 {
                   "line": 2.0,
-                  "odds": -115
+                  "odds": -114
                 },
                 {
                   "line": 2.5,
-                  "odds": -141
+                  "odds": -140
                 },
                 {
                   "line": 3.0,
-                  "odds": -180
+                  "odds": -181
                 },
                 {
                   "line": 3.5,
-                  "odds": -210
+                  "odds": -209
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATHBOS",
-            "awayVol": 87227.78,
-            "homeVol": 130736.95,
+            "awayVol": 87321.17,
+            "homeVol": 131870.08,
             "awayCents": 31,
-            "homeCents": 71,
-            "awayMult": 0.6672,
-            "homeMult": 1.4988,
-            "maxMult": 1.4988,
-            "totalVol": 217964.73,
+            "homeCents": 70,
+            "awayMult": 0.6622,
+            "homeMult": 1.5102,
+            "maxMult": 1.5102,
+            "totalVol": 219191.25,
             "highSide": "home",
-            "highMult": 1.4988,
+            "highMult": 1.5102,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -3512,13 +3512,13 @@
           "zOAA": -0.7411,
           "overallEdge": 5.6156,
           "modelScore": 2.2413,
-          "runDelta": 0.5603,
-          "modelHomeProb": 0.555799,
+          "runDelta": 0.8965,
+          "modelHomeProb": 0.610225,
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
             "home": "-195",
-            "away": "+188",
+            "away": "+189",
             "gameId": "6a7752c428854bdc8615581c",
             "spreads": {
               "home": [
@@ -3536,7 +3536,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -140
+                  "odds": -141
                 },
                 {
                   "line": 1.0,
@@ -3544,19 +3544,19 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 108
+                  "odds": 107
                 },
                 {
                   "line": 1.5,
-                  "odds": -317
+                  "odds": -320
                 },
                 {
                   "line": -2.0,
-                  "odds": 143
+                  "odds": 141
                 },
                 {
                   "line": -2.5,
-                  "odds": 174
+                  "odds": 172
                 },
                 {
                   "line": -3.0,
@@ -3582,19 +3582,19 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": 1.0,
-                  "odds": 134
+                  "odds": 135
                 },
                 {
                   "line": -1.5,
-                  "odds": 300
+                  "odds": 301
                 },
                 {
                   "line": 1.5,
-                  "odds": -113
+                  "odds": -112
                 },
                 {
                   "line": 2.0,
@@ -3602,7 +3602,7 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -183
+                  "odds": -182
                 },
                 {
                   "line": 3.0,
@@ -3617,16 +3617,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335TORPHI",
-            "awayVol": 15237.8,
-            "homeVol": 40079.16,
+            "awayVol": 15364.22,
+            "homeVol": 40111.37,
             "awayCents": 35,
             "homeCents": 66,
-            "awayMult": 0.3802,
-            "homeMult": 2.6302,
-            "maxMult": 2.6302,
-            "totalVol": 55316.96,
+            "awayMult": 0.383,
+            "homeMult": 2.6107,
+            "maxMult": 2.6107,
+            "totalVol": 55475.59,
             "highSide": "home",
-            "highMult": 2.6302,
+            "highMult": 2.6107,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -3684,8 +3684,8 @@
           "zOAA": 1.1117,
           "overallEdge": 3.6612,
           "modelScore": 1.9045,
-          "runDelta": 0.4761,
-          "modelHomeProb": 0.54747,
+          "runDelta": 0.7618,
+          "modelHomeProb": 0.594092,
           "favored": "STL",
           "odds": {
             "provider": "4casters",
@@ -3790,15 +3790,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091415COLSTL",
             "awayVol": 3709.93,
-            "homeVol": 9379.87,
+            "homeVol": 9414.87,
             "awayCents": 40,
             "homeCents": 61,
-            "awayMult": 0.3955,
-            "homeMult": 2.5283,
-            "maxMult": 2.5283,
-            "totalVol": 13089.8,
+            "awayMult": 0.3941,
+            "homeMult": 2.5377,
+            "maxMult": 2.5377,
+            "totalVol": 13124.8,
             "highSide": "home",
-            "highMult": 2.5283,
+            "highMult": 2.5377,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -3856,8 +3856,8 @@
           "zOAA": 0.8357,
           "overallEdge": 3.0283,
           "modelScore": 1.6237,
-          "runDelta": 0.4059,
-          "modelHomeProb": 0.540505,
+          "runDelta": 0.6495,
+          "modelHomeProb": 0.580481,
           "favored": "MIL",
           "odds": {
             "provider": "4casters",
@@ -3880,11 +3880,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -173
+                  "odds": -174
                 },
                 {
                   "line": 1.0,
-                  "odds": -357
+                  "odds": -360
                 },
                 {
                   "line": -1.5,
@@ -3892,7 +3892,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -409
+                  "odds": -413
                 },
                 {
                   "line": -2.0,
@@ -3908,7 +3908,7 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 247
+                  "odds": 248
                 }
               ],
               "away": [
@@ -3934,7 +3934,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 385
+                  "odds": 386
                 },
                 {
                   "line": 1.5,
@@ -3961,16 +3961,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410MINMIL",
-            "awayVol": 19706.74,
-            "homeVol": 83093.26,
+            "awayVol": 19818.71,
+            "homeVol": 83503.11,
             "awayCents": 30,
             "homeCents": 71,
-            "awayMult": 0.2372,
-            "homeMult": 4.2165,
-            "maxMult": 4.2165,
-            "totalVol": 102800.0,
+            "awayMult": 0.2373,
+            "homeMult": 4.2133,
+            "maxMult": 4.2133,
+            "totalVol": 103321.82,
             "highSide": "home",
-            "highMult": 4.2165,
+            "highMult": 4.2133,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4028,8 +4028,8 @@
           "zOAA": 0.0079,
           "overallEdge": 2.9959,
           "modelScore": 1.2722,
-          "runDelta": 0.318,
-          "modelHomeProb": 0.531762,
+          "runDelta": 0.5089,
+          "modelHomeProb": 0.563269,
           "favored": "AZ",
           "odds": {
             "provider": "4casters",
@@ -4044,15 +4044,15 @@
                 },
                 {
                   "line": -0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": 0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": -1.0,
-                  "odds": 201
+                  "odds": 202
                 },
                 {
                   "line": 1.0,
@@ -4060,7 +4060,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 258
                 },
                 {
                   "line": 1.5,
@@ -4072,15 +4072,15 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -197
+                  "odds": -196
                 },
                 {
                   "line": 3.0,
-                  "odds": -267
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
-                  "odds": -304
+                  "odds": -303
                 }
               ],
               "away": [
@@ -4122,27 +4122,27 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 253
+                  "odds": 251
                 },
                 {
                   "line": -3.5,
-                  "odds": 286
+                  "odds": 285
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610LADAZ",
-            "awayVol": 75763.42,
-            "homeVol": 22246.83,
+            "awayVol": 76067.38,
+            "homeVol": 22251.3,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.4056,
-            "homeMult": 0.2936,
-            "maxMult": 3.4056,
-            "totalVol": 98010.25,
+            "awayMult": 3.4186,
+            "homeMult": 0.2925,
+            "maxMult": 3.4186,
+            "totalVol": 98318.68,
             "highSide": "away",
-            "highMult": 3.4056,
+            "highMult": 3.4186,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -4200,8 +4200,8 @@
           "zOAA": 1.0723,
           "overallEdge": 2.3676,
           "modelScore": 1.1414,
-          "runDelta": 0.2854,
-          "modelHomeProb": 0.528505,
+          "runDelta": 0.4566,
+          "modelHomeProb": 0.556825,
           "favored": "MIA",
           "odds": {
             "provider": "4casters",
@@ -4306,15 +4306,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091340LAAMIA",
             "awayVol": 6720.24,
-            "homeVol": 30268.99,
+            "homeVol": 30313.62,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 0.222,
-            "homeMult": 4.5042,
-            "maxMult": 4.5042,
-            "totalVol": 36989.23,
+            "awayMult": 0.2217,
+            "homeMult": 4.5108,
+            "maxMult": 4.5108,
+            "totalVol": 37033.86,
             "highSide": "home",
-            "highMult": 4.5042,
+            "highMult": 4.5108,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4372,8 +4372,8 @@
           "zOAA": 0.8357,
           "overallEdge": -0.4162,
           "modelScore": -0.2802,
-          "runDelta": -0.0701,
-          "modelHomeProb": 0.492995,
+          "runDelta": -0.1121,
+          "modelHomeProb": 0.485993,
           "favored": "BAL",
           "odds": {
             "provider": "4casters",
@@ -4396,7 +4396,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 119
+                  "odds": 118
                 },
                 {
                   "line": 1.0,
@@ -4470,23 +4470,23 @@
                 },
                 {
                   "line": 3.5,
-                  "odds": -432
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091435BALTEX",
-            "awayVol": 6496.43,
-            "homeVol": 22321.97,
+            "awayVol": 6603.42,
+            "homeVol": 22326.28,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.291,
-            "homeMult": 3.436,
-            "maxMult": 3.436,
-            "totalVol": 28818.4,
+            "awayMult": 0.2958,
+            "homeMult": 3.381,
+            "maxMult": 3.381,
+            "totalVol": 28929.7,
             "highSide": "home",
-            "highMult": 3.436,
+            "highMult": 3.381,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4544,8 +4544,8 @@
           "zOAA": -0.4257,
           "overallEdge": -0.4663,
           "modelScore": -0.1502,
-          "runDelta": -0.0376,
-          "modelHomeProb": 0.496244,
+          "runDelta": -0.0601,
+          "modelHomeProb": 0.492489,
           "favored": "ATL",
           "odds": {
             "provider": "4casters",
@@ -4649,16 +4649,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATLNYY",
-            "awayVol": 87399.05,
-            "homeVol": 72390.08,
+            "awayVol": 89974.23,
+            "homeVol": 72899.07,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 1.2073,
-            "homeMult": 0.8283,
-            "maxMult": 1.2073,
-            "totalVol": 159789.13,
+            "awayMult": 1.2342,
+            "homeMult": 0.8102,
+            "maxMult": 1.2342,
+            "totalVol": 162873.3,
             "highSide": "away",
-            "highMult": 1.2073,
+            "highMult": 1.2342,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -4716,8 +4716,8 @@
           "zOAA": 0.0079,
           "overallEdge": -0.611,
           "modelScore": 0.072,
-          "runDelta": 0.018,
-          "modelHomeProb": 0.501801,
+          "runDelta": 0.0288,
+          "modelHomeProb": 0.503602,
           "favored": "PIT",
           "odds": {
             "provider": "4casters",
@@ -4748,7 +4748,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 154
+                  "odds": 155
                 },
                 {
                   "line": 1.5,
@@ -4764,11 +4764,11 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 344
+                  "odds": 345
                 },
                 {
                   "line": -3.5,
-                  "odds": 381
+                  "odds": 382
                 }
               ],
               "away": [
@@ -4821,16 +4821,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335NYMPIT",
-            "awayVol": 53720.63,
+            "awayVol": 53851.84,
             "homeVol": 27422.33,
             "awayCents": 44,
             "homeCents": 58,
-            "awayMult": 1.959,
-            "homeMult": 0.5105,
-            "maxMult": 1.959,
-            "totalVol": 81142.96,
+            "awayMult": 1.9638,
+            "homeMult": 0.5092,
+            "maxMult": 1.9638,
+            "totalVol": 81274.17,
             "highSide": "away",
-            "highMult": 1.959,
+            "highMult": 1.9638,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -4888,8 +4888,8 @@
           "zOAA": 0.1261,
           "overallEdge": -1.4188,
           "modelScore": -0.8203,
-          "runDelta": -0.2051,
-          "modelHomeProb": 0.479505,
+          "runDelta": -0.3281,
+          "modelHomeProb": 0.459079,
           "favored": "HOU",
           "odds": {
             "provider": "4casters",
@@ -4974,7 +4974,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -255
+                  "odds": -254
                 },
                 {
                   "line": 2.5,
@@ -4993,16 +4993,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG092020HOUSD",
-            "awayVol": 18499.39,
-            "homeVol": 16894.02,
+            "awayVol": 18780.23,
+            "homeVol": 16911.96,
             "awayCents": 48,
             "homeCents": 54,
-            "awayMult": 1.095,
-            "homeMult": 0.9132,
-            "maxMult": 1.095,
-            "totalVol": 35393.41,
+            "awayMult": 1.1105,
+            "homeMult": 0.9005,
+            "maxMult": 1.1105,
+            "totalVol": 35692.19,
             "highSide": "away",
-            "highMult": 1.095,
+            "highMult": 1.1105,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -5060,8 +5060,8 @@
           "zOAA": -0.3075,
           "overallEdge": -3.7744,
           "modelScore": -1.7564,
-          "runDelta": -0.4391,
-          "modelHomeProb": 0.456202,
+          "runDelta": -0.7026,
+          "modelHomeProb": 0.41307,
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
@@ -5158,23 +5158,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 384
+                  "odds": 385
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CLECWS",
-            "awayVol": 21054.92,
-            "homeVol": 34801.05,
+            "awayVol": 21350.74,
+            "homeVol": 34922.7,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.605,
-            "homeMult": 1.6529,
-            "maxMult": 1.6529,
-            "totalVol": 55855.97,
+            "awayMult": 0.6114,
+            "homeMult": 1.6357,
+            "maxMult": 1.6357,
+            "totalVol": 56273.44,
             "highSide": "home",
-            "highMult": 1.6529,
+            "highMult": 1.6357,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -5232,8 +5232,8 @@
           "zOAA": -0.9776,
           "overallEdge": -4.3546,
           "modelScore": -2.1399,
-          "runDelta": -0.535,
-          "modelHomeProb": 0.446705,
+          "runDelta": -0.856,
+          "modelHomeProb": 0.394607,
           "favored": "CIN",
           "odds": {
             "provider": "4casters",
@@ -5337,16 +5337,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091215CINWSH",
-            "awayVol": 93423.93,
-            "homeVol": 88828.67,
+            "awayVol": 95571.03,
+            "homeVol": 89871.77,
             "awayCents": 50,
             "homeCents": 51,
-            "awayMult": 1.0517,
-            "homeMult": 0.9508,
-            "maxMult": 1.0517,
-            "totalVol": 182252.6,
+            "awayMult": 1.0634,
+            "homeMult": 0.9404,
+            "maxMult": 1.0634,
+            "totalVol": 185442.8,
             "highSide": "away",
-            "highMult": 1.0517,
+            "highMult": 1.0634,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -5404,8 +5404,8 @@
           "zOAA": 0.3233,
           "overallEdge": -5.0716,
           "modelScore": -2.2186,
-          "runDelta": -0.5546,
-          "modelHomeProb": 0.444762,
+          "runDelta": -0.8874,
+          "modelHomeProb": 0.390856,
           "favored": "DET",
           "odds": {
             "provider": "4casters",
@@ -5509,16 +5509,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091605DETSF",
-            "awayVol": 117699.64,
+            "awayVol": 117802.55,
             "homeVol": 9196.07,
             "awayCents": 54,
             "homeCents": 47,
-            "awayMult": 12.7989,
+            "awayMult": 12.8101,
             "homeMult": 0.0781,
-            "maxMult": 12.7989,
-            "totalVol": 126895.71,
+            "maxMult": 12.8101,
+            "totalVol": 126998.62,
             "highSide": "away",
-            "highMult": 12.7989,
+            "highMult": 12.8101,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -5576,8 +5576,8 @@
           "zOAA": -2.1603,
           "overallEdge": -6.154,
           "modelScore": -2.749,
-          "runDelta": -0.6873,
-          "modelHomeProb": 0.431704,
+          "runDelta": -1.0996,
+          "modelHomeProb": 0.36591,
           "favored": "CHC",
           "odds": {
             "provider": "4casters",
@@ -5646,7 +5646,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 1.0,
@@ -5654,7 +5654,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -101
+                  "odds": -100
                 },
                 {
                   "line": 1.5,
@@ -5670,7 +5670,7 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 191
+                  "odds": 192
                 },
                 {
                   "line": -3.5,
@@ -5681,16 +5681,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CHCKC",
-            "awayVol": 28034.88,
-            "homeVol": 6408.07,
+            "awayVol": 28436.38,
+            "homeVol": 6415.26,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.3749,
-            "homeMult": 0.2286,
-            "maxMult": 4.3749,
-            "totalVol": 34442.95,
+            "awayMult": 4.4326,
+            "homeMult": 0.2256,
+            "maxMult": 4.4326,
+            "totalVol": 34851.64,
             "highSide": "away",
-            "highMult": 4.3749,
+            "highMult": 4.4326,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5748,121 +5748,121 @@
           "zOAA": -1.3719,
           "overallEdge": -6.626,
           "modelScore": -2.969,
-          "runDelta": -0.7423,
-          "modelHomeProb": 0.426315,
+          "runDelta": -1.1876,
+          "modelHomeProb": 0.355762,
           "favored": "TB",
           "odds": {
             "provider": "4casters",
-            "home": "-108",
-            "away": "+102",
+            "home": "-104",
+            "away": "-102",
             "gameId": "6a7752c428854bdc8615581a",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -103
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": -1.0,
-                  "odds": 143
+                  "odds": 148
                 },
                 {
                   "line": 1.0,
-                  "odds": -147
+                  "odds": -140
                 },
                 {
                   "line": -1.5,
-                  "odds": 195
+                  "odds": 203
                 },
                 {
                   "line": 1.5,
-                  "odds": -186
+                  "odds": -175
                 },
                 {
                   "line": -2.0,
-                  "odds": 272
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 308
+                  "odds": 319
                 },
                 {
                   "line": -3.0,
-                  "odds": 441
+                  "odds": 459
                 },
                 {
                   "line": -3.5,
-                  "odds": 480
+                  "odds": 492
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 103
+                  "odds": -101
                 },
                 {
                   "line": -0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": 0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": -1.0,
-                  "odds": 140
+                  "odds": 133
                 },
                 {
                   "line": 1.0,
-                  "odds": -150
+                  "odds": -159
                 },
                 {
                   "line": -1.5,
-                  "odds": 174
+                  "odds": 165
                 },
                 {
                   "line": 1.5,
-                  "odds": -208
+                  "odds": -217
                 },
                 {
                   "line": 2.0,
-                  "odds": -288
+                  "odds": -300
                 },
                 {
                   "line": 2.5,
-                  "odds": -330
+                  "odds": -342
                 },
                 {
                   "line": 3.0,
-                  "odds": -475
+                  "odds": -496
                 },
                 {
                   "line": 3.5,
-                  "odds": -525
+                  "odds": -540
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610TBSEA",
-            "awayVol": 31572.24,
-            "homeVol": 21974.17,
+            "awayVol": 31595.18,
+            "homeVol": 22204.4,
             "awayCents": 49,
             "homeCents": 52,
-            "awayMult": 1.4368,
-            "homeMult": 0.696,
-            "maxMult": 1.4368,
-            "totalVol": 53546.41,
+            "awayMult": 1.4229,
+            "homeMult": 0.7028,
+            "maxMult": 1.4229,
+            "totalVol": 53799.58,
             "highSide": "away",
-            "highMult": 1.4368,
+            "highMult": 1.4229,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -6261,8 +6261,8 @@
           "zOAA": 1.6636,
           "overallEdge": 10.6763,
           "modelScore": 4.6354,
-          "runDelta": 1.1588,
-          "modelHomeProb": 0.613853,
+          "runDelta": 1.8542,
+          "modelHomeProb": 0.716482,
           "favored": "BOS",
           "odds": {
             "provider": "4casters",
@@ -6273,19 +6273,19 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -235
+                  "odds": -233
                 },
                 {
                   "line": -0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": 0.5,
-                  "odds": -238
+                  "odds": -237
                 },
                 {
                   "line": -1.0,
-                  "odds": -179
+                  "odds": -178
                 },
                 {
                   "line": 1.0,
@@ -6293,7 +6293,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -115
+                  "odds": -116
                 },
                 {
                   "line": 1.5,
@@ -6301,7 +6301,7 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 109
+                  "odds": 108
                 },
                 {
                   "line": -2.5,
@@ -6309,29 +6309,29 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 171
+                  "odds": 170
                 },
                 {
                   "line": -3.5,
-                  "odds": 197
+                  "odds": 196
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 225
+                  "odds": 224
                 },
                 {
                   "line": -0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": 0.5,
-                  "odds": 223
+                  "odds": 221
                 },
                 {
                   "line": -1.0,
-                  "odds": 308
+                  "odds": 304
                 },
                 {
                   "line": 1.0,
@@ -6339,43 +6339,43 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 340
+                  "odds": 339
                 },
                 {
                   "line": 1.5,
-                  "odds": 108
+                  "odds": 109
                 },
                 {
                   "line": 2.0,
-                  "odds": -115
+                  "odds": -114
                 },
                 {
                   "line": 2.5,
-                  "odds": -141
+                  "odds": -140
                 },
                 {
                   "line": 3.0,
-                  "odds": -180
+                  "odds": -181
                 },
                 {
                   "line": 3.5,
-                  "odds": -210
+                  "odds": -209
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATHBOS",
-            "awayVol": 87227.78,
-            "homeVol": 130736.95,
+            "awayVol": 87321.17,
+            "homeVol": 131870.08,
             "awayCents": 31,
-            "homeCents": 71,
-            "awayMult": 0.6672,
-            "homeMult": 1.4988,
-            "maxMult": 1.4988,
-            "totalVol": 217964.73,
+            "homeCents": 70,
+            "awayMult": 0.6622,
+            "homeMult": 1.5102,
+            "maxMult": 1.5102,
+            "totalVol": 219191.25,
             "highSide": "home",
-            "highMult": 1.4988,
+            "highMult": 1.5102,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -6433,13 +6433,13 @@
           "zOAA": -0.7411,
           "overallEdge": 5.6467,
           "modelScore": 2.1428,
-          "runDelta": 0.5357,
-          "modelHomeProb": 0.553365,
+          "runDelta": 0.8571,
+          "modelHomeProb": 0.605529,
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
             "home": "-195",
-            "away": "+188",
+            "away": "+189",
             "gameId": "6a7752c428854bdc8615581c",
             "spreads": {
               "home": [
@@ -6457,7 +6457,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -140
+                  "odds": -141
                 },
                 {
                   "line": 1.0,
@@ -6465,19 +6465,19 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 108
+                  "odds": 107
                 },
                 {
                   "line": 1.5,
-                  "odds": -317
+                  "odds": -320
                 },
                 {
                   "line": -2.0,
-                  "odds": 143
+                  "odds": 141
                 },
                 {
                   "line": -2.5,
-                  "odds": 174
+                  "odds": 172
                 },
                 {
                   "line": -3.0,
@@ -6503,19 +6503,19 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": 1.0,
-                  "odds": 134
+                  "odds": 135
                 },
                 {
                   "line": -1.5,
-                  "odds": 300
+                  "odds": 301
                 },
                 {
                   "line": 1.5,
-                  "odds": -113
+                  "odds": -112
                 },
                 {
                   "line": 2.0,
@@ -6523,7 +6523,7 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -183
+                  "odds": -182
                 },
                 {
                   "line": 3.0,
@@ -6538,16 +6538,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335TORPHI",
-            "awayVol": 15237.8,
-            "homeVol": 40079.16,
+            "awayVol": 15364.22,
+            "homeVol": 40111.37,
             "awayCents": 35,
             "homeCents": 66,
-            "awayMult": 0.3802,
-            "homeMult": 2.6302,
-            "maxMult": 2.6302,
-            "totalVol": 55316.96,
+            "awayMult": 0.383,
+            "homeMult": 2.6107,
+            "maxMult": 2.6107,
+            "totalVol": 55475.59,
             "highSide": "home",
-            "highMult": 2.6302,
+            "highMult": 2.6107,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -6605,8 +6605,8 @@
           "zOAA": 0.8357,
           "overallEdge": 5.3391,
           "modelScore": 2.6179,
-          "runDelta": 0.6545,
-          "modelHomeProb": 0.565076,
+          "runDelta": 1.0472,
+          "modelHomeProb": 0.627984,
           "favored": "MIL",
           "odds": {
             "provider": "4casters",
@@ -6629,11 +6629,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -173
+                  "odds": -174
                 },
                 {
                   "line": 1.0,
-                  "odds": -357
+                  "odds": -360
                 },
                 {
                   "line": -1.5,
@@ -6641,7 +6641,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -409
+                  "odds": -413
                 },
                 {
                   "line": -2.0,
@@ -6657,7 +6657,7 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 247
+                  "odds": 248
                 }
               ],
               "away": [
@@ -6683,7 +6683,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 385
+                  "odds": 386
                 },
                 {
                   "line": 1.5,
@@ -6710,16 +6710,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410MINMIL",
-            "awayVol": 19706.74,
-            "homeVol": 83093.26,
+            "awayVol": 19818.71,
+            "homeVol": 83503.11,
             "awayCents": 30,
             "homeCents": 71,
-            "awayMult": 0.2372,
-            "homeMult": 4.2165,
-            "maxMult": 4.2165,
-            "totalVol": 102800.0,
+            "awayMult": 0.2373,
+            "homeMult": 4.2133,
+            "maxMult": 4.2133,
+            "totalVol": 103321.82,
             "highSide": "home",
-            "highMult": 4.2165,
+            "highMult": 4.2133,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -6777,8 +6777,8 @@
           "zOAA": 1.1117,
           "overallEdge": 4.6907,
           "modelScore": 2.2712,
-          "runDelta": 0.5678,
-          "modelHomeProb": 0.556537,
+          "runDelta": 0.9085,
+          "modelHomeProb": 0.611646,
           "favored": "STL",
           "odds": {
             "provider": "4casters",
@@ -6883,15 +6883,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091415COLSTL",
             "awayVol": 3709.93,
-            "homeVol": 9379.87,
+            "homeVol": 9414.87,
             "awayCents": 40,
             "homeCents": 61,
-            "awayMult": 0.3955,
-            "homeMult": 2.5283,
-            "maxMult": 2.5283,
-            "totalVol": 13089.8,
+            "awayMult": 0.3941,
+            "homeMult": 2.5377,
+            "maxMult": 2.5377,
+            "totalVol": 13124.8,
             "highSide": "home",
-            "highMult": 2.5283,
+            "highMult": 2.5377,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -6949,8 +6949,8 @@
           "zOAA": 1.0723,
           "overallEdge": 3.737,
           "modelScore": 1.6648,
-          "runDelta": 0.4162,
-          "modelHomeProb": 0.541524,
+          "runDelta": 0.6659,
+          "modelHomeProb": 0.58248,
           "favored": "MIA",
           "odds": {
             "provider": "4casters",
@@ -7055,15 +7055,15 @@
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091340LAAMIA",
             "awayVol": 6720.24,
-            "homeVol": 30268.99,
+            "homeVol": 30313.62,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 0.222,
-            "homeMult": 4.5042,
-            "maxMult": 4.5042,
-            "totalVol": 36989.23,
+            "awayMult": 0.2217,
+            "homeMult": 4.5108,
+            "maxMult": 4.5108,
+            "totalVol": 37033.86,
             "highSide": "home",
-            "highMult": 4.5042,
+            "highMult": 4.5108,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -7121,8 +7121,8 @@
           "zOAA": 0.0079,
           "overallEdge": 2.3827,
           "modelScore": 1.1435,
-          "runDelta": 0.2859,
-          "modelHomeProb": 0.528555,
+          "runDelta": 0.4574,
+          "modelHomeProb": 0.556925,
           "favored": "PIT",
           "odds": {
             "provider": "4casters",
@@ -7153,7 +7153,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 154
+                  "odds": 155
                 },
                 {
                   "line": 1.5,
@@ -7169,11 +7169,11 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 344
+                  "odds": 345
                 },
                 {
                   "line": -3.5,
-                  "odds": 381
+                  "odds": 382
                 }
               ],
               "away": [
@@ -7226,16 +7226,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335NYMPIT",
-            "awayVol": 53720.63,
+            "awayVol": 53851.84,
             "homeVol": 27422.33,
             "awayCents": 44,
             "homeCents": 58,
-            "awayMult": 1.959,
-            "homeMult": 0.5105,
-            "maxMult": 1.959,
-            "totalVol": 81142.96,
+            "awayMult": 1.9638,
+            "homeMult": 0.5092,
+            "maxMult": 1.9638,
+            "totalVol": 81274.17,
             "highSide": "away",
-            "highMult": 1.959,
+            "highMult": 1.9638,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -7293,8 +7293,8 @@
           "zOAA": -0.4257,
           "overallEdge": 0.8538,
           "modelScore": 0.4661,
-          "runDelta": 0.1165,
-          "modelHomeProb": 0.51165,
+          "runDelta": 0.1864,
+          "modelHomeProb": 0.523287,
           "favored": "NYY",
           "odds": {
             "provider": "4casters",
@@ -7398,16 +7398,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091335ATLNYY",
-            "awayVol": 87399.05,
-            "homeVol": 72390.08,
+            "awayVol": 89974.23,
+            "homeVol": 72899.07,
             "awayCents": 43,
             "homeCents": 58,
-            "awayMult": 1.2073,
-            "homeMult": 0.8283,
-            "maxMult": 1.2073,
-            "totalVol": 159789.13,
+            "awayMult": 1.2342,
+            "homeMult": 0.8102,
+            "maxMult": 1.2342,
+            "totalVol": 162873.3,
             "highSide": "away",
-            "highMult": 1.2073,
+            "highMult": 1.2342,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -7465,8 +7465,8 @@
           "zOAA": 0.1261,
           "overallEdge": -0.8484,
           "modelScore": -0.4872,
-          "runDelta": -0.1218,
-          "modelHomeProb": 0.487823,
+          "runDelta": -0.1949,
+          "modelHomeProb": 0.47566,
           "favored": "HOU",
           "odds": {
             "provider": "4casters",
@@ -7551,7 +7551,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -255
+                  "odds": -254
                 },
                 {
                   "line": 2.5,
@@ -7570,16 +7570,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG092020HOUSD",
-            "awayVol": 18499.39,
-            "homeVol": 16894.02,
+            "awayVol": 18780.23,
+            "homeVol": 16911.96,
             "awayCents": 48,
             "homeCents": 54,
-            "awayMult": 1.095,
-            "homeMult": 0.9132,
-            "maxMult": 1.095,
-            "totalVol": 35393.41,
+            "awayMult": 1.1105,
+            "homeMult": 0.9005,
+            "maxMult": 1.1105,
+            "totalVol": 35692.19,
             "highSide": "away",
-            "highMult": 1.095,
+            "highMult": 1.1105,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -7637,8 +7637,8 @@
           "zOAA": 0.8357,
           "overallEdge": -1.0548,
           "modelScore": -0.4302,
-          "runDelta": -0.1075,
-          "modelHomeProb": 0.489247,
+          "runDelta": -0.1721,
+          "modelHomeProb": 0.478504,
           "favored": "BAL",
           "odds": {
             "provider": "4casters",
@@ -7661,7 +7661,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 119
+                  "odds": 118
                 },
                 {
                   "line": 1.0,
@@ -7735,23 +7735,23 @@
                 },
                 {
                   "line": 3.5,
-                  "odds": -432
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091435BALTEX",
-            "awayVol": 6496.43,
-            "homeVol": 22321.97,
+            "awayVol": 6603.42,
+            "homeVol": 22326.28,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.291,
-            "homeMult": 3.436,
-            "maxMult": 3.436,
-            "totalVol": 28818.4,
+            "awayMult": 0.2958,
+            "homeMult": 3.381,
+            "maxMult": 3.381,
+            "totalVol": 28929.7,
             "highSide": "home",
-            "highMult": 3.436,
+            "highMult": 3.381,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -7809,8 +7809,8 @@
           "zOAA": -0.9776,
           "overallEdge": -1.4606,
           "modelScore": -0.8899,
-          "runDelta": -0.2225,
-          "modelHomeProb": 0.477767,
+          "runDelta": -0.356,
+          "modelHomeProb": 0.455622,
           "favored": "CIN",
           "odds": {
             "provider": "4casters",
@@ -7914,16 +7914,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091215CINWSH",
-            "awayVol": 93423.93,
-            "homeVol": 88828.67,
+            "awayVol": 95571.03,
+            "homeVol": 89871.77,
             "awayCents": 50,
             "homeCents": 51,
-            "awayMult": 1.0517,
-            "homeMult": 0.9508,
-            "maxMult": 1.0517,
-            "totalVol": 182252.6,
+            "awayMult": 1.0634,
+            "homeMult": 0.9404,
+            "maxMult": 1.0634,
+            "totalVol": 185442.8,
             "highSide": "away",
-            "highMult": 1.0517,
+            "highMult": 1.0634,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -7981,8 +7981,8 @@
           "zOAA": 0.0079,
           "overallEdge": -2.8538,
           "modelScore": -1.3926,
-          "runDelta": -0.3481,
-          "modelHomeProb": 0.465242,
+          "runDelta": -0.557,
+          "modelHomeProb": 0.430818,
           "favored": "LAD",
           "odds": {
             "provider": "4casters",
@@ -7997,15 +7997,15 @@
                 },
                 {
                   "line": -0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": 0.5,
-                  "odds": 127
+                  "odds": 128
                 },
                 {
                   "line": -1.0,
-                  "odds": 201
+                  "odds": 202
                 },
                 {
                   "line": 1.0,
@@ -8013,7 +8013,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 258
                 },
                 {
                   "line": 1.5,
@@ -8025,15 +8025,15 @@
                 },
                 {
                   "line": 2.5,
-                  "odds": -197
+                  "odds": -196
                 },
                 {
                   "line": 3.0,
-                  "odds": -267
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
-                  "odds": -304
+                  "odds": -303
                 }
               ],
               "away": [
@@ -8075,27 +8075,27 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 253
+                  "odds": 251
                 },
                 {
                   "line": -3.5,
-                  "odds": 286
+                  "odds": 285
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610LADAZ",
-            "awayVol": 75763.42,
-            "homeVol": 22246.83,
+            "awayVol": 76067.38,
+            "homeVol": 22251.3,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.4056,
-            "homeMult": 0.2936,
-            "maxMult": 3.4056,
-            "totalVol": 98010.25,
+            "awayMult": 3.4186,
+            "homeMult": 0.2925,
+            "maxMult": 3.4186,
+            "totalVol": 98318.68,
             "highSide": "away",
-            "highMult": 3.4056,
+            "highMult": 3.4186,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -8153,121 +8153,121 @@
           "zOAA": -1.3719,
           "overallEdge": -5.4529,
           "modelScore": -2.4481,
-          "runDelta": -0.612,
-          "modelHomeProb": 0.439102,
+          "runDelta": -0.9792,
+          "modelHomeProb": 0.379984,
           "favored": "TB",
           "odds": {
             "provider": "4casters",
-            "home": "-108",
-            "away": "+102",
+            "home": "-104",
+            "away": "-102",
             "gameId": "6a7752c428854bdc8615581a",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -103
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -104
                 },
                 {
                   "line": -1.0,
-                  "odds": 143
+                  "odds": 148
                 },
                 {
                   "line": 1.0,
-                  "odds": -147
+                  "odds": -140
                 },
                 {
                   "line": -1.5,
-                  "odds": 195
+                  "odds": 203
                 },
                 {
                   "line": 1.5,
-                  "odds": -186
+                  "odds": -175
                 },
                 {
                   "line": -2.0,
-                  "odds": 272
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 308
+                  "odds": 319
                 },
                 {
                   "line": -3.0,
-                  "odds": 441
+                  "odds": 459
                 },
                 {
                   "line": -3.5,
-                  "odds": 480
+                  "odds": 492
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 103
+                  "odds": -101
                 },
                 {
                   "line": -0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": 0.5,
-                  "odds": 102
+                  "odds": -102
                 },
                 {
                   "line": -1.0,
-                  "odds": 140
+                  "odds": 133
                 },
                 {
                   "line": 1.0,
-                  "odds": -150
+                  "odds": -159
                 },
                 {
                   "line": -1.5,
-                  "odds": 174
+                  "odds": 165
                 },
                 {
                   "line": 1.5,
-                  "odds": -208
+                  "odds": -217
                 },
                 {
                   "line": 2.0,
-                  "odds": -288
+                  "odds": -300
                 },
                 {
                   "line": 2.5,
-                  "odds": -330
+                  "odds": -342
                 },
                 {
                   "line": 3.0,
-                  "odds": -475
+                  "odds": -496
                 },
                 {
                   "line": 3.5,
-                  "odds": -525
+                  "odds": -540
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091610TBSEA",
-            "awayVol": 31572.24,
-            "homeVol": 21974.17,
+            "awayVol": 31595.18,
+            "homeVol": 22204.4,
             "awayCents": 49,
             "homeCents": 52,
-            "awayMult": 1.4368,
-            "homeMult": 0.696,
-            "maxMult": 1.4368,
-            "totalVol": 53546.41,
+            "awayMult": 1.4229,
+            "homeMult": 0.7028,
+            "maxMult": 1.4229,
+            "totalVol": 53799.58,
             "highSide": "away",
-            "highMult": 1.4368,
+            "highMult": 1.4229,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -8325,8 +8325,8 @@
           "zOAA": 0.3233,
           "overallEdge": -6.5128,
           "modelScore": -2.7602,
-          "runDelta": -0.69,
-          "modelHomeProb": 0.43143,
+          "runDelta": -1.1041,
+          "modelHomeProb": 0.365392,
           "favored": "DET",
           "odds": {
             "provider": "4casters",
@@ -8430,16 +8430,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091605DETSF",
-            "awayVol": 117699.64,
+            "awayVol": 117802.55,
             "homeVol": 9196.07,
             "awayCents": 54,
             "homeCents": 47,
-            "awayMult": 12.7989,
+            "awayMult": 12.8101,
             "homeMult": 0.0781,
-            "maxMult": 12.7989,
-            "totalVol": 126895.71,
+            "maxMult": 12.8101,
+            "totalVol": 126998.62,
             "highSide": "away",
-            "highMult": 12.7989,
+            "highMult": 12.8101,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -8497,8 +8497,8 @@
           "zOAA": -0.3075,
           "overallEdge": -7.1644,
           "modelScore": -2.9535,
-          "runDelta": -0.7384,
-          "modelHomeProb": 0.426694,
+          "runDelta": -1.1814,
+          "modelHomeProb": 0.356473,
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
@@ -8595,23 +8595,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 384
+                  "odds": 385
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CLECWS",
-            "awayVol": 21054.92,
-            "homeVol": 34801.05,
+            "awayVol": 21350.74,
+            "homeVol": 34922.7,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.605,
-            "homeMult": 1.6529,
-            "maxMult": 1.6529,
-            "totalVol": 55855.97,
+            "awayMult": 0.6114,
+            "homeMult": 1.6357,
+            "maxMult": 1.6357,
+            "totalVol": 56273.44,
             "highSide": "home",
-            "highMult": 1.6529,
+            "highMult": 1.6357,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -8669,8 +8669,8 @@
           "zOAA": -2.1603,
           "overallEdge": -7.9786,
           "modelScore": -3.58,
-          "runDelta": -0.895,
-          "modelHomeProb": 0.411445,
+          "runDelta": -1.432,
+          "modelHomeProb": 0.328276,
           "favored": "CHC",
           "odds": {
             "provider": "4casters",
@@ -8739,7 +8739,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 1.0,
@@ -8747,7 +8747,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": -101
+                  "odds": -100
                 },
                 {
                   "line": 1.5,
@@ -8763,7 +8763,7 @@
                 },
                 {
                   "line": -3.0,
-                  "odds": 191
+                  "odds": 192
                 },
                 {
                   "line": -3.5,
@@ -8774,16 +8774,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG091410CHCKC",
-            "awayVol": 28034.88,
-            "homeVol": 6408.07,
+            "awayVol": 28436.38,
+            "homeVol": 6415.26,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.3749,
-            "homeMult": 0.2286,
-            "maxMult": 4.3749,
-            "totalVol": 34442.95,
+            "awayMult": 4.4326,
+            "homeMult": 0.2256,
+            "maxMult": 4.4326,
+            "totalVol": 34851.64,
             "highSide": "away",
-            "highMult": 4.3749,
+            "highMult": 4.4326,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -9177,8 +9177,8 @@
       "zOAA": 0.8357,
       "overallEdge": 6.8269,
       "modelScore": 3.1575,
-      "runDelta": 0.7894,
-      "modelHomeProb": 0.578288,
+      "runDelta": 1.263,
+      "modelHomeProb": 0.65283,
       "favored": "MIL",
       "odds": {
         "provider": "4casters",
@@ -9201,11 +9201,11 @@
             },
             {
               "line": -1.0,
-              "odds": -173
+              "odds": -174
             },
             {
               "line": 1.0,
-              "odds": -357
+              "odds": -360
             },
             {
               "line": -1.5,
@@ -9213,7 +9213,7 @@
             },
             {
               "line": 1.5,
-              "odds": -409
+              "odds": -413
             },
             {
               "line": -2.0,
@@ -9229,7 +9229,7 @@
             },
             {
               "line": -3.5,
-              "odds": 247
+              "odds": 248
             }
           ],
           "away": [
@@ -9255,7 +9255,7 @@
             },
             {
               "line": -1.5,
-              "odds": 385
+              "odds": 386
             },
             {
               "line": 1.5,
@@ -9282,16 +9282,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091410MINMIL",
-        "awayVol": 19706.74,
-        "homeVol": 83093.26,
+        "awayVol": 19818.71,
+        "homeVol": 83503.11,
         "awayCents": 30,
         "homeCents": 71,
-        "awayMult": 0.2372,
-        "homeMult": 4.2165,
-        "maxMult": 4.2165,
-        "totalVol": 102800.0,
+        "awayMult": 0.2373,
+        "homeMult": 4.2133,
+        "maxMult": 4.2133,
+        "totalVol": 103321.82,
         "highSide": "home",
-        "highMult": 4.2165,
+        "highMult": 4.2133,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -9349,8 +9349,8 @@
       "zOAA": 1.6636,
       "overallEdge": 5.9879,
       "modelScore": 3.0395,
-      "runDelta": 0.7599,
-      "modelHomeProb": 0.575407,
+      "runDelta": 1.2158,
+      "modelHomeProb": 0.64746,
       "favored": "BOS",
       "odds": {
         "provider": "4casters",
@@ -9361,19 +9361,19 @@
           "home": [
             {
               "line": 0.0,
-              "odds": -235
+              "odds": -233
             },
             {
               "line": -0.5,
-              "odds": -238
+              "odds": -237
             },
             {
               "line": 0.5,
-              "odds": -238
+              "odds": -237
             },
             {
               "line": -1.0,
-              "odds": -179
+              "odds": -178
             },
             {
               "line": 1.0,
@@ -9381,7 +9381,7 @@
             },
             {
               "line": -1.5,
-              "odds": -115
+              "odds": -116
             },
             {
               "line": 1.5,
@@ -9389,7 +9389,7 @@
             },
             {
               "line": -2.0,
-              "odds": 109
+              "odds": 108
             },
             {
               "line": -2.5,
@@ -9397,29 +9397,29 @@
             },
             {
               "line": -3.0,
-              "odds": 171
+              "odds": 170
             },
             {
               "line": -3.5,
-              "odds": 197
+              "odds": 196
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": 225
+              "odds": 224
             },
             {
               "line": -0.5,
-              "odds": 223
+              "odds": 221
             },
             {
               "line": 0.5,
-              "odds": 223
+              "odds": 221
             },
             {
               "line": -1.0,
-              "odds": 308
+              "odds": 304
             },
             {
               "line": 1.0,
@@ -9427,43 +9427,43 @@
             },
             {
               "line": -1.5,
-              "odds": 340
+              "odds": 339
             },
             {
               "line": 1.5,
-              "odds": 108
+              "odds": 109
             },
             {
               "line": 2.0,
-              "odds": -115
+              "odds": -114
             },
             {
               "line": 2.5,
-              "odds": -141
+              "odds": -140
             },
             {
               "line": 3.0,
-              "odds": -180
+              "odds": -181
             },
             {
               "line": 3.5,
-              "odds": -210
+              "odds": -209
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091335ATHBOS",
-        "awayVol": 87227.78,
-        "homeVol": 130736.95,
+        "awayVol": 87321.17,
+        "homeVol": 131870.08,
         "awayCents": 31,
-        "homeCents": 71,
-        "awayMult": 0.6672,
-        "homeMult": 1.4988,
-        "maxMult": 1.4988,
-        "totalVol": 217964.73,
+        "homeCents": 70,
+        "awayMult": 0.6622,
+        "homeMult": 1.5102,
+        "maxMult": 1.5102,
+        "totalVol": 219191.25,
         "highSide": "home",
-        "highMult": 1.4988,
+        "highMult": 1.5102,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -9521,8 +9521,8 @@
       "zOAA": 1.1117,
       "overallEdge": 4.0675,
       "modelScore": 1.8354,
-      "runDelta": 0.4588,
-      "modelHomeProb": 0.545756,
+      "runDelta": 0.7342,
+      "modelHomeProb": 0.590752,
       "favored": "STL",
       "odds": {
         "provider": "4casters",
@@ -9627,15 +9627,15 @@
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091415COLSTL",
         "awayVol": 3709.93,
-        "homeVol": 9379.87,
+        "homeVol": 9414.87,
         "awayCents": 40,
         "homeCents": 61,
-        "awayMult": 0.3955,
-        "homeMult": 2.5283,
-        "maxMult": 2.5283,
-        "totalVol": 13089.8,
+        "awayMult": 0.3941,
+        "homeMult": 2.5377,
+        "maxMult": 2.5377,
+        "totalVol": 13124.8,
         "highSide": "home",
-        "highMult": 2.5283,
+        "highMult": 2.5377,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -9693,13 +9693,13 @@
       "zOAA": -0.7411,
       "overallEdge": 3.3101,
       "modelScore": 1.2679,
-      "runDelta": 0.317,
-      "modelHomeProb": 0.531656,
+      "runDelta": 0.5072,
+      "modelHomeProb": 0.563059,
       "favored": "PHI",
       "odds": {
         "provider": "4casters",
         "home": "-195",
-        "away": "+188",
+        "away": "+189",
         "gameId": "6a7752c428854bdc8615581c",
         "spreads": {
           "home": [
@@ -9717,7 +9717,7 @@
             },
             {
               "line": -1.0,
-              "odds": -140
+              "odds": -141
             },
             {
               "line": 1.0,
@@ -9725,19 +9725,19 @@
             },
             {
               "line": -1.5,
-              "odds": 108
+              "odds": 107
             },
             {
               "line": 1.5,
-              "odds": -317
+              "odds": -320
             },
             {
               "line": -2.0,
-              "odds": 143
+              "odds": 141
             },
             {
               "line": -2.5,
-              "odds": 174
+              "odds": 172
             },
             {
               "line": -3.0,
@@ -9763,19 +9763,19 @@
             },
             {
               "line": -1.0,
-              "odds": 262
+              "odds": 263
             },
             {
               "line": 1.0,
-              "odds": 134
+              "odds": 135
             },
             {
               "line": -1.5,
-              "odds": 300
+              "odds": 301
             },
             {
               "line": 1.5,
-              "odds": -113
+              "odds": -112
             },
             {
               "line": 2.0,
@@ -9783,7 +9783,7 @@
             },
             {
               "line": 2.5,
-              "odds": -183
+              "odds": -182
             },
             {
               "line": 3.0,
@@ -9798,16 +9798,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091335TORPHI",
-        "awayVol": 15237.8,
-        "homeVol": 40079.16,
+        "awayVol": 15364.22,
+        "homeVol": 40111.37,
         "awayCents": 35,
         "homeCents": 66,
-        "awayMult": 0.3802,
-        "homeMult": 2.6302,
-        "maxMult": 2.6302,
-        "totalVol": 55316.96,
+        "awayMult": 0.383,
+        "homeMult": 2.6107,
+        "maxMult": 2.6107,
+        "totalVol": 55475.59,
         "highSide": "home",
-        "highMult": 2.6302,
+        "highMult": 2.6107,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -9865,8 +9865,8 @@
       "zOAA": -0.9776,
       "overallEdge": 3.1768,
       "modelScore": 1.0057,
-      "runDelta": 0.2514,
-      "modelHomeProb": 0.525121,
+      "runDelta": 0.4023,
+      "modelHomeProb": 0.550115,
       "favored": "WSH",
       "odds": {
         "provider": "4casters",
@@ -9970,16 +9970,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091215CINWSH",
-        "awayVol": 93423.93,
-        "homeVol": 88828.67,
+        "awayVol": 95571.03,
+        "homeVol": 89871.77,
         "awayCents": 50,
         "homeCents": 51,
-        "awayMult": 1.0517,
-        "homeMult": 0.9508,
-        "maxMult": 1.0517,
-        "totalVol": 182252.6,
+        "awayMult": 1.0634,
+        "homeMult": 0.9404,
+        "maxMult": 1.0634,
+        "totalVol": 185442.8,
         "highSide": "away",
-        "highMult": 1.0517,
+        "highMult": 1.0634,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -10037,8 +10037,8 @@
       "zOAA": 1.0723,
       "overallEdge": 3.1661,
       "modelScore": 1.416,
-      "runDelta": 0.354,
-      "modelHomeProb": 0.535342,
+      "runDelta": 0.5664,
+      "modelHomeProb": 0.570332,
       "favored": "MIA",
       "odds": {
         "provider": "4casters",
@@ -10143,15 +10143,15 @@
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091340LAAMIA",
         "awayVol": 6720.24,
-        "homeVol": 30268.99,
+        "homeVol": 30313.62,
         "awayCents": 43,
         "homeCents": 58,
-        "awayMult": 0.222,
-        "homeMult": 4.5042,
-        "maxMult": 4.5042,
-        "totalVol": 36989.23,
+        "awayMult": 0.2217,
+        "homeMult": 4.5108,
+        "maxMult": 4.5108,
+        "totalVol": 37033.86,
         "highSide": "home",
-        "highMult": 4.5042,
+        "highMult": 4.5108,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -10209,8 +10209,8 @@
       "zOAA": 0.0079,
       "overallEdge": 2.5007,
       "modelScore": 0.8824,
-      "runDelta": 0.2206,
-      "modelHomeProb": 0.522046,
+      "runDelta": 0.353,
+      "modelHomeProb": 0.544006,
       "favored": "PIT",
       "odds": {
         "provider": "4casters",
@@ -10241,7 +10241,7 @@
             },
             {
               "line": -1.5,
-              "odds": 154
+              "odds": 155
             },
             {
               "line": 1.5,
@@ -10257,11 +10257,11 @@
             },
             {
               "line": -3.0,
-              "odds": 344
+              "odds": 345
             },
             {
               "line": -3.5,
-              "odds": 381
+              "odds": 382
             }
           ],
           "away": [
@@ -10314,16 +10314,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091335NYMPIT",
-        "awayVol": 53720.63,
+        "awayVol": 53851.84,
         "homeVol": 27422.33,
         "awayCents": 44,
         "homeCents": 58,
-        "awayMult": 1.959,
-        "homeMult": 0.5105,
-        "maxMult": 1.959,
-        "totalVol": 81142.96,
+        "awayMult": 1.9638,
+        "homeMult": 0.5092,
+        "maxMult": 1.9638,
+        "totalVol": 81274.17,
         "highSide": "away",
-        "highMult": 1.959,
+        "highMult": 1.9638,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -10381,8 +10381,8 @@
       "zOAA": -0.4257,
       "overallEdge": 1.4472,
       "modelScore": 0.6702,
-      "runDelta": 0.1676,
-      "modelHomeProb": 0.51675,
+      "runDelta": 0.2681,
+      "modelHomeProb": 0.533462,
       "favored": "NYY",
       "odds": {
         "provider": "4casters",
@@ -10486,16 +10486,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091335ATLNYY",
-        "awayVol": 87399.05,
-        "homeVol": 72390.08,
+        "awayVol": 89974.23,
+        "homeVol": 72899.07,
         "awayCents": 43,
         "homeCents": 58,
-        "awayMult": 1.2073,
-        "homeMult": 0.8283,
-        "maxMult": 1.2073,
-        "totalVol": 159789.13,
+        "awayMult": 1.2342,
+        "homeMult": 0.8102,
+        "maxMult": 1.2342,
+        "totalVol": 162873.3,
         "highSide": "away",
-        "highMult": 1.2073,
+        "highMult": 1.2342,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -10553,8 +10553,8 @@
       "zOAA": 0.8357,
       "overallEdge": 0.3637,
       "modelScore": 0.3495,
-      "runDelta": 0.0874,
-      "modelHomeProb": 0.508738,
+      "runDelta": 0.1398,
+      "modelHomeProb": 0.51747,
       "favored": "TEX",
       "odds": {
         "provider": "4casters",
@@ -10577,7 +10577,7 @@
             },
             {
               "line": -1.0,
-              "odds": 119
+              "odds": 118
             },
             {
               "line": 1.0,
@@ -10651,23 +10651,23 @@
             },
             {
               "line": 3.5,
-              "odds": -432
+              "odds": -431
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091435BALTEX",
-        "awayVol": 6496.43,
-        "homeVol": 22321.97,
+        "awayVol": 6603.42,
+        "homeVol": 22326.28,
         "awayCents": 45,
         "homeCents": 56,
-        "awayMult": 0.291,
-        "homeMult": 3.436,
-        "maxMult": 3.436,
-        "totalVol": 28818.4,
+        "awayMult": 0.2958,
+        "homeMult": 3.381,
+        "maxMult": 3.381,
+        "totalVol": 28929.7,
         "highSide": "home",
-        "highMult": 3.436,
+        "highMult": 3.381,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -10725,8 +10725,8 @@
       "zOAA": 0.1261,
       "overallEdge": 0.1627,
       "modelScore": 0.1355,
-      "runDelta": 0.0339,
-      "modelHomeProb": 0.503388,
+      "runDelta": 0.0542,
+      "modelHomeProb": 0.506775,
       "favored": "SD",
       "odds": {
         "provider": "4casters",
@@ -10811,7 +10811,7 @@
             },
             {
               "line": 2.0,
-              "odds": -255
+              "odds": -254
             },
             {
               "line": 2.5,
@@ -10830,16 +10830,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG092020HOUSD",
-        "awayVol": 18499.39,
-        "homeVol": 16894.02,
+        "awayVol": 18780.23,
+        "homeVol": 16911.96,
         "awayCents": 48,
         "homeCents": 54,
-        "awayMult": 1.095,
-        "homeMult": 0.9132,
-        "maxMult": 1.095,
-        "totalVol": 35393.41,
+        "awayMult": 1.1105,
+        "homeMult": 0.9005,
+        "maxMult": 1.1105,
+        "totalVol": 35692.19,
         "highSide": "away",
-        "highMult": 1.095,
+        "highMult": 1.1105,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -10897,121 +10897,121 @@
       "zOAA": -1.3719,
       "overallEdge": -2.8554,
       "modelScore": -1.2836,
-      "runDelta": -0.3209,
-      "modelHomeProb": 0.467955,
+      "runDelta": -0.5134,
+      "modelHomeProb": 0.436171,
       "favored": "TB",
       "odds": {
         "provider": "4casters",
-        "home": "-108",
-        "away": "+102",
+        "home": "-104",
+        "away": "-102",
         "gameId": "6a7752c428854bdc8615581a",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": -107
+              "odds": -103
             },
             {
               "line": -0.5,
-              "odds": -108
+              "odds": -104
             },
             {
               "line": 0.5,
-              "odds": -108
+              "odds": -104
             },
             {
               "line": -1.0,
-              "odds": 143
+              "odds": 148
             },
             {
               "line": 1.0,
-              "odds": -147
+              "odds": -140
             },
             {
               "line": -1.5,
-              "odds": 195
+              "odds": 203
             },
             {
               "line": 1.5,
-              "odds": -186
+              "odds": -175
             },
             {
               "line": -2.0,
-              "odds": 272
+              "odds": 283
             },
             {
               "line": -2.5,
-              "odds": 308
+              "odds": 319
             },
             {
               "line": -3.0,
-              "odds": 441
+              "odds": 459
             },
             {
               "line": -3.5,
-              "odds": 480
+              "odds": 492
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": 103
+              "odds": -101
             },
             {
               "line": -0.5,
-              "odds": 102
+              "odds": -102
             },
             {
               "line": 0.5,
-              "odds": 102
+              "odds": -102
             },
             {
               "line": -1.0,
-              "odds": 140
+              "odds": 133
             },
             {
               "line": 1.0,
-              "odds": -150
+              "odds": -159
             },
             {
               "line": -1.5,
-              "odds": 174
+              "odds": 165
             },
             {
               "line": 1.5,
-              "odds": -208
+              "odds": -217
             },
             {
               "line": 2.0,
-              "odds": -288
+              "odds": -300
             },
             {
               "line": 2.5,
-              "odds": -330
+              "odds": -342
             },
             {
               "line": 3.0,
-              "odds": -475
+              "odds": -496
             },
             {
               "line": 3.5,
-              "odds": -525
+              "odds": -540
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091610TBSEA",
-        "awayVol": 31572.24,
-        "homeVol": 21974.17,
+        "awayVol": 31595.18,
+        "homeVol": 22204.4,
         "awayCents": 49,
         "homeCents": 52,
-        "awayMult": 1.4368,
-        "homeMult": 0.696,
-        "maxMult": 1.4368,
-        "totalVol": 53546.41,
+        "awayMult": 1.4229,
+        "homeMult": 0.7028,
+        "maxMult": 1.4229,
+        "totalVol": 53799.58,
         "highSide": "away",
-        "highMult": 1.4368,
+        "highMult": 1.4229,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -11069,8 +11069,8 @@
       "zOAA": -0.3075,
       "overallEdge": -4.4116,
       "modelScore": -1.9962,
-      "runDelta": -0.499,
-      "modelHomeProb": 0.450261,
+      "runDelta": -0.7985,
+      "modelHomeProb": 0.401497,
       "favored": "CLE",
       "odds": {
         "provider": "4casters",
@@ -11167,23 +11167,23 @@
             },
             {
               "line": -3.5,
-              "odds": 384
+              "odds": 385
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091410CLECWS",
-        "awayVol": 21054.92,
-        "homeVol": 34801.05,
+        "awayVol": 21350.74,
+        "homeVol": 34922.7,
         "awayCents": 52,
         "homeCents": 49,
-        "awayMult": 0.605,
-        "homeMult": 1.6529,
-        "maxMult": 1.6529,
-        "totalVol": 55855.97,
+        "awayMult": 0.6114,
+        "homeMult": 1.6357,
+        "maxMult": 1.6357,
+        "totalVol": 56273.44,
         "highSide": "home",
-        "highMult": 1.6529,
+        "highMult": 1.6357,
         "favoriteSide": "away",
         "tone": "muted"
       }
@@ -11241,8 +11241,8 @@
       "zOAA": 0.3233,
       "overallEdge": -5.2312,
       "modelScore": -2.3576,
-      "runDelta": -0.5894,
-      "modelHomeProb": 0.441332,
+      "runDelta": -0.943,
+      "modelHomeProb": 0.384257,
       "favored": "DET",
       "odds": {
         "provider": "4casters",
@@ -11346,16 +11346,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091605DETSF",
-        "awayVol": 117699.64,
+        "awayVol": 117802.55,
         "homeVol": 9196.07,
         "awayCents": 54,
         "homeCents": 47,
-        "awayMult": 12.7989,
+        "awayMult": 12.8101,
         "homeMult": 0.0781,
-        "maxMult": 12.7989,
-        "totalVol": 126895.71,
+        "maxMult": 12.8101,
+        "totalVol": 126998.62,
         "highSide": "away",
-        "highMult": 12.7989,
+        "highMult": 12.8101,
         "favoriteSide": "away",
         "tone": "red"
       }
@@ -11413,8 +11413,8 @@
       "zOAA": -2.1603,
       "overallEdge": -9.2061,
       "modelScore": -4.0722,
-      "runDelta": -1.018,
-      "modelHomeProb": 0.399579,
+      "runDelta": -1.6289,
+      "modelHomeProb": 0.306946,
       "favored": "CHC",
       "odds": {
         "provider": "4casters",
@@ -11483,7 +11483,7 @@
             },
             {
               "line": -1.0,
-              "odds": -127
+              "odds": -126
             },
             {
               "line": 1.0,
@@ -11491,7 +11491,7 @@
             },
             {
               "line": -1.5,
-              "odds": -101
+              "odds": -100
             },
             {
               "line": 1.5,
@@ -11507,7 +11507,7 @@
             },
             {
               "line": -3.0,
-              "odds": 191
+              "odds": 192
             },
             {
               "line": -3.5,
@@ -11518,16 +11518,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091410CHCKC",
-        "awayVol": 28034.88,
-        "homeVol": 6408.07,
+        "awayVol": 28436.38,
+        "homeVol": 6415.26,
         "awayCents": 61,
         "homeCents": 40,
-        "awayMult": 4.3749,
-        "homeMult": 0.2286,
-        "maxMult": 4.3749,
-        "totalVol": 34442.95,
+        "awayMult": 4.4326,
+        "homeMult": 0.2256,
+        "maxMult": 4.4326,
+        "totalVol": 34851.64,
         "highSide": "away",
-        "highMult": 4.3749,
+        "highMult": 4.4326,
         "favoriteSide": "away",
         "tone": "yellow"
       }
@@ -11585,8 +11585,8 @@
       "zOAA": 0.0079,
       "overallEdge": -9.3055,
       "modelScore": -4.0502,
-      "runDelta": -1.0125,
-      "modelHomeProb": 0.400107,
+      "runDelta": -1.6201,
+      "modelHomeProb": 0.307882,
       "favored": "LAD",
       "odds": {
         "provider": "4casters",
@@ -11601,15 +11601,15 @@
             },
             {
               "line": -0.5,
-              "odds": 127
+              "odds": 128
             },
             {
               "line": 0.5,
-              "odds": 127
+              "odds": 128
             },
             {
               "line": -1.0,
-              "odds": 201
+              "odds": 202
             },
             {
               "line": 1.0,
@@ -11617,7 +11617,7 @@
             },
             {
               "line": -1.5,
-              "odds": 257
+              "odds": 258
             },
             {
               "line": 1.5,
@@ -11629,15 +11629,15 @@
             },
             {
               "line": 2.5,
-              "odds": -197
+              "odds": -196
             },
             {
               "line": 3.0,
-              "odds": -267
+              "odds": -265
             },
             {
               "line": 3.5,
-              "odds": -304
+              "odds": -303
             }
           ],
           "away": [
@@ -11679,27 +11679,27 @@
             },
             {
               "line": -3.0,
-              "odds": 253
+              "odds": 251
             },
             {
               "line": -3.5,
-              "odds": 286
+              "odds": 285
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG091610LADAZ",
-        "awayVol": 75763.42,
-        "homeVol": 22246.83,
+        "awayVol": 76067.38,
+        "homeVol": 22251.3,
         "awayCents": 58,
         "homeCents": 43,
-        "awayMult": 3.4056,
-        "homeMult": 0.2936,
-        "maxMult": 3.4056,
-        "totalVol": 98010.25,
+        "awayMult": 3.4186,
+        "homeMult": 0.2925,
+        "maxMult": 3.4186,
+        "totalVol": 98318.68,
         "highSide": "away",
-        "highMult": 3.4056,
+        "highMult": 3.4186,
         "favoriteSide": "away",
         "tone": "yellow"
       }
