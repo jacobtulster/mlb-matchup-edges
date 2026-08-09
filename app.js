@@ -475,7 +475,6 @@
     const awayPrice = model ? formatAmerican(model.away) : "—";
     const value = valueVsMarket(m);
     const g = gradesFor(m);
-    const modelBadge = gradeBadge(g && g.model);
     const valueBadge = gradeBadge(g && g.value, { showPnl: true });
     let valueHtml = `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     if (value && Math.abs(value.edge) >= 0.005) {
@@ -490,7 +489,6 @@
           <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         ${valueHtml}
-        ${modelBadge ? `<div class="grade-row" title="Did the model favorite win the game?">Fav ${modelBadge}</div>` : ""}
       </td>
     `;
   }
