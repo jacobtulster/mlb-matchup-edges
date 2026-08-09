@@ -25,7 +25,7 @@
   let histIndex = null;
   let histDay = null;
   let histCache = new Map(); // date -> day json
-  let edgeTopN = 0; // 0 = all, 3, 5
+  let edgeFilter = "all"; // all | top3 | top5 | rl
   let viewMode = "live"; // live | historical
   let histDate = null;
   let activeWindow = localStorage.getItem("mlbEdgeWindowV2") || "l7";
@@ -495,7 +495,7 @@
     const awayPrice = model ? formatAmerican(model.away) : "—";
     const value = valueVsMarket(m);
     const g = gradesFor(m);
-    const valueBadge = gradeBadge(g && g.value, { showPnl: true });
+    const valueBadge = gradeBadge(valueBetForFilter(g && g.value), { showPnl: true });
     let valueHtml = `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
     if (value && Math.abs(value.edge) >= 0.005) {
       valueHtml = `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
@@ -1116,6 +1116,50 @@
     return payload.windows.season || { matchups: [] };
   }
 
+  function edgeFilterLabel() {
+    if (edgeFilter === "top3") return "Top 3/day";
+    if (edgeFilter === "top5") return "Top 5/day";
+    if (edgeFilter === "rl") return "Run line only";
+    return "All edges";
+  }
+
+  function edgeTopN() {
+    if (edgeFilter === "top3") return 3;
+    if (edgeFilter === "top5") return 5;
+    return 0;
+  }
+
+  function spreadLegFromValue(v) {
+    if (!v || !Array.isArray(v.legs)) return null;
+    return v.legs.find((leg) => leg && leg.type === "spread") || null;
+  }
+
+  /** Value grade projected for the active edge filter (RL-only strips ML). */
+  function valueBetForFilter(v) {
+    if (!v) return null;
+    if (edgeFilter !== "rl") return v;
+    const sp = spreadLegFromValue(v);
+    if (!sp) return null;
+    return {
+      ...v,
+      outcome: sp.outcome || "push",
+      stakeDollars: sp.stakeDollars,
+      profitDollars: sp.profitDollars,
+      legs: [sp],
+      marketMl: null,
+      spread: v.spread || { line: sp.line, odds: sp.odds },
+    };
+  }
+
+  function gameHasRunLine(game, wid) {
+    const v = valueGradeFromGame(game, wid);
+    if (spreadLegFromValue(v)) return true;
+    const m = (game.windows || {})[wid];
+    if (!m) return false;
+    const value = valueVsMarket(m);
+    return !!(value && value.spread);
+  }
+
   function renderHistSummary() {
     if (!histSummaryEl) return;
     if (viewMode !== "historical" || !histDay) {
@@ -1125,9 +1169,9 @@
       return;
     }
 
-    const dayStats = summarizeFilteredDay(histDay, activeWindow, edgeTopN);
-    const allStats = summarizeAllTime(activeWindow, edgeTopN);
-    const series = buildEquitySeries(activeWindow, edgeTopN);
+    const dayStats = summarizeFilteredDay(histDay, activeWindow);
+    const allStats = summarizeAllTime(activeWindow);
+    const series = buildEquitySeries(activeWindow);
     renderEquityChart(series, allStats);
 
     const decided = dayStats.wins + dayStats.losses;
@@ -1144,7 +1188,7 @@
         ? `${allStats.wins}-${allStats.losses} (${((allStats.hitRate || 0) * 100).toFixed(0)}%)`
         : "—";
     const atPnL = formatMoneySigned(allStats.profitDollars);
-    const filterLabel = edgeTopN > 0 ? `Top ${edgeTopN}/day` : "All edges";
+    const filterLabel = edgeFilterLabel();
     histSummaryEl.hidden = false;
     histSummaryEl.innerHTML = `
       <strong>Edge (${filterLabel})</strong> ${hit} · ${dayPnL} · ${dayRoi}
@@ -1185,6 +1229,14 @@
       .slice(0, topN);
   }
 
+  function gamesForEdgeFilter(day, wid) {
+    let games = topEdgeGamesForDay(day, wid, edgeTopN());
+    if (edgeFilter === "rl") {
+      games = games.filter((g) => gameHasRunLine(g, wid));
+    }
+    return games;
+  }
+
   function summarizeFromBets(bets) {
     const out = {
       wins: 0,
@@ -1200,7 +1252,7 @@
       if (outcome === "win") out.wins += 1;
       else if (outcome === "loss") out.losses += 1;
       else if (outcome === "mixed") {
-        /* split result — count toward sample via stake/P&L only */
+        /* split ML+RL — stake/P&L still count; W-L via legs only in RL mode */
       } else {
         out.pushes += 1;
       }
@@ -1220,14 +1272,13 @@
     return out;
   }
 
-  function summarizeFilteredDay(day, wid, topN) {
-    const picked = topEdgeGamesForDay(day, wid, topN);
+  function summarizeFilteredDay(day, wid) {
+    const picked = gamesForEdgeFilter(day, wid);
     const bets = picked
-      .map((g) => valueGradeFromGame(g, wid))
+      .map((g) => valueBetForFilter(valueGradeFromGame(g, wid)))
       .filter((v) => v && v.outcome && v.outcome !== "push" && v.profitDollars != null);
-    // Also count W/L without requiring profit (missing ML)
     const allOutcomes = picked
-      .map((g) => valueGradeFromGame(g, wid))
+      .map((g) => valueBetForFilter(valueGradeFromGame(g, wid)))
       .filter(Boolean);
     if (!bets.length && allOutcomes.length) {
       return summarizeFromBets(allOutcomes);
@@ -1235,34 +1286,35 @@
     return summarizeFromBets(bets.length ? bets : allOutcomes);
   }
 
-  function summarizeAllTime(wid, topN) {
+  function summarizeAllTime(wid) {
     const bets = [];
     const dates = (histIndex && histIndex.dates) || [...histCache.keys()].sort();
     for (const d of dates) {
       const day = histCache.get(d);
       if (!day) continue;
-      for (const g of topEdgeGamesForDay(day, wid, topN)) {
-        const v = valueGradeFromGame(g, wid);
+      for (const g of gamesForEdgeFilter(day, wid)) {
+        const v = valueBetForFilter(valueGradeFromGame(g, wid));
         if (v) bets.push(v);
       }
     }
     return summarizeFromBets(bets);
   }
 
-  function buildEquitySeries(wid, topN) {
+  function buildEquitySeries(wid) {
     const points = [];
     let cum = 0;
     const dates = (histIndex && histIndex.dates) || [...histCache.keys()].sort();
     for (const d of dates) {
       const day = histCache.get(d);
       if (!day) continue;
-      const games = topEdgeGamesForDay(day, wid, topN).sort(
+      const games = gamesForEdgeFilter(day, wid).sort(
         (a, b) => (parseIsoMs(a.gameDate) || 0) - (parseIsoMs(b.gameDate) || 0)
       );
       for (const g of games) {
-        const v = valueGradeFromGame(g, wid);
+        const v = valueBetForFilter(valueGradeFromGame(g, wid));
         if (!v || v.profitDollars == null || !Number.isFinite(Number(v.profitDollars))) continue;
-        if (v.outcome !== "win" && v.outcome !== "loss") continue;
+        // Include mixed (ML+RL split) so equity matches $ P&L; RL-only is always W/L/P
+        if (v.outcome === "push") continue;
         cum += Number(v.profitDollars);
         points.push({
           date: d,
@@ -1289,7 +1341,7 @@
       return;
     }
     equityWrap.hidden = false;
-    const filterLabel = edgeTopN > 0 ? `Top ${edgeTopN}/day` : "All edges";
+    const filterLabel = edgeFilterLabel();
     if (equityMeta) {
       equityMeta.textContent = series.length
         ? `${filterLabel} · ${formatMoneySigned(allStats.profitDollars)} cumulative · ${series.length} bets`
@@ -1424,12 +1476,12 @@
     const win = windowData(id);
     let matchups = win.matchups || [];
 
-    // Historical top-N filter: only show that day's largest Val edges
-    if (viewMode === "historical" && histDay && edgeTopN > 0) {
-      const topPks = new Set(
-        topEdgeGamesForDay(histDay, activeWindow, edgeTopN).map((g) => g.gamePk)
+    // Historical edge filters: top-N Val edges, or run-line-only games
+    if (viewMode === "historical" && histDay && edgeFilter !== "all") {
+      const keep = new Set(
+        gamesForEdgeFilter(histDay, activeWindow).map((g) => g.gamePk)
       );
-      matchups = matchups.filter((m) => topPks.has(m.gamePk));
+      matchups = matchups.filter((m) => keep.has(m.gamePk));
     }
 
     rows = matchups.map((m) => {
@@ -1453,7 +1505,9 @@
           : "";
     const modeBit = viewMode === "historical" ? "Historical" : "Live";
     const filterBit =
-      viewMode === "historical" && edgeTopN > 0 ? ` · Top ${edgeTopN} edges` : "";
+      viewMode === "historical" && edgeFilter !== "all"
+        ? ` · ${edgeFilterLabel()}`
+        : "";
     meta.textContent = `${modeBit} · Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range}${filterBit} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
     renderHistSummary();
     render();
@@ -1539,7 +1593,7 @@
     histDate = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
-    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110). Top 3/5 filters keep only the largest Val edges that day.`;
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110). Top 3/5 keep the largest Val edges that day; Run line only grades the spread leg alone (no ML).`;
   }
 
   async function setViewMode(mode) {
@@ -1600,7 +1654,7 @@
 
   edgeFilterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      edgeTopN = Number(btn.dataset.top) || 0;
+      edgeFilter = btn.dataset.filter || "all";
       edgeFilterBtns.forEach((b) => b.classList.toggle("active", b === btn));
       if (viewMode === "historical") applyWindow(activeWindow, { persist: false });
     });

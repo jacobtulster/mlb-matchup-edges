@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=val-legs-4" />
+    <link rel="stylesheet" href="styles.css?v=rl-filter-1" />
   </head>
   <body>
     <main>
@@ -43,9 +43,10 @@
             <select id="hist-date" aria-label="Historical slate date"></select>
           </div>
           <div class="edge-filter-toggle" id="edge-filter-wrap" role="group" aria-label="Edge bet filter" hidden>
-            <button type="button" class="edge-filter-btn active" data-top="0">All edges</button>
-            <button type="button" class="edge-filter-btn" data-top="3">Top 3/day</button>
-            <button type="button" class="edge-filter-btn" data-top="5">Top 5/day</button>
+            <button type="button" class="edge-filter-btn active" data-filter="all">All edges</button>
+            <button type="button" class="edge-filter-btn" data-filter="top3">Top 3/day</button>
+            <button type="button" class="edge-filter-btn" data-filter="top5">Top 5/day</button>
+            <button type="button" class="edge-filter-btn" data-filter="rl">Run line only</button>
           </div>
           <div class="window-toggle" role="group" aria-label="Stats window">
             <button type="button" id="window-season" class="window-btn" data-window="season">Season</button>
@@ -120,6 +121,6 @@
         </p>
       </footer>
     </main>
-    <script src="app.js?v=val-legs-4"></script>
+    <script src="app.js?v=rl-filter-1"></script>
   </body>
 </html>
