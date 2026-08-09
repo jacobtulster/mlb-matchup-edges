@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 3,
-        "wins": 2,
-        "losses": 1,
-        "pushes": 0,
-        "hitRate": 0.6667,
-        "stakedDollars": 511.0,
+        "n": 5,
+        "wins": 3,
+        "losses": 2,
+        "pushes": 3,
+        "hitRate": 0.6,
+        "stakedDollars": 751.0,
         "profitDollars": -32.0,
-        "roi": -0.0626
+        "roi": -0.0426
       },
       "model": {
-        "n": 3,
-        "wins": 2,
-        "losses": 1,
+        "n": 8,
+        "wins": 6,
+        "losses": 2,
         "pushes": 0,
-        "hitRate": 0.6667,
+        "hitRate": 0.75,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.375,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
-        "pushes": 0,
-        "hitRate": 0.3333,
-        "stakedDollars": 552.0,
+        "n": 5,
+        "wins": 2,
+        "losses": 3,
+        "pushes": 3,
+        "hitRate": 0.4,
+        "stakedDollars": 792.0,
         "profitDollars": -304.0,
-        "roi": -0.5507
+        "roi": -0.3838
       },
       "model": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
+        "n": 8,
+        "wins": 2,
+        "losses": 6,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.25,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.375,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 3,
-        "wins": 2,
-        "losses": 1,
-        "pushes": 0,
-        "hitRate": 0.6667,
-        "stakedDollars": 511.0,
+        "n": 5,
+        "wins": 3,
+        "losses": 2,
+        "pushes": 3,
+        "hitRate": 0.6,
+        "stakedDollars": 751.0,
         "profitDollars": -32.0,
-        "roi": -0.0626
+        "roi": -0.0426
       },
       "model": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.375,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 3,
-        "wins": 1,
-        "losses": 2,
+        "n": 8,
+        "wins": 3,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.375,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -1327,8 +1327,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 2,
-        "homeScore": 2,
+        "awayScore": 7,
+        "homeScore": 5,
         "winner": null,
         "grades": {}
       }
@@ -1557,12 +1557,86 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 0,
-        "homeScore": 8,
-        "winner": null,
-        "grades": {}
+        "homeScore": 9,
+        "winner": "PIT",
+        "grades": {
+          "model": {
+            "pick": "NYM",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": null,
+            "edgePct": null,
+            "marketMl": null,
+            "stakeDollars": null,
+            "outcome": "push",
+            "profitDollars": null
+          },
+          "money": {
+            "pick": "PIT",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "PIT",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "PIT",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "NYM",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "PIT",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "PIT",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "PIT",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T01:55:47Z"
       }
     },
     {
@@ -1789,12 +1863,86 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 2,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 2,
+        "homeScore": 8,
+        "winner": "WSH",
+        "grades": {
+          "model": {
+            "pick": "CIN",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": null,
+            "edgePct": null,
+            "marketMl": null,
+            "stakeDollars": null,
+            "outcome": "push",
+            "profitDollars": null
+          },
+          "money": {
+            "pick": "CIN",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "WSH",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CIN",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "CIN",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CIN",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "CIN",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CIN",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T01:55:47Z"
       }
     },
     {
@@ -2039,12 +2187,90 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Game Over",
         "awayScore": 3,
-        "homeScore": 1,
-        "winner": null,
-        "grades": {}
+        "homeScore": 4,
+        "winner": "MIL",
+        "grades": {
+          "model": {
+            "pick": "MIL",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "MIL",
+            "side": "home",
+            "edgePct": 0.140198,
+            "marketMl": -140.0,
+            "stakeDollars": 140.0,
+            "outcome": "win",
+            "profitDollars": 100.0
+          },
+          "money": {
+            "pick": "MIL",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "MIL",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIL",
+              "side": "home",
+              "edgePct": 0.186566,
+              "marketMl": -140.0,
+              "stakeDollars": 140.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "MIL",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "MIL",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIL",
+              "side": "home",
+              "edgePct": 0.140198,
+              "marketMl": -140.0,
+              "stakeDollars": 140.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "MIL",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "MIL",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIL",
+              "side": "home",
+              "edgePct": 0.188563,
+              "marketMl": -140.0,
+              "stakeDollars": 140.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "MIL",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T01:55:47Z"
       }
     },
     {
@@ -2271,12 +2497,86 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 4,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 3,
+        "homeScore": 6,
+        "winner": "KC",
+        "grades": {
+          "model": {
+            "pick": "CHC",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": null,
+            "edgePct": null,
+            "marketMl": null,
+            "stakeDollars": null,
+            "outcome": "push",
+            "profitDollars": null
+          },
+          "money": {
+            "pick": "CHC",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "CHC",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CHC",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "CHC",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CHC",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "CHC",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": null,
+              "edgePct": null,
+              "marketMl": null,
+              "stakeDollars": null,
+              "outcome": "push",
+              "profitDollars": null
+            },
+            "money": {
+              "pick": "CHC",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T01:55:47Z"
       }
     },
     {
@@ -2521,12 +2821,90 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 1,
-        "homeScore": 1,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Game Over",
+        "awayScore": 2,
+        "homeScore": 3,
+        "winner": "SD",
+        "grades": {
+          "model": {
+            "pick": "HOU",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "HOU",
+            "side": "away",
+            "edgePct": 0.116844,
+            "marketMl": 108.0,
+            "stakeDollars": 100.0,
+            "outcome": "loss",
+            "profitDollars": -100.0
+          },
+          "money": {
+            "pick": "HOU",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "SD",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "HOU",
+              "side": "away",
+              "edgePct": 0.02545,
+              "marketMl": 108.0,
+              "stakeDollars": 100.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "HOU",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "HOU",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "HOU",
+              "side": "away",
+              "edgePct": 0.116844,
+              "marketMl": 108.0,
+              "stakeDollars": 100.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "HOU",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "HOU",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "HOU",
+              "side": "away",
+              "edgePct": 0.095082,
+              "marketMl": 108.0,
+              "stakeDollars": 100.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "HOU",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T01:55:47Z"
       }
     },
     {
@@ -2755,8 +3133,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 4,
-        "homeScore": 2,
+        "awayScore": 7,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -2988,7 +3366,7 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 1,
-        "homeScore": 2,
+        "homeScore": 5,
         "winner": null,
         "grades": {}
       }
@@ -3219,7 +3597,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 8,
         "homeScore": 0,
         "winner": null,
         "grades": {}
@@ -3451,8 +3829,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 3,
+        "homeScore": 5,
         "winner": null,
         "grades": {}
       }
@@ -3700,6 +4078,256 @@
       },
       "result": {
         "status": "Live",
+        "detailedState": "In Progress",
+        "awayScore": 0,
+        "homeScore": 0,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 823102,
+      "away": "TB",
+      "home": "SEA",
+      "awayName": "Tampa Bay Rays",
+      "homeName": "Seattle Mariners",
+      "gameDate": "2026-08-09T01:50:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-09T01:55:47Z",
+      "windows": {
+        "season": {
+          "gamePk": 823102,
+          "away": "TB",
+          "home": "SEA",
+          "awayName": "Tampa Bay Rays",
+          "homeName": "Seattle Mariners",
+          "gameDate": "2026-08-09T01:50:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 16.588,
+            "pitWAR": 12.377,
+            "teamWAR": 28.965,
+            "wRCp": 104.819,
+            "BsR": 1.122,
+            "xwOBA": 0.307,
+            "xFIP": 3.996,
+            "SIERA": 3.85,
+            "OAA": -9.0
+          },
+          "homeStats": {
+            "batWAR": 10.635,
+            "pitWAR": 12.698,
+            "teamWAR": 23.333,
+            "wRCp": 99.682,
+            "BsR": -1.734,
+            "xwOBA": 0.3181,
+            "xFIP": 3.847,
+            "SIERA": 3.723,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": -5.632,
+          "diffWRCp": -5.137,
+          "diffBsR": -2.856,
+          "diffXwOBA": 0.0111,
+          "diffXFIP": 0.15,
+          "diffSIERA": 0.127,
+          "diffOAA": -30.0,
+          "zTeamWAR": -0.7893,
+          "zWRCp": -0.5239,
+          "zBsR": -1.137,
+          "zXwOBA": 0.7524,
+          "zXFIP": 0.0624,
+          "zSIERA": 0.1069,
+          "zOAA": -1.356,
+          "overallEdge": -2.8846,
+          "favored": "TB",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-134",
+            "away": "+125",
+            "espnId": "401816453",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG082150TBSEA",
+            "awayVol": 852271.88,
+            "homeVol": 351457.79,
+            "awayCents": 44,
+            "homeCents": 57,
+            "awayMult": 2.425,
+            "homeMult": 0.4124,
+            "maxMult": 2.425,
+            "totalVol": 1203729.67,
+            "highSide": "away",
+            "highMult": 2.425,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        },
+        "l7": {
+          "gamePk": 823102,
+          "away": "TB",
+          "home": "SEA",
+          "awayName": "Tampa Bay Rays",
+          "homeName": "Seattle Mariners",
+          "gameDate": "2026-08-09T01:50:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.188,
+            "pitWAR": 1.582,
+            "teamWAR": 2.77,
+            "wRCp": 107.559,
+            "BsR": 1.681,
+            "xwOBA": 0.3159,
+            "xFIP": 2.892,
+            "SIERA": 2.77,
+            "OAA": -9.0
+          },
+          "homeStats": {
+            "batWAR": 0.203,
+            "pitWAR": -0.274,
+            "teamWAR": -0.071,
+            "wRCp": 88.08,
+            "BsR": -0.331,
+            "xwOBA": 0.3128,
+            "xFIP": 4.229,
+            "SIERA": 3.937,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": -2.842,
+          "diffWRCp": -19.478,
+          "diffBsR": -2.013,
+          "diffXwOBA": -0.003,
+          "diffXFIP": -1.337,
+          "diffSIERA": -1.167,
+          "diffOAA": -30.0,
+          "zTeamWAR": -1.1519,
+          "zWRCp": -0.2133,
+          "zBsR": -1.7638,
+          "zXwOBA": 0.1535,
+          "zXFIP": -1.2408,
+          "zSIERA": -1.1059,
+          "zOAA": -1.356,
+          "overallEdge": -6.6781,
+          "favored": "TB",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-134",
+            "away": "+125",
+            "espnId": "401816453",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG082150TBSEA",
+            "awayVol": 852271.88,
+            "homeVol": 351457.79,
+            "awayCents": 44,
+            "homeCents": 57,
+            "awayMult": 2.425,
+            "homeMult": 0.4124,
+            "maxMult": 2.425,
+            "totalVol": 1203729.67,
+            "highSide": "away",
+            "highMult": 2.425,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        },
+        "blend": {
+          "gamePk": 823102,
+          "away": "TB",
+          "home": "SEA",
+          "awayName": "Tampa Bay Rays",
+          "homeName": "Seattle Mariners",
+          "gameDate": "2026-08-09T01:50:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Warmup",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 8.888,
+            "pitWAR": 6.98,
+            "teamWAR": 15.867,
+            "wRCp": 106.189,
+            "BsR": 1.401,
+            "xwOBA": 0.3115,
+            "xFIP": 3.444,
+            "SIERA": 3.31,
+            "OAA": -9.0
+          },
+          "homeStats": {
+            "batWAR": 5.419,
+            "pitWAR": 6.212,
+            "teamWAR": 11.631,
+            "wRCp": 93.881,
+            "BsR": -1.032,
+            "xwOBA": 0.3155,
+            "xFIP": 4.038,
+            "SIERA": 3.83,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": -4.236,
+          "diffWRCp": -12.308,
+          "diffBsR": -2.434,
+          "diffXwOBA": 0.004,
+          "diffXFIP": -0.594,
+          "diffSIERA": -0.52,
+          "diffOAA": -30.0,
+          "zTeamWAR": -0.9523,
+          "zWRCp": -0.326,
+          "zBsR": -1.3365,
+          "zXwOBA": 0.3186,
+          "zXFIP": -0.9607,
+          "zSIERA": -0.846,
+          "zOAA": -1.356,
+          "overallEdge": -5.459,
+          "favored": "TB",
+          "odds": {
+            "provider": "DraftKings",
+            "home": "-134",
+            "away": "+125",
+            "espnId": "401816453",
+            "espnGameNumber": null
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG082150TBSEA",
+            "awayVol": 852271.88,
+            "homeVol": 351457.79,
+            "awayCents": 44,
+            "homeCents": 57,
+            "awayMult": 2.425,
+            "homeMult": 0.4124,
+            "maxMult": 2.425,
+            "totalVol": 1203729.67,
+            "highSide": "away",
+            "highMult": 2.425,
+            "favoriteSide": "home",
+            "tone": "yellow"
+          }
+        }
+      },
+      "result": {
+        "status": "Live",
         "detailedState": "Warmup",
         "awayScore": 0,
         "homeScore": 0,
@@ -3708,5 +4336,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-09T00:03:46Z"
+  "updatedAt": "2026-08-09T01:55:47Z"
 }
