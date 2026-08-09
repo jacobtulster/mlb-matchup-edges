@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 7,
-        "wins": 4,
+        "n": 8,
+        "wins": 5,
         "losses": 3,
         "pushes": 7,
-        "hitRate": 0.5714,
-        "stakedDollars": 1111.0,
-        "profitDollars": -100.0,
-        "roi": -0.09
+        "hitRate": 0.625,
+        "stakedDollars": 1211.0,
+        "profitDollars": 25.0,
+        "roi": 0.0206
       },
       "model": {
-        "n": 14,
-        "wins": 9,
+        "n": 15,
+        "wins": 10,
         "losses": 5,
         "pushes": 0,
-        "hitRate": 0.6429,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 14,
-        "wins": 5,
+        "n": 15,
+        "wins": 6,
         "losses": 9,
         "pushes": 0,
-        "hitRate": 0.3571,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 7,
-        "wins": 2,
+        "n": 8,
+        "wins": 3,
         "losses": 5,
         "pushes": 7,
-        "hitRate": 0.2857,
-        "stakedDollars": 1060.0,
-        "profitDollars": -572.0,
-        "roi": -0.5396
+        "hitRate": 0.375,
+        "stakedDollars": 1160.0,
+        "profitDollars": -447.0,
+        "roi": -0.3853
       },
       "model": {
-        "n": 14,
-        "wins": 4,
+        "n": 15,
+        "wins": 5,
         "losses": 10,
         "pushes": 0,
-        "hitRate": 0.2857,
+        "hitRate": 0.3333,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 14,
-        "wins": 5,
+        "n": 15,
+        "wins": 6,
         "losses": 9,
         "pushes": 0,
-        "hitRate": 0.3571,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 7,
-        "wins": 3,
+        "n": 8,
+        "wins": 4,
         "losses": 4,
         "pushes": 7,
-        "hitRate": 0.4286,
-        "stakedDollars": 1019.0,
-        "profitDollars": -300.0,
-        "roi": -0.2944
+        "hitRate": 0.5,
+        "stakedDollars": 1119.0,
+        "profitDollars": -175.0,
+        "roi": -0.1564
       },
       "model": {
-        "n": 14,
-        "wins": 5,
+        "n": 15,
+        "wins": 6,
         "losses": 9,
         "pushes": 0,
-        "hitRate": 0.3571,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 14,
-        "wins": 5,
+        "n": 15,
+        "wins": 6,
         "losses": 9,
         "pushes": 0,
-        "hitRate": 0.3571,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -4779,14 +4779,92 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 1,
-        "homeScore": 1,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 3,
+        "homeScore": 2,
+        "winner": "TB",
+        "grades": {
+          "model": {
+            "pick": "TB",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "TB",
+            "side": "away",
+            "edgePct": 0.315716,
+            "marketMl": 125.0,
+            "stakeDollars": 100.0,
+            "outcome": "win",
+            "profitDollars": 125.0
+          },
+          "money": {
+            "pick": "TB",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "away",
+              "edgePct": 0.180954,
+              "marketMl": 125.0,
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 125.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "away",
+              "edgePct": 0.315716,
+              "marketMl": 125.0,
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 125.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "away",
+              "edgePct": 0.275991,
+              "marketMl": 125.0,
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 125.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-09T05:08:07Z"
       }
     }
   ],
-  "updatedAt": "2026-08-09T03:46:46Z"
+  "updatedAt": "2026-08-09T05:08:07Z"
 }
