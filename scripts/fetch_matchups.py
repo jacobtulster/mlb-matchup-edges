@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import statistics
 import sys
@@ -23,6 +24,16 @@ ESPN_UA = "mlb-matchup-edges/1.0"
 KALSHI_UA = "mlb-matchup-edges/1.0"
 KALSHI_SERIES = "KXMLBGAME"
 KALSHI_API = "https://api.elections.kalshi.com/trade-api/v2"
+FOURCASTERS_API = "https://api.4casters.io"
+FOURCASTERS_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/128.0.0.0 Safari/537.36"
+)
+# Preferred American odds band for Val spread legs (inclusive).
+SPREAD_ODDS_MIN = -150
+SPREAD_ODDS_MAX = 110
+SPREAD_ODDS_TARGET = -120
 
 # Kalshi MLB abbreviations (same as MLB Stats API for current clubs)
 KALSHI_TEAM_ABBS = (
@@ -150,9 +161,46 @@ ESPN_TO_MLB = {
     "OAK": "ATH",
 }
 
+# 4casters participant shortName -> MLB Stats API abbreviation
+FOURCASTERS_TO_MLB = {
+    "ARI": "AZ",
+    "AZ": "AZ",
+    "CHW": "CWS",
+    "CWS": "CWS",
+    "WSH": "WSH",
+    "WAS": "WSH",
+    "WSN": "WSH",
+    "ATH": "ATH",
+    "OAK": "ATH",
+    "OAKLAND": "ATH",
+}
+
 
 def http_json(url: str, user_agent: str) -> dict | list:
     req = urllib.request.Request(url, headers={"User-Agent": user_agent, "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return json.load(resp)
+
+
+def http_json_auth(
+    url: str,
+    token: str | None = None,
+    method: str = "GET",
+    body: dict | None = None,
+) -> dict | list:
+    data = None
+    headers = {
+        "User-Agent": FOURCASTERS_UA,
+        "Accept": "application/json",
+        "Origin": "https://4casters.io",
+        "Referer": "https://4casters.io/",
+    }
+    if body is not None:
+        data = json.dumps(body).encode("utf-8")
+        headers["Content-Type"] = "application/json"
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(url, data=data, headers=headers, method=method)
     with urllib.request.urlopen(req, timeout=60) as resp:
         return json.load(resp)
 
@@ -628,6 +676,255 @@ def apply_odds(matchups: list[dict], espn_events: list[dict]) -> None:
             }
 
 
+def fourcasters_login(username: str, password: str) -> str:
+    payload = http_json_auth(
+        f"{FOURCASTERS_API}/user/login",
+        method="POST",
+        body={"username": username, "password": password},
+    )
+    token = ((payload.get("data") or {}).get("user") or {}).get("auth")
+    if not token:
+        raise RuntimeError("4casters login returned no auth token")
+    return str(token)
+
+
+def _norm_fc_team(raw: str | None) -> str | None:
+    if not raw:
+        return None
+    abb = str(raw).strip().upper()
+    if not abb:
+        return None
+    return FOURCASTERS_TO_MLB.get(abb, abb)
+
+
+def _best_ml_odds(orders: list | None) -> int | None:
+    if not orders:
+        return None
+    for o in orders:
+        if not isinstance(o, dict):
+            continue
+        try:
+            odds = int(o.get("odds"))
+        except (TypeError, ValueError):
+            continue
+        if odds == 0:
+            continue
+        return odds
+    return None
+
+
+def _best_spreads_by_line(orders: list | None) -> list[dict]:
+    """Best resting American odds per distinct spread line (first = best price)."""
+    best: dict[float, int] = {}
+    for o in orders or []:
+        if not isinstance(o, dict):
+            continue
+        line = o.get("spread")
+        if line is None:
+            continue
+        try:
+            line_f = float(line)
+            odds = int(o.get("odds"))
+        except (TypeError, ValueError):
+            continue
+        if odds == 0:
+            continue
+        if line_f not in best:
+            best[line_f] = odds
+    out = [{"line": line, "odds": odds} for line, odds in best.items()]
+    out.sort(key=lambda x: (abs(x["line"]), x["line"]))
+    return out
+
+
+def pick_spread_in_band(spreads: list[dict] | None) -> dict | None:
+    """
+    Among spreads with odds in [-150, +110], pick closest to -120;
+    tie-break smaller |line|.
+    """
+    if not spreads:
+        return None
+    in_band = []
+    for s in spreads:
+        try:
+            odds = int(s["odds"])
+            line = float(s["line"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if SPREAD_ODDS_MIN <= odds <= SPREAD_ODDS_MAX:
+            in_band.append({"line": line, "odds": odds})
+    if not in_band:
+        return None
+    in_band.sort(key=lambda s: (abs(s["odds"] - SPREAD_ODDS_TARGET), abs(s["line"])))
+    best = in_band[0]
+    return {"line": best["line"], "odds": best["odds"]}
+
+
+def load_fourcasters_odds() -> list[dict]:
+    """
+    Login + MLB orderbook → list of {away, home, gameDate, gameId, odds}.
+    Returns [] if credentials missing or API fails.
+    """
+    username = (os.environ.get("FOURCASTERS_USERNAME") or "").strip()
+    password = os.environ.get("FOURCASTERS_PASSWORD") or ""
+    if not username or not password:
+        print("  warning: FOURCASTERS_USERNAME/PASSWORD not set; skipping 4casters", flush=True)
+        return []
+
+    try:
+        token = fourcasters_login(username, password)
+        payload = http_json_auth(
+            f"{FOURCASTERS_API}/exchange/v2/getOrderbook?league=MLB",
+            token=token,
+        )
+    except Exception as exc:
+        print(f"  warning: 4casters odds fetch failed: {exc}", flush=True)
+        return []
+
+    games = (payload.get("data") or {}).get("games") or []
+    out: list[dict] = []
+    for g in games:
+        if g.get("ended") or g.get("isSpecials"):
+            continue
+        period = (g.get("periodName") or "").lower()
+        if period and period not in ("full time", "fulltime", "game", ""):
+            # Skip 1H / props-style child periods when labeled
+            if "1h" in period or "1st" in period or "inning" in period:
+                continue
+
+        away = home = None
+        for p in g.get("participants") or []:
+            abb = _norm_fc_team(p.get("shortName") or p.get("longName"))
+            if not abb:
+                continue
+            ha = (p.get("homeAway") or "").lower()
+            if ha == "away":
+                away = abb
+            elif ha == "home":
+                home = abb
+        if not away or not home:
+            continue
+
+        home_ml = _best_ml_odds(g.get("homeMoneylines"))
+        away_ml = _best_ml_odds(g.get("awayMoneylines"))
+        if home_ml is None or away_ml is None:
+            continue
+
+        home_spreads = _best_spreads_by_line(g.get("homeSpreads"))
+        away_spreads = _best_spreads_by_line(g.get("awaySpreads"))
+
+        out.append(
+            {
+                "gameId": g.get("id"),
+                "away": away,
+                "home": home,
+                "gameDate": g.get("start"),
+                "odds": {
+                    "provider": "4casters",
+                    "home": _parse_american(home_ml),
+                    "away": _parse_american(away_ml),
+                    "gameId": g.get("id"),
+                    "spreads": {
+                        "home": home_spreads,
+                        "away": away_spreads,
+                    },
+                },
+            }
+        )
+    return out
+
+
+def apply_fourcasters_odds(matchups: list[dict], fc_events: list[dict]) -> int:
+    """
+    Prefer 4casters odds when a game matches. Returns count applied.
+    Leaves existing odds (e.g. ESPN) when no match.
+    """
+    if not fc_events:
+        return 0
+
+    by_pair: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for ev in fc_events:
+        by_pair[(ev["away"], ev["home"])].append(ev)
+    for events in by_pair.values():
+        events.sort(
+            key=lambda e: (
+                _game_start_ms(e.get("gameDate")) is None,
+                _game_start_ms(e.get("gameDate")) or 0,
+            )
+        )
+
+    used_ids: set[str] = set()
+    applied = 0
+
+    pair_matchups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for m in matchups:
+        pair_matchups[(m["away"], m["home"])].append(m)
+    for group in pair_matchups.values():
+        group.sort(
+            key=lambda m: (
+                _game_start_ms(m.get("gameDate")) is None,
+                _game_start_ms(m.get("gameDate")) or 0,
+                m.get("gameNumber") or 1,
+            )
+        )
+
+    def take(events: list[dict], pred) -> dict | None:
+        for ev in events:
+            eid = str(ev.get("gameId") or "")
+            if eid and eid in used_ids:
+                continue
+            if pred(ev):
+                if eid:
+                    used_ids.add(eid)
+                return ev
+        return None
+
+    for m in matchups:
+        key = (m["away"], m["home"])
+        events = by_pair.get(key) or []
+        if not events:
+            continue
+
+        ev = None
+        m_ms = _game_start_ms(m.get("gameDate"))
+        if m_ms is not None:
+            candidates = [
+                e
+                for e in events
+                if (not e.get("gameId") or str(e.get("gameId")) not in used_ids)
+                and _game_start_ms(e.get("gameDate")) is not None
+            ]
+            if candidates:
+                candidates.sort(
+                    key=lambda e: abs((_game_start_ms(e.get("gameDate")) or 0) - m_ms)
+                )
+                best = candidates[0]
+                if abs((_game_start_ms(best.get("gameDate")) or 0) - m_ms) <= 3 * 3600 * 1000:
+                    ev = take(events, lambda e, b_id=best.get("gameId"): e.get("gameId") == b_id)
+
+        if ev is None:
+            group = pair_matchups[key]
+            try:
+                idx = group.index(m)
+            except ValueError:
+                idx = 0
+            unused = [
+                e
+                for e in events
+                if not e.get("gameId") or str(e.get("gameId")) not in used_ids
+            ]
+            if idx < len(unused):
+                ev = unused[idx]
+                eid = str(ev.get("gameId") or "")
+                if eid:
+                    used_ids.add(eid)
+
+        if ev and ev.get("odds"):
+            m["odds"] = dict(ev["odds"])
+            applied += 1
+
+    return applied
+
+
 def kalshi_date_prefix(date_str: str) -> str:
     """2026-08-07 → 26AUG07 (Kalshi event slug date)."""
     dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -986,9 +1283,13 @@ def main() -> int:
     games = load_games(date_str)
     print(f"  {len(games)} games", flush=True)
 
-    print("Fetching ESPN moneylines...", flush=True)
+    print("Fetching ESPN moneylines (fallback)...", flush=True)
     odds_events = load_espn_odds(date_str)
     print(f"  {len(odds_events)} ESPN events ({sum(1 for e in odds_events if e.get('odds'))} with moneylines)", flush=True)
+
+    print("Fetching 4casters MLB orderbook...", flush=True)
+    fc_events = load_fourcasters_odds()
+    print(f"  {len(fc_events)} 4casters games with moneylines", flush=True)
 
     print("Fetching Kalshi Game Winner volumes...", flush=True)
     kalshi_events = load_kalshi_events(date_str)
@@ -997,20 +1298,29 @@ def main() -> int:
     print(f"Fetching FanGraphs season team stats for {season}...", flush=True)
     season_window = build_window("season", "Season", season, 0, games)
     apply_odds(season_window["matchups"], odds_events)
+    n_fc = apply_fourcasters_odds(season_window["matchups"], fc_events)
     apply_kalshi_volume(season_window["matchups"], kalshi_events)
-    print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}", flush=True)
+    print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}, 4casters={n_fc}", flush=True)
 
     print("Fetching FanGraphs last-7-days team stats...", flush=True)
     l7_window = build_window("l7", "Last 7 days", season, 1, games)
     apply_odds(l7_window["matchups"], odds_events)
+    apply_fourcasters_odds(l7_window["matchups"], fc_events)
     apply_kalshi_volume(l7_window["matchups"], kalshi_events)
     print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
     print("Building SZN + L7 blend...", flush=True)
     blend_window = blend_windows(season_window, l7_window, games)
     apply_odds(blend_window["matchups"], odds_events)
+    apply_fourcasters_odds(blend_window["matchups"], fc_events)
     apply_kalshi_volume(blend_window["matchups"], kalshi_events)
     print(f"  blend: {blend_window['teamCount']} teams, {len(blend_window['matchups'])} matchups", flush=True)
+
+    odds_source = (
+        "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback"
+        if fc_events
+        else "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable"
+    )
 
     payload = {
         "date": date_str,
@@ -1021,7 +1331,7 @@ def main() -> int:
         "source": {
             "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
             "mlb": "statsapi.mlb.com schedule",
-            "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com)",
+            "odds": odds_source,
             "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side",
         },
         "formulas": {
@@ -1034,7 +1344,8 @@ def main() -> int:
             "diffOAA": "OAA_h - OAA_a",
             "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA)",
             "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
-            "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team. Model logistic scale is 6 (client).",
+            "valSpread": f"Val side spread with odds in [{SPREAD_ODDS_MIN}, +{SPREAD_ODDS_MAX}], closest to {SPREAD_ODDS_TARGET}",
+            "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team. Model logistic scale is 6 (client). Val grades 1u ML + optional 1u spread.",
         },
         "windows": {
             "season": season_window,

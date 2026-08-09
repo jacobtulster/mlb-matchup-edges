@@ -20,6 +20,10 @@ MLB_UA = "mlb-matchup-edges/1.0"
 FREEZE_BEFORE_MS = 15 * 60 * 1000
 EDGE_LOGISTIC_SCALE = 6.0
 WINDOWS = ("season", "l7", "blend")
+UNIT_STAKE = 100.0
+SPREAD_ODDS_MIN = -150
+SPREAD_ODDS_MAX = 110
+SPREAD_ODDS_TARGET = -120
 
 
 def _eastern_tz():
@@ -142,18 +146,46 @@ def value_pick(matchup: dict) -> dict | None:
     home_edge = home_prob - mkt_home
     away_edge = (1 - home_prob) - mkt_away
     if home_edge >= away_edge:
-        return {
-            "pick": matchup["home"],
-            "side": "home",
-            "edgePct": round(home_edge, 6),
-            "marketMl": parse_ml(odds.get("home")),
-        }
+        side = "home"
+        pick = matchup["home"]
+        market_ml = parse_ml(odds.get("home"))
+        edge_pct = round(home_edge, 6)
+    else:
+        side = "away"
+        pick = matchup["away"]
+        market_ml = parse_ml(odds.get("away"))
+        edge_pct = round(away_edge, 6)
+
+    spread_bet = pick_val_spread(odds, side)
     return {
-        "pick": matchup["away"],
-        "side": "away",
-        "edgePct": round(away_edge, 6),
-        "marketMl": parse_ml(odds.get("away")),
+        "pick": pick,
+        "side": side,
+        "edgePct": edge_pct,
+        "marketMl": market_ml,
+        "spread": spread_bet,
     }
+
+
+def pick_val_spread(odds: dict, side: str) -> dict | None:
+    """Val-side spread with odds in [-150, +110], closest to -120."""
+    spreads_blob = (odds or {}).get("spreads") or {}
+    spreads = spreads_blob.get(side) or []
+    in_band = []
+    for s in spreads:
+        if not isinstance(s, dict):
+            continue
+        try:
+            line = float(s["line"])
+            odds_n = int(s["odds"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if SPREAD_ODDS_MIN <= odds_n <= SPREAD_ODDS_MAX:
+            in_band.append({"line": line, "odds": odds_n})
+    if not in_band:
+        return None
+    in_band.sort(key=lambda s: (abs(s["odds"] - SPREAD_ODDS_TARGET), abs(s["line"])))
+    best = in_band[0]
+    return {"line": best["line"], "odds": best["odds"]}
 
 
 def money_pick(matchup: dict) -> str | None:
@@ -174,20 +206,21 @@ def money_pick(matchup: dict) -> str | None:
 
 def american_stake_and_profit(ml: float | None, won: bool) -> tuple[float | None, float | None]:
     """
-    Plus money: stake $100.
-    Minus money: risk $|ML| to win $100.
-    ±100: risk $100 to win $100.
+    Flat 1 unit = $100 risk on both favorites and dogs.
+    Plus: win (ml/100)*100. Minus: win 100*(100/|ml|). Loss: -$100.
+    Push handled by caller (stake may still count; profit 0).
     Returns (stakeDollars, profitDollars).
     """
     if ml is None:
         return None, None
-    if ml > 0:
-        stake = 100.0
-        profit = (ml / 100.0) * 100.0 if won else -stake
-        return stake, round(profit, 2)
-    # favorite / -100
-    stake = abs(ml)
-    profit = 100.0 if won else -stake
+    stake = UNIT_STAKE
+    if won:
+        if ml > 0:
+            profit = (ml / 100.0) * stake
+        else:
+            profit = stake * (100.0 / abs(ml))
+    else:
+        profit = -stake
     return stake, round(profit, 2)
 
 
@@ -197,6 +230,116 @@ def grade_outcome(pick: str | None, winner: str | None) -> str:
     if pick == winner:
         return "win"
     return "loss"
+
+
+def grade_spread_cover(
+    side: str,
+    line: float,
+    away_score: float | None,
+    home_score: float | None,
+) -> str:
+    if away_score is None or home_score is None:
+        return "push"
+    if side == "home":
+        margin = float(home_score) - float(away_score)
+    else:
+        margin = float(away_score) - float(home_score)
+    covered = margin + float(line)
+    if covered > 0:
+        return "win"
+    if covered < 0:
+        return "loss"
+    return "push"
+
+
+def combine_leg_outcomes(outcomes: list[str]) -> str:
+    meaningful = [o for o in outcomes if o in ("win", "loss", "push")]
+    if not meaningful:
+        return "push"
+    non_push = [o for o in meaningful if o != "push"]
+    if not non_push:
+        return "push"
+    if all(o == "win" for o in non_push):
+        return "win"
+    if all(o == "loss" for o in non_push):
+        return "loss"
+    return "mixed"
+
+
+def build_value_grade(
+    val: dict | None,
+    winner: str | None,
+    away_score: float | None,
+    home_score: float | None,
+) -> dict:
+    empty = {
+        "pick": None,
+        "edgePct": None,
+        "marketMl": None,
+        "stakeDollars": None,
+        "outcome": "push",
+        "profitDollars": None,
+        "legs": [],
+    }
+    if not val or not val.get("pick"):
+        return empty
+
+    legs: list[dict] = []
+    ml = val.get("marketMl")
+    if ml is not None:
+        ml_out = grade_outcome(val["pick"], winner)
+        if ml_out == "push":
+            stake, profit = UNIT_STAKE, 0.0
+        else:
+            stake, profit = american_stake_and_profit(ml, ml_out == "win")
+        legs.append(
+            {
+                "type": "moneyline",
+                "odds": ml,
+                "stakeDollars": stake,
+                "outcome": ml_out,
+                "profitDollars": profit,
+            }
+        )
+
+    spread = val.get("spread")
+    if spread and spread.get("line") is not None and spread.get("odds") is not None:
+        sp_odds = parse_ml(spread["odds"])
+        sp_line = float(spread["line"])
+        sp_out = grade_spread_cover(val["side"], sp_line, away_score, home_score)
+        if sp_odds is not None:
+            if sp_out == "push":
+                stake, profit = UNIT_STAKE, 0.0
+            else:
+                stake, profit = american_stake_and_profit(sp_odds, sp_out == "win")
+            legs.append(
+                {
+                    "type": "spread",
+                    "line": sp_line,
+                    "odds": sp_odds,
+                    "stakeDollars": stake,
+                    "outcome": sp_out,
+                    "profitDollars": profit,
+                }
+            )
+
+    stake_total = sum(leg["stakeDollars"] for leg in legs if leg.get("stakeDollars") is not None)
+    profit_total = sum(leg["profitDollars"] for leg in legs if leg.get("profitDollars") is not None)
+    outcome = combine_leg_outcomes([leg["outcome"] for leg in legs]) if legs else grade_outcome(
+        val["pick"], winner
+    )
+
+    return {
+        "pick": val["pick"],
+        "side": val.get("side"),
+        "edgePct": val.get("edgePct"),
+        "marketMl": ml,
+        "spread": spread,
+        "legs": legs,
+        "stakeDollars": round(stake_total, 2) if legs else None,
+        "outcome": outcome,
+        "profitDollars": round(profit_total, 2) if legs else None,
+    }
 
 
 def load_mlb_results(date_str: str) -> dict[int, dict]:
@@ -355,38 +498,12 @@ def grade_game(entry: dict, mlb: dict[int, dict]) -> bool:
         model_out = grade_outcome(model_pick, winner)
         money_out = grade_outcome(mon, winner)
 
-        value_grade = {
-            "pick": None,
-            "edgePct": None,
-            "marketMl": None,
-            "stakeDollars": None,
-            "outcome": "push",
-            "profitDollars": None,
-        }
-        if val and val.get("pick") and val.get("marketMl") is not None:
-            outcome = grade_outcome(val["pick"], winner)
-            stake, profit = american_stake_and_profit(val["marketMl"], outcome == "win")
-            if outcome == "push":
-                stake, profit = None, None
-            value_grade = {
-                "pick": val["pick"],
-                "side": val.get("side"),
-                "edgePct": val.get("edgePct"),
-                "marketMl": val["marketMl"],
-                "stakeDollars": stake,
-                "outcome": outcome,
-                "profitDollars": profit,
-            }
-        elif val and val.get("pick"):
-            value_grade = {
-                "pick": val["pick"],
-                "side": val.get("side"),
-                "edgePct": val.get("edgePct"),
-                "marketMl": None,
-                "stakeDollars": None,
-                "outcome": grade_outcome(val["pick"], winner),
-                "profitDollars": None,
-            }
+        value_grade = build_value_grade(
+            val,
+            winner,
+            info.get("awayScore"),
+            info.get("homeScore"),
+        )
 
         grades_by_window[wid] = {
             "model": {"pick": model_pick, "outcome": model_out},
@@ -442,9 +559,11 @@ def summarize_day(day: dict) -> dict:
                 elif outcome == "loss":
                     bucket["losses"] += 1
                     bucket["n"] += 1
+                elif outcome == "mixed":
+                    bucket["n"] += 1
                 else:
                     bucket["pushes"] += 1
-                    return
+                    # Still book stake/profit on push legs (profit usually 0).
                 if track_money and stake is not None and profit is not None:
                     bucket["stakedDollars"] = round(bucket["stakedDollars"] + float(stake), 2)
                     bucket["profitDollars"] = round(bucket["profitDollars"] + float(profit), 2)

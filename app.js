@@ -155,15 +155,71 @@
   function gradeBadge(grade, { showPnl = false } = {}) {
     if (!grade || viewMode !== "historical") return "";
     const outcome = grade.outcome || "push";
-    const label = outcome === "win" ? "W" : outcome === "loss" ? "L" : "—";
+    const label =
+      outcome === "win" ? "W" : outcome === "loss" ? "L" : outcome === "mixed" ? "M" : "—";
     let pnl = "";
     if (showPnl && grade.profitDollars != null && Number.isFinite(Number(grade.profitDollars))) {
       const p = Number(grade.profitDollars);
       pnl = ` <span class="grade-pnl ${p >= 0 ? "plus" : "minus"}">${p >= 0 ? "+" : ""}$${p.toFixed(0)}</span>`;
     }
-    return `<span class="grade-badge grade-${outcome}" title="${grade.pick || "—"} @ ${
-      grade.marketMl != null ? grade.marketMl : "n/a"
-    }">${label}${pnl}</span>`;
+    const legs = Array.isArray(grade.legs) ? grade.legs : [];
+    const legHint = legs
+      .map((leg) => {
+        if (leg.type === "spread") {
+          const line = Number(leg.line);
+          const lineStr = Number.isFinite(line)
+            ? `${line > 0 ? "+" : ""}${line}`
+            : "?";
+          return `spread ${lineStr} @ ${leg.odds} → ${leg.outcome}`;
+        }
+        return `ML @ ${leg.odds} → ${leg.outcome}`;
+      })
+      .join("; ");
+    const title =
+      legHint ||
+      `${grade.pick || "—"} @ ${grade.marketMl != null ? grade.marketMl : "n/a"}`;
+    return `<span class="grade-badge grade-${outcome}" title="${escapeAttr(title)}">${label}${pnl}</span>`;
+  }
+
+  function escapeAttr(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;");
+  }
+
+  function formatAmericanRaw(n) {
+    if (n == null || !Number.isFinite(Number(n)) || Number(n) === 0) return "—";
+    const v = Math.round(Number(n));
+    return v > 0 ? `+${v}` : String(v);
+  }
+
+  function formatSpreadLine(line) {
+    const n = Number(line);
+    if (!Number.isFinite(n)) return "—";
+    return n > 0 ? `+${n}` : String(n);
+  }
+
+  function pickValSpread(odds, side) {
+    const spreads = odds && odds.spreads && odds.spreads[side];
+    if (!Array.isArray(spreads) || !spreads.length) return null;
+    const min = -150;
+    const max = 110;
+    const target = -120;
+    const inBand = [];
+    for (const s of spreads) {
+      const oddsN = Number(s.odds);
+      const line = Number(s.line);
+      if (!Number.isFinite(oddsN) || !Number.isFinite(line)) continue;
+      if (oddsN >= min && oddsN <= max) inBand.push({ line, odds: oddsN });
+    }
+    if (!inBand.length) return null;
+    inBand.sort(
+      (a, b) =>
+        Math.abs(a.odds - target) - Math.abs(b.odds - target) ||
+        Math.abs(a.line) - Math.abs(b.line)
+    );
+    return inBand[0];
   }
 
   function gradesFor(m) {
@@ -355,10 +411,20 @@
     if (!model || !market) return null;
     const homeEdge = model.homeProb - market.homeProb;
     const awayEdge = model.awayProb - market.awayProb;
+    let side;
+    let team;
+    let edge;
     if (homeEdge >= awayEdge) {
-      return { team: m.home, edge: homeEdge, side: "home" };
+      side = "home";
+      team = m.home;
+      edge = homeEdge;
+    } else {
+      side = "away";
+      team = m.away;
+      edge = awayEdge;
     }
-    return { team: m.away, edge: awayEdge, side: "away" };
+    const spread = pickValSpread(m.odds, side);
+    return { team, edge, side, spread };
   }
 
   function modelCell(m) {
@@ -372,12 +438,16 @@
     const g = gradesFor(m);
     const modelBadge = gradeBadge(g && g.model);
     const valueBadge = gradeBadge(g && g.value, { showPnl: true });
-    const valueHtml =
-      value && Math.abs(value.edge) >= 0.005
-        ? `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
+    let valueHtml = `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
+    if (value && Math.abs(value.edge) >= 0.005) {
+      const sp = value.spread;
+      const spreadHtml = sp
+        ? `<div class="value-spread" title="Val spread leg (odds in −150…+110)">${value.team} ${formatSpreadLine(sp.line)} (${formatAmericanRaw(sp.odds)})</div>`
+        : "";
+      valueHtml = `<div class="value-line ${value.edge > 0 ? "plus" : "minus"}" title="Model win% minus de-vigged market win% (best side)">
              Val ${value.team} ${value.edge > 0 ? "+" : ""}${(value.edge * 100).toFixed(1)}%${valueBadge}
-           </div>`
-        : `<div class="value-line spacer" aria-hidden="true">&nbsp;</div>`;
+           </div>${spreadHtml}`;
+    }
     return `
       <td class="odds model-cell" data-label="Model">
         <div class="odds-stack">
@@ -405,12 +475,26 @@
       `;
     }
     const hl = oddsHighlight(fair.homeProb, fair.awayProb);
-    const title = `${o.provider || "ESPN"} raw ${o.home}/${o.away}`;
+    const awaySp = pickValSpread(o, "away");
+    const homeSp = pickValSpread(o, "home");
+    const spHint = [
+      awaySp ? `${m.away} ${formatSpreadLine(awaySp.line)} ${formatAmericanRaw(awaySp.odds)}` : null,
+      homeSp ? `${m.home} ${formatSpreadLine(homeSp.line)} ${formatAmericanRaw(homeSp.odds)}` : null,
+    ]
+      .filter(Boolean)
+      .join(" · ");
+    const title = escapeAttr(
+      `${o.provider || "market"} raw ${o.away}/${o.home}${spHint ? ` · ${spHint}` : ""}`
+    );
+    // Show raw American (not de-vig) for exchange prices; de-vig still used for Val %.
+    const showRaw = (o.provider || "").toLowerCase() === "4casters";
+    const awayPrice = showRaw ? formatAmericanRaw(parseMl(o.away)) : fair.away;
+    const homePrice = showRaw ? formatAmericanRaw(parseMl(o.home)) : fair.home;
     return `
       <td class="odds market-cell" data-label="Market" title="${title}">
         <div class="odds-stack">
-          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${fair.away}</span></div>
-          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${fair.home}</span></div>
+          <div class="odds-line ${hl.awayCls}"><span class="abb">${m.away}</span><span class="price">${awayPrice}</span></div>
+          <div class="odds-line ${hl.homeCls}"><span class="abb">${m.home}</span><span class="price">${homePrice}</span></div>
         </div>
         <div class="value-line spacer" aria-hidden="true">&nbsp;</div>
       </td>
@@ -1063,11 +1147,15 @@
       const outcome = b.outcome || "push";
       if (outcome === "win") out.wins += 1;
       else if (outcome === "loss") out.losses += 1;
-      else {
+      else if (outcome === "mixed") {
+        /* split result — count toward sample via stake/P&L only */
+      } else {
         out.pushes += 1;
-        continue;
       }
-      if (b.stakeDollars != null && b.profitDollars != null) {
+      if (b.stakeDollars != null && b.profitDollars != null && outcome !== "push") {
+        out.stakedDollars += Number(b.stakeDollars);
+        out.profitDollars += Number(b.profitDollars);
+      } else if (b.stakeDollars != null && b.profitDollars != null && outcome === "push") {
         out.stakedDollars += Number(b.stakeDollars);
         out.profitDollars += Number(b.profitDollars);
       }
@@ -1399,7 +1487,7 @@
     histDate = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
-    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ market ML ($100 dogs / risk |ML| favorites). Top 3/5 filters keep only the largest Val edges that day.`;
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110). Top 3/5 filters keep only the largest Val edges that day.`;
   }
 
   async function setViewMode(mode) {

@@ -23,6 +23,9 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch matchups
+        env:
+          FOURCASTERS_USERNAME: ${{ secrets.FOURCASTERS_USERNAME }}
+          FOURCASTERS_PASSWORD: ${{ secrets.FOURCASTERS_PASSWORD }}
         run: python scripts/fetch_matchups.py
 
       - name: Snapshot pre-game locks and grade Finals
