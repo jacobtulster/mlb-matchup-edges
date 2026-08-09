@@ -1507,7 +1507,7 @@
     histDate = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
-    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~15 min before first pitch; edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110). Top 3/5 filters keep only the largest Val edges that day.`;
+    refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L uses Val @ 4casters (1u ML + 1u spread when odds are −150…+110). Top 3/5 filters keep only the largest Val edges that day.`;
   }
 
   async function setViewMode(mode) {
@@ -1541,7 +1541,7 @@
       else fillHistDates();
       await loadAllHistoryDays();
       if (!histDate) {
-        meta.textContent = "No historical freezes yet. They appear once games lock ~15 min before start.";
+        meta.textContent = "No historical freezes yet. They appear once games lock ~45 min before start.";
         refreshEl.textContent = "";
         rows = [];
         if (equityWrap) equityWrap.hidden = true;

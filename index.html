@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=runs-2" />
+    <link rel="stylesheet" href="styles.css?v=odds-cache-1" />
   </head>
   <body>
     <main>
@@ -111,14 +111,15 @@
           <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
           vs the other side (no highlight under 2×, yellow for 2.0–4.99×, red for 5.0×+).
           Money volumes re-fetch live from Kalshi on every page load in Live mode.
-          <strong>Historical</strong> locks each game ~15 minutes before first pitch (edges +
-          market + money), then grades Finals. Edge-system P&amp;L: Val side 1u ML (+ optional
+          <strong>Historical</strong> locks each game ~45 minutes before first pitch (edges +
+          market + money), keeping last-known 4casters/ESPN odds if the live book is already gone,
+          then grades Finals. Edge-system P&amp;L: Val side 1u ML (+ optional
           1u spread in −150…+110, prefer ±1.5) at flat $100 risk per leg.
           Toggle <strong>Season</strong>, <strong>Last 7 days</strong>,
           or <strong>SZN + L7</strong> (equal-weight average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>
-    <script src="app.js?v=runs-2"></script>
+    <script src="app.js?v=odds-cache-1"></script>
   </body>
 </html>

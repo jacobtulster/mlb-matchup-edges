@@ -17,7 +17,7 @@ HISTORY_DIR = ROOT / "data" / "history"
 INDEX_PATH = HISTORY_DIR / "index.json"
 
 MLB_UA = "mlb-matchup-edges/1.0"
-FREEZE_BEFORE_MS = 15 * 60 * 1000
+FREEZE_BEFORE_MS = 45 * 60 * 1000  # lock earlier so books still have pregame MLs
 EDGE_LOGISTIC_SCALE = 6.0  # legacy overallEdge logistic (unused for Val)
 RUN_DELTA_PER_SCORE = 0.40
 RUN_LOGISTIC_TAU = 2.0
@@ -26,6 +26,7 @@ UNIT_STAKE = 100.0
 SPREAD_ODDS_MIN = -150
 SPREAD_ODDS_MAX = 110
 SPREAD_ODDS_TARGET = -120
+ODDS_CACHE_DIR = ROOT / "data" / "odds_cache"
 
 
 def _eastern_tz():
@@ -97,6 +98,46 @@ def write_json(path: Path, data) -> None:
 
 def history_path(date_str: str) -> Path:
     return HISTORY_DIR / f"{date_str}.json"
+
+
+def odds_cache_path(date_str: str) -> Path:
+    return ODDS_CACHE_DIR / f"{date_str}.json"
+
+
+def load_odds_cache(date_str: str) -> dict:
+    path = odds_cache_path(date_str)
+    if not path.exists():
+        return {"date": date_str, "byGamePk": {}}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {"date": date_str, "byGamePk": {}}
+    if not isinstance(data, dict):
+        return {"date": date_str, "byGamePk": {}}
+    data.setdefault("byGamePk", {})
+    return data
+
+
+def odds_complete(odds: dict | None) -> bool:
+    if not odds:
+        return False
+    return bool(odds.get("home") and odds.get("away"))
+
+
+def fill_odds_from_cache(matchup: dict, cache_by_pk: dict) -> bool:
+    if odds_complete(matchup.get("odds")):
+        return False
+    pk = matchup.get("gamePk")
+    if pk is None:
+        return False
+    hit = cache_by_pk.get(str(int(pk)))
+    if not hit or not odds_complete(hit.get("odds")):
+        return False
+    cached = dict(hit["odds"])
+    cached["fromCache"] = True
+    cached["cachedAt"] = hit.get("savedAt")
+    matchup["odds"] = cached
+    return True
 
 
 def empty_day(date_str: str) -> dict:
@@ -487,6 +528,7 @@ def freeze_from_latest(latest: dict, day: dict, now_ms: float) -> int:
             continue
         by_pk_windows.setdefault(int(pk), {}).setdefault("season", m)
 
+    cache_by_pk = (load_odds_cache(str(latest.get("date") or day.get("date") or "")).get("byGamePk") or {})
     existing = {int(g["gamePk"]) for g in day["games"] if g.get("gamePk") is not None}
     added = 0
     for m in primary:
@@ -500,13 +542,44 @@ def freeze_from_latest(latest: dict, day: dict, now_ms: float) -> int:
         for wid in WINDOWS:
             src = pack.get(wid)
             if src:
-                entry["windows"][wid] = copy_matchup(src)
+                blob = copy_matchup(src)
+                fill_odds_from_cache(blob, cache_by_pk)
+                entry["windows"][wid] = blob
         if not entry["windows"]:
-            entry["windows"]["l7"] = copy_matchup(m)
+            blob = copy_matchup(m)
+            fill_odds_from_cache(blob, cache_by_pk)
+            entry["windows"]["l7"] = blob
         existing.add(int(pk))
         added += 1
-        print(f"  froze {entry['away']}@{entry['home']} gamePk={pk}", flush=True)
+        has_odds = any(odds_complete((w or {}).get("odds")) for w in entry["windows"].values())
+        print(
+            f"  froze {entry['away']}@{entry['home']} gamePk={pk}"
+            f"{'' if has_odds else ' (WARNING: no market odds)'}",
+            flush=True,
+        )
     return added
+
+
+def backfill_day_odds_from_cache(day: dict) -> int:
+    """Fill missing odds on already-frozen windows from the day odds cache."""
+    date_str = day.get("date")
+    if not date_str:
+        return 0
+    cache_by_pk = (load_odds_cache(str(date_str)).get("byGamePk") or {})
+    if not cache_by_pk:
+        return 0
+    filled = 0
+    for entry in day.get("games") or []:
+        for wid, matchup in (entry.get("windows") or {}).items():
+            if fill_odds_from_cache(matchup, cache_by_pk):
+                filled += 1
+                # Clear stale grades so value can be re-graded with market MLs
+                res = entry.get("result")
+                if res and res.get("status") == "Final":
+                    res.pop("grades", None)
+                    res.pop("gradesByWindow", None)
+                    res["winner"] = res.get("winner")  # keep scores; allow regrade
+    return filled
 
 
 def grade_game(entry: dict, mlb: dict[int, dict]) -> bool:
@@ -711,6 +784,10 @@ def process_date(date_str: str, latest: dict | None, now_ms: float, do_freeze: b
         n = freeze_from_latest(latest, day, now_ms)
         print(f"  freeze added {n} games for {date_str}", flush=True)
 
+    n_fill = backfill_day_odds_from_cache(day)
+    if n_fill:
+        print(f"  backfilled odds on {n_fill} frozen window(s) from cache", flush=True)
+
     if not day["games"]:
         # Don't keep empty history files around
         hp = history_path(date_str)
@@ -724,6 +801,15 @@ def process_date(date_str: str, latest: dict | None, now_ms: float, do_freeze: b
     print(f"Fetching MLB results for {date_str}...", flush=True)
     mlb = load_mlb_results(date_str)
     for entry in day["games"]:
+        # Allow re-grade when we just restored odds onto a Final that lacked Val P&L.
+        res = entry.get("result") or {}
+        if res.get("status") == "Final" and res.get("grades"):
+            # If value grade has no stake but we now have odds, clear grades for regrade.
+            val = ((res.get("gradesByWindow") or {}).get("l7") or res.get("grades") or {}).get("value") or {}
+            win = (entry.get("windows") or {}).get("l7") or {}
+            if odds_complete(win.get("odds")) and val.get("stakeDollars") is None and val.get("pick"):
+                res.pop("grades", None)
+                res.pop("gradesByWindow", None)
         grade_game(entry, mlb)
 
     summarize_day(day)

@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_PATH = ROOT / "data" / "latest.json"
+ODDS_CACHE_DIR = ROOT / "data" / "odds_cache"
 
 FG_UA = "okhttp/4.12.0"
 MLB_UA = "mlb-matchup-edges/1.0"
@@ -792,8 +793,9 @@ def load_fourcasters_odds() -> list[dict]:
     games = (payload.get("data") or {}).get("games") or []
     out: list[dict] = []
     for g in games:
-        if g.get("ended") or g.get("isSpecials"):
+        if g.get("isSpecials"):
             continue
+        # Keep live books while moneylines remain; only skip fully ended shells with no ML.
         period = (g.get("periodName") or "").lower()
         if period and period not in ("full time", "fulltime", "game", ""):
             # Skip 1H / props-style child periods when labeled
@@ -817,6 +819,9 @@ def load_fourcasters_odds() -> list[dict]:
         away_ml = _best_ml_odds(g.get("awayMoneylines"))
         if home_ml is None or away_ml is None:
             continue
+        if g.get("ended"):
+            # Ended games sometimes still expose a last book; keep them for cache/freeze.
+            pass
 
         home_spreads = _best_spreads_by_line(g.get("homeSpreads"))
         away_spreads = _best_spreads_by_line(g.get("awaySpreads"))
@@ -840,6 +845,79 @@ def load_fourcasters_odds() -> list[dict]:
             }
         )
     return out
+
+
+def odds_cache_path(date_str: str) -> Path:
+    return ODDS_CACHE_DIR / f"{date_str}.json"
+
+
+def load_odds_cache(date_str: str) -> dict:
+    path = odds_cache_path(date_str)
+    if not path.exists():
+        return {"date": date_str, "byGamePk": {}}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {"date": date_str, "byGamePk": {}}
+    if not isinstance(data, dict):
+        return {"date": date_str, "byGamePk": {}}
+    data.setdefault("date", date_str)
+    data.setdefault("byGamePk", {})
+    return data
+
+
+def save_odds_cache(date_str: str, cache: dict) -> None:
+    ODDS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache["date"] = date_str
+    cache["updatedAt"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    odds_cache_path(date_str).write_text(json.dumps(cache, indent=2) + "\n", encoding="utf-8")
+
+
+def update_odds_cache_from_matchups(date_str: str, matchups: list[dict]) -> int:
+    """Merge any present moneylines into the day cache. Never delete prior game entries."""
+    cache = load_odds_cache(date_str)
+    by_pk = cache.setdefault("byGamePk", {})
+    saved = 0
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    for m in matchups:
+        pk = m.get("gamePk")
+        odds = m.get("odds")
+        if pk is None or not odds or not odds.get("home") or not odds.get("away"):
+            continue
+        key = str(int(pk))
+        by_pk[key] = {
+            "away": m.get("away"),
+            "home": m.get("home"),
+            "gameDate": m.get("gameDate"),
+            "odds": odds,
+            "savedAt": now,
+        }
+        saved += 1
+    save_odds_cache(date_str, cache)
+    return saved
+
+
+def apply_odds_cache(matchups: list[dict], date_str: str) -> int:
+    """Fill missing matchup odds from last-known cache for this slate date."""
+    cache = load_odds_cache(date_str)
+    by_pk = cache.get("byGamePk") or {}
+    filled = 0
+    for m in matchups:
+        odds = m.get("odds") or {}
+        if odds.get("home") and odds.get("away"):
+            continue
+        pk = m.get("gamePk")
+        if pk is None:
+            continue
+        hit = by_pk.get(str(int(pk)))
+        if not hit or not (hit.get("odds") or {}).get("home"):
+            continue
+        cached = dict(hit["odds"])
+        cached["fromCache"] = True
+        cached["cachedAt"] = hit.get("savedAt")
+        m["odds"] = cached
+        filled += 1
+    return filled
 
 
 def apply_fourcasters_odds(matchups: list[dict], fc_events: list[dict]) -> int:
@@ -1318,13 +1396,19 @@ def main() -> int:
     season_window = build_window("season", "Season", season, 0, games)
     apply_odds(season_window["matchups"], odds_events)
     n_fc = apply_fourcasters_odds(season_window["matchups"], fc_events)
+    n_cache = apply_odds_cache(season_window["matchups"], date_str)
     apply_kalshi_volume(season_window["matchups"], kalshi_events)
-    print(f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, range={season_window['dateRange']}, 4casters={n_fc}", flush=True)
+    print(
+        f"  season: {season_window['teamCount']} teams, {len(season_window['matchups'])} matchups, "
+        f"range={season_window['dateRange']}, 4casters={n_fc}, cacheFill={n_cache}",
+        flush=True,
+    )
 
     print("Fetching FanGraphs last-7-days team stats...", flush=True)
     l7_window = build_window("l7", "Last 7 days", season, 1, games)
     apply_odds(l7_window["matchups"], odds_events)
     apply_fourcasters_odds(l7_window["matchups"], fc_events)
+    apply_odds_cache(l7_window["matchups"], date_str)
     apply_kalshi_volume(l7_window["matchups"], kalshi_events)
     print(f"  l7: {l7_window['teamCount']} teams, {len(l7_window['matchups'])} matchups, range={l7_window['dateRange']}", flush=True)
 
@@ -1332,8 +1416,13 @@ def main() -> int:
     blend_window = blend_windows(season_window, l7_window, games)
     apply_odds(blend_window["matchups"], odds_events)
     apply_fourcasters_odds(blend_window["matchups"], fc_events)
+    apply_odds_cache(blend_window["matchups"], date_str)
     apply_kalshi_volume(blend_window["matchups"], kalshi_events)
     print(f"  blend: {blend_window['teamCount']} teams, {len(blend_window['matchups'])} matchups", flush=True)
+
+    # Persist last-known odds for every game that has them (survives late freezes).
+    n_saved = update_odds_cache_from_matchups(date_str, l7_window["matchups"])
+    print(f"  odds cache: saved/updated {n_saved} games → {odds_cache_path(date_str)}", flush=True)
 
     odds_source = (
         "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback"
