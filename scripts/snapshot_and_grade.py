@@ -18,7 +18,9 @@ INDEX_PATH = HISTORY_DIR / "index.json"
 
 MLB_UA = "mlb-matchup-edges/1.0"
 FREEZE_BEFORE_MS = 15 * 60 * 1000
-EDGE_LOGISTIC_SCALE = 6.0
+EDGE_LOGISTIC_SCALE = 6.0  # legacy overallEdge logistic (unused for Val)
+RUN_DELTA_PER_SCORE = 0.25
+RUN_LOGISTIC_TAU = 2.5
 WINDOWS = ("season", "l7", "blend")
 UNIT_STAKE = 100.0
 SPREAD_ODDS_MIN = -150
@@ -122,7 +124,37 @@ def implied_prob(american: float | None) -> float | None:
     return 100 / (american + 100)
 
 
+def model_score_from_zs(matchup: dict) -> float | None:
+    try:
+        z_off = (float(matchup["zWRCp"]) + float(matchup["zXwOBA"]) + float(matchup["zBsR"])) / 3.0
+        z_pit = (float(matchup["zXFIP"]) + float(matchup["zSIERA"])) / 2.0
+        z_war = float(matchup["zTeamWAR"])
+        z_oaa = float(matchup["zOAA"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    return z_off + z_pit + 0.5 * z_war + 0.5 * z_oaa
+
+
+def run_delta_for_matchup(matchup: dict) -> float | None:
+    if matchup.get("runDelta") is not None:
+        try:
+            return float(matchup["runDelta"])
+        except (TypeError, ValueError):
+            pass
+    score = matchup.get("modelScore")
+    if score is not None:
+        try:
+            return RUN_DELTA_PER_SCORE * float(score)
+        except (TypeError, ValueError):
+            pass
+    score = model_score_from_zs(matchup)
+    if score is None:
+        return None
+    return RUN_DELTA_PER_SCORE * score
+
+
 def edge_to_home_prob(edge) -> float | None:
+    """Legacy: logistic of overallEdge (scale 6). Prefer model_home_prob()."""
     try:
         x = float(edge)
     except (TypeError, ValueError):
@@ -130,9 +162,21 @@ def edge_to_home_prob(edge) -> float | None:
     return 1 / (1 + math.exp(-x / EDGE_LOGISTIC_SCALE))
 
 
+def model_home_prob(matchup: dict) -> float | None:
+    if matchup.get("modelHomeProb") is not None:
+        try:
+            return float(matchup["modelHomeProb"])
+        except (TypeError, ValueError):
+            pass
+    run_delta = run_delta_for_matchup(matchup)
+    if run_delta is None:
+        return None
+    return 1 / (1 + math.exp(-run_delta / RUN_LOGISTIC_TAU))
+
+
 def value_pick(matchup: dict) -> dict | None:
     """Best Val side: model win% − de-vig market win% (mirrors app.js)."""
-    home_prob = edge_to_home_prob(matchup.get("overallEdge"))
+    home_prob = model_home_prob(matchup)
     odds = matchup.get("odds") or {}
     ih = implied_prob(parse_ml(odds.get("home")))
     ia = implied_prob(parse_ml(odds.get("away")))

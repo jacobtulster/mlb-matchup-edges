@@ -339,13 +339,39 @@
     return 100 / (n + 100);
   }
 
-  // Overall Edge → home win prob. Scale scales with # of z-components (~7 now).
-  const EDGE_LOGISTIC_SCALE = 6;
+  // Grouped factors → runDelta → home win%. Prefer payload fields; recompute from z's if missing.
+  const RUN_DELTA_PER_SCORE = 0.25;
+  const RUN_LOGISTIC_TAU = 2.5;
 
-  function edgeToHomeProb(edge, scale = EDGE_LOGISTIC_SCALE) {
-    const x = Number(edge);
+  function modelScoreFromZs(m) {
+    const zOff = (Number(m.zWRCp) + Number(m.zXwOBA) + Number(m.zBsR)) / 3;
+    const zPit = (Number(m.zXFIP) + Number(m.zSIERA)) / 2;
+    const zWar = Number(m.zTeamWAR);
+    const zOaa = Number(m.zOAA);
+    if (![zOff, zPit, zWar, zOaa].every(Number.isFinite)) return null;
+    return zOff + zPit + 0.5 * zWar + 0.5 * zOaa;
+  }
+
+  function runDeltaForMatchup(m) {
+    if (m && m.runDelta != null && Number.isFinite(Number(m.runDelta))) {
+      return Number(m.runDelta);
+    }
+    const score = modelScoreFromZs(m);
+    if (score == null) return null;
+    return RUN_DELTA_PER_SCORE * score;
+  }
+
+  function edgeToHomeProbFromRunDelta(runDelta, tau = RUN_LOGISTIC_TAU) {
+    const x = Number(runDelta);
     if (!Number.isFinite(x)) return null;
-    return 1 / (1 + Math.exp(-x / scale));
+    return 1 / (1 + Math.exp(-x / tau));
+  }
+
+  function modelHomeProbForMatchup(m) {
+    if (m && m.modelHomeProb != null && Number.isFinite(Number(m.modelHomeProb))) {
+      return Number(m.modelHomeProb);
+    }
+    return edgeToHomeProbFromRunDelta(runDeltaForMatchup(m));
   }
 
   function probToAmerican(p) {
@@ -361,14 +387,15 @@
     return v > 0 ? `+${v}` : `${v}`;
   }
 
-  function modelOddsFromEdge(edge) {
-    const homeProb = edgeToHomeProb(edge);
+  function modelOddsFromMatchup(m) {
+    const homeProb = modelHomeProbForMatchup(m);
     if (homeProb == null) return null;
     return {
       homeProb,
       awayProb: 1 - homeProb,
       home: probToAmerican(homeProb),
       away: probToAmerican(1 - homeProb),
+      runDelta: runDeltaForMatchup(m),
     };
   }
 
@@ -408,7 +435,7 @@
   }
 
   function valueVsMarket(m) {
-    const model = modelOddsFromEdge(m.overallEdge);
+    const model = modelOddsFromMatchup(m);
     const market = m.odds ? devigMoneylines(m.odds.home, m.odds.away) : null;
     if (!model || !market) return null;
     const homeEdge = model.homeProb - market.homeProb;
@@ -430,7 +457,7 @@
   }
 
   function modelCell(m) {
-    const model = modelOddsFromEdge(m.overallEdge);
+    const model = modelOddsFromMatchup(m);
     const hl = model
       ? oddsHighlight(model.homeProb, model.awayProb)
       : { homeCls: "home", awayCls: "away" };

@@ -34,6 +34,9 @@ FOURCASTERS_UA = (
 SPREAD_ODDS_MIN = -150
 SPREAD_ODDS_MAX = 110
 SPREAD_ODDS_TARGET = -120
+# Grouped-factor score → expected run delta → win probability
+RUN_DELTA_PER_SCORE = 0.25
+RUN_LOGISTIC_TAU = 2.5
 
 # Kalshi MLB abbreviations (same as MLB Stats API for current clubs)
 KALSHI_TEAM_ABBS = (
@@ -1255,7 +1258,14 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
             + z_siera[i]
             + z_oaa[i]
         )
-        favored = m["home"] if overall > 0 else m["away"] if overall < 0 else "EVEN"
+        z_off = (z_wrcp[i] + z_xwoba[i] + z_bsr[i]) / 3.0
+        z_pit = (z_xfip[i] + z_siera[i]) / 2.0
+        model_score = z_off + z_pit + 0.5 * z_war[i] + 0.5 * z_oaa[i]
+        run_delta = RUN_DELTA_PER_SCORE * model_score
+        model_home_prob = 1.0 / (1.0 + math.exp(-run_delta / RUN_LOGISTIC_TAU))
+        favored = (
+            m["home"] if run_delta > 0 else m["away"] if run_delta < 0 else "EVEN"
+        )
         out.append(
             {
                 **m,
@@ -1274,6 +1284,9 @@ def build_matchups(games: list[dict], teams: dict[str, dict]) -> list[dict]:
                 "zSIERA": round(z_siera[i], 4),
                 "zOAA": round(z_oaa[i], 4),
                 "overallEdge": round(overall, 4),
+                "modelScore": round(model_score, 4),
+                "runDelta": round(run_delta, 4),
+                "modelHomeProb": round(model_home_prob, 6),
                 "favored": favored,
             }
         )
@@ -1348,10 +1361,13 @@ def main() -> int:
             "diffXFIP": "xFIP_a - xFIP_h",
             "diffSIERA": "SIERA_a - SIERA_h",
             "diffOAA": "OAA_h - OAA_a",
-            "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA)",
+            "overallEdge": "z(diffTeamWAR)+z(diffWRCp)+z(diffBsR)+z(diffXwOBA)+z(diffXFIP)+z(diffSIERA)+z(diffOAA) — ranking display only",
+            "modelScore": "zOff=(zWRCp+zXwOBA+zBsR)/3; zPit=(zXFIP+zSIERA)/2; score=zOff+zPit+0.5*zWAR+0.5*zOAA",
+            "runDelta": f"{RUN_DELTA_PER_SCORE} * modelScore (approx runs home − away)",
+            "modelHomeProb": f"1/(1+exp(-runDelta/{RUN_LOGISTIC_TAU}))",
             "kalshiMult": "side_volume / other_side_volume (Ticker Tracker Game Winner volume ratio)",
             "valSpread": f"Val side spread with odds in [{SPREAD_ODDS_MIN}, +{SPREAD_ODDS_MAX}]; prefer ±1.5, else closest to {SPREAD_ODDS_TARGET}",
-            "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Money column is Kalshi Game Winner dollar volume per team. Model logistic scale is 6 (client). Val grades 1u ML + optional 1u spread.",
+            "note": "Positive diffs / Overall Edge favor the home team. Lower-is-better pitching edges (xFIP, SIERA) are flipped. Edges are recomputed per stats window. SZN + L7 averages season and last-7 team stats equally before diffs/z-scores. Model MLs/Val use grouped factors → runDelta → logistic (not raw overallEdge sum). Money column is Kalshi Game Winner dollar volume per team. Val grades 1u ML + optional 1u spread.",
         },
         "windows": {
             "season": season_window,

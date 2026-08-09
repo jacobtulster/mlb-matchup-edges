@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=4c-2" />
+    <link rel="stylesheet" href="styles.css?v=runs-1" />
   </head>
   <body>
     <main>
@@ -19,9 +19,9 @@
           Each metric shows both teams’ values, then the edge with the team that owns it
           (e.g. <span class="example">+13.03 MIL</span>). Offense: <strong>wRC+</strong>,
           <strong>BsR</strong>, <strong>xwOBA</strong>. Pitching/defense: <strong>xFIP</strong>,
-          <strong>SIERA</strong>, <strong>OAA</strong>. <strong>Model</strong> turns Overall
-          Edge into fair moneylines; <strong>Market</strong> shows de-vigged ESPN/DraftKings
-          prices; <strong>Money</strong> is Kalshi Game Winner dollar volume per team.
+          <strong>SIERA</strong>, <strong>OAA</strong>.           <strong>Model</strong> turns grouped factor edges into fair moneylines via a
+          runs bridge; <strong>Market</strong> shows de-vigged 4casters prices (with Val spread);
+          <strong>Money</strong> is Kalshi Game Winner dollar volume per team.
         </p>
         <p id="meta" class="meta">Loading…</p>
         <p id="refresh" class="refresh">Loading refresh schedule…</p>
@@ -103,20 +103,22 @@
         <p>
           Sources: FanGraphs team dashboard (bat + pit + fielding: WAR, wRC+, BsR/wBsR, xwOBA,
           xFIP, SIERA, OAA), MLB Stats API schedule, ESPN scoreboard moneylines (DraftKings),
-          and Kalshi Game Winner volumes. Model fair odds use a logistic of Overall Edge
-          (sum of z-scored metric diffs; scale 6). Market odds are multiplicatively de-vigged
-          so both sides sum to 100%. Value is model win% minus de-vigged market win% on the
-          best side. <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
+          and Kalshi Game Winner volumes. Model fair odds use grouped z-factors
+          (offense / pitching averaged, then WAR+OAA half-weight) mapped to an expected
+          run delta and a logistic (τ=2.5). Overall Edge remains the raw z-sum for ranking.
+          Market odds are multiplicatively de-vigged so both sides sum to 100%. Value is
+          model win% minus de-vigged market win% on the best side.
+          <strong>Money</strong> shows Kalshi dollar volume per team and the ratio
           vs the other side (no highlight under 2×, yellow for 2.0–4.99×, red for 5.0×+).
           Money volumes re-fetch live from Kalshi on every page load in Live mode.
           <strong>Historical</strong> locks each game ~15 minutes before first pitch (edges +
-          market + money), then grades Finals. Edge-system P&amp;L: bet the Val side at freeze
-          market ML — $100 on plus-money, risk $|ML| to win $100 on favorites.
+          market + money), then grades Finals. Edge-system P&amp;L: Val side 1u ML (+ optional
+          1u spread in −150…+110, prefer ±1.5) at flat $100 risk per leg.
           Toggle <strong>Season</strong>, <strong>Last 7 days</strong>,
           or <strong>SZN + L7</strong> (equal-weight average of season and L7 team stats before edges).
         </p>
       </footer>
     </main>
-    <script src="app.js?v=4c-2"></script>
+    <script src="app.js?v=runs-1"></script>
   </body>
 </html>
