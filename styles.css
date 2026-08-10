@@ -439,49 +439,46 @@ thead th.num {
   text-align: left;
 }
 
-thead th.money-th {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.2rem;
-}
-
-.money-th-label {
-  display: inline-block;
-}
-
-.money-mode-pills {
+.money-mode-toggle {
   display: inline-flex;
+  align-items: center;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
   gap: 0.15rem;
-  flex-wrap: wrap;
+}
+
+.money-mode-label {
+  padding: 0 0.35rem 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .money-mode-btn {
   appearance: none;
   margin: 0;
-  padding: 0.08rem 0.32rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+  border: none;
+  border-radius: 0.35rem;
   background: transparent;
   color: var(--muted);
   font: inherit;
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.2;
+  font-size: 0.78rem;
+  font-weight: 650;
+  padding: 0.4rem 0.55rem;
   cursor: pointer;
 }
 
 .money-mode-btn:hover {
   color: var(--header);
-  border-color: #5a6a7c;
 }
 
 .money-mode-btn.active {
+  background: rgba(94, 224, 181, 0.16);
   color: var(--header);
-  background: rgba(94, 224, 181, 0.14);
-  border-color: rgba(94, 224, 181, 0.45);
 }
 
 thead th.sorted-asc::after,

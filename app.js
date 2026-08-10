@@ -769,12 +769,11 @@
   headers.forEach((th) => {
     th.addEventListener("click", () => {
       if (th.classList.contains("money-th")) {
-        // Clicking the Money label toggles dir if already on a money sort;
-        // otherwise jumps to the active pill mode (default Ratio).
+        // Money header: stay on active Ratio/Vol mode; toggle direction if already sorting money
         if (isMoneySortKey(sortKey)) {
           setSort(sortKey, { toggle: true });
         } else {
-          const activePill = th.querySelector(".money-mode-btn.active");
+          const activePill = document.querySelector(".money-mode-btn.active");
           const mode = (activePill && activePill.dataset.moneyMode) || "ratio";
           setSort(mode === "vol" ? "moneyLiqRank" : "moneyMaxMult", { forceDefault: true });
         }
