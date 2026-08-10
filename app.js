@@ -625,7 +625,9 @@
     const lr = m.liqRank;
     const rankHtml =
       lr && lr.of > 0
-        ? `<span class="money-rank" title="Liquidity rank by Kalshi total $ (1 = highest) · #${lr.rank} of ${lr.of}">#${lr.rank}/${lr.of}</span>`
+        ? `<span class="money-rank${
+            lr.rank === 1 ? " money-rank-1" : lr.rank === 2 ? " money-rank-2" : lr.rank === 3 ? " money-rank-3" : ""
+          }" title="Liquidity rank by Kalshi total $ (1 = highest) · #${lr.rank} of ${lr.of}">#${lr.rank}/${lr.of}</span>`
         : "";
     const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)} · ${formatMult(k.highMult)}${
       lr ? ` · #${lr.rank}/${lr.of} by volume` : ""
