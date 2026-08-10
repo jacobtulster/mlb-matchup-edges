@@ -739,6 +739,19 @@ tr.game-past {
   font-variant-numeric: tabular-nums;
 }
 
+.money-rank {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.28rem;
+  border-radius: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: rgba(154, 166, 181, 0.14);
+  vertical-align: middle;
+}
+
 .money-mult.money-yellow {
   color: #eab308 !important;
 }

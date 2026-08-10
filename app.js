@@ -581,6 +581,24 @@
     return "yellow";
   }
 
+  /** Rank games by Kalshi total $ volume (1 = most liquid). Y = slate size. */
+  function buildLiquidityRanks(matchups) {
+    const list = matchups || [];
+    const n = list.length;
+    const sorted = [...list].sort((a, b) => {
+      const av = Number(a.kalshi && a.kalshi.totalVol);
+      const bv = Number(b.kalshi && b.kalshi.totalVol);
+      const aOk = Number.isFinite(av) ? av : -1;
+      const bOk = Number.isFinite(bv) ? bv : -1;
+      return bOk - aOk || (Number(a.gamePk) || 0) - (Number(b.gamePk) || 0);
+    });
+    const map = new Map();
+    sorted.forEach((m, i) => {
+      map.set(m.gamePk, { rank: i + 1, of: n });
+    });
+    return map;
+  }
+
   function moneyCell(m) {
     const k = m.kalshi;
     if (!k) {
@@ -604,15 +622,22 @@
     const awayCls =
       awayHigh && tone !== "muted" ? `money-hl money-hl-${tone}` : "";
     const highTeam = k.highSide === "home" ? m.home : m.away;
-    const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)} · ${formatMult(k.highMult)}`;
+    const lr = m.liqRank;
+    const rankHtml =
+      lr && lr.of > 0
+        ? `<span class="money-rank" title="Liquidity rank by Kalshi total $ (1 = highest) · #${lr.rank} of ${lr.of}">#${lr.rank}/${lr.of}</span>`
+        : "";
+    const title = `Kalshi ${k.eventTicker || ""} · total ${formatUsd(k.totalVol)} · ${formatMult(k.highMult)}${
+      lr ? ` · #${lr.rank}/${lr.of} by volume` : ""
+    }`;
     const moneyBadge = gradeBadge(gradesFor(m) && gradesFor(m).money);
     return `
-      <td class="odds money-cell" data-label="Money" title="${title}">
+      <td class="odds money-cell" data-label="Money" title="${escapeAttr(title)}">
         <div class="odds-stack money-stack">
           <div class="odds-line ${awayCls}"><span class="abb">${m.away}</span><span class="price">${formatUsd(k.awayVol)}</span></div>
           <div class="odds-line ${homeCls}"><span class="abb">${m.home}</span><span class="price">${formatUsd(k.homeVol)}</span></div>
         </div>
-        <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}${moneyBadge}</div>
+        <div class="value-line money-mult money-${tone}">${formatMult(k.highMult)} ${highTeam}${rankHtml}${moneyBadge}</div>
       </td>
     `;
   }
@@ -1474,7 +1499,9 @@
     });
 
     const win = windowData(id);
-    let matchups = win.matchups || [];
+    const slateMatchups = win.matchups || [];
+    const liqRanks = buildLiquidityRanks(slateMatchups);
+    let matchups = slateMatchups;
 
     // Historical edge filters: top-N Val edges, or run-line-only games
     if (viewMode === "historical" && histDay && edgeFilter !== "all") {
@@ -1489,6 +1516,7 @@
       const k = m.kalshi;
       return {
         ...m,
+        liqRank: liqRanks.get(m.gamePk) || null,
         overallAbs: Math.abs(Number(m.overallEdge) || 0),
         valueAbs: value ? Math.abs(value.edge) : Number.NaN,
         moneyMaxMult: k && k.maxMult != null ? Number(k.maxMult) : Number.NaN,
