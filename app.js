@@ -773,7 +773,7 @@
         if (isMoneySortKey(sortKey)) {
           setSort(sortKey, { toggle: true });
         } else {
-          const activePill = document.querySelector(".money-mode-btn.active");
+          const activePill = th.querySelector(".money-mode-btn.active");
           const mode = (activePill && activePill.dataset.moneyMode) || "ratio";
           setSort(mode === "vol" ? "moneyLiqRank" : "moneyMaxMult", { forceDefault: true });
         }

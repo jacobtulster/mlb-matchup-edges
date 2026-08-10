@@ -410,7 +410,7 @@ thead tr {
     repeat(7, minmax(0, 1fr))
     minmax(4.4rem, 0.8fr)
     minmax(4.4rem, 0.8fr)
-    minmax(4.8rem, 0.9fr);
+    minmax(9rem, 1.2fr);
   gap: 0.3rem;
   align-items: end;
   padding: 0.35rem 0.45rem;
@@ -439,46 +439,51 @@ thead th.num {
   text-align: left;
 }
 
-.money-mode-toggle {
+thead th.money-th {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 0.2rem;
-  border: 1px solid var(--line);
-  border-radius: 0.5rem;
-  background: var(--surface);
-  gap: 0.15rem;
+  gap: 0.28rem 0.35rem;
+  white-space: nowrap;
+  overflow: visible;
 }
 
-.money-mode-label {
-  padding: 0 0.35rem 0 0.45rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
+.money-th-label {
+  display: inline-block;
+}
+
+.money-mode-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .money-mode-btn {
   appearance: none;
   margin: 0;
-  border: none;
-  border-radius: 0.35rem;
-  background: transparent;
+  padding: 0.12rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(154, 166, 181, 0.08);
   color: var(--muted);
   font: inherit;
-  font-size: 0.78rem;
-  font-weight: 650;
-  padding: 0.4rem 0.55rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.2;
   cursor: pointer;
 }
 
 .money-mode-btn:hover {
   color: var(--header);
+  border-color: #5a6a7c;
 }
 
 .money-mode-btn.active {
-  background: rgba(94, 224, 181, 0.16);
   color: var(--header);
+  background: rgba(94, 224, 181, 0.18);
+  border-color: rgba(94, 224, 181, 0.5);
 }
 
 thead th.sorted-asc::after,
@@ -514,7 +519,7 @@ tbody tr {
     repeat(7, minmax(0, 1fr))
     minmax(4.4rem, 0.8fr)
     minmax(4.4rem, 0.8fr)
-    minmax(4.8rem, 0.9fr);
+    minmax(9rem, 1.2fr);
   gap: 0.3rem;
   align-items: start;
   padding: 0.45rem;
@@ -864,7 +869,30 @@ tr.game-past {
 
 /* Mid widths: metrics wrap under identity/odds so nothing clips */
 @media (max-width: 1180px) {
+  /* Keep Money header + Ratio/Vol pills visible; hide other column titles
+     (cells already show data-label). */
   thead {
+    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0 0 0.35rem;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    border: 0;
+  }
+
+  thead tr {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.25rem 0.45rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  thead th:not(.money-th) {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -874,6 +902,18 @@ tr.game-past {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+  }
+
+  thead th.money-th {
+    display: inline-flex;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.15rem 0.1rem;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
   }
 
   tbody tr {
@@ -906,8 +946,7 @@ tr.game-past {
 
   tbody td.metric::before,
   tbody td.model-cell::before,
-  tbody td.market-cell::before,
-  tbody td.money-cell::before {
+  tbody td.market-cell::before {
     content: attr(data-label);
     display: block;
     margin-bottom: 0.2rem;
@@ -917,6 +956,12 @@ tr.game-past {
     text-transform: uppercase;
     color: var(--muted);
     text-align: left;
+  }
+
+  /* Money label lives in thead with Ratio/Vol pills */
+  tbody td.money-cell::before {
+    content: none;
+    display: none;
   }
 
   tbody td.model-cell,
