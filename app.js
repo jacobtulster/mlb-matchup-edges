@@ -297,12 +297,13 @@
       return sortDir === "asc" ? an - bn : bn - an;
     }
 
-    if (sortKey === "moneyMaxMult" || sortKey === "moneyTotal") {
+    if (sortKey === "moneyMaxMult" || sortKey === "moneyTotal" || sortKey === "moneyLiqRank") {
       const an = Number(a[sortKey]);
       const bn = Number(b[sortKey]);
       if (Number.isNaN(an) && Number.isNaN(bn)) return 0;
       if (Number.isNaN(an)) return 1;
       if (Number.isNaN(bn)) return -1;
+      // moneyLiqRank: lower rank (#1) first when asc
       return sortDir === "asc" ? an - bn : bn - an;
     }
 
@@ -324,12 +325,25 @@
     return sortDir === "asc" ? an - bn : bn - an;
   }
 
+  function isMoneySortKey(key) {
+    return key === "moneyMaxMult" || key === "moneyLiqRank" || key === "moneyTotal";
+  }
+
   function updateHeaderState() {
     headers.forEach((th) => {
       th.classList.remove("sorted-asc", "sorted-desc");
-      if (th.dataset.key === sortKey) {
+      const isMoneyTh = th.classList.contains("money-th");
+      const active = isMoneyTh ? isMoneySortKey(sortKey) : th.dataset.key === sortKey;
+      if (active) {
         th.classList.add(sortDir === "asc" ? "sorted-asc" : "sorted-desc");
       }
+    });
+    document.querySelectorAll(".money-mode-btn").forEach((btn) => {
+      const mode = btn.dataset.moneyMode;
+      const on =
+        (mode === "ratio" && sortKey === "moneyMaxMult") ||
+        (mode === "vol" && (sortKey === "moneyLiqRank" || sortKey === "moneyTotal"));
+      btn.classList.toggle("active", on);
     });
   }
 
@@ -652,7 +666,9 @@
   function defaultDirFor(key) {
     if (key === "matchup") return "asc";
     if (key === "gameStart") return "asc";
-    // Model edge / value / metrics: strongest first
+    // Vol / liquidity rank: #1 (most liquid) first
+    if (key === "moneyLiqRank") return "asc";
+    // Model edge / value / metrics / ratio: strongest first
     return "desc";
   }
 
@@ -752,12 +768,34 @@
 
   headers.forEach((th) => {
     th.addEventListener("click", () => {
+      if (th.classList.contains("money-th")) {
+        // Clicking the Money label toggles dir if already on a money sort;
+        // otherwise jumps to the active pill mode (default Ratio).
+        if (isMoneySortKey(sortKey)) {
+          setSort(sortKey, { toggle: true });
+        } else {
+          const activePill = th.querySelector(".money-mode-btn.active");
+          const mode = (activePill && activePill.dataset.moneyMode) || "ratio";
+          setSort(mode === "vol" ? "moneyLiqRank" : "moneyMaxMult", { forceDefault: true });
+        }
+        render();
+        return;
+      }
       const key = th.dataset.key;
       if (sortKey !== key) {
         setSort(key, { forceDefault: true });
       } else {
         setSort(key, { toggle: true });
       }
+      render();
+    });
+  });
+
+  document.querySelectorAll(".money-mode-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const key = btn.dataset.moneyMode === "vol" ? "moneyLiqRank" : "moneyMaxMult";
+      setSort(key, { forceDefault: true });
       render();
     });
   });
@@ -1523,6 +1561,7 @@
         valueAbs: value ? Math.abs(value.edge) : Number.NaN,
         moneyMaxMult: k && k.maxMult != null ? Number(k.maxMult) : Number.NaN,
         moneyTotal: k && k.totalVol != null ? Number(k.totalVol) : Number.NaN,
+        moneyLiqRank: (liqRanks.get(m.gamePk) || {}).rank ?? Number.NaN,
       };
     });
     const n = rows.length;

@@ -435,8 +435,49 @@ thead th {
   min-width: 0;
 }
 
-thead th.num {
-  text-align: left;
+thead th.money-th {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.money-th-label {
+  display: inline-block;
+}
+
+.money-mode-pills {
+  display: inline-flex;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+}
+
+.money-mode-btn {
+  appearance: none;
+  margin: 0;
+  padding: 0.08rem 0.32rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.money-mode-btn:hover {
+  color: var(--header);
+  border-color: #5a6a7c;
+}
+
+.money-mode-btn.active {
+  color: var(--header);
+  background: rgba(94, 224, 181, 0.14);
+  border-color: rgba(94, 224, 181, 0.45);
 }
 
 thead th.sorted-asc::after,

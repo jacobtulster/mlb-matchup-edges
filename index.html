@@ -9,7 +9,7 @@
       name="description"
       content="Today's MLB matchups ranked by Team WAR, wRC+, BsR, xwOBA, xFIP, SIERA, and OAA edges."
     />
-    <link rel="stylesheet" href="styles.css?v=liq-rank-2" />
+    <link rel="stylesheet" href="styles.css?v=money-pills-1" />
   </head>
   <body>
     <main>
@@ -59,7 +59,7 @@
               <option value="valueAbs">Value vs market</option>
               <option value="overallAbs">Model edge</option>
               <option value="moneyMaxMult">Money ratio</option>
-              <option value="moneyTotal">Money total $</option>
+              <option value="moneyLiqRank">Money vol (#)</option>
               <option value="homeMl">Market home ML</option>
               <option value="gameStart">Game start</option>
               <option value="diffTeamWAR">Team WAR</option>
@@ -91,7 +91,13 @@
               <th data-key="diffOAA" data-type="number" class="num">OAA</th>
               <th data-key="valueAbs" data-type="number" class="num sorted-desc">Model</th>
               <th data-key="homeMl" data-type="number" class="num">Market</th>
-              <th data-key="moneyMaxMult" data-type="number" class="num">Money</th>
+              <th data-key="moneyMaxMult" data-type="number" class="num money-th">
+                <span class="money-th-label">Money</span>
+                <span class="money-mode-pills" role="group" aria-label="Money sort mode">
+                  <button type="button" class="money-mode-btn" data-money-mode="ratio" title="Sort by volume ratio">Ratio</button>
+                  <button type="button" class="money-mode-btn" data-money-mode="vol" title="Sort by total liquidity rank">Vol</button>
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -122,6 +128,6 @@
         </p>
       </footer>
     </main>
-    <script src="app.js?v=liq-rank-2"></script>
+    <script src="app.js?v=money-pills-1"></script>
   </body>
 </html>
