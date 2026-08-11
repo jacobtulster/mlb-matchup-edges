@@ -595,21 +595,30 @@
     return "yellow";
   }
 
-  /** Rank games by Kalshi total $ volume (1 = most liquid). Y = slate size. */
+  /** Rank games by Kalshi total $ volume (1 = most liquid). Y = slate size.
+   *  When matchups span multiple history dates, rank within each slate day. */
   function buildLiquidityRanks(matchups) {
     const list = matchups || [];
-    const n = list.length;
-    const sorted = [...list].sort((a, b) => {
-      const av = Number(a.kalshi && a.kalshi.totalVol);
-      const bv = Number(b.kalshi && b.kalshi.totalVol);
-      const aOk = Number.isFinite(av) ? av : -1;
-      const bOk = Number.isFinite(bv) ? bv : -1;
-      return bOk - aOk || (Number(a.gamePk) || 0) - (Number(b.gamePk) || 0);
-    });
+    const groups = new Map();
+    for (const m of list) {
+      const key = m._slateDate || "_";
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(m);
+    }
     const map = new Map();
-    sorted.forEach((m, i) => {
-      map.set(m.gamePk, { rank: i + 1, of: n });
-    });
+    for (const [, group] of groups) {
+      const n = group.length;
+      const sorted = [...group].sort((a, b) => {
+        const av = Number(a.kalshi && a.kalshi.totalVol);
+        const bv = Number(b.kalshi && b.kalshi.totalVol);
+        const aOk = Number.isFinite(av) ? av : -1;
+        const bOk = Number.isFinite(bv) ? bv : -1;
+        return bOk - aOk || (Number(a.gamePk) || 0) - (Number(b.gamePk) || 0);
+      });
+      sorted.forEach((m, i) => {
+        map.set(m.gamePk, { rank: i + 1, of: n });
+      });
+    }
     return map;
   }
 
@@ -713,6 +722,11 @@
           ${
             m.showGameNumber || m.isDoubleHeader || (m.gameNumber && Number(m.gameNumber) > 1)
               ? `<span class="game-num">G${m.gameNumber || "?"}</span>`
+              : ""
+          }
+          ${
+            viewMode === "historical" && histDate === "all" && m._slateDate
+              ? `<span class="slate-date">${m._slateDate}</span>`
               : ""
           }
         </td>
@@ -1294,6 +1308,15 @@
   }
 
   function gamesForEdgeFilter(day, wid) {
+    // Merged "All dates" view: apply Top N / RL filters per calendar day, then concat
+    if (day && day.merged) {
+      const out = [];
+      for (const d of day.dates || []) {
+        const one = histCache.get(d);
+        if (one) out.push(...gamesForEdgeFilter(one, wid));
+      }
+      return out;
+    }
     let games = topEdgeGamesForDay(day, wid, edgeTopN());
     if (edgeFilter === "rl") {
       games = games.filter((g) => gameHasRunLine(g, wid));
@@ -1576,7 +1599,11 @@
       viewMode === "historical" && edgeFilter !== "all"
         ? ` · ${edgeFilterLabel()}`
         : "";
-    meta.textContent = `${modeBit} · Slate: ${payload.date || "—"} (ET) · ${win.label || id} stats${range}${filterBit} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
+    meta.textContent = `${modeBit} · Slate: ${
+      payload.date === "all"
+        ? `All dates (${(payload.dates || []).length || "—"})`
+        : `${payload.date || "—"} (ET)`
+    } · ${win.label || id} stats${range}${filterBit} · ${n} game${n === 1 ? "" : "s"} · Updated ${formatUpdated(payload.updatedAt || histDay?.updatedAt)}${moneyBit}`;
     renderHistSummary();
     render();
   }
@@ -1592,6 +1619,7 @@
           ...m,
           _result: g.result || null,
           _frozenAt: g.frozenAt || null,
+          _slateDate: g._slateDate || day.date || null,
         });
       }
       windows[wid] = {
@@ -1603,9 +1631,36 @@
     }
     return {
       date: day.date,
+      dates: day.dates || null,
       updatedAt: day.updatedAt || null,
       windows,
       matchups: (windows.l7 || windows.season || { matchups: [] }).matchups,
+    };
+  }
+
+  function mergeAllHistoryDays() {
+    const dates = (histIndex && histIndex.dates) || [...histCache.keys()].sort();
+    const games = [];
+    let updatedAt = null;
+    for (const d of dates) {
+      const day = histCache.get(d);
+      if (!day) continue;
+      if (day.updatedAt && (!updatedAt || day.updatedAt > updatedAt)) {
+        updatedAt = day.updatedAt;
+      }
+      for (const g of day.games || []) {
+        games.push({ ...g, _slateDate: d });
+      }
+    }
+    games.sort(
+      (a, b) => (parseIsoMs(a.gameDate) || 0) - (parseIsoMs(b.gameDate) || 0)
+    );
+    return {
+      date: "all",
+      dates: [...dates],
+      games,
+      updatedAt,
+      merged: true,
     };
   }
 
@@ -1618,16 +1673,21 @@
       opt.value = "";
       opt.textContent = "No history yet";
       histDateEl.appendChild(opt);
+      histDate = null;
       return;
     }
+    const allOpt = document.createElement("option");
+    allOpt.value = "all";
+    allOpt.textContent = "All dates";
+    histDateEl.appendChild(allOpt);
     for (const d of [...dates].reverse()) {
       const opt = document.createElement("option");
       opt.value = d;
       opt.textContent = d;
       histDateEl.appendChild(opt);
     }
-    if (!histDate || !dates.includes(histDate)) {
-      histDate = dates[dates.length - 1];
+    if (!histDate || (histDate !== "all" && !dates.includes(histDate))) {
+      histDate = "all";
     }
     histDateEl.value = histDate;
   }
@@ -1652,6 +1712,17 @@
   }
 
   async function loadHistDay(dateStr) {
+    if (dateStr === "all") {
+      await loadAllHistoryDays();
+      histDay = mergeAllHistoryDays();
+      histDate = "all";
+      if (histDateEl) histDateEl.value = "all";
+      payload = historyToPayload(histDay);
+      applyWindow(activeWindow, { persist: false });
+      const nDays = (histDay.dates || []).length;
+      refreshEl.textContent = `Historical · All dates (${nDays} day${nDays === 1 ? "" : "s"} mashed). Games lock ~45 min before first pitch. Edge P&L: Val @ 4casters (1u ML + 1u spread when −150…+110); +odds risk $100, −odds risk |price| to win $100. Top 3/5 apply per day; Run line only grades the spread leg alone.`;
+      return;
+    }
     if (!histCache.has(dateStr)) {
       const r = await fetch(`data/history/${dateStr}.json?t=${Date.now()}`);
       if (!r.ok) throw new Error(`history ${dateStr} HTTP ${r.status}`);
@@ -1659,6 +1730,7 @@
     }
     histDay = histCache.get(dateStr);
     histDate = dateStr;
+    if (histDateEl) histDateEl.value = dateStr;
     payload = historyToPayload(histDay);
     applyWindow(activeWindow, { persist: false });
     refreshEl.textContent = `Historical freeze · ${dateStr}. Games lock ~45 min before first pitch (odds cached all day so market lines survive late locks). Edge P&L: Val @ 4casters (1u ML + 1u spread when −150…+110); +odds risk $100, −odds risk |price| to win $100. Top 3/5 keep largest Val edges; Run line only grades the spread leg alone.`;
@@ -1691,10 +1763,15 @@
     }
 
     try {
+      // Historical defaults: All dates + Last 7 days stats
+      histDate = "all";
+      activeWindow = "l7";
       if (!histIndex) await loadHistIndex();
       else fillHistDates();
       await loadAllHistoryDays();
-      if (!histDate) {
+      const dates = (histIndex && histIndex.dates) || [];
+      if (!dates.length) {
+        histDate = null;
         meta.textContent = "No historical freezes yet. They appear once games lock ~45 min before start.";
         refreshEl.textContent = "";
         rows = [];
@@ -1702,7 +1779,7 @@
         render();
         return;
       }
-      await loadHistDay(histDate);
+      await loadHistDay("all");
     } catch (err) {
       meta.textContent = `Historical load failed: ${err.message}`;
       refreshEl.textContent = "History builds after the first pre-game freezes land.";
