@@ -631,7 +631,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 3,
         "homeScore": 0,
         "winner": null,
         "grades": {}
@@ -1169,8 +1169,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 3,
-        "homeScore": 1,
+        "awayScore": 8,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -1708,7 +1708,7 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 2,
         "winner": null,
         "grades": {}
       }
@@ -2251,6 +2251,544 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
+        "awayScore": 1,
+        "homeScore": 0,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 822776,
+      "away": "BOS",
+      "home": "TOR",
+      "awayName": "Boston Red Sox",
+      "homeName": "Toronto Blue Jays",
+      "gameDate": "2026-08-13T19:07:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-13T18:40:15Z",
+      "windows": {
+        "season": {
+          "gamePk": 822776,
+          "away": "BOS",
+          "home": "TOR",
+          "awayName": "Boston Red Sox",
+          "homeName": "Toronto Blue Jays",
+          "gameDate": "2026-08-13T19:07:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 15.322,
+            "pitWAR": 17.126,
+            "teamWAR": 32.448,
+            "wRCp": 98.375,
+            "BsR": -1.648,
+            "xwOBA": 0.3108,
+            "xFIP": 3.786,
+            "SIERA": 3.764,
+            "OAA": 13.0
+          },
+          "homeStats": {
+            "batWAR": 12.108,
+            "pitWAR": 12.546,
+            "teamWAR": 24.654,
+            "wRCp": 91.207,
+            "BsR": -0.068,
+            "xwOBA": 0.2944,
+            "xFIP": 4.043,
+            "SIERA": 4.024,
+            "OAA": 7.0
+          },
+          "diffTeamWAR": -7.794,
+          "diffWRCp": -7.168,
+          "diffBsR": 1.58,
+          "diffXwOBA": -0.0164,
+          "diffXFIP": -0.257,
+          "diffSIERA": -0.26,
+          "diffOAA": -6.0,
+          "zTeamWAR": -0.9197,
+          "zWRCp": -1.2451,
+          "zBsR": 0.7835,
+          "zXwOBA": -1.6185,
+          "zXFIP": -0.2574,
+          "zSIERA": -0.3205,
+          "zOAA": 0.054,
+          "overallEdge": -3.5238,
+          "modelScore": -1.4152,
+          "runDelta": -0.5661,
+          "modelHomeProb": 0.429708,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "+128",
+            "away": "-129",
+            "gameId": "6a7c98c3f0a6b45a0983382b",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 124
+                },
+                {
+                  "line": -0.5,
+                  "odds": 123
+                },
+                {
+                  "line": 0.5,
+                  "odds": 123
+                },
+                {
+                  "line": -1.0,
+                  "odds": 204
+                },
+                {
+                  "line": 1.0,
+                  "odds": -102
+                },
+                {
+                  "line": -1.5,
+                  "odds": 266
+                },
+                {
+                  "line": 1.5,
+                  "odds": -129
+                },
+                {
+                  "line": 2.0,
+                  "odds": -174
+                },
+                {
+                  "line": 2.5,
+                  "odds": -210
+                },
+                {
+                  "line": 3.0,
+                  "odds": -281
+                },
+                {
+                  "line": 3.5,
+                  "odds": -321
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -129
+                },
+                {
+                  "line": -0.5,
+                  "odds": -130
+                },
+                {
+                  "line": 0.5,
+                  "odds": -130
+                },
+                {
+                  "line": -1.0,
+                  "odds": -101
+                },
+                {
+                  "line": 1.0,
+                  "odds": -215
+                },
+                {
+                  "line": -1.5,
+                  "odds": 128
+                },
+                {
+                  "line": 1.5,
+                  "odds": -284
+                },
+                {
+                  "line": -2.0,
+                  "odds": 167
+                },
+                {
+                  "line": -2.5,
+                  "odds": 198
+                },
+                {
+                  "line": -3.0,
+                  "odds": 267
+                },
+                {
+                  "line": -3.5,
+                  "odds": 301
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG131507BOSTOR",
+            "awayVol": 326731.37,
+            "homeVol": 365085.34,
+            "awayCents": 58,
+            "homeCents": 43,
+            "awayMult": 0.8949,
+            "homeMult": 1.1174,
+            "maxMult": 1.1174,
+            "totalVol": 691816.71,
+            "highSide": "home",
+            "highMult": 1.1174,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "l7": {
+          "gamePk": 822776,
+          "away": "BOS",
+          "home": "TOR",
+          "awayName": "Boston Red Sox",
+          "homeName": "Toronto Blue Jays",
+          "gameDate": "2026-08-13T19:07:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.375,
+            "pitWAR": 1.22,
+            "teamWAR": 2.595,
+            "wRCp": 113.328,
+            "BsR": -0.288,
+            "xwOBA": 0.3166,
+            "xFIP": 3.723,
+            "SIERA": 3.653,
+            "OAA": 13.0
+          },
+          "homeStats": {
+            "batWAR": 1.401,
+            "pitWAR": 0.131,
+            "teamWAR": 1.532,
+            "wRCp": 101.366,
+            "BsR": 0.324,
+            "xwOBA": 0.2807,
+            "xFIP": 5.111,
+            "SIERA": 5.275,
+            "OAA": 7.0
+          },
+          "diffTeamWAR": -1.063,
+          "diffWRCp": -11.962,
+          "diffBsR": 0.612,
+          "diffXwOBA": -0.0359,
+          "diffXFIP": -1.388,
+          "diffSIERA": -1.622,
+          "diffOAA": -6.0,
+          "zTeamWAR": -1.2824,
+          "zWRCp": -1.0524,
+          "zBsR": 0.5802,
+          "zXwOBA": -1.3891,
+          "zXFIP": -2.0139,
+          "zSIERA": -2.2737,
+          "zOAA": 0.054,
+          "overallEdge": -7.3772,
+          "modelScore": -3.3784,
+          "runDelta": -1.3514,
+          "modelHomeProb": 0.337227,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "+128",
+            "away": "-129",
+            "gameId": "6a7c98c3f0a6b45a0983382b",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 124
+                },
+                {
+                  "line": -0.5,
+                  "odds": 123
+                },
+                {
+                  "line": 0.5,
+                  "odds": 123
+                },
+                {
+                  "line": -1.0,
+                  "odds": 204
+                },
+                {
+                  "line": 1.0,
+                  "odds": -102
+                },
+                {
+                  "line": -1.5,
+                  "odds": 266
+                },
+                {
+                  "line": 1.5,
+                  "odds": -129
+                },
+                {
+                  "line": 2.0,
+                  "odds": -174
+                },
+                {
+                  "line": 2.5,
+                  "odds": -210
+                },
+                {
+                  "line": 3.0,
+                  "odds": -281
+                },
+                {
+                  "line": 3.5,
+                  "odds": -321
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -129
+                },
+                {
+                  "line": -0.5,
+                  "odds": -130
+                },
+                {
+                  "line": 0.5,
+                  "odds": -130
+                },
+                {
+                  "line": -1.0,
+                  "odds": -101
+                },
+                {
+                  "line": 1.0,
+                  "odds": -215
+                },
+                {
+                  "line": -1.5,
+                  "odds": 128
+                },
+                {
+                  "line": 1.5,
+                  "odds": -284
+                },
+                {
+                  "line": -2.0,
+                  "odds": 167
+                },
+                {
+                  "line": -2.5,
+                  "odds": 198
+                },
+                {
+                  "line": -3.0,
+                  "odds": 267
+                },
+                {
+                  "line": -3.5,
+                  "odds": 301
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG131507BOSTOR",
+            "awayVol": 326731.37,
+            "homeVol": 365085.34,
+            "awayCents": 58,
+            "homeCents": 43,
+            "awayMult": 0.8949,
+            "homeMult": 1.1174,
+            "maxMult": 1.1174,
+            "totalVol": 691816.71,
+            "highSide": "home",
+            "highMult": 1.1174,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "blend": {
+          "gamePk": 822776,
+          "away": "BOS",
+          "home": "TOR",
+          "awayName": "Boston Red Sox",
+          "homeName": "Toronto Blue Jays",
+          "gameDate": "2026-08-13T19:07:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 8.348,
+            "pitWAR": 9.173,
+            "teamWAR": 17.521,
+            "wRCp": 105.852,
+            "BsR": -0.968,
+            "xwOBA": 0.3137,
+            "xFIP": 3.755,
+            "SIERA": 3.708,
+            "OAA": 13.0
+          },
+          "homeStats": {
+            "batWAR": 6.755,
+            "pitWAR": 6.338,
+            "teamWAR": 13.093,
+            "wRCp": 96.286,
+            "BsR": 0.128,
+            "xwOBA": 0.2875,
+            "xFIP": 4.577,
+            "SIERA": 4.649,
+            "OAA": 7.0
+          },
+          "diffTeamWAR": -4.428,
+          "diffWRCp": -9.565,
+          "diffBsR": 1.096,
+          "diffXwOBA": -0.0262,
+          "diffXFIP": -0.822,
+          "diffSIERA": -0.941,
+          "diffOAA": -6.0,
+          "zTeamWAR": -0.9992,
+          "zWRCp": -1.2466,
+          "zBsR": 0.8187,
+          "zXwOBA": -1.8544,
+          "zXFIP": -1.8055,
+          "zSIERA": -2.0933,
+          "zOAA": 0.054,
+          "overallEdge": -7.1261,
+          "modelScore": -3.1827,
+          "runDelta": -1.2731,
+          "modelHomeProb": 0.346029,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "+128",
+            "away": "-129",
+            "gameId": "6a7c98c3f0a6b45a0983382b",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 124
+                },
+                {
+                  "line": -0.5,
+                  "odds": 123
+                },
+                {
+                  "line": 0.5,
+                  "odds": 123
+                },
+                {
+                  "line": -1.0,
+                  "odds": 204
+                },
+                {
+                  "line": 1.0,
+                  "odds": -102
+                },
+                {
+                  "line": -1.5,
+                  "odds": 266
+                },
+                {
+                  "line": 1.5,
+                  "odds": -129
+                },
+                {
+                  "line": 2.0,
+                  "odds": -174
+                },
+                {
+                  "line": 2.5,
+                  "odds": -210
+                },
+                {
+                  "line": 3.0,
+                  "odds": -281
+                },
+                {
+                  "line": 3.5,
+                  "odds": -321
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -129
+                },
+                {
+                  "line": -0.5,
+                  "odds": -130
+                },
+                {
+                  "line": 0.5,
+                  "odds": -130
+                },
+                {
+                  "line": -1.0,
+                  "odds": -101
+                },
+                {
+                  "line": 1.0,
+                  "odds": -215
+                },
+                {
+                  "line": -1.5,
+                  "odds": 128
+                },
+                {
+                  "line": 1.5,
+                  "odds": -284
+                },
+                {
+                  "line": -2.0,
+                  "odds": 167
+                },
+                {
+                  "line": -2.5,
+                  "odds": 198
+                },
+                {
+                  "line": -3.0,
+                  "odds": 267
+                },
+                {
+                  "line": -3.5,
+                  "odds": 301
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG131507BOSTOR",
+            "awayVol": 326731.37,
+            "homeVol": 365085.34,
+            "awayCents": 58,
+            "homeCents": 43,
+            "awayMult": 0.8949,
+            "homeMult": 1.1174,
+            "maxMult": 1.1174,
+            "totalVol": 691816.71,
+            "highSide": "home",
+            "highMult": 1.1174,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        }
+      },
+      "result": {
+        "status": "Preview",
+        "detailedState": "Pre-Game",
         "awayScore": 0,
         "homeScore": 0,
         "winner": null,
@@ -2258,5 +2796,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-13T17:43:53Z"
+  "updatedAt": "2026-08-13T18:40:15Z"
 }
