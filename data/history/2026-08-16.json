@@ -631,8 +631,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 5,
-        "homeScore": 1,
+        "awayScore": 10,
+        "homeScore": 2,
         "winner": null,
         "grades": {}
       }
@@ -1218,7 +1218,7 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -1755,8 +1755,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 1,
         "winner": null,
         "grades": {}
       }
@@ -2293,7 +2293,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 0,
         "winner": null,
         "grades": {}
@@ -2831,7 +2831,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 2,
         "homeScore": 0,
         "winner": null,
         "grades": {}
@@ -4445,8 +4445,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 1,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -4982,7 +4982,545 @@
       },
       "result": {
         "status": "Live",
-        "detailedState": "Warmup",
+        "detailedState": "In Progress",
+        "awayScore": 0,
+        "homeScore": 0,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 824642,
+      "away": "STL",
+      "home": "CHC",
+      "awayName": "St. Louis Cardinals",
+      "homeName": "Chicago Cubs",
+      "gameDate": "2026-08-16T19:15:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-16T18:33:07Z",
+      "windows": {
+        "season": {
+          "gamePk": 824642,
+          "away": "STL",
+          "home": "CHC",
+          "awayName": "St. Louis Cardinals",
+          "homeName": "Chicago Cubs",
+          "gameDate": "2026-08-16T19:15:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 12.555,
+            "pitWAR": 9.289,
+            "teamWAR": 21.844,
+            "wRCp": 94.682,
+            "BsR": 0.027,
+            "xwOBA": 0.3234,
+            "xFIP": 4.259,
+            "SIERA": 4.259,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 27.495,
+            "pitWAR": 3.616,
+            "teamWAR": 31.111,
+            "wRCp": 111.133,
+            "BsR": 4.622,
+            "xwOBA": 0.3206,
+            "xFIP": 4.249,
+            "SIERA": 4.143,
+            "OAA": 59.0
+          },
+          "diffTeamWAR": 9.267,
+          "diffWRCp": 16.451,
+          "diffBsR": 4.595,
+          "diffXwOBA": -0.0028,
+          "diffXFIP": 0.01,
+          "diffSIERA": 0.116,
+          "diffOAA": 28.0,
+          "zTeamWAR": 1.603,
+          "zWRCp": 1.8736,
+          "zBsR": 1.0947,
+          "zXwOBA": -0.034,
+          "zXFIP": 0.1697,
+          "zSIERA": 0.3865,
+          "zOAA": 1.3955,
+          "overallEdge": 6.489,
+          "modelScore": 2.7554,
+          "runDelta": 1.1022,
+          "modelHomeProb": 0.634388,
+          "favored": "CHC",
+          "odds": {
+            "provider": "4casters",
+            "home": "-165",
+            "away": "+165",
+            "gameId": "6a808d329875fbff7d6f12ee",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -163
+                },
+                {
+                  "line": -0.5,
+                  "odds": -165
+                },
+                {
+                  "line": 0.5,
+                  "odds": -165
+                },
+                {
+                  "line": -1.0,
+                  "odds": -119
+                },
+                {
+                  "line": 1.0,
+                  "odds": -222
+                },
+                {
+                  "line": -1.5,
+                  "odds": 121
+                },
+                {
+                  "line": 1.5,
+                  "odds": -259
+                },
+                {
+                  "line": -2.0,
+                  "odds": 162
+                },
+                {
+                  "line": -2.5,
+                  "odds": 193
+                },
+                {
+                  "line": -3.0,
+                  "odds": 262
+                },
+                {
+                  "line": -3.5,
+                  "odds": 296
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 157
+                },
+                {
+                  "line": -0.5,
+                  "odds": 156
+                },
+                {
+                  "line": 0.5,
+                  "odds": 156
+                },
+                {
+                  "line": -1.0,
+                  "odds": 213
+                },
+                {
+                  "line": 1.0,
+                  "odds": 113
+                },
+                {
+                  "line": -1.5,
+                  "odds": 245
+                },
+                {
+                  "line": 1.5,
+                  "odds": -123
+                },
+                {
+                  "line": 2.0,
+                  "odds": -169
+                },
+                {
+                  "line": 2.5,
+                  "odds": -203
+                },
+                {
+                  "line": 3.0,
+                  "odds": -276
+                },
+                {
+                  "line": 3.5,
+                  "odds": -315
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG161515STLCHC",
+            "awayVol": 140530.78,
+            "homeVol": 215954.91,
+            "awayCents": 38,
+            "homeCents": 63,
+            "awayMult": 0.6507,
+            "homeMult": 1.5367,
+            "maxMult": 1.5367,
+            "totalVol": 356485.69,
+            "highSide": "home",
+            "highMult": 1.5367,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        },
+        "l7": {
+          "gamePk": 824642,
+          "away": "STL",
+          "home": "CHC",
+          "awayName": "St. Louis Cardinals",
+          "homeName": "Chicago Cubs",
+          "gameDate": "2026-08-16T19:15:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.894,
+            "pitWAR": 0.593,
+            "teamWAR": 1.487,
+            "wRCp": 101.165,
+            "BsR": 0.7,
+            "xwOBA": 0.3451,
+            "xFIP": 4.592,
+            "SIERA": 4.774,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 1.821,
+            "pitWAR": -0.015,
+            "teamWAR": 1.806,
+            "wRCp": 122.814,
+            "BsR": 1.077,
+            "xwOBA": 0.3148,
+            "xFIP": 4.386,
+            "SIERA": 4.223,
+            "OAA": 59.0
+          },
+          "diffTeamWAR": 0.319,
+          "diffWRCp": 21.649,
+          "diffBsR": 0.377,
+          "diffXwOBA": -0.0303,
+          "diffXFIP": 0.206,
+          "diffSIERA": 0.551,
+          "diffOAA": 28.0,
+          "zTeamWAR": 0.4727,
+          "zWRCp": 0.8846,
+          "zBsR": 0.0447,
+          "zXwOBA": -0.546,
+          "zXFIP": 0.4596,
+          "zSIERA": 0.7572,
+          "zOAA": 1.3955,
+          "overallEdge": 3.4682,
+          "modelScore": 1.6703,
+          "runDelta": 0.6681,
+          "modelHomeProb": 0.582745,
+          "favored": "CHC",
+          "odds": {
+            "provider": "4casters",
+            "home": "-165",
+            "away": "+165",
+            "gameId": "6a808d329875fbff7d6f12ee",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -163
+                },
+                {
+                  "line": -0.5,
+                  "odds": -165
+                },
+                {
+                  "line": 0.5,
+                  "odds": -165
+                },
+                {
+                  "line": -1.0,
+                  "odds": -119
+                },
+                {
+                  "line": 1.0,
+                  "odds": -222
+                },
+                {
+                  "line": -1.5,
+                  "odds": 121
+                },
+                {
+                  "line": 1.5,
+                  "odds": -259
+                },
+                {
+                  "line": -2.0,
+                  "odds": 162
+                },
+                {
+                  "line": -2.5,
+                  "odds": 193
+                },
+                {
+                  "line": -3.0,
+                  "odds": 262
+                },
+                {
+                  "line": -3.5,
+                  "odds": 296
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 157
+                },
+                {
+                  "line": -0.5,
+                  "odds": 156
+                },
+                {
+                  "line": 0.5,
+                  "odds": 156
+                },
+                {
+                  "line": -1.0,
+                  "odds": 213
+                },
+                {
+                  "line": 1.0,
+                  "odds": 113
+                },
+                {
+                  "line": -1.5,
+                  "odds": 245
+                },
+                {
+                  "line": 1.5,
+                  "odds": -123
+                },
+                {
+                  "line": 2.0,
+                  "odds": -169
+                },
+                {
+                  "line": 2.5,
+                  "odds": -203
+                },
+                {
+                  "line": 3.0,
+                  "odds": -276
+                },
+                {
+                  "line": 3.5,
+                  "odds": -315
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG161515STLCHC",
+            "awayVol": 140530.78,
+            "homeVol": 215954.91,
+            "awayCents": 38,
+            "homeCents": 63,
+            "awayMult": 0.6507,
+            "homeMult": 1.5367,
+            "maxMult": 1.5367,
+            "totalVol": 356485.69,
+            "highSide": "home",
+            "highMult": 1.5367,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        },
+        "blend": {
+          "gamePk": 824642,
+          "away": "STL",
+          "home": "CHC",
+          "awayName": "St. Louis Cardinals",
+          "homeName": "Chicago Cubs",
+          "gameDate": "2026-08-16T19:15:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 6.724,
+            "pitWAR": 4.941,
+            "teamWAR": 11.665,
+            "wRCp": 97.924,
+            "BsR": 0.363,
+            "xwOBA": 0.3343,
+            "xFIP": 4.425,
+            "SIERA": 4.517,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 14.658,
+            "pitWAR": 1.8,
+            "teamWAR": 16.459,
+            "wRCp": 116.974,
+            "BsR": 2.849,
+            "xwOBA": 0.3177,
+            "xFIP": 4.317,
+            "SIERA": 4.183,
+            "OAA": 59.0
+          },
+          "diffTeamWAR": 4.793,
+          "diffWRCp": 19.05,
+          "diffBsR": 2.486,
+          "diffXwOBA": -0.0166,
+          "diffXFIP": 0.108,
+          "diffSIERA": 0.334,
+          "diffOAA": 28.0,
+          "zTeamWAR": 1.5908,
+          "zWRCp": 1.2744,
+          "zBsR": 1.0043,
+          "zXwOBA": -0.4869,
+          "zXFIP": 0.4098,
+          "zSIERA": 0.7244,
+          "zOAA": 1.3955,
+          "overallEdge": 5.9123,
+          "modelScore": 2.6575,
+          "runDelta": 1.063,
+          "modelHomeProb": 0.629834,
+          "favored": "CHC",
+          "odds": {
+            "provider": "4casters",
+            "home": "-165",
+            "away": "+165",
+            "gameId": "6a808d329875fbff7d6f12ee",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -163
+                },
+                {
+                  "line": -0.5,
+                  "odds": -165
+                },
+                {
+                  "line": 0.5,
+                  "odds": -165
+                },
+                {
+                  "line": -1.0,
+                  "odds": -119
+                },
+                {
+                  "line": 1.0,
+                  "odds": -222
+                },
+                {
+                  "line": -1.5,
+                  "odds": 121
+                },
+                {
+                  "line": 1.5,
+                  "odds": -259
+                },
+                {
+                  "line": -2.0,
+                  "odds": 162
+                },
+                {
+                  "line": -2.5,
+                  "odds": 193
+                },
+                {
+                  "line": -3.0,
+                  "odds": 262
+                },
+                {
+                  "line": -3.5,
+                  "odds": 296
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 157
+                },
+                {
+                  "line": -0.5,
+                  "odds": 156
+                },
+                {
+                  "line": 0.5,
+                  "odds": 156
+                },
+                {
+                  "line": -1.0,
+                  "odds": 213
+                },
+                {
+                  "line": 1.0,
+                  "odds": 113
+                },
+                {
+                  "line": -1.5,
+                  "odds": 245
+                },
+                {
+                  "line": 1.5,
+                  "odds": -123
+                },
+                {
+                  "line": 2.0,
+                  "odds": -169
+                },
+                {
+                  "line": 2.5,
+                  "odds": -203
+                },
+                {
+                  "line": 3.0,
+                  "odds": -276
+                },
+                {
+                  "line": 3.5,
+                  "odds": -315
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG161515STLCHC",
+            "awayVol": 140530.78,
+            "homeVol": 215954.91,
+            "awayCents": 38,
+            "homeCents": 63,
+            "awayMult": 0.6507,
+            "homeMult": 1.5367,
+            "maxMult": 1.5367,
+            "totalVol": 356485.69,
+            "highSide": "home",
+            "highMult": 1.5367,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        }
+      },
+      "result": {
+        "status": "Preview",
+        "detailedState": "Pre-Game",
         "awayScore": 0,
         "homeScore": 0,
         "winner": null,
@@ -4990,5 +5528,5 @@
       }
     }
   ],
-  "updatedAt": "2026-08-16T17:47:12Z"
+  "updatedAt": "2026-08-16T18:33:07Z"
 }
