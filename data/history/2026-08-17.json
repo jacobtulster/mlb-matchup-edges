@@ -2976,7 +2976,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 1,
         "homeScore": 2,
         "winner": null,
         "grades": {}
@@ -3515,7 +3515,7 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 2,
         "winner": null,
         "grades": {}
       }
@@ -4589,9 +4589,9 @@
       },
       "result": {
         "status": "Live",
-        "detailedState": "Warmup",
-        "awayScore": 0,
-        "homeScore": 0,
+        "detailedState": "In Progress",
+        "awayScore": 1,
+        "homeScore": 1,
         "winner": null,
         "grades": {}
       }
@@ -5133,7 +5133,545 @@
         "winner": null,
         "grades": {}
       }
+    },
+    {
+      "gamePk": 824320,
+      "away": "LAD",
+      "home": "COL",
+      "awayName": "Los Angeles Dodgers",
+      "homeName": "Colorado Rockies",
+      "gameDate": "2026-08-18T00:40:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-17T23:59:36Z",
+      "windows": {
+        "season": {
+          "gamePk": 824320,
+          "away": "LAD",
+          "home": "COL",
+          "awayName": "Los Angeles Dodgers",
+          "homeName": "Colorado Rockies",
+          "gameDate": "2026-08-18T00:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 21.335,
+            "pitWAR": 16.619,
+            "teamWAR": 37.954,
+            "wRCp": 109.894,
+            "BsR": -4.128,
+            "xwOBA": 0.3384,
+            "xFIP": 3.902,
+            "SIERA": 3.765,
+            "OAA": 24.0
+          },
+          "homeStats": {
+            "batWAR": 7.146,
+            "pitWAR": 6.303,
+            "teamWAR": 13.449,
+            "wRCp": 90.961,
+            "BsR": -3.134,
+            "xwOBA": 0.3095,
+            "xFIP": 4.725,
+            "SIERA": 4.566,
+            "OAA": -7.0
+          },
+          "diffTeamWAR": -24.505,
+          "diffWRCp": -18.932,
+          "diffBsR": 0.994,
+          "diffXwOBA": -0.0289,
+          "diffXFIP": -0.822,
+          "diffSIERA": -0.801,
+          "diffOAA": -31.0,
+          "zTeamWAR": -2.5834,
+          "zWRCp": -2.3431,
+          "zBsR": -0.1882,
+          "zXwOBA": -2.2447,
+          "zXFIP": -1.9117,
+          "zSIERA": -2.0627,
+          "zOAA": -0.9118,
+          "overallEdge": -12.2457,
+          "modelScore": -5.3268,
+          "runDelta": -2.1307,
+          "modelHomeProb": 0.256285,
+          "favored": "LAD",
+          "odds": {
+            "provider": "4casters",
+            "home": "+251",
+            "away": "-258",
+            "gameId": "6a81deb29875fbff7d6f6012",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 246
+                },
+                {
+                  "line": -0.5,
+                  "odds": 245
+                },
+                {
+                  "line": 0.5,
+                  "odds": 245
+                },
+                {
+                  "line": -1.0,
+                  "odds": 404
+                },
+                {
+                  "line": 1.0,
+                  "odds": 219
+                },
+                {
+                  "line": -1.5,
+                  "odds": 465
+                },
+                {
+                  "line": 1.5,
+                  "odds": 170
+                },
+                {
+                  "line": 2.0,
+                  "odds": 139
+                },
+                {
+                  "line": 2.5,
+                  "odds": 107
+                },
+                {
+                  "line": 3.0,
+                  "odds": -115
+                },
+                {
+                  "line": 3.5,
+                  "odds": -138
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -257
+                },
+                {
+                  "line": -0.5,
+                  "odds": -258
+                },
+                {
+                  "line": 0.5,
+                  "odds": -258
+                },
+                {
+                  "line": -1.0,
+                  "odds": -223
+                },
+                {
+                  "line": 1.0,
+                  "odds": -411
+                },
+                {
+                  "line": -1.5,
+                  "odds": -175
+                },
+                {
+                  "line": 1.5,
+                  "odds": -495
+                },
+                {
+                  "line": -2.0,
+                  "odds": -145
+                },
+                {
+                  "line": -2.5,
+                  "odds": -111
+                },
+                {
+                  "line": -3.0,
+                  "odds": 109
+                },
+                {
+                  "line": -3.5,
+                  "odds": 132
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG172040LADCOL",
+            "awayVol": 235142.42,
+            "homeVol": 163954.93,
+            "awayCents": 72,
+            "homeCents": 29,
+            "awayMult": 1.4342,
+            "homeMult": 0.6973,
+            "maxMult": 1.4342,
+            "totalVol": 399097.35,
+            "highSide": "away",
+            "highMult": 1.4342,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "l7": {
+          "gamePk": 824320,
+          "away": "LAD",
+          "home": "COL",
+          "awayName": "Los Angeles Dodgers",
+          "homeName": "Colorado Rockies",
+          "gameDate": "2026-08-18T00:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.407,
+            "pitWAR": 1.613,
+            "teamWAR": 2.02,
+            "wRCp": 85.493,
+            "BsR": -0.072,
+            "xwOBA": 0.3053,
+            "xFIP": 3.874,
+            "SIERA": 3.708,
+            "OAA": 24.0
+          },
+          "homeStats": {
+            "batWAR": 0.064,
+            "pitWAR": 0.103,
+            "teamWAR": 0.167,
+            "wRCp": 74.786,
+            "BsR": 0.083,
+            "xwOBA": 0.3508,
+            "xFIP": 5.656,
+            "SIERA": 5.438,
+            "OAA": -7.0
+          },
+          "diffTeamWAR": -1.853,
+          "diffWRCp": -10.707,
+          "diffBsR": 0.155,
+          "diffXwOBA": 0.0454,
+          "diffXFIP": -1.782,
+          "diffSIERA": -1.73,
+          "diffOAA": -31.0,
+          "zTeamWAR": -1.1782,
+          "zWRCp": 0.1986,
+          "zBsR": 0.1018,
+          "zXwOBA": 1.6793,
+          "zXFIP": -2.2346,
+          "zSIERA": -2.3551,
+          "zOAA": -0.9118,
+          "overallEdge": -4.7001,
+          "modelScore": -2.68,
+          "runDelta": -1.072,
+          "modelHomeProb": 0.369119,
+          "favored": "LAD",
+          "odds": {
+            "provider": "4casters",
+            "home": "+251",
+            "away": "-258",
+            "gameId": "6a81deb29875fbff7d6f6012",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 246
+                },
+                {
+                  "line": -0.5,
+                  "odds": 245
+                },
+                {
+                  "line": 0.5,
+                  "odds": 245
+                },
+                {
+                  "line": -1.0,
+                  "odds": 404
+                },
+                {
+                  "line": 1.0,
+                  "odds": 219
+                },
+                {
+                  "line": -1.5,
+                  "odds": 465
+                },
+                {
+                  "line": 1.5,
+                  "odds": 170
+                },
+                {
+                  "line": 2.0,
+                  "odds": 139
+                },
+                {
+                  "line": 2.5,
+                  "odds": 107
+                },
+                {
+                  "line": 3.0,
+                  "odds": -115
+                },
+                {
+                  "line": 3.5,
+                  "odds": -138
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -257
+                },
+                {
+                  "line": -0.5,
+                  "odds": -258
+                },
+                {
+                  "line": 0.5,
+                  "odds": -258
+                },
+                {
+                  "line": -1.0,
+                  "odds": -223
+                },
+                {
+                  "line": 1.0,
+                  "odds": -411
+                },
+                {
+                  "line": -1.5,
+                  "odds": -175
+                },
+                {
+                  "line": 1.5,
+                  "odds": -495
+                },
+                {
+                  "line": -2.0,
+                  "odds": -145
+                },
+                {
+                  "line": -2.5,
+                  "odds": -111
+                },
+                {
+                  "line": -3.0,
+                  "odds": 109
+                },
+                {
+                  "line": -3.5,
+                  "odds": 132
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG172040LADCOL",
+            "awayVol": 235142.42,
+            "homeVol": 163954.93,
+            "awayCents": 72,
+            "homeCents": 29,
+            "awayMult": 1.4342,
+            "homeMult": 0.6973,
+            "maxMult": 1.4342,
+            "totalVol": 399097.35,
+            "highSide": "away",
+            "highMult": 1.4342,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "blend": {
+          "gamePk": 824320,
+          "away": "LAD",
+          "home": "COL",
+          "awayName": "Los Angeles Dodgers",
+          "homeName": "Colorado Rockies",
+          "gameDate": "2026-08-18T00:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 10.871,
+            "pitWAR": 9.116,
+            "teamWAR": 19.987,
+            "wRCp": 97.694,
+            "BsR": -2.1,
+            "xwOBA": 0.3218,
+            "xFIP": 3.888,
+            "SIERA": 3.737,
+            "OAA": 24.0
+          },
+          "homeStats": {
+            "batWAR": 3.605,
+            "pitWAR": 3.203,
+            "teamWAR": 6.808,
+            "wRCp": 82.874,
+            "BsR": -1.525,
+            "xwOBA": 0.3301,
+            "xFIP": 5.191,
+            "SIERA": 5.002,
+            "OAA": -7.0
+          },
+          "diffTeamWAR": -13.179,
+          "diffWRCp": -14.82,
+          "diffBsR": 0.575,
+          "diffXwOBA": 0.0083,
+          "diffXFIP": -1.303,
+          "diffSIERA": -1.265,
+          "diffOAA": -31.0,
+          "zTeamWAR": -2.5776,
+          "zWRCp": -0.2632,
+          "zBsR": -0.1413,
+          "zXwOBA": 1.1191,
+          "zXFIP": -2.4953,
+          "zSIERA": -2.6324,
+          "zOAA": -0.9118,
+          "overallEdge": -7.9027,
+          "modelScore": -4.0704,
+          "runDelta": -1.6282,
+          "modelHomeProb": 0.307021,
+          "favored": "LAD",
+          "odds": {
+            "provider": "4casters",
+            "home": "+251",
+            "away": "-258",
+            "gameId": "6a81deb29875fbff7d6f6012",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 246
+                },
+                {
+                  "line": -0.5,
+                  "odds": 245
+                },
+                {
+                  "line": 0.5,
+                  "odds": 245
+                },
+                {
+                  "line": -1.0,
+                  "odds": 404
+                },
+                {
+                  "line": 1.0,
+                  "odds": 219
+                },
+                {
+                  "line": -1.5,
+                  "odds": 465
+                },
+                {
+                  "line": 1.5,
+                  "odds": 170
+                },
+                {
+                  "line": 2.0,
+                  "odds": 139
+                },
+                {
+                  "line": 2.5,
+                  "odds": 107
+                },
+                {
+                  "line": 3.0,
+                  "odds": -115
+                },
+                {
+                  "line": 3.5,
+                  "odds": -138
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -257
+                },
+                {
+                  "line": -0.5,
+                  "odds": -258
+                },
+                {
+                  "line": 0.5,
+                  "odds": -258
+                },
+                {
+                  "line": -1.0,
+                  "odds": -223
+                },
+                {
+                  "line": 1.0,
+                  "odds": -411
+                },
+                {
+                  "line": -1.5,
+                  "odds": -175
+                },
+                {
+                  "line": 1.5,
+                  "odds": -495
+                },
+                {
+                  "line": -2.0,
+                  "odds": -145
+                },
+                {
+                  "line": -2.5,
+                  "odds": -111
+                },
+                {
+                  "line": -3.0,
+                  "odds": 109
+                },
+                {
+                  "line": -3.5,
+                  "odds": 132
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG172040LADCOL",
+            "awayVol": 235142.42,
+            "homeVol": 163954.93,
+            "awayCents": 72,
+            "homeCents": 29,
+            "awayMult": 1.4342,
+            "homeMult": 0.6973,
+            "maxMult": 1.4342,
+            "totalVol": 399097.35,
+            "highSide": "away",
+            "highMult": 1.4342,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        }
+      },
+      "result": {
+        "status": "Preview",
+        "detailedState": "Pre-Game",
+        "awayScore": 0,
+        "homeScore": 0,
+        "winner": null,
+        "grades": {}
+      }
     }
   ],
-  "updatedAt": "2026-08-17T23:38:14Z"
+  "updatedAt": "2026-08-17T23:59:36Z"
 }
