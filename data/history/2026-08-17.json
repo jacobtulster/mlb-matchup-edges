@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 10,
-        "wins": 3,
+        "n": 11,
+        "wins": 4,
         "losses": 6,
         "pushes": 0,
-        "hitRate": 0.3333,
-        "stakedDollars": 2145.0,
-        "profitDollars": -415.0,
-        "roi": -0.1935
+        "hitRate": 0.4,
+        "stakedDollars": 2514.0,
+        "profitDollars": -215.0,
+        "roi": -0.0855
       },
       "model": {
-        "n": 10,
-        "wins": 6,
+        "n": 11,
+        "wins": 7,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.6,
+        "hitRate": 0.6364,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
-        "wins": 5,
+        "n": 9,
+        "wins": 6,
         "losses": 3,
         "pushes": 2,
-        "hitRate": 0.625,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 10,
+        "n": 11,
         "wins": 3,
-        "losses": 6,
+        "losses": 7,
         "pushes": 0,
-        "hitRate": 0.3333,
-        "stakedDollars": 2147.0,
-        "profitDollars": -609.0,
-        "roi": -0.2837
+        "hitRate": 0.3,
+        "stakedDollars": 2362.0,
+        "profitDollars": -824.0,
+        "roi": -0.3489
       },
       "model": {
-        "n": 10,
-        "wins": 6,
+        "n": 11,
+        "wins": 7,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.6,
+        "hitRate": 0.6364,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
-        "wins": 5,
+        "n": 9,
+        "wins": 6,
         "losses": 3,
         "pushes": 2,
-        "hitRate": 0.625,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 10,
+        "n": 11,
         "wins": 3,
-        "losses": 6,
+        "losses": 7,
         "pushes": 0,
-        "hitRate": 0.3333,
-        "stakedDollars": 2147.0,
-        "profitDollars": -609.0,
-        "roi": -0.2837
+        "hitRate": 0.3,
+        "stakedDollars": 2362.0,
+        "profitDollars": -824.0,
+        "roi": -0.3489
       },
       "model": {
-        "n": 10,
-        "wins": 5,
+        "n": 11,
+        "wins": 6,
         "losses": 5,
         "pushes": 0,
-        "hitRate": 0.5,
+        "hitRate": 0.5455,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
-        "wins": 5,
+        "n": 9,
+        "wins": 6,
         "losses": 3,
         "pushes": 2,
-        "hitRate": 0.625,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -1310,7 +1310,7 @@
             }
           }
         },
-        "gradedAt": "2026-08-18T03:27:55Z"
+        "gradedAt": "2026-08-18T04:10:14Z"
       }
     },
     {
@@ -3745,7 +3745,7 @@
             }
           }
         },
-        "gradedAt": "2026-08-18T03:27:55Z"
+        "gradedAt": "2026-08-18T04:10:14Z"
       }
     },
     {
@@ -7078,14 +7078,176 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 11,
-        "homeScore": 4,
-        "winner": null,
-        "grades": {}
+        "homeScore": 5,
+        "winner": "LAD",
+        "grades": {
+          "model": {
+            "pick": "LAD",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "COL",
+            "side": "home",
+            "edgePct": 0.085797,
+            "marketMl": 251.0,
+            "spread": {
+              "line": 3.0,
+              "odds": -115
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 251.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 3.0,
+                "odds": -115.0,
+                "stakeDollars": 115.0,
+                "outcome": "loss",
+                "profitDollars": -115.0
+              }
+            ],
+            "stakeDollars": 215.0,
+            "outcome": "loss",
+            "profitDollars": -215.0
+          },
+          "money": {
+            "pick": "LAD",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "LAD",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "LAD",
+              "side": "away",
+              "edgePct": 0.027037,
+              "marketMl": -258.0,
+              "spread": {
+                "line": -2.5,
+                "odds": -111
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -258.0,
+                  "stakeDollars": 258.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                },
+                {
+                  "type": "spread",
+                  "line": -2.5,
+                  "odds": -111.0,
+                  "stakeDollars": 111.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 369.0,
+              "outcome": "win",
+              "profitDollars": 200.0
+            },
+            "money": {
+              "pick": "LAD",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "LAD",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "COL",
+              "side": "home",
+              "edgePct": 0.085797,
+              "marketMl": 251.0,
+              "spread": {
+                "line": 3.0,
+                "odds": -115
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 251.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 3.0,
+                  "odds": -115.0,
+                  "stakeDollars": 115.0,
+                  "outcome": "loss",
+                  "profitDollars": -115.0
+                }
+              ],
+              "stakeDollars": 215.0,
+              "outcome": "loss",
+              "profitDollars": -215.0
+            },
+            "money": {
+              "pick": "LAD",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "LAD",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "COL",
+              "side": "home",
+              "edgePct": 0.023699,
+              "marketMl": 251.0,
+              "spread": {
+                "line": 3.0,
+                "odds": -115
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 251.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 3.0,
+                  "odds": -115.0,
+                  "stakeDollars": 115.0,
+                  "outcome": "loss",
+                  "profitDollars": -115.0
+                }
+              ],
+              "stakeDollars": 215.0,
+              "outcome": "loss",
+              "profitDollars": -215.0
+            },
+            "money": {
+              "pick": "LAD",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T04:10:14Z"
       }
     }
   ],
-  "updatedAt": "2026-08-18T03:27:55Z"
+  "updatedAt": "2026-08-18T04:10:14Z"
 }
