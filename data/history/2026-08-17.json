@@ -3,18 +3,18 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 1,
+        "n": 2,
         "wins": 1,
-        "losses": 0,
+        "losses": 1,
         "pushes": 0,
-        "hitRate": 1.0,
-        "stakedDollars": 210.0,
-        "profitDollars": 200.0,
-        "roi": 0.9524
+        "hitRate": 0.5,
+        "stakedDollars": 410.0,
+        "profitDollars": 100.0,
+        "roi": 0.2439
       },
       "model": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
@@ -23,11 +23,11 @@
         "roi": null
       },
       "money": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 1,
-        "hitRate": null,
+        "hitRate": 1.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,18 +35,18 @@
     },
     "l7": {
       "edge": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
-        "stakedDollars": 210.0,
-        "profitDollars": 200.0,
-        "roi": 0.9524
+        "stakedDollars": 464.0,
+        "profitDollars": 300.0,
+        "roi": 0.6466
       },
       "model": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
@@ -55,11 +55,11 @@
         "roi": null
       },
       "money": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 1,
-        "hitRate": null,
+        "hitRate": 1.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,18 +67,18 @@
     },
     "blend": {
       "edge": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
-        "stakedDollars": 210.0,
-        "profitDollars": 200.0,
-        "roi": 0.9524
+        "stakedDollars": 464.0,
+        "profitDollars": 300.0,
+        "roi": 0.6466
       },
       "model": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
@@ -87,11 +87,11 @@
         "roi": null
       },
       "money": {
-        "n": 0,
-        "wins": 0,
+        "n": 1,
+        "wins": 1,
         "losses": 0,
         "pushes": 1,
-        "hitRate": null,
+        "hitRate": 1.0,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -1143,12 +1143,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 6,
-        "homeScore": 4,
-        "winner": null,
-        "grades": {}
+        "homeScore": 7,
+        "winner": "TB",
+        "grades": {
+          "model": {
+            "pick": "TB",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "TB",
+            "side": "home",
+            "edgePct": 0.008046,
+            "marketMl": -154.0,
+            "spread": {
+              "line": -1.0,
+              "odds": -103
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": -154.0,
+                "stakeDollars": 154.0,
+                "outcome": "win",
+                "profitDollars": 100.0
+              },
+              {
+                "type": "spread",
+                "line": -1.0,
+                "odds": -103.0,
+                "stakeDollars": 100.0,
+                "outcome": "push",
+                "profitDollars": 0.0
+              }
+            ],
+            "stakeDollars": 254.0,
+            "outcome": "win",
+            "profitDollars": 100.0
+          },
+          "money": {
+            "pick": "TB",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "BAL",
+              "side": "away",
+              "edgePct": 0.021787,
+              "marketMl": 150.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -101
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 150.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -101.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "home",
+              "edgePct": 0.008046,
+              "marketMl": -154.0,
+              "spread": {
+                "line": -1.0,
+                "odds": -103
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -154.0,
+                  "stakeDollars": 154.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                },
+                {
+                  "type": "spread",
+                  "line": -1.0,
+                  "odds": -103.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 254.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "home",
+              "edgePct": 0.002381,
+              "marketMl": -154.0,
+              "spread": {
+                "line": -1.0,
+                "odds": -103
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -154.0,
+                  "stakeDollars": 154.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                },
+                {
+                  "type": "spread",
+                  "line": -1.0,
+                  "odds": -103.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 254.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T01:21:00Z"
       }
     },
     {
@@ -1683,8 +1845,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 2,
+        "awayScore": 3,
+        "homeScore": 5,
         "winner": null,
         "grades": {}
       }
@@ -1900,8 +2062,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 2,
-        "homeScore": 1,
+        "awayScore": 5,
+        "homeScore": 5,
         "winner": null,
         "grades": {}
       }
@@ -2438,8 +2600,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 4,
-        "homeScore": 0,
+        "awayScore": 8,
+        "homeScore": 1,
         "winner": null,
         "grades": {}
       }
@@ -3514,8 +3676,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 2,
+        "awayScore": 1,
+        "homeScore": 9,
         "winner": null,
         "grades": {}
       }
@@ -4050,10 +4212,10 @@
         }
       },
       "result": {
-        "status": "Preview",
-        "detailedState": "Delayed Start",
+        "status": "Live",
+        "detailedState": "In Progress",
         "awayScore": 0,
-        "homeScore": 0,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -4590,8 +4752,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 1,
-        "homeScore": 1,
+        "awayScore": 4,
+        "homeScore": 6,
         "winner": null,
         "grades": {}
       }
@@ -5127,9 +5289,9 @@
       },
       "result": {
         "status": "Live",
-        "detailedState": "Warmup",
-        "awayScore": 0,
-        "homeScore": 0,
+        "detailedState": "In Progress",
+        "awayScore": 3,
+        "homeScore": 2,
         "winner": null,
         "grades": {}
       }
@@ -5664,14 +5826,14 @@
         }
       },
       "result": {
-        "status": "Preview",
-        "detailedState": "Pre-Game",
-        "awayScore": 0,
+        "status": "Live",
+        "detailedState": "In Progress",
+        "awayScore": 2,
         "homeScore": 0,
         "winner": null,
         "grades": {}
       }
     }
   ],
-  "updatedAt": "2026-08-17T23:59:36Z"
+  "updatedAt": "2026-08-18T01:21:00Z"
 }
