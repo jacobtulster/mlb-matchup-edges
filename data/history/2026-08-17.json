@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 2,
-        "wins": 1,
-        "losses": 1,
+        "n": 8,
+        "wins": 2,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 0.5,
-        "stakedDollars": 410.0,
-        "profitDollars": 100.0,
-        "roi": 0.2439
+        "hitRate": 0.2857,
+        "stakedDollars": 1646.0,
+        "profitDollars": -367.0,
+        "roi": -0.223
       },
       "model": {
-        "n": 2,
-        "wins": 2,
-        "losses": 0,
+        "n": 8,
+        "wins": 5,
+        "losses": 3,
         "pushes": 0,
-        "hitRate": 1.0,
+        "hitRate": 0.625,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 1,
-        "losses": 0,
-        "pushes": 1,
-        "hitRate": 1.0,
+        "n": 6,
+        "wins": 4,
+        "losses": 2,
+        "pushes": 2,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 2,
+        "n": 8,
         "wins": 2,
-        "losses": 0,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 1.0,
-        "stakedDollars": 464.0,
-        "profitDollars": 300.0,
-        "roi": 0.6466
+        "hitRate": 0.2857,
+        "stakedDollars": 1666.0,
+        "profitDollars": -585.0,
+        "roi": -0.3511
       },
       "model": {
-        "n": 2,
-        "wins": 2,
-        "losses": 0,
+        "n": 8,
+        "wins": 4,
+        "losses": 4,
         "pushes": 0,
-        "hitRate": 1.0,
+        "hitRate": 0.5,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 1,
-        "losses": 0,
-        "pushes": 1,
-        "hitRate": 1.0,
+        "n": 6,
+        "wins": 4,
+        "losses": 2,
+        "pushes": 2,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 2,
+        "n": 8,
         "wins": 2,
-        "losses": 0,
+        "losses": 5,
         "pushes": 0,
-        "hitRate": 1.0,
-        "stakedDollars": 464.0,
-        "profitDollars": 300.0,
-        "roi": 0.6466
+        "hitRate": 0.2857,
+        "stakedDollars": 1666.0,
+        "profitDollars": -585.0,
+        "roi": -0.3511
       },
       "model": {
-        "n": 2,
-        "wins": 2,
-        "losses": 0,
+        "n": 8,
+        "wins": 4,
+        "losses": 4,
         "pushes": 0,
-        "hitRate": 1.0,
+        "hitRate": 0.5,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 1,
-        "losses": 0,
-        "pushes": 1,
-        "hitRate": 1.0,
+        "n": 6,
+        "wins": 4,
+        "losses": 2,
+        "pushes": 2,
+        "hitRate": 0.6667,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -1310,7 +1310,7 @@
             }
           }
         },
-        "gradedAt": "2026-08-18T01:21:00Z"
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -1843,12 +1843,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 3,
-        "homeScore": 5,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 5,
+        "homeScore": 6,
+        "winner": "PHI",
+        "grades": {
+          "model": {
+            "pick": "PHI",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "MIA",
+            "side": "away",
+            "edgePct": 0.113004,
+            "marketMl": 229.0,
+            "spread": {
+              "line": 2.0,
+              "odds": -117
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 229.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 2.0,
+                "odds": -117.0,
+                "stakeDollars": 117.0,
+                "outcome": "win",
+                "profitDollars": 100.0
+              }
+            ],
+            "stakeDollars": 217.0,
+            "outcome": "mixed",
+            "profitDollars": 0.0
+          },
+          "money": {
+            "pick": "PHI",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "PHI",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIA",
+              "side": "away",
+              "edgePct": 0.110832,
+              "marketMl": 229.0,
+              "spread": {
+                "line": 2.0,
+                "odds": -117
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 229.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 2.0,
+                  "odds": -117.0,
+                  "stakeDollars": 117.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 217.0,
+              "outcome": "mixed",
+              "profitDollars": 0.0
+            },
+            "money": {
+              "pick": "PHI",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "PHI",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIA",
+              "side": "away",
+              "edgePct": 0.113004,
+              "marketMl": 229.0,
+              "spread": {
+                "line": 2.0,
+                "odds": -117
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 229.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 2.0,
+                  "odds": -117.0,
+                  "stakeDollars": 117.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 217.0,
+              "outcome": "mixed",
+              "profitDollars": 0.0
+            },
+            "money": {
+              "pick": "PHI",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "PHI",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "MIA",
+              "side": "away",
+              "edgePct": 0.109223,
+              "marketMl": 229.0,
+              "spread": {
+                "line": 2.0,
+                "odds": -117
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 229.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 2.0,
+                  "odds": -117.0,
+                  "stakeDollars": 117.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 217.0,
+              "outcome": "mixed",
+              "profitDollars": 0.0
+            },
+            "money": {
+              "pick": "PHI",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -2060,12 +2222,130 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 5,
-        "homeScore": 5,
-        "winner": null,
-        "grades": {}
+        "homeScore": 6,
+        "winner": "CIN",
+        "grades": {
+          "model": {
+            "pick": "STL",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "STL",
+            "side": "away",
+            "edgePct": 0.052178,
+            "marketMl": -112.0,
+            "spread": null,
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": -112.0,
+                "stakeDollars": 112.0,
+                "outcome": "loss",
+                "profitDollars": -112.0
+              }
+            ],
+            "stakeDollars": 112.0,
+            "outcome": "loss",
+            "profitDollars": -112.0
+          },
+          "money": {
+            "pick": null,
+            "outcome": "push"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "STL",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "STL",
+              "side": "away",
+              "edgePct": 0.069096,
+              "marketMl": -112.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -112.0,
+                  "stakeDollars": 112.0,
+                  "outcome": "loss",
+                  "profitDollars": -112.0
+                }
+              ],
+              "stakeDollars": 112.0,
+              "outcome": "loss",
+              "profitDollars": -112.0
+            },
+            "money": {
+              "pick": null,
+              "outcome": "push"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "STL",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "STL",
+              "side": "away",
+              "edgePct": 0.052178,
+              "marketMl": -112.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -112.0,
+                  "stakeDollars": 112.0,
+                  "outcome": "loss",
+                  "profitDollars": -112.0
+                }
+              ],
+              "stakeDollars": 112.0,
+              "outcome": "loss",
+              "profitDollars": -112.0
+            },
+            "money": {
+              "pick": null,
+              "outcome": "push"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "STL",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "STL",
+              "side": "away",
+              "edgePct": 0.058611,
+              "marketMl": -112.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -112.0,
+                  "stakeDollars": 112.0,
+                  "outcome": "loss",
+                  "profitDollars": -112.0
+                }
+              ],
+              "stakeDollars": 112.0,
+              "outcome": "loss",
+              "profitDollars": -112.0
+            },
+            "money": {
+              "pick": null,
+              "outcome": "push"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -2598,12 +2878,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 8,
-        "homeScore": 1,
-        "winner": null,
-        "grades": {}
+        "homeScore": 5,
+        "winner": "DET",
+        "grades": {
+          "model": {
+            "pick": "PIT",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "PIT",
+            "side": "home",
+            "edgePct": 0.168284,
+            "marketMl": -102.0,
+            "spread": {
+              "line": 1.0,
+              "odds": -134
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": -102.0,
+                "stakeDollars": 102.0,
+                "outcome": "loss",
+                "profitDollars": -102.0
+              },
+              {
+                "type": "spread",
+                "line": 1.0,
+                "odds": -134.0,
+                "stakeDollars": 134.0,
+                "outcome": "loss",
+                "profitDollars": -134.0
+              }
+            ],
+            "stakeDollars": 236.0,
+            "outcome": "loss",
+            "profitDollars": -236.0
+          },
+          "money": {
+            "pick": "DET",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "PIT",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "PIT",
+              "side": "home",
+              "edgePct": 0.062072,
+              "marketMl": -102.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -102.0,
+                  "stakeDollars": 102.0,
+                  "outcome": "loss",
+                  "profitDollars": -102.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 134.0,
+                  "outcome": "loss",
+                  "profitDollars": -134.0
+                }
+              ],
+              "stakeDollars": 236.0,
+              "outcome": "loss",
+              "profitDollars": -236.0
+            },
+            "money": {
+              "pick": "DET",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "PIT",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "PIT",
+              "side": "home",
+              "edgePct": 0.168284,
+              "marketMl": -102.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -102.0,
+                  "stakeDollars": 102.0,
+                  "outcome": "loss",
+                  "profitDollars": -102.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 134.0,
+                  "outcome": "loss",
+                  "profitDollars": -134.0
+                }
+              ],
+              "stakeDollars": 236.0,
+              "outcome": "loss",
+              "profitDollars": -236.0
+            },
+            "money": {
+              "pick": "DET",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "PIT",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "PIT",
+              "side": "home",
+              "edgePct": 0.143445,
+              "marketMl": -102.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -102.0,
+                  "stakeDollars": 102.0,
+                  "outcome": "loss",
+                  "profitDollars": -102.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 134.0,
+                  "outcome": "loss",
+                  "profitDollars": -134.0
+                }
+              ],
+              "stakeDollars": 236.0,
+              "outcome": "loss",
+              "profitDollars": -236.0
+            },
+            "money": {
+              "pick": "DET",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -3136,12 +3578,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 1,
         "homeScore": 2,
-        "winner": null,
-        "grades": {}
+        "winner": "NYM",
+        "grades": {
+          "model": {
+            "pick": "SD",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "SD",
+            "side": "away",
+            "edgePct": 0.085867,
+            "marketMl": 111.0,
+            "spread": {
+              "line": 1.0,
+              "odds": -134
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 111.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 1.0,
+                "odds": -134.0,
+                "stakeDollars": 100.0,
+                "outcome": "push",
+                "profitDollars": 0.0
+              }
+            ],
+            "stakeDollars": 200.0,
+            "outcome": "loss",
+            "profitDollars": -100.0
+          },
+          "money": {
+            "pick": "SD",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "SD",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "SD",
+              "side": "away",
+              "edgePct": 0.041167,
+              "marketMl": 111.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 111.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "SD",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "SD",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "SD",
+              "side": "away",
+              "edgePct": 0.085867,
+              "marketMl": 111.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 111.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "SD",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "SD",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "SD",
+              "side": "away",
+              "edgePct": 0.076992,
+              "marketMl": 111.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -134
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 111.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -134.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "SD",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -3674,12 +4278,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
+        "status": "Final",
+        "detailedState": "Final",
         "awayScore": 1,
-        "homeScore": 9,
-        "winner": null,
-        "grades": {}
+        "homeScore": 11,
+        "winner": "BOS",
+        "grades": {
+          "model": {
+            "pick": "AZ",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "AZ",
+            "side": "away",
+            "edgePct": 0.137103,
+            "marketMl": 124.0,
+            "spread": {
+              "line": 1.0,
+              "odds": -118
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 124.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 1.0,
+                "odds": -118.0,
+                "stakeDollars": 118.0,
+                "outcome": "loss",
+                "profitDollars": -118.0
+              }
+            ],
+            "stakeDollars": 218.0,
+            "outcome": "loss",
+            "profitDollars": -218.0
+          },
+          "money": {
+            "pick": "AZ",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "BOS",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "BOS",
+              "side": "home",
+              "edgePct": 0.047069,
+              "marketMl": -125.0,
+              "spread": {
+                "line": 0.0,
+                "odds": -127
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -125.0,
+                  "stakeDollars": 125.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 0.0,
+                  "odds": -127.0,
+                  "stakeDollars": 127.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 252.0,
+              "outcome": "win",
+              "profitDollars": 200.0
+            },
+            "money": {
+              "pick": "AZ",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "AZ",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "AZ",
+              "side": "away",
+              "edgePct": 0.137103,
+              "marketMl": 124.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -118
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 124.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -118.0,
+                  "stakeDollars": 118.0,
+                  "outcome": "loss",
+                  "profitDollars": -118.0
+                }
+              ],
+              "stakeDollars": 218.0,
+              "outcome": "loss",
+              "profitDollars": -218.0
+            },
+            "money": {
+              "pick": "AZ",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "AZ",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "AZ",
+              "side": "away",
+              "edgePct": 0.057959,
+              "marketMl": 124.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -118
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 124.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -118.0,
+                  "stakeDollars": 118.0,
+                  "outcome": "loss",
+                  "profitDollars": -118.0
+                }
+              ],
+              "stakeDollars": 218.0,
+              "outcome": "loss",
+              "profitDollars": -218.0
+            },
+            "money": {
+              "pick": "AZ",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -4214,7 +4980,7 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
+        "awayScore": 2,
         "homeScore": 4,
         "winner": null,
         "grades": {}
@@ -4750,12 +5516,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 4,
-        "homeScore": 6,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Game Over",
+        "awayScore": 5,
+        "homeScore": 9,
+        "winner": "KC",
+        "grades": {
+          "model": {
+            "pick": "KC",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "ATH",
+            "side": "away",
+            "edgePct": 0.108009,
+            "marketMl": 170.0,
+            "spread": {
+              "line": 1.5,
+              "odds": -119
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 170.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 1.5,
+                "odds": -119.0,
+                "stakeDollars": 119.0,
+                "outcome": "loss",
+                "profitDollars": -119.0
+              }
+            ],
+            "stakeDollars": 219.0,
+            "outcome": "loss",
+            "profitDollars": -219.0
+          },
+          "money": {
+            "pick": "KC",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "KC",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "ATH",
+              "side": "away",
+              "edgePct": 0.069124,
+              "marketMl": 170.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -119
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 170.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -119.0,
+                  "stakeDollars": 119.0,
+                  "outcome": "loss",
+                  "profitDollars": -119.0
+                }
+              ],
+              "stakeDollars": 219.0,
+              "outcome": "loss",
+              "profitDollars": -219.0
+            },
+            "money": {
+              "pick": "KC",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "KC",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "ATH",
+              "side": "away",
+              "edgePct": 0.108009,
+              "marketMl": 170.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -119
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 170.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -119.0,
+                  "stakeDollars": 119.0,
+                  "outcome": "loss",
+                  "profitDollars": -119.0
+                }
+              ],
+              "stakeDollars": 219.0,
+              "outcome": "loss",
+              "profitDollars": -219.0
+            },
+            "money": {
+              "pick": "KC",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "KC",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "ATH",
+              "side": "away",
+              "edgePct": 0.098646,
+              "marketMl": 170.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -119
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 170.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -119.0,
+                  "stakeDollars": 119.0,
+                  "outcome": "loss",
+                  "profitDollars": -119.0
+                }
+              ],
+              "stakeDollars": 219.0,
+              "outcome": "loss",
+              "profitDollars": -219.0
+            },
+            "money": {
+              "pick": "KC",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-08-18T02:37:15Z"
       }
     },
     {
@@ -5290,8 +6218,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 3,
-        "homeScore": 2,
+        "awayScore": 5,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -5828,12 +6756,12 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 2,
-        "homeScore": 0,
+        "awayScore": 10,
+        "homeScore": 1,
         "winner": null,
         "grades": {}
       }
     }
   ],
-  "updatedAt": "2026-08-18T01:21:00Z"
+  "updatedAt": "2026-08-18T02:37:15Z"
 }
