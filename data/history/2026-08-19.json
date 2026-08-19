@@ -632,7 +632,7 @@
         "status": "Live",
         "detailedState": "In Progress",
         "awayScore": 3,
-        "homeScore": 2,
+        "homeScore": 3,
         "winner": null,
         "grades": {}
       }
@@ -1707,8 +1707,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 1,
-        "homeScore": 1,
+        "awayScore": 3,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -2250,7 +2250,545 @@
         "winner": null,
         "grades": {}
       }
+    },
+    {
+      "gamePk": 824722,
+      "away": "AZ",
+      "home": "BOS",
+      "awayName": "Arizona Diamondbacks",
+      "homeName": "Boston Red Sox",
+      "gameDate": "2026-08-19T20:10:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-08-19T19:28:21Z",
+      "windows": {
+        "season": {
+          "gamePk": 824722,
+          "away": "AZ",
+          "home": "BOS",
+          "awayName": "Arizona Diamondbacks",
+          "homeName": "Boston Red Sox",
+          "gameDate": "2026-08-19T20:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 14.372,
+            "pitWAR": 8.23,
+            "teamWAR": 22.602,
+            "wRCp": 95.318,
+            "BsR": 2.751,
+            "xwOBA": 0.3118,
+            "xFIP": 4.506,
+            "SIERA": 4.45,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 16.498,
+            "pitWAR": 18.453,
+            "teamWAR": 34.951,
+            "wRCp": 100.009,
+            "BsR": -1.16,
+            "xwOBA": 0.3114,
+            "xFIP": 3.789,
+            "SIERA": 3.766,
+            "OAA": 11.0
+          },
+          "diffTeamWAR": 12.349,
+          "diffWRCp": 4.691,
+          "diffBsR": -3.911,
+          "diffXwOBA": -0.0004,
+          "diffXFIP": 0.717,
+          "diffSIERA": 0.684,
+          "diffOAA": -20.0,
+          "zTeamWAR": 1.2685,
+          "zWRCp": 0.5446,
+          "zBsR": -0.6874,
+          "zXwOBA": 0.1211,
+          "zXFIP": 1.6248,
+          "zSIERA": 1.5659,
+          "zOAA": -0.754,
+          "overallEdge": 3.6835,
+          "modelScore": 1.8454,
+          "runDelta": 0.7382,
+          "modelHomeProb": 0.591236,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "-151",
+            "away": "+151",
+            "gameId": "6a84820334d0a9585add0a79",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -152
+                },
+                {
+                  "line": -0.5,
+                  "odds": -154
+                },
+                {
+                  "line": 0.5,
+                  "odds": -154
+                },
+                {
+                  "line": -1.0,
+                  "odds": -106
+                },
+                {
+                  "line": 1.0,
+                  "odds": -207
+                },
+                {
+                  "line": -1.5,
+                  "odds": 137
+                },
+                {
+                  "line": 1.5,
+                  "odds": -243
+                },
+                {
+                  "line": -2.0,
+                  "odds": 188
+                },
+                {
+                  "line": -2.5,
+                  "odds": 224
+                },
+                {
+                  "line": -3.0,
+                  "odds": 310
+                },
+                {
+                  "line": -3.5,
+                  "odds": 345
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 147
+                },
+                {
+                  "line": -0.5,
+                  "odds": 145
+                },
+                {
+                  "line": 0.5,
+                  "odds": 145
+                },
+                {
+                  "line": -1.0,
+                  "odds": 197
+                },
+                {
+                  "line": 1.0,
+                  "odds": 101
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -142
+                },
+                {
+                  "line": 2.0,
+                  "odds": -196
+                },
+                {
+                  "line": 2.5,
+                  "odds": -238
+                },
+                {
+                  "line": 3.0,
+                  "odds": -327
+                },
+                {
+                  "line": 3.5,
+                  "odds": -368
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG191610AZBOS",
+            "awayVol": 970807.16,
+            "homeVol": 166863.61,
+            "awayCents": 41,
+            "homeCents": 61,
+            "awayMult": 5.818,
+            "homeMult": 0.1719,
+            "maxMult": 5.818,
+            "totalVol": 1137670.77,
+            "highSide": "away",
+            "highMult": 5.818,
+            "favoriteSide": "home",
+            "tone": "red"
+          }
+        },
+        "l7": {
+          "gamePk": 824722,
+          "away": "AZ",
+          "home": "BOS",
+          "awayName": "Arizona Diamondbacks",
+          "homeName": "Boston Red Sox",
+          "gameDate": "2026-08-19T20:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 1.089,
+            "pitWAR": 0.451,
+            "teamWAR": 1.54,
+            "wRCp": 109.916,
+            "BsR": -0.129,
+            "xwOBA": 0.3094,
+            "xFIP": 4.861,
+            "SIERA": 4.838,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 1.911,
+            "pitWAR": 1.417,
+            "teamWAR": 3.328,
+            "wRCp": 127.764,
+            "BsR": 0.194,
+            "xwOBA": 0.327,
+            "xFIP": 3.992,
+            "SIERA": 4.03,
+            "OAA": 11.0
+          },
+          "diffTeamWAR": 1.788,
+          "diffWRCp": 17.848,
+          "diffBsR": 0.323,
+          "diffXwOBA": 0.0176,
+          "diffXFIP": 0.87,
+          "diffSIERA": 0.808,
+          "diffOAA": -20.0,
+          "zTeamWAR": 1.5144,
+          "zWRCp": 0.5969,
+          "zBsR": 0.4278,
+          "zXwOBA": 0.5616,
+          "zXFIP": 1.291,
+          "zSIERA": 1.1923,
+          "zOAA": -0.754,
+          "overallEdge": 4.83,
+          "modelScore": 2.1506,
+          "runDelta": 0.8603,
+          "modelHomeProb": 0.605904,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "-151",
+            "away": "+151",
+            "gameId": "6a84820334d0a9585add0a79",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -152
+                },
+                {
+                  "line": -0.5,
+                  "odds": -154
+                },
+                {
+                  "line": 0.5,
+                  "odds": -154
+                },
+                {
+                  "line": -1.0,
+                  "odds": -106
+                },
+                {
+                  "line": 1.0,
+                  "odds": -207
+                },
+                {
+                  "line": -1.5,
+                  "odds": 137
+                },
+                {
+                  "line": 1.5,
+                  "odds": -243
+                },
+                {
+                  "line": -2.0,
+                  "odds": 188
+                },
+                {
+                  "line": -2.5,
+                  "odds": 224
+                },
+                {
+                  "line": -3.0,
+                  "odds": 310
+                },
+                {
+                  "line": -3.5,
+                  "odds": 345
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 147
+                },
+                {
+                  "line": -0.5,
+                  "odds": 145
+                },
+                {
+                  "line": 0.5,
+                  "odds": 145
+                },
+                {
+                  "line": -1.0,
+                  "odds": 197
+                },
+                {
+                  "line": 1.0,
+                  "odds": 101
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -142
+                },
+                {
+                  "line": 2.0,
+                  "odds": -196
+                },
+                {
+                  "line": 2.5,
+                  "odds": -238
+                },
+                {
+                  "line": 3.0,
+                  "odds": -327
+                },
+                {
+                  "line": 3.5,
+                  "odds": -368
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG191610AZBOS",
+            "awayVol": 970807.16,
+            "homeVol": 166863.61,
+            "awayCents": 41,
+            "homeCents": 61,
+            "awayMult": 5.818,
+            "homeMult": 0.1719,
+            "maxMult": 5.818,
+            "totalVol": 1137670.77,
+            "highSide": "away",
+            "highMult": 5.818,
+            "favoriteSide": "home",
+            "tone": "red"
+          }
+        },
+        "blend": {
+          "gamePk": 824722,
+          "away": "AZ",
+          "home": "BOS",
+          "awayName": "Arizona Diamondbacks",
+          "homeName": "Boston Red Sox",
+          "gameDate": "2026-08-19T20:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 7.731,
+            "pitWAR": 4.341,
+            "teamWAR": 12.071,
+            "wRCp": 102.617,
+            "BsR": 1.311,
+            "xwOBA": 0.3106,
+            "xFIP": 4.684,
+            "SIERA": 4.644,
+            "OAA": 31.0
+          },
+          "homeStats": {
+            "batWAR": 9.205,
+            "pitWAR": 9.935,
+            "teamWAR": 19.14,
+            "wRCp": 113.886,
+            "BsR": -0.483,
+            "xwOBA": 0.3192,
+            "xFIP": 3.891,
+            "SIERA": 3.898,
+            "OAA": 11.0
+          },
+          "diffTeamWAR": 7.069,
+          "diffWRCp": 11.27,
+          "diffBsR": -1.794,
+          "diffXwOBA": 0.0086,
+          "diffXFIP": 0.793,
+          "diffSIERA": 0.746,
+          "diffOAA": -20.0,
+          "zTeamWAR": 1.3552,
+          "zWRCp": 0.6605,
+          "zBsR": -0.5614,
+          "zXwOBA": 0.5069,
+          "zXFIP": 1.4939,
+          "zSIERA": 1.4088,
+          "zOAA": -0.754,
+          "overallEdge": 4.1098,
+          "modelScore": 1.9539,
+          "runDelta": 0.7816,
+          "modelHomeProb": 0.596471,
+          "favored": "BOS",
+          "odds": {
+            "provider": "4casters",
+            "home": "-151",
+            "away": "+151",
+            "gameId": "6a84820334d0a9585add0a79",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": -152
+                },
+                {
+                  "line": -0.5,
+                  "odds": -154
+                },
+                {
+                  "line": 0.5,
+                  "odds": -154
+                },
+                {
+                  "line": -1.0,
+                  "odds": -106
+                },
+                {
+                  "line": 1.0,
+                  "odds": -207
+                },
+                {
+                  "line": -1.5,
+                  "odds": 137
+                },
+                {
+                  "line": 1.5,
+                  "odds": -243
+                },
+                {
+                  "line": -2.0,
+                  "odds": 188
+                },
+                {
+                  "line": -2.5,
+                  "odds": 224
+                },
+                {
+                  "line": -3.0,
+                  "odds": 310
+                },
+                {
+                  "line": -3.5,
+                  "odds": 345
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": 147
+                },
+                {
+                  "line": -0.5,
+                  "odds": 145
+                },
+                {
+                  "line": 0.5,
+                  "odds": 145
+                },
+                {
+                  "line": -1.0,
+                  "odds": 197
+                },
+                {
+                  "line": 1.0,
+                  "odds": 101
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -142
+                },
+                {
+                  "line": 2.0,
+                  "odds": -196
+                },
+                {
+                  "line": 2.5,
+                  "odds": -238
+                },
+                {
+                  "line": 3.0,
+                  "odds": -327
+                },
+                {
+                  "line": 3.5,
+                  "odds": -368
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26AUG191610AZBOS",
+            "awayVol": 970807.16,
+            "homeVol": 166863.61,
+            "awayCents": 41,
+            "homeCents": 61,
+            "awayMult": 5.818,
+            "homeMult": 0.1719,
+            "maxMult": 5.818,
+            "totalVol": 1137670.77,
+            "highSide": "away",
+            "highMult": 5.818,
+            "favoriteSide": "home",
+            "tone": "red"
+          }
+        }
+      },
+      "result": {
+        "status": "Preview",
+        "detailedState": "Pre-Game",
+        "awayScore": 0,
+        "homeScore": 0,
+        "winner": null,
+        "grades": {}
+      }
     }
   ],
-  "updatedAt": "2026-08-19T18:54:00Z"
+  "updatedAt": "2026-08-19T19:28:21Z"
 }
