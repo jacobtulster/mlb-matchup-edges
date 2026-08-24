@@ -2,7 +2,7 @@
   "date": "2026-08-24",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-08-24T22:09:36Z",
+  "updatedAt": "2026-08-24T22:45:34Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Warmup",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 6.578,
@@ -423,117 +423,24 @@
           "modelHomeProb": 0.749183,
           "favored": "WSH",
           "odds": {
-            "provider": "4casters",
-            "home": "-192",
-            "away": "+188",
-            "gameId": "6a8b193ddfe281b354c9bbdc",
-            "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -194
-                },
-                {
-                  "line": -0.5,
-                  "odds": -195
-                },
-                {
-                  "line": 0.5,
-                  "odds": -195
-                },
-                {
-                  "line": -1.0,
-                  "odds": -139
-                },
-                {
-                  "line": 1.0,
-                  "odds": -268
-                },
-                {
-                  "line": -1.5,
-                  "odds": 114
-                },
-                {
-                  "line": 1.5,
-                  "odds": -316
-                },
-                {
-                  "line": -2.0,
-                  "odds": 147
-                },
-                {
-                  "line": -2.5,
-                  "odds": 176
-                },
-                {
-                  "line": -3.0,
-                  "odds": 240
-                },
-                {
-                  "line": -3.5,
-                  "odds": 273
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 187
-                },
-                {
-                  "line": -0.5,
-                  "odds": 186
-                },
-                {
-                  "line": 0.5,
-                  "odds": 186
-                },
-                {
-                  "line": -1.0,
-                  "odds": 261
-                },
-                {
-                  "line": 1.0,
-                  "odds": 133
-                },
-                {
-                  "line": -1.5,
-                  "odds": 298
-                },
-                {
-                  "line": 1.5,
-                  "odds": -116
-                },
-                {
-                  "line": 2.0,
-                  "odds": -152
-                },
-                {
-                  "line": 2.5,
-                  "odds": -185
-                },
-                {
-                  "line": 3.0,
-                  "odds": -250
-                },
-                {
-                  "line": 3.5,
-                  "odds": -289
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-194",
+            "away": "+180",
+            "espnId": "401816656",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241845COLWSH",
-            "awayVol": 57092.85,
-            "homeVol": 281876.62,
+            "awayVol": 88159.78,
+            "homeVol": 344990.22,
             "awayCents": 35,
-            "homeCents": 65,
-            "awayMult": 0.2025,
-            "homeMult": 4.9372,
-            "maxMult": 4.9372,
-            "totalVol": 338969.47,
+            "homeCents": 66,
+            "awayMult": 0.2555,
+            "homeMult": 3.9132,
+            "maxMult": 3.9132,
+            "totalVol": 433150.0,
             "highSide": "home",
-            "highMult": 4.9372,
+            "highMult": 3.9132,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -603,7 +510,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 156
+                  "odds": 154
                 },
                 {
                   "line": -0.5,
@@ -649,15 +556,15 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -162
+                  "odds": -161
                 },
                 {
                   "line": -0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": -1.0,
@@ -696,16 +603,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242145CINSF",
-            "awayVol": 169465.87,
-            "homeVol": 25682.58,
-            "awayCents": 61,
+            "awayVol": 204232.52,
+            "homeVol": 27456.45,
+            "awayCents": 62,
             "homeCents": 40,
-            "awayMult": 6.5985,
-            "homeMult": 0.1516,
-            "maxMult": 6.5985,
-            "totalVol": 195148.45,
+            "awayMult": 7.4384,
+            "homeMult": 0.1344,
+            "maxMult": 7.4384,
+            "totalVol": 231688.97,
             "highSide": "away",
-            "highMult": 6.5985,
+            "highMult": 7.4384,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -768,22 +675,22 @@
           "favored": "CWS",
           "odds": {
             "provider": "4casters",
-            "home": "-122",
-            "away": "+121",
+            "home": "-125",
+            "away": "+122",
             "gameId": "6a8b193edfe281b354c9bbe6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -127
+                  "odds": -125
                 },
                 {
                   "line": -0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": -1.0,
@@ -791,7 +698,7 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -171
+                  "odds": -170
                 },
                 {
                   "line": -1.5,
@@ -803,41 +710,41 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 228
+                  "odds": 229
                 },
                 {
                   "line": -2.5,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": -3.0,
-                  "odds": 367
+                  "odds": 368
                 },
                 {
                   "line": -3.5,
-                  "odds": 403
+                  "odds": 405
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 122
+                  "odds": 121
                 },
                 {
                   "line": -0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": 0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": -1.0,
-                  "odds": 165
+                  "odds": 164
                 },
                 {
                   "line": 1.0,
-                  "odds": -123
+                  "odds": -124
                 },
                 {
                   "line": -1.5,
@@ -849,7 +756,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -238
+                  "odds": -239
                 },
                 {
                   "line": 2.5,
@@ -857,29 +764,29 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -385
+                  "odds": -388
                 },
                 {
                   "line": 3.5,
-                  "odds": -428
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241940TEXCWS",
-            "awayVol": 52174.6,
-            "homeVol": 181505.61,
+            "awayVol": 115074.88,
+            "homeVol": 225595.13,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.2875,
-            "homeMult": 3.4788,
-            "maxMult": 3.4788,
-            "totalVol": 233680.21,
+            "awayMult": 0.5101,
+            "homeMult": 1.9604,
+            "maxMult": 1.9604,
+            "totalVol": 340670.01,
             "highSide": "home",
-            "highMult": 3.4788,
+            "highMult": 1.9604,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -894,7 +801,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -947,7 +854,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -111
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
@@ -959,61 +866,61 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 141
+                  "odds": 142
                 },
                 {
                   "line": 1.0,
-                  "odds": -151
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 198
+                  "odds": 199
                 },
                 {
                   "line": 1.5,
-                  "odds": -188
+                  "odds": -187
                 },
                 {
                   "line": -2.0,
-                  "odds": 281
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 321
+                  "odds": 322
                 },
                 {
                   "line": -3.0,
-                  "odds": 468
+                  "odds": 471
                 },
                 {
                   "line": -3.5,
-                  "odds": 511
+                  "odds": 512
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 107
+                  "odds": 106
                 },
                 {
                   "line": -0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": 0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": -1.0,
-                  "odds": 144
+                  "odds": 143
                 },
                 {
                   "line": 1.0,
-                  "odds": -149
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 178
+                  "odds": 177
                 },
                 {
                   "line": 1.5,
@@ -1021,15 +928,15 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -296
+                  "odds": -298
                 },
                 {
                   "line": 2.5,
-                  "odds": -341
+                  "odds": -343
                 },
                 {
                   "line": 3.0,
-                  "odds": -499
+                  "odds": -503
                 },
                 {
                   "line": 3.5,
@@ -1040,16 +947,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PITSD",
-            "awayVol": 97826.83,
-            "homeVol": 230526.15,
+            "awayVol": 103795.57,
+            "homeVol": 275460.11,
             "awayCents": 48,
             "homeCents": 53,
-            "awayMult": 0.4244,
-            "homeMult": 2.3565,
-            "maxMult": 2.3565,
-            "totalVol": 328352.98,
+            "awayMult": 0.3768,
+            "homeMult": 2.6539,
+            "maxMult": 2.6539,
+            "totalVol": 379255.68,
             "highSide": "home",
-            "highMult": 2.3565,
+            "highMult": 2.6539,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -1066,8 +973,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 19.027,
@@ -1112,116 +1019,116 @@
           "favored": "DET",
           "odds": {
             "provider": "4casters",
-            "home": "+124",
-            "away": "-127",
-            "gameId": "6a8b193edfe281b354c9bbe4",
+            "home": "+118",
+            "away": "-125",
+            "gameId": "6a8c6abfdfe281b354ca07f6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 124
+                  "odds": 118
                 },
                 {
                   "line": -0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": 0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": -1.0,
-                  "odds": 199
+                  "odds": 189
                 },
                 {
                   "line": 1.0,
-                  "odds": -106
+                  "odds": -111
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 247
                 },
                 {
                   "line": 1.5,
-                  "odds": -137
+                  "odds": -146
                 },
                 {
                   "line": 2.0,
-                  "odds": -187
+                  "odds": -196
                 },
                 {
                   "line": 2.5,
-                  "odds": -225
+                  "odds": -235
                 },
                 {
                   "line": 3.0,
-                  "odds": -314
+                  "odds": -328
                 },
                 {
                   "line": 3.5,
-                  "odds": -357
+                  "odds": -372
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -128
+                  "odds": -124
                 },
                 {
                   "line": -0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": 0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": -1.0,
-                  "odds": 102
+                  "odds": 106
                 },
                 {
                   "line": 1.0,
-                  "odds": -208
+                  "odds": -201
                 },
                 {
                   "line": -1.5,
-                  "odds": 134
+                  "odds": 136
                 },
                 {
                   "line": 1.5,
-                  "odds": -274
+                  "odds": -265
                 },
                 {
                   "line": -2.0,
-                  "odds": 178
+                  "odds": 185
                 },
                 {
                   "line": -2.5,
-                  "odds": 212
+                  "odds": 219
                 },
                 {
                   "line": -3.0,
-                  "odds": 296
+                  "odds": 306
                 },
                 {
                   "line": -3.5,
-                  "odds": 335
+                  "odds": 342
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840TBDET",
-            "awayVol": 717381.33,
-            "homeVol": 171953.89,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 4.1719,
-            "homeMult": 0.2397,
-            "maxMult": 4.1719,
-            "totalVol": 889335.22,
+            "awayVol": 1213016.01,
+            "homeVol": 251257.06,
+            "awayCents": 69,
+            "homeCents": 31,
+            "awayMult": 4.8278,
+            "homeMult": 0.2071,
+            "maxMult": 4.8278,
+            "totalVol": 1464273.07,
             "highSide": "away",
-            "highMult": 4.1719,
+            "highMult": 4.8278,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -1284,26 +1191,26 @@
           "favored": "MIN",
           "odds": {
             "provider": "4casters",
-            "home": "+137",
+            "home": "+134",
             "away": "-138",
             "gameId": "6a8b193edfe281b354c9bbea",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 135
+                  "odds": 134
                 },
                 {
                   "line": -0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": 0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 204
                 },
                 {
                   "line": 1.0,
@@ -1315,11 +1222,11 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -114
+                  "odds": -115
                 },
                 {
                   "line": 2.0,
-                  "odds": -142
+                  "odds": -143
                 },
                 {
                   "line": 2.5,
@@ -1327,25 +1234,25 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -216
+                  "odds": -217
                 },
                 {
                   "line": 3.5,
-                  "odds": -244
+                  "odds": -246
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -139
+                  "odds": -138
                 },
                 {
                   "line": -0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": 0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": -1.0,
@@ -1353,15 +1260,15 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -214
+                  "odds": -213
                 },
                 {
                   "line": -1.5,
-                  "odds": 109
+                  "odds": 112
                 },
                 {
                   "line": 1.5,
-                  "odds": -269
+                  "odds": -268
                 },
                 {
                   "line": -2.0,
@@ -1384,16 +1291,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140MINATH",
-            "awayVol": 137344.19,
-            "homeVol": 91722.59,
+            "awayVol": 156939.81,
+            "homeVol": 94853.94,
             "awayCents": 59,
             "homeCents": 43,
-            "awayMult": 1.4974,
-            "homeMult": 0.6678,
-            "maxMult": 1.4974,
-            "totalVol": 229066.78,
+            "awayMult": 1.6545,
+            "homeMult": 0.6044,
+            "maxMult": 1.6545,
+            "totalVol": 251793.75,
             "highSide": "away",
-            "highMult": 1.4974,
+            "highMult": 1.6545,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -1410,8 +1317,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 17.908,
@@ -1552,20 +1459,22 @@
                   "odds": 366
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-08-24T22:09:36Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840BOSMIA",
-            "awayVol": 340086.1,
-            "homeVol": 312146.72,
-            "awayCents": 54,
-            "homeCents": 47,
-            "awayMult": 1.0895,
-            "homeMult": 0.9178,
-            "maxMult": 1.0895,
-            "totalVol": 652232.82,
-            "highSide": "away",
-            "highMult": 1.0895,
+            "awayVol": 532298.66,
+            "homeVol": 573260.34,
+            "awayCents": 52,
+            "homeCents": 49,
+            "awayMult": 0.9285,
+            "homeMult": 1.077,
+            "maxMult": 1.077,
+            "totalVol": 1105559.0,
+            "highSide": "home",
+            "highMult": 1.077,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -1628,116 +1537,116 @@
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
-            "home": "+105",
+            "home": "+107",
             "away": "-108",
             "gameId": "6a8b193edfe281b354c9bbee",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 104
+                  "odds": 107
                 },
                 {
                   "line": -0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": 0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": -1.0,
-                  "odds": 166
+                  "odds": 172
                 },
                 {
                   "line": 1.0,
-                  "odds": -134
+                  "odds": -131
                 },
                 {
                   "line": -1.5,
-                  "odds": 225
+                  "odds": 231
                 },
                 {
                   "line": 1.5,
-                  "odds": -175
+                  "odds": -166
                 },
                 {
                   "line": 2.0,
-                  "odds": -254
+                  "odds": -250
                 },
                 {
                   "line": 2.5,
-                  "odds": -303
+                  "odds": -296
                 },
                 {
                   "line": 3.0,
-                  "odds": -450
+                  "odds": -441
                 },
                 {
                   "line": 3.5,
-                  "odds": -503
+                  "odds": -494
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": -1.0,
-                  "odds": 129
+                  "odds": 126
                 },
                 {
                   "line": 1.0,
-                  "odds": -173
+                  "odds": -178
                 },
                 {
                   "line": -1.5,
-                  "odds": 170
+                  "odds": 163
                 },
                 {
                   "line": 1.5,
-                  "odds": -237
+                  "odds": -243
                 },
                 {
                   "line": -2.0,
-                  "odds": 242
+                  "odds": 238
                 },
                 {
                   "line": -2.5,
-                  "odds": 285
+                  "odds": 281
                 },
                 {
                   "line": -3.0,
-                  "odds": 424
+                  "odds": 417
                 },
                 {
                   "line": -3.5,
-                  "odds": 469
+                  "odds": 462
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PHISEA",
-            "awayVol": 237556.62,
-            "homeVol": 122902.3,
+            "awayVol": 273783.78,
+            "homeVol": 157482.69,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 1.9329,
-            "homeMult": 0.5174,
-            "maxMult": 1.9329,
-            "totalVol": 360458.92,
+            "awayMult": 1.7385,
+            "homeMult": 0.5752,
+            "maxMult": 1.7385,
+            "totalVol": 431266.47,
             "highSide": "away",
-            "highMult": 1.9329,
+            "highMult": 1.7385,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -1807,7 +1716,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 130
+                  "odds": 131
                 },
                 {
                   "line": -0.5,
@@ -1819,7 +1728,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 206
                 },
                 {
                   "line": 1.0,
@@ -1827,27 +1736,27 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 260
+                  "odds": 262
                 },
                 {
                   "line": 1.5,
-                  "odds": -123
+                  "odds": -122
                 },
                 {
                   "line": 2.0,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 2.5,
-                  "odds": -195
+                  "odds": -194
                 },
                 {
                   "line": 3.0,
-                  "odds": -262
+                  "odds": -261
                 },
                 {
                   "line": 3.5,
-                  "odds": -299
+                  "odds": -298
                 }
               ],
               "away": [
@@ -1865,7 +1774,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -106
+                  "odds": -107
                 },
                 {
                   "line": 1.0,
@@ -1873,7 +1782,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 120
+                  "odds": 119
                 },
                 {
                   "line": 1.5,
@@ -1881,35 +1790,35 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 157
+                  "odds": 155
                 },
                 {
                   "line": -2.5,
-                  "odds": 185
+                  "odds": 184
                 },
                 {
                   "line": -3.0,
-                  "odds": 251
+                  "odds": 249
                 },
                 {
                   "line": -3.5,
-                  "odds": 283
+                  "odds": 280
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140CHCAZ",
-            "awayVol": 144123.84,
-            "homeVol": 46227.59,
+            "awayVol": 163618.91,
+            "homeVol": 56931.01,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.1177,
-            "homeMult": 0.3207,
-            "maxMult": 3.1177,
-            "totalVol": 190351.43,
+            "awayMult": 2.874,
+            "homeMult": 0.3479,
+            "maxMult": 2.874,
+            "totalVol": 220549.92,
             "highSide": "away",
-            "highMult": 3.1177,
+            "highMult": 2.874,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -1972,26 +1881,26 @@
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
-            "home": "+150",
-            "away": "-154",
+            "home": "+152",
+            "away": "-153",
             "gameId": "6a8b193edfe281b354c9bbe8",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 150
+                  "odds": 151
                 },
                 {
                   "line": -0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": 0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": -1.0,
-                  "odds": 248
+                  "odds": 249
                 },
                 {
                   "line": 1.0,
@@ -1999,11 +1908,11 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 310
+                  "odds": 311
                 },
                 {
                   "line": 1.5,
-                  "odds": -112
+                  "odds": -113
                 },
                 {
                   "line": 2.0,
@@ -2015,7 +1924,7 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -266
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
@@ -2025,7 +1934,7 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -156
+                  "odds": -158
                 },
                 {
                   "line": -0.5,
@@ -2037,11 +1946,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -121
+                  "odds": -122
                 },
                 {
                   "line": 1.0,
-                  "odds": -260
+                  "odds": -262
                 },
                 {
                   "line": -1.5,
@@ -2049,7 +1958,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -328
+                  "odds": -329
                 },
                 {
                   "line": -2.0,
@@ -2065,23 +1974,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 288
+                  "odds": 289
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242138CLELAA",
-            "awayVol": 118944.8,
-            "homeVol": 26024.84,
+            "awayVol": 144718.94,
+            "homeVol": 33772.56,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.5704,
-            "homeMult": 0.2188,
-            "maxMult": 4.5704,
-            "totalVol": 144969.64,
+            "awayMult": 4.2851,
+            "homeMult": 0.2334,
+            "maxMult": 4.2851,
+            "totalVol": 178491.5,
             "highSide": "away",
-            "highMult": 4.5704,
+            "highMult": 4.2851,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -2439,7 +2348,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -2492,7 +2401,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -111
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
@@ -2504,61 +2413,61 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 141
+                  "odds": 142
                 },
                 {
                   "line": 1.0,
-                  "odds": -151
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 198
+                  "odds": 199
                 },
                 {
                   "line": 1.5,
-                  "odds": -188
+                  "odds": -187
                 },
                 {
                   "line": -2.0,
-                  "odds": 281
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 321
+                  "odds": 322
                 },
                 {
                   "line": -3.0,
-                  "odds": 468
+                  "odds": 471
                 },
                 {
                   "line": -3.5,
-                  "odds": 511
+                  "odds": 512
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 107
+                  "odds": 106
                 },
                 {
                   "line": -0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": 0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": -1.0,
-                  "odds": 144
+                  "odds": 143
                 },
                 {
                   "line": 1.0,
-                  "odds": -149
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 178
+                  "odds": 177
                 },
                 {
                   "line": 1.5,
@@ -2566,15 +2475,15 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -296
+                  "odds": -298
                 },
                 {
                   "line": 2.5,
-                  "odds": -341
+                  "odds": -343
                 },
                 {
                   "line": 3.0,
-                  "odds": -499
+                  "odds": -503
                 },
                 {
                   "line": 3.5,
@@ -2585,16 +2494,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PITSD",
-            "awayVol": 97826.83,
-            "homeVol": 230526.15,
+            "awayVol": 103795.57,
+            "homeVol": 275460.11,
             "awayCents": 48,
             "homeCents": 53,
-            "awayMult": 0.4244,
-            "homeMult": 2.3565,
-            "maxMult": 2.3565,
-            "totalVol": 328352.98,
+            "awayMult": 0.3768,
+            "homeMult": 2.6539,
+            "maxMult": 2.6539,
+            "totalVol": 379255.68,
             "highSide": "home",
-            "highMult": 2.3565,
+            "highMult": 2.6539,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -2611,8 +2520,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Warmup",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": -0.444,
@@ -2656,117 +2565,24 @@
           "modelHomeProb": 0.632463,
           "favored": "WSH",
           "odds": {
-            "provider": "4casters",
-            "home": "-192",
-            "away": "+188",
-            "gameId": "6a8b193ddfe281b354c9bbdc",
-            "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -194
-                },
-                {
-                  "line": -0.5,
-                  "odds": -195
-                },
-                {
-                  "line": 0.5,
-                  "odds": -195
-                },
-                {
-                  "line": -1.0,
-                  "odds": -139
-                },
-                {
-                  "line": 1.0,
-                  "odds": -268
-                },
-                {
-                  "line": -1.5,
-                  "odds": 114
-                },
-                {
-                  "line": 1.5,
-                  "odds": -316
-                },
-                {
-                  "line": -2.0,
-                  "odds": 147
-                },
-                {
-                  "line": -2.5,
-                  "odds": 176
-                },
-                {
-                  "line": -3.0,
-                  "odds": 240
-                },
-                {
-                  "line": -3.5,
-                  "odds": 273
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 187
-                },
-                {
-                  "line": -0.5,
-                  "odds": 186
-                },
-                {
-                  "line": 0.5,
-                  "odds": 186
-                },
-                {
-                  "line": -1.0,
-                  "odds": 261
-                },
-                {
-                  "line": 1.0,
-                  "odds": 133
-                },
-                {
-                  "line": -1.5,
-                  "odds": 298
-                },
-                {
-                  "line": 1.5,
-                  "odds": -116
-                },
-                {
-                  "line": 2.0,
-                  "odds": -152
-                },
-                {
-                  "line": 2.5,
-                  "odds": -185
-                },
-                {
-                  "line": 3.0,
-                  "odds": -250
-                },
-                {
-                  "line": 3.5,
-                  "odds": -289
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-194",
+            "away": "+180",
+            "espnId": "401816656",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241845COLWSH",
-            "awayVol": 57092.85,
-            "homeVol": 281876.62,
+            "awayVol": 88159.78,
+            "homeVol": 344990.22,
             "awayCents": 35,
-            "homeCents": 65,
-            "awayMult": 0.2025,
-            "homeMult": 4.9372,
-            "maxMult": 4.9372,
-            "totalVol": 338969.47,
+            "homeCents": 66,
+            "awayMult": 0.2555,
+            "homeMult": 3.9132,
+            "maxMult": 3.9132,
+            "totalVol": 433150.0,
             "highSide": "home",
-            "highMult": 4.9372,
+            "highMult": 3.9132,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -2783,8 +2599,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.184,
@@ -2829,116 +2645,116 @@
           "favored": "DET",
           "odds": {
             "provider": "4casters",
-            "home": "+124",
-            "away": "-127",
-            "gameId": "6a8b193edfe281b354c9bbe4",
+            "home": "+118",
+            "away": "-125",
+            "gameId": "6a8c6abfdfe281b354ca07f6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 124
+                  "odds": 118
                 },
                 {
                   "line": -0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": 0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": -1.0,
-                  "odds": 199
+                  "odds": 189
                 },
                 {
                   "line": 1.0,
-                  "odds": -106
+                  "odds": -111
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 247
                 },
                 {
                   "line": 1.5,
-                  "odds": -137
+                  "odds": -146
                 },
                 {
                   "line": 2.0,
-                  "odds": -187
+                  "odds": -196
                 },
                 {
                   "line": 2.5,
-                  "odds": -225
+                  "odds": -235
                 },
                 {
                   "line": 3.0,
-                  "odds": -314
+                  "odds": -328
                 },
                 {
                   "line": 3.5,
-                  "odds": -357
+                  "odds": -372
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -128
+                  "odds": -124
                 },
                 {
                   "line": -0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": 0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": -1.0,
-                  "odds": 102
+                  "odds": 106
                 },
                 {
                   "line": 1.0,
-                  "odds": -208
+                  "odds": -201
                 },
                 {
                   "line": -1.5,
-                  "odds": 134
+                  "odds": 136
                 },
                 {
                   "line": 1.5,
-                  "odds": -274
+                  "odds": -265
                 },
                 {
                   "line": -2.0,
-                  "odds": 178
+                  "odds": 185
                 },
                 {
                   "line": -2.5,
-                  "odds": 212
+                  "odds": 219
                 },
                 {
                   "line": -3.0,
-                  "odds": 296
+                  "odds": 306
                 },
                 {
                   "line": -3.5,
-                  "odds": 335
+                  "odds": 342
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840TBDET",
-            "awayVol": 717381.33,
-            "homeVol": 171953.89,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 4.1719,
-            "homeMult": 0.2397,
-            "maxMult": 4.1719,
-            "totalVol": 889335.22,
+            "awayVol": 1213016.01,
+            "homeVol": 251257.06,
+            "awayCents": 69,
+            "homeCents": 31,
+            "awayMult": 4.8278,
+            "homeMult": 0.2071,
+            "maxMult": 4.8278,
+            "totalVol": 1464273.07,
             "highSide": "away",
-            "highMult": 4.1719,
+            "highMult": 4.8278,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -3001,22 +2817,22 @@
           "favored": "CWS",
           "odds": {
             "provider": "4casters",
-            "home": "-122",
-            "away": "+121",
+            "home": "-125",
+            "away": "+122",
             "gameId": "6a8b193edfe281b354c9bbe6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -127
+                  "odds": -125
                 },
                 {
                   "line": -0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": -1.0,
@@ -3024,7 +2840,7 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -171
+                  "odds": -170
                 },
                 {
                   "line": -1.5,
@@ -3036,41 +2852,41 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 228
+                  "odds": 229
                 },
                 {
                   "line": -2.5,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": -3.0,
-                  "odds": 367
+                  "odds": 368
                 },
                 {
                   "line": -3.5,
-                  "odds": 403
+                  "odds": 405
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 122
+                  "odds": 121
                 },
                 {
                   "line": -0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": 0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": -1.0,
-                  "odds": 165
+                  "odds": 164
                 },
                 {
                   "line": 1.0,
-                  "odds": -123
+                  "odds": -124
                 },
                 {
                   "line": -1.5,
@@ -3082,7 +2898,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -238
+                  "odds": -239
                 },
                 {
                   "line": 2.5,
@@ -3090,29 +2906,29 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -385
+                  "odds": -388
                 },
                 {
                   "line": 3.5,
-                  "odds": -428
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241940TEXCWS",
-            "awayVol": 52174.6,
-            "homeVol": 181505.61,
+            "awayVol": 115074.88,
+            "homeVol": 225595.13,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.2875,
-            "homeMult": 3.4788,
-            "maxMult": 3.4788,
-            "totalVol": 233680.21,
+            "awayMult": 0.5101,
+            "homeMult": 1.9604,
+            "maxMult": 1.9604,
+            "totalVol": 340670.01,
             "highSide": "home",
-            "highMult": 3.4788,
+            "highMult": 1.9604,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -3180,7 +2996,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 156
+                  "odds": 154
                 },
                 {
                   "line": -0.5,
@@ -3226,15 +3042,15 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -162
+                  "odds": -161
                 },
                 {
                   "line": -0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": -1.0,
@@ -3273,16 +3089,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242145CINSF",
-            "awayVol": 169465.87,
-            "homeVol": 25682.58,
-            "awayCents": 61,
+            "awayVol": 204232.52,
+            "homeVol": 27456.45,
+            "awayCents": 62,
             "homeCents": 40,
-            "awayMult": 6.5985,
-            "homeMult": 0.1516,
-            "maxMult": 6.5985,
-            "totalVol": 195148.45,
+            "awayMult": 7.4384,
+            "homeMult": 0.1344,
+            "maxMult": 7.4384,
+            "totalVol": 231688.97,
             "highSide": "away",
-            "highMult": 6.5985,
+            "highMult": 7.4384,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -3345,26 +3161,26 @@
           "favored": "MIN",
           "odds": {
             "provider": "4casters",
-            "home": "+137",
+            "home": "+134",
             "away": "-138",
             "gameId": "6a8b193edfe281b354c9bbea",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 135
+                  "odds": 134
                 },
                 {
                   "line": -0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": 0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 204
                 },
                 {
                   "line": 1.0,
@@ -3376,11 +3192,11 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -114
+                  "odds": -115
                 },
                 {
                   "line": 2.0,
-                  "odds": -142
+                  "odds": -143
                 },
                 {
                   "line": 2.5,
@@ -3388,25 +3204,25 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -216
+                  "odds": -217
                 },
                 {
                   "line": 3.5,
-                  "odds": -244
+                  "odds": -246
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -139
+                  "odds": -138
                 },
                 {
                   "line": -0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": 0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": -1.0,
@@ -3414,15 +3230,15 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -214
+                  "odds": -213
                 },
                 {
                   "line": -1.5,
-                  "odds": 109
+                  "odds": 112
                 },
                 {
                   "line": 1.5,
-                  "odds": -269
+                  "odds": -268
                 },
                 {
                   "line": -2.0,
@@ -3445,16 +3261,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140MINATH",
-            "awayVol": 137344.19,
-            "homeVol": 91722.59,
+            "awayVol": 156939.81,
+            "homeVol": 94853.94,
             "awayCents": 59,
             "homeCents": 43,
-            "awayMult": 1.4974,
-            "homeMult": 0.6678,
-            "maxMult": 1.4974,
-            "totalVol": 229066.78,
+            "awayMult": 1.6545,
+            "homeMult": 0.6044,
+            "maxMult": 1.6545,
+            "totalVol": 251793.75,
             "highSide": "away",
-            "highMult": 1.4974,
+            "highMult": 1.6545,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -3517,26 +3333,26 @@
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
-            "home": "+150",
-            "away": "-154",
+            "home": "+152",
+            "away": "-153",
             "gameId": "6a8b193edfe281b354c9bbe8",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 150
+                  "odds": 151
                 },
                 {
                   "line": -0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": 0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": -1.0,
-                  "odds": 248
+                  "odds": 249
                 },
                 {
                   "line": 1.0,
@@ -3544,11 +3360,11 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 310
+                  "odds": 311
                 },
                 {
                   "line": 1.5,
-                  "odds": -112
+                  "odds": -113
                 },
                 {
                   "line": 2.0,
@@ -3560,7 +3376,7 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -266
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
@@ -3570,7 +3386,7 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -156
+                  "odds": -158
                 },
                 {
                   "line": -0.5,
@@ -3582,11 +3398,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -121
+                  "odds": -122
                 },
                 {
                   "line": 1.0,
-                  "odds": -260
+                  "odds": -262
                 },
                 {
                   "line": -1.5,
@@ -3594,7 +3410,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -328
+                  "odds": -329
                 },
                 {
                   "line": -2.0,
@@ -3610,23 +3426,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 288
+                  "odds": 289
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242138CLELAA",
-            "awayVol": 118944.8,
-            "homeVol": 26024.84,
+            "awayVol": 144718.94,
+            "homeVol": 33772.56,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.5704,
-            "homeMult": 0.2188,
-            "maxMult": 4.5704,
-            "totalVol": 144969.64,
+            "awayMult": 4.2851,
+            "homeMult": 0.2334,
+            "maxMult": 4.2851,
+            "totalVol": 178491.5,
             "highSide": "away",
-            "highMult": 4.5704,
+            "highMult": 4.2851,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -3696,7 +3512,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 130
+                  "odds": 131
                 },
                 {
                   "line": -0.5,
@@ -3708,7 +3524,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 206
                 },
                 {
                   "line": 1.0,
@@ -3716,27 +3532,27 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 260
+                  "odds": 262
                 },
                 {
                   "line": 1.5,
-                  "odds": -123
+                  "odds": -122
                 },
                 {
                   "line": 2.0,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 2.5,
-                  "odds": -195
+                  "odds": -194
                 },
                 {
                   "line": 3.0,
-                  "odds": -262
+                  "odds": -261
                 },
                 {
                   "line": 3.5,
-                  "odds": -299
+                  "odds": -298
                 }
               ],
               "away": [
@@ -3754,7 +3570,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -106
+                  "odds": -107
                 },
                 {
                   "line": 1.0,
@@ -3762,7 +3578,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 120
+                  "odds": 119
                 },
                 {
                   "line": 1.5,
@@ -3770,35 +3586,35 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 157
+                  "odds": 155
                 },
                 {
                   "line": -2.5,
-                  "odds": 185
+                  "odds": 184
                 },
                 {
                   "line": -3.0,
-                  "odds": 251
+                  "odds": 249
                 },
                 {
                   "line": -3.5,
-                  "odds": 283
+                  "odds": 280
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140CHCAZ",
-            "awayVol": 144123.84,
-            "homeVol": 46227.59,
+            "awayVol": 163618.91,
+            "homeVol": 56931.01,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.1177,
-            "homeMult": 0.3207,
-            "maxMult": 3.1177,
-            "totalVol": 190351.43,
+            "awayMult": 2.874,
+            "homeMult": 0.3479,
+            "maxMult": 2.874,
+            "totalVol": 220549.92,
             "highSide": "away",
-            "highMult": 3.1177,
+            "highMult": 2.874,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -3815,8 +3631,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 2.595,
@@ -3957,20 +3773,22 @@
                   "odds": 366
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-08-24T22:09:36Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840BOSMIA",
-            "awayVol": 340086.1,
-            "homeVol": 312146.72,
-            "awayCents": 54,
-            "homeCents": 47,
-            "awayMult": 1.0895,
-            "homeMult": 0.9178,
-            "maxMult": 1.0895,
-            "totalVol": 652232.82,
-            "highSide": "away",
-            "highMult": 1.0895,
+            "awayVol": 532298.66,
+            "homeVol": 573260.34,
+            "awayCents": 52,
+            "homeCents": 49,
+            "awayMult": 0.9285,
+            "homeMult": 1.077,
+            "maxMult": 1.077,
+            "totalVol": 1105559.0,
+            "highSide": "home",
+            "highMult": 1.077,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -4033,116 +3851,116 @@
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
-            "home": "+105",
+            "home": "+107",
             "away": "-108",
             "gameId": "6a8b193edfe281b354c9bbee",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 104
+                  "odds": 107
                 },
                 {
                   "line": -0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": 0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": -1.0,
-                  "odds": 166
+                  "odds": 172
                 },
                 {
                   "line": 1.0,
-                  "odds": -134
+                  "odds": -131
                 },
                 {
                   "line": -1.5,
-                  "odds": 225
+                  "odds": 231
                 },
                 {
                   "line": 1.5,
-                  "odds": -175
+                  "odds": -166
                 },
                 {
                   "line": 2.0,
-                  "odds": -254
+                  "odds": -250
                 },
                 {
                   "line": 2.5,
-                  "odds": -303
+                  "odds": -296
                 },
                 {
                   "line": 3.0,
-                  "odds": -450
+                  "odds": -441
                 },
                 {
                   "line": 3.5,
-                  "odds": -503
+                  "odds": -494
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": -1.0,
-                  "odds": 129
+                  "odds": 126
                 },
                 {
                   "line": 1.0,
-                  "odds": -173
+                  "odds": -178
                 },
                 {
                   "line": -1.5,
-                  "odds": 170
+                  "odds": 163
                 },
                 {
                   "line": 1.5,
-                  "odds": -237
+                  "odds": -243
                 },
                 {
                   "line": -2.0,
-                  "odds": 242
+                  "odds": 238
                 },
                 {
                   "line": -2.5,
-                  "odds": 285
+                  "odds": 281
                 },
                 {
                   "line": -3.0,
-                  "odds": 424
+                  "odds": 417
                 },
                 {
                   "line": -3.5,
-                  "odds": 469
+                  "odds": 462
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PHISEA",
-            "awayVol": 237556.62,
-            "homeVol": 122902.3,
+            "awayVol": 273783.78,
+            "homeVol": 157482.69,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 1.9329,
-            "homeMult": 0.5174,
-            "maxMult": 1.9329,
-            "totalVol": 360458.92,
+            "awayMult": 1.7385,
+            "homeMult": 0.5752,
+            "maxMult": 1.7385,
+            "totalVol": 431266.47,
             "highSide": "away",
-            "highMult": 1.9329,
+            "highMult": 1.7385,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -4500,8 +4318,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Warmup",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 3.067,
@@ -4545,117 +4363,24 @@
           "modelHomeProb": 0.703742,
           "favored": "WSH",
           "odds": {
-            "provider": "4casters",
-            "home": "-192",
-            "away": "+188",
-            "gameId": "6a8b193ddfe281b354c9bbdc",
-            "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -194
-                },
-                {
-                  "line": -0.5,
-                  "odds": -195
-                },
-                {
-                  "line": 0.5,
-                  "odds": -195
-                },
-                {
-                  "line": -1.0,
-                  "odds": -139
-                },
-                {
-                  "line": 1.0,
-                  "odds": -268
-                },
-                {
-                  "line": -1.5,
-                  "odds": 114
-                },
-                {
-                  "line": 1.5,
-                  "odds": -316
-                },
-                {
-                  "line": -2.0,
-                  "odds": 147
-                },
-                {
-                  "line": -2.5,
-                  "odds": 176
-                },
-                {
-                  "line": -3.0,
-                  "odds": 240
-                },
-                {
-                  "line": -3.5,
-                  "odds": 273
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 187
-                },
-                {
-                  "line": -0.5,
-                  "odds": 186
-                },
-                {
-                  "line": 0.5,
-                  "odds": 186
-                },
-                {
-                  "line": -1.0,
-                  "odds": 261
-                },
-                {
-                  "line": 1.0,
-                  "odds": 133
-                },
-                {
-                  "line": -1.5,
-                  "odds": 298
-                },
-                {
-                  "line": 1.5,
-                  "odds": -116
-                },
-                {
-                  "line": 2.0,
-                  "odds": -152
-                },
-                {
-                  "line": 2.5,
-                  "odds": -185
-                },
-                {
-                  "line": 3.0,
-                  "odds": -250
-                },
-                {
-                  "line": 3.5,
-                  "odds": -289
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-194",
+            "away": "+180",
+            "espnId": "401816656",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241845COLWSH",
-            "awayVol": 57092.85,
-            "homeVol": 281876.62,
+            "awayVol": 88159.78,
+            "homeVol": 344990.22,
             "awayCents": 35,
-            "homeCents": 65,
-            "awayMult": 0.2025,
-            "homeMult": 4.9372,
-            "maxMult": 4.9372,
-            "totalVol": 338969.47,
+            "homeCents": 66,
+            "awayMult": 0.2555,
+            "homeMult": 3.9132,
+            "maxMult": 3.9132,
+            "totalVol": 433150.0,
             "highSide": "home",
-            "highMult": 4.9372,
+            "highMult": 3.9132,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4672,7 +4397,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
+          "status": "Pre-Game",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -4725,7 +4450,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -111
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
@@ -4737,61 +4462,61 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 141
+                  "odds": 142
                 },
                 {
                   "line": 1.0,
-                  "odds": -151
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 198
+                  "odds": 199
                 },
                 {
                   "line": 1.5,
-                  "odds": -188
+                  "odds": -187
                 },
                 {
                   "line": -2.0,
-                  "odds": 281
+                  "odds": 283
                 },
                 {
                   "line": -2.5,
-                  "odds": 321
+                  "odds": 322
                 },
                 {
                   "line": -3.0,
-                  "odds": 468
+                  "odds": 471
                 },
                 {
                   "line": -3.5,
-                  "odds": 511
+                  "odds": 512
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 107
+                  "odds": 106
                 },
                 {
                   "line": -0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": 0.5,
-                  "odds": 107
+                  "odds": 105
                 },
                 {
                   "line": -1.0,
-                  "odds": 144
+                  "odds": 143
                 },
                 {
                   "line": 1.0,
-                  "odds": -149
+                  "odds": -150
                 },
                 {
                   "line": -1.5,
-                  "odds": 178
+                  "odds": 177
                 },
                 {
                   "line": 1.5,
@@ -4799,15 +4524,15 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -296
+                  "odds": -298
                 },
                 {
                   "line": 2.5,
-                  "odds": -341
+                  "odds": -343
                 },
                 {
                   "line": 3.0,
-                  "odds": -499
+                  "odds": -503
                 },
                 {
                   "line": 3.5,
@@ -4818,16 +4543,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PITSD",
-            "awayVol": 97826.83,
-            "homeVol": 230526.15,
+            "awayVol": 103795.57,
+            "homeVol": 275460.11,
             "awayCents": 48,
             "homeCents": 53,
-            "awayMult": 0.4244,
-            "homeMult": 2.3565,
-            "maxMult": 2.3565,
-            "totalVol": 328352.98,
+            "awayMult": 0.3768,
+            "homeMult": 2.6539,
+            "maxMult": 2.6539,
+            "totalVol": 379255.68,
             "highSide": "home",
-            "highMult": 2.3565,
+            "highMult": 2.6539,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4897,7 +4622,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 156
+                  "odds": 154
                 },
                 {
                   "line": -0.5,
@@ -4943,15 +4668,15 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -162
+                  "odds": -161
                 },
                 {
                   "line": -0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 0.5,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": -1.0,
@@ -4990,16 +4715,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242145CINSF",
-            "awayVol": 169465.87,
-            "homeVol": 25682.58,
-            "awayCents": 61,
+            "awayVol": 204232.52,
+            "homeVol": 27456.45,
+            "awayCents": 62,
             "homeCents": 40,
-            "awayMult": 6.5985,
-            "homeMult": 0.1516,
-            "maxMult": 6.5985,
-            "totalVol": 195148.45,
+            "awayMult": 7.4384,
+            "homeMult": 0.1344,
+            "maxMult": 7.4384,
+            "totalVol": 231688.97,
             "highSide": "away",
-            "highMult": 6.5985,
+            "highMult": 7.4384,
             "favoriteSide": "away",
             "tone": "red"
           }
@@ -5062,22 +4787,22 @@
           "favored": "CWS",
           "odds": {
             "provider": "4casters",
-            "home": "-122",
-            "away": "+121",
+            "home": "-125",
+            "away": "+122",
             "gameId": "6a8b193edfe281b354c9bbe6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": -127
+                  "odds": -125
                 },
                 {
                   "line": -0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": 0.5,
-                  "odds": -127
+                  "odds": -126
                 },
                 {
                   "line": -1.0,
@@ -5085,7 +4810,7 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -171
+                  "odds": -170
                 },
                 {
                   "line": -1.5,
@@ -5097,41 +4822,41 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 228
+                  "odds": 229
                 },
                 {
                   "line": -2.5,
-                  "odds": 262
+                  "odds": 263
                 },
                 {
                   "line": -3.0,
-                  "odds": 367
+                  "odds": 368
                 },
                 {
                   "line": -3.5,
-                  "odds": 403
+                  "odds": 405
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": 122
+                  "odds": 121
                 },
                 {
                   "line": -0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": 0.5,
-                  "odds": 122
+                  "odds": 120
                 },
                 {
                   "line": -1.0,
-                  "odds": 165
+                  "odds": 164
                 },
                 {
                   "line": 1.0,
-                  "odds": -123
+                  "odds": -124
                 },
                 {
                   "line": -1.5,
@@ -5143,7 +4868,7 @@
                 },
                 {
                   "line": 2.0,
-                  "odds": -238
+                  "odds": -239
                 },
                 {
                   "line": 2.5,
@@ -5151,29 +4876,29 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -385
+                  "odds": -388
                 },
                 {
                   "line": 3.5,
-                  "odds": -428
+                  "odds": -431
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241940TEXCWS",
-            "awayVol": 52174.6,
-            "homeVol": 181505.61,
+            "awayVol": 115074.88,
+            "homeVol": 225595.13,
             "awayCents": 45,
             "homeCents": 56,
-            "awayMult": 0.2875,
-            "homeMult": 3.4788,
-            "maxMult": 3.4788,
-            "totalVol": 233680.21,
+            "awayMult": 0.5101,
+            "homeMult": 1.9604,
+            "maxMult": 1.9604,
+            "totalVol": 340670.01,
             "highSide": "home",
-            "highMult": 3.4788,
+            "highMult": 1.9604,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -5188,8 +4913,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 9.606,
@@ -5234,116 +4959,116 @@
           "favored": "DET",
           "odds": {
             "provider": "4casters",
-            "home": "+124",
-            "away": "-127",
-            "gameId": "6a8b193edfe281b354c9bbe4",
+            "home": "+118",
+            "away": "-125",
+            "gameId": "6a8c6abfdfe281b354ca07f6",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 124
+                  "odds": 118
                 },
                 {
                   "line": -0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": 0.5,
-                  "odds": 123
+                  "odds": 117
                 },
                 {
                   "line": -1.0,
-                  "odds": 199
+                  "odds": 189
                 },
                 {
                   "line": 1.0,
-                  "odds": -106
+                  "odds": -111
                 },
                 {
                   "line": -1.5,
-                  "odds": 257
+                  "odds": 247
                 },
                 {
                   "line": 1.5,
-                  "odds": -137
+                  "odds": -146
                 },
                 {
                   "line": 2.0,
-                  "odds": -187
+                  "odds": -196
                 },
                 {
                   "line": 2.5,
-                  "odds": -225
+                  "odds": -235
                 },
                 {
                   "line": 3.0,
-                  "odds": -314
+                  "odds": -328
                 },
                 {
                   "line": 3.5,
-                  "odds": -357
+                  "odds": -372
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -128
+                  "odds": -124
                 },
                 {
                   "line": -0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": 0.5,
-                  "odds": -130
+                  "odds": -125
                 },
                 {
                   "line": -1.0,
-                  "odds": 102
+                  "odds": 106
                 },
                 {
                   "line": 1.0,
-                  "odds": -208
+                  "odds": -201
                 },
                 {
                   "line": -1.5,
-                  "odds": 134
+                  "odds": 136
                 },
                 {
                   "line": 1.5,
-                  "odds": -274
+                  "odds": -265
                 },
                 {
                   "line": -2.0,
-                  "odds": 178
+                  "odds": 185
                 },
                 {
                   "line": -2.5,
-                  "odds": 212
+                  "odds": 219
                 },
                 {
                   "line": -3.0,
-                  "odds": 296
+                  "odds": 306
                 },
                 {
                   "line": -3.5,
-                  "odds": 335
+                  "odds": 342
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840TBDET",
-            "awayVol": 717381.33,
-            "homeVol": 171953.89,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 4.1719,
-            "homeMult": 0.2397,
-            "maxMult": 4.1719,
-            "totalVol": 889335.22,
+            "awayVol": 1213016.01,
+            "homeVol": 251257.06,
+            "awayCents": 69,
+            "homeCents": 31,
+            "awayMult": 4.8278,
+            "homeMult": 0.2071,
+            "maxMult": 4.8278,
+            "totalVol": 1464273.07,
             "highSide": "away",
-            "highMult": 4.1719,
+            "highMult": 4.8278,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5406,26 +5131,26 @@
           "favored": "MIN",
           "odds": {
             "provider": "4casters",
-            "home": "+137",
+            "home": "+134",
             "away": "-138",
             "gameId": "6a8b193edfe281b354c9bbea",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 135
+                  "odds": 134
                 },
                 {
                   "line": -0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": 0.5,
-                  "odds": 134
+                  "odds": 133
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 204
                 },
                 {
                   "line": 1.0,
@@ -5437,11 +5162,11 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -114
+                  "odds": -115
                 },
                 {
                   "line": 2.0,
-                  "odds": -142
+                  "odds": -143
                 },
                 {
                   "line": 2.5,
@@ -5449,25 +5174,25 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -216
+                  "odds": -217
                 },
                 {
                   "line": 3.5,
-                  "odds": -244
+                  "odds": -246
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -139
+                  "odds": -138
                 },
                 {
                   "line": -0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": 0.5,
-                  "odds": -140
+                  "odds": -139
                 },
                 {
                   "line": -1.0,
@@ -5475,15 +5200,15 @@
                 },
                 {
                   "line": 1.0,
-                  "odds": -214
+                  "odds": -213
                 },
                 {
                   "line": -1.5,
-                  "odds": 109
+                  "odds": 112
                 },
                 {
                   "line": 1.5,
-                  "odds": -269
+                  "odds": -268
                 },
                 {
                   "line": -2.0,
@@ -5506,16 +5231,16 @@
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140MINATH",
-            "awayVol": 137344.19,
-            "homeVol": 91722.59,
+            "awayVol": 156939.81,
+            "homeVol": 94853.94,
             "awayCents": 59,
             "homeCents": 43,
-            "awayMult": 1.4974,
-            "homeMult": 0.6678,
-            "maxMult": 1.4974,
-            "totalVol": 229066.78,
+            "awayMult": 1.6545,
+            "homeMult": 0.6044,
+            "maxMult": 1.6545,
+            "totalVol": 251793.75,
             "highSide": "away",
-            "highMult": 1.4974,
+            "highMult": 1.6545,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -5585,7 +5310,7 @@
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 130
+                  "odds": 131
                 },
                 {
                   "line": -0.5,
@@ -5597,7 +5322,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": 205
+                  "odds": 206
                 },
                 {
                   "line": 1.0,
@@ -5605,27 +5330,27 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 260
+                  "odds": 262
                 },
                 {
                   "line": 1.5,
-                  "odds": -123
+                  "odds": -122
                 },
                 {
                   "line": 2.0,
-                  "odds": -163
+                  "odds": -162
                 },
                 {
                   "line": 2.5,
-                  "odds": -195
+                  "odds": -194
                 },
                 {
                   "line": 3.0,
-                  "odds": -262
+                  "odds": -261
                 },
                 {
                   "line": 3.5,
-                  "odds": -299
+                  "odds": -298
                 }
               ],
               "away": [
@@ -5643,7 +5368,7 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -106
+                  "odds": -107
                 },
                 {
                   "line": 1.0,
@@ -5651,7 +5376,7 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 120
+                  "odds": 119
                 },
                 {
                   "line": 1.5,
@@ -5659,35 +5384,35 @@
                 },
                 {
                   "line": -2.0,
-                  "odds": 157
+                  "odds": 155
                 },
                 {
                   "line": -2.5,
-                  "odds": 185
+                  "odds": 184
                 },
                 {
                   "line": -3.0,
-                  "odds": 251
+                  "odds": 249
                 },
                 {
                   "line": -3.5,
-                  "odds": 283
+                  "odds": 280
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140CHCAZ",
-            "awayVol": 144123.84,
-            "homeVol": 46227.59,
+            "awayVol": 163618.91,
+            "homeVol": 56931.01,
             "awayCents": 58,
             "homeCents": 43,
-            "awayMult": 3.1177,
-            "homeMult": 0.3207,
-            "maxMult": 3.1177,
-            "totalVol": 190351.43,
+            "awayMult": 2.874,
+            "homeMult": 0.3479,
+            "maxMult": 2.874,
+            "totalVol": 220549.92,
             "highSide": "away",
-            "highMult": 3.1177,
+            "highMult": 2.874,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5750,26 +5475,26 @@
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
-            "home": "+150",
-            "away": "-154",
+            "home": "+152",
+            "away": "-153",
             "gameId": "6a8b193edfe281b354c9bbe8",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 150
+                  "odds": 151
                 },
                 {
                   "line": -0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": 0.5,
-                  "odds": 149
+                  "odds": 151
                 },
                 {
                   "line": -1.0,
-                  "odds": 248
+                  "odds": 249
                 },
                 {
                   "line": 1.0,
@@ -5777,11 +5502,11 @@
                 },
                 {
                   "line": -1.5,
-                  "odds": 310
+                  "odds": 311
                 },
                 {
                   "line": 1.5,
-                  "odds": -112
+                  "odds": -113
                 },
                 {
                   "line": 2.0,
@@ -5793,7 +5518,7 @@
                 },
                 {
                   "line": 3.0,
-                  "odds": -266
+                  "odds": -265
                 },
                 {
                   "line": 3.5,
@@ -5803,7 +5528,7 @@
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -156
+                  "odds": -158
                 },
                 {
                   "line": -0.5,
@@ -5815,11 +5540,11 @@
                 },
                 {
                   "line": -1.0,
-                  "odds": -121
+                  "odds": -122
                 },
                 {
                   "line": 1.0,
-                  "odds": -260
+                  "odds": -262
                 },
                 {
                   "line": -1.5,
@@ -5827,7 +5552,7 @@
                 },
                 {
                   "line": 1.5,
-                  "odds": -328
+                  "odds": -329
                 },
                 {
                   "line": -2.0,
@@ -5843,23 +5568,23 @@
                 },
                 {
                   "line": -3.5,
-                  "odds": 288
+                  "odds": 289
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242138CLELAA",
-            "awayVol": 118944.8,
-            "homeVol": 26024.84,
+            "awayVol": 144718.94,
+            "homeVol": 33772.56,
             "awayCents": 61,
             "homeCents": 40,
-            "awayMult": 4.5704,
-            "homeMult": 0.2188,
-            "maxMult": 4.5704,
-            "totalVol": 144969.64,
+            "awayMult": 4.2851,
+            "homeMult": 0.2334,
+            "maxMult": 4.2851,
+            "totalVol": 178491.5,
             "highSide": "away",
-            "highMult": 4.5704,
+            "highMult": 4.2851,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5876,8 +5601,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.252,
@@ -6018,20 +5743,22 @@
                   "odds": 366
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-08-24T22:09:36Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG241840BOSMIA",
-            "awayVol": 340086.1,
-            "homeVol": 312146.72,
-            "awayCents": 54,
-            "homeCents": 47,
-            "awayMult": 1.0895,
-            "homeMult": 0.9178,
-            "maxMult": 1.0895,
-            "totalVol": 652232.82,
-            "highSide": "away",
-            "highMult": 1.0895,
+            "awayVol": 532298.66,
+            "homeVol": 573260.34,
+            "awayCents": 52,
+            "homeCents": 49,
+            "awayMult": 0.9285,
+            "homeMult": 1.077,
+            "maxMult": 1.077,
+            "totalVol": 1105559.0,
+            "highSide": "home",
+            "highMult": 1.077,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -6094,116 +5821,116 @@
           "favored": "PHI",
           "odds": {
             "provider": "4casters",
-            "home": "+105",
+            "home": "+107",
             "away": "-108",
             "gameId": "6a8b193edfe281b354c9bbee",
             "spreads": {
               "home": [
                 {
                   "line": 0.0,
-                  "odds": 104
+                  "odds": 107
                 },
                 {
                   "line": -0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": 0.5,
-                  "odds": 103
+                  "odds": 106
                 },
                 {
                   "line": -1.0,
-                  "odds": 166
+                  "odds": 172
                 },
                 {
                   "line": 1.0,
-                  "odds": -134
+                  "odds": -131
                 },
                 {
                   "line": -1.5,
-                  "odds": 225
+                  "odds": 231
                 },
                 {
                   "line": 1.5,
-                  "odds": -175
+                  "odds": -166
                 },
                 {
                   "line": 2.0,
-                  "odds": -254
+                  "odds": -250
                 },
                 {
                   "line": 2.5,
-                  "odds": -303
+                  "odds": -296
                 },
                 {
                   "line": 3.0,
-                  "odds": -450
+                  "odds": -441
                 },
                 {
                   "line": 3.5,
-                  "odds": -503
+                  "odds": -494
                 }
               ],
               "away": [
                 {
                   "line": 0.0,
-                  "odds": -107
+                  "odds": -110
                 },
                 {
                   "line": -0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": 0.5,
-                  "odds": -108
+                  "odds": -111
                 },
                 {
                   "line": -1.0,
-                  "odds": 129
+                  "odds": 126
                 },
                 {
                   "line": 1.0,
-                  "odds": -173
+                  "odds": -178
                 },
                 {
                   "line": -1.5,
-                  "odds": 170
+                  "odds": 163
                 },
                 {
                   "line": 1.5,
-                  "odds": -237
+                  "odds": -243
                 },
                 {
                   "line": -2.0,
-                  "odds": 242
+                  "odds": 238
                 },
                 {
                   "line": -2.5,
-                  "odds": 285
+                  "odds": 281
                 },
                 {
                   "line": -3.0,
-                  "odds": 424
+                  "odds": 417
                 },
                 {
                   "line": -3.5,
-                  "odds": 469
+                  "odds": 462
                 }
               ]
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26AUG242140PHISEA",
-            "awayVol": 237556.62,
-            "homeVol": 122902.3,
+            "awayVol": 273783.78,
+            "homeVol": 157482.69,
             "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 1.9329,
-            "homeMult": 0.5174,
-            "maxMult": 1.9329,
-            "totalVol": 360458.92,
+            "awayMult": 1.7385,
+            "homeMult": 0.5752,
+            "maxMult": 1.7385,
+            "totalVol": 431266.47,
             "highSide": "away",
-            "highMult": 1.9329,
+            "highMult": 1.7385,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -6556,8 +6283,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "Warmup",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 6.578,
@@ -6601,117 +6328,24 @@
       "modelHomeProb": 0.749183,
       "favored": "WSH",
       "odds": {
-        "provider": "4casters",
-        "home": "-192",
-        "away": "+188",
-        "gameId": "6a8b193ddfe281b354c9bbdc",
-        "spreads": {
-          "home": [
-            {
-              "line": 0.0,
-              "odds": -194
-            },
-            {
-              "line": -0.5,
-              "odds": -195
-            },
-            {
-              "line": 0.5,
-              "odds": -195
-            },
-            {
-              "line": -1.0,
-              "odds": -139
-            },
-            {
-              "line": 1.0,
-              "odds": -268
-            },
-            {
-              "line": -1.5,
-              "odds": 114
-            },
-            {
-              "line": 1.5,
-              "odds": -316
-            },
-            {
-              "line": -2.0,
-              "odds": 147
-            },
-            {
-              "line": -2.5,
-              "odds": 176
-            },
-            {
-              "line": -3.0,
-              "odds": 240
-            },
-            {
-              "line": -3.5,
-              "odds": 273
-            }
-          ],
-          "away": [
-            {
-              "line": 0.0,
-              "odds": 187
-            },
-            {
-              "line": -0.5,
-              "odds": 186
-            },
-            {
-              "line": 0.5,
-              "odds": 186
-            },
-            {
-              "line": -1.0,
-              "odds": 261
-            },
-            {
-              "line": 1.0,
-              "odds": 133
-            },
-            {
-              "line": -1.5,
-              "odds": 298
-            },
-            {
-              "line": 1.5,
-              "odds": -116
-            },
-            {
-              "line": 2.0,
-              "odds": -152
-            },
-            {
-              "line": 2.5,
-              "odds": -185
-            },
-            {
-              "line": 3.0,
-              "odds": -250
-            },
-            {
-              "line": 3.5,
-              "odds": -289
-            }
-          ]
-        }
+        "provider": "DraftKings",
+        "home": "-194",
+        "away": "+180",
+        "espnId": "401816656",
+        "espnGameNumber": null
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG241845COLWSH",
-        "awayVol": 57092.85,
-        "homeVol": 281876.62,
+        "awayVol": 88159.78,
+        "homeVol": 344990.22,
         "awayCents": 35,
-        "homeCents": 65,
-        "awayMult": 0.2025,
-        "homeMult": 4.9372,
-        "maxMult": 4.9372,
-        "totalVol": 338969.47,
+        "homeCents": 66,
+        "awayMult": 0.2555,
+        "homeMult": 3.9132,
+        "maxMult": 3.9132,
+        "totalVol": 433150.0,
         "highSide": "home",
-        "highMult": 4.9372,
+        "highMult": 3.9132,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -6781,7 +6415,7 @@
           "home": [
             {
               "line": 0.0,
-              "odds": 156
+              "odds": 154
             },
             {
               "line": -0.5,
@@ -6827,15 +6461,15 @@
           "away": [
             {
               "line": 0.0,
-              "odds": -162
+              "odds": -161
             },
             {
               "line": -0.5,
-              "odds": -163
+              "odds": -162
             },
             {
               "line": 0.5,
-              "odds": -163
+              "odds": -162
             },
             {
               "line": -1.0,
@@ -6874,16 +6508,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242145CINSF",
-        "awayVol": 169465.87,
-        "homeVol": 25682.58,
-        "awayCents": 61,
+        "awayVol": 204232.52,
+        "homeVol": 27456.45,
+        "awayCents": 62,
         "homeCents": 40,
-        "awayMult": 6.5985,
-        "homeMult": 0.1516,
-        "maxMult": 6.5985,
-        "totalVol": 195148.45,
+        "awayMult": 7.4384,
+        "homeMult": 0.1344,
+        "maxMult": 7.4384,
+        "totalVol": 231688.97,
         "highSide": "away",
-        "highMult": 6.5985,
+        "highMult": 7.4384,
         "favoriteSide": "away",
         "tone": "red"
       }
@@ -6946,22 +6580,22 @@
       "favored": "CWS",
       "odds": {
         "provider": "4casters",
-        "home": "-122",
-        "away": "+121",
+        "home": "-125",
+        "away": "+122",
         "gameId": "6a8b193edfe281b354c9bbe6",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": -127
+              "odds": -125
             },
             {
               "line": -0.5,
-              "odds": -127
+              "odds": -126
             },
             {
               "line": 0.5,
-              "odds": -127
+              "odds": -126
             },
             {
               "line": -1.0,
@@ -6969,7 +6603,7 @@
             },
             {
               "line": 1.0,
-              "odds": -171
+              "odds": -170
             },
             {
               "line": -1.5,
@@ -6981,41 +6615,41 @@
             },
             {
               "line": -2.0,
-              "odds": 228
+              "odds": 229
             },
             {
               "line": -2.5,
-              "odds": 262
+              "odds": 263
             },
             {
               "line": -3.0,
-              "odds": 367
+              "odds": 368
             },
             {
               "line": -3.5,
-              "odds": 403
+              "odds": 405
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": 122
+              "odds": 121
             },
             {
               "line": -0.5,
-              "odds": 122
+              "odds": 120
             },
             {
               "line": 0.5,
-              "odds": 122
+              "odds": 120
             },
             {
               "line": -1.0,
-              "odds": 165
+              "odds": 164
             },
             {
               "line": 1.0,
-              "odds": -123
+              "odds": -124
             },
             {
               "line": -1.5,
@@ -7027,7 +6661,7 @@
             },
             {
               "line": 2.0,
-              "odds": -238
+              "odds": -239
             },
             {
               "line": 2.5,
@@ -7035,29 +6669,29 @@
             },
             {
               "line": 3.0,
-              "odds": -385
+              "odds": -388
             },
             {
               "line": 3.5,
-              "odds": -428
+              "odds": -431
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG241940TEXCWS",
-        "awayVol": 52174.6,
-        "homeVol": 181505.61,
+        "awayVol": 115074.88,
+        "homeVol": 225595.13,
         "awayCents": 45,
         "homeCents": 56,
-        "awayMult": 0.2875,
-        "homeMult": 3.4788,
-        "maxMult": 3.4788,
-        "totalVol": 233680.21,
+        "awayMult": 0.5101,
+        "homeMult": 1.9604,
+        "maxMult": 1.9604,
+        "totalVol": 340670.01,
         "highSide": "home",
-        "highMult": 3.4788,
+        "highMult": 1.9604,
         "favoriteSide": "home",
-        "tone": "yellow"
+        "tone": "muted"
       }
     },
     {
@@ -7072,7 +6706,7 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
+      "status": "Pre-Game",
       "abstractGameState": "Preview",
       "startTimeTBD": false,
       "awayStats": {
@@ -7125,7 +6759,7 @@
           "home": [
             {
               "line": 0.0,
-              "odds": -111
+              "odds": -110
             },
             {
               "line": -0.5,
@@ -7137,61 +6771,61 @@
             },
             {
               "line": -1.0,
-              "odds": 141
+              "odds": 142
             },
             {
               "line": 1.0,
-              "odds": -151
+              "odds": -150
             },
             {
               "line": -1.5,
-              "odds": 198
+              "odds": 199
             },
             {
               "line": 1.5,
-              "odds": -188
+              "odds": -187
             },
             {
               "line": -2.0,
-              "odds": 281
+              "odds": 283
             },
             {
               "line": -2.5,
-              "odds": 321
+              "odds": 322
             },
             {
               "line": -3.0,
-              "odds": 468
+              "odds": 471
             },
             {
               "line": -3.5,
-              "odds": 511
+              "odds": 512
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": 107
+              "odds": 106
             },
             {
               "line": -0.5,
-              "odds": 107
+              "odds": 105
             },
             {
               "line": 0.5,
-              "odds": 107
+              "odds": 105
             },
             {
               "line": -1.0,
-              "odds": 144
+              "odds": 143
             },
             {
               "line": 1.0,
-              "odds": -149
+              "odds": -150
             },
             {
               "line": -1.5,
-              "odds": 178
+              "odds": 177
             },
             {
               "line": 1.5,
@@ -7199,15 +6833,15 @@
             },
             {
               "line": 2.0,
-              "odds": -296
+              "odds": -298
             },
             {
               "line": 2.5,
-              "odds": -341
+              "odds": -343
             },
             {
               "line": 3.0,
-              "odds": -499
+              "odds": -503
             },
             {
               "line": 3.5,
@@ -7218,16 +6852,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242140PITSD",
-        "awayVol": 97826.83,
-        "homeVol": 230526.15,
+        "awayVol": 103795.57,
+        "homeVol": 275460.11,
         "awayCents": 48,
         "homeCents": 53,
-        "awayMult": 0.4244,
-        "homeMult": 2.3565,
-        "maxMult": 2.3565,
-        "totalVol": 328352.98,
+        "awayMult": 0.3768,
+        "homeMult": 2.6539,
+        "maxMult": 2.6539,
+        "totalVol": 379255.68,
         "highSide": "home",
-        "highMult": 2.3565,
+        "highMult": 2.6539,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -7244,8 +6878,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 19.027,
@@ -7290,116 +6924,116 @@
       "favored": "DET",
       "odds": {
         "provider": "4casters",
-        "home": "+124",
-        "away": "-127",
-        "gameId": "6a8b193edfe281b354c9bbe4",
+        "home": "+118",
+        "away": "-125",
+        "gameId": "6a8c6abfdfe281b354ca07f6",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": 124
+              "odds": 118
             },
             {
               "line": -0.5,
-              "odds": 123
+              "odds": 117
             },
             {
               "line": 0.5,
-              "odds": 123
+              "odds": 117
             },
             {
               "line": -1.0,
-              "odds": 199
+              "odds": 189
             },
             {
               "line": 1.0,
-              "odds": -106
+              "odds": -111
             },
             {
               "line": -1.5,
-              "odds": 257
+              "odds": 247
             },
             {
               "line": 1.5,
-              "odds": -137
+              "odds": -146
             },
             {
               "line": 2.0,
-              "odds": -187
+              "odds": -196
             },
             {
               "line": 2.5,
-              "odds": -225
+              "odds": -235
             },
             {
               "line": 3.0,
-              "odds": -314
+              "odds": -328
             },
             {
               "line": 3.5,
-              "odds": -357
+              "odds": -372
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": -128
+              "odds": -124
             },
             {
               "line": -0.5,
-              "odds": -130
+              "odds": -125
             },
             {
               "line": 0.5,
-              "odds": -130
+              "odds": -125
             },
             {
               "line": -1.0,
-              "odds": 102
+              "odds": 106
             },
             {
               "line": 1.0,
-              "odds": -208
+              "odds": -201
             },
             {
               "line": -1.5,
-              "odds": 134
+              "odds": 136
             },
             {
               "line": 1.5,
-              "odds": -274
+              "odds": -265
             },
             {
               "line": -2.0,
-              "odds": 178
+              "odds": 185
             },
             {
               "line": -2.5,
-              "odds": 212
+              "odds": 219
             },
             {
               "line": -3.0,
-              "odds": 296
+              "odds": 306
             },
             {
               "line": -3.5,
-              "odds": 335
+              "odds": 342
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG241840TBDET",
-        "awayVol": 717381.33,
-        "homeVol": 171953.89,
-        "awayCents": 56,
-        "homeCents": 45,
-        "awayMult": 4.1719,
-        "homeMult": 0.2397,
-        "maxMult": 4.1719,
-        "totalVol": 889335.22,
+        "awayVol": 1213016.01,
+        "homeVol": 251257.06,
+        "awayCents": 69,
+        "homeCents": 31,
+        "awayMult": 4.8278,
+        "homeMult": 0.2071,
+        "maxMult": 4.8278,
+        "totalVol": 1464273.07,
         "highSide": "away",
-        "highMult": 4.1719,
+        "highMult": 4.8278,
         "favoriteSide": "away",
         "tone": "yellow"
       }
@@ -7462,26 +7096,26 @@
       "favored": "MIN",
       "odds": {
         "provider": "4casters",
-        "home": "+137",
+        "home": "+134",
         "away": "-138",
         "gameId": "6a8b193edfe281b354c9bbea",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": 135
+              "odds": 134
             },
             {
               "line": -0.5,
-              "odds": 134
+              "odds": 133
             },
             {
               "line": 0.5,
-              "odds": 134
+              "odds": 133
             },
             {
               "line": -1.0,
-              "odds": 205
+              "odds": 204
             },
             {
               "line": 1.0,
@@ -7493,11 +7127,11 @@
             },
             {
               "line": 1.5,
-              "odds": -114
+              "odds": -115
             },
             {
               "line": 2.0,
-              "odds": -142
+              "odds": -143
             },
             {
               "line": 2.5,
@@ -7505,25 +7139,25 @@
             },
             {
               "line": 3.0,
-              "odds": -216
+              "odds": -217
             },
             {
               "line": 3.5,
-              "odds": -244
+              "odds": -246
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": -139
+              "odds": -138
             },
             {
               "line": -0.5,
-              "odds": -140
+              "odds": -139
             },
             {
               "line": 0.5,
-              "odds": -140
+              "odds": -139
             },
             {
               "line": -1.0,
@@ -7531,15 +7165,15 @@
             },
             {
               "line": 1.0,
-              "odds": -214
+              "odds": -213
             },
             {
               "line": -1.5,
-              "odds": 109
+              "odds": 112
             },
             {
               "line": 1.5,
-              "odds": -269
+              "odds": -268
             },
             {
               "line": -2.0,
@@ -7562,16 +7196,16 @@
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242140MINATH",
-        "awayVol": 137344.19,
-        "homeVol": 91722.59,
+        "awayVol": 156939.81,
+        "homeVol": 94853.94,
         "awayCents": 59,
         "homeCents": 43,
-        "awayMult": 1.4974,
-        "homeMult": 0.6678,
-        "maxMult": 1.4974,
-        "totalVol": 229066.78,
+        "awayMult": 1.6545,
+        "homeMult": 0.6044,
+        "maxMult": 1.6545,
+        "totalVol": 251793.75,
         "highSide": "away",
-        "highMult": 1.4974,
+        "highMult": 1.6545,
         "favoriteSide": "away",
         "tone": "muted"
       }
@@ -7588,8 +7222,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 17.908,
@@ -7730,20 +7364,22 @@
               "odds": 366
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-08-24T22:09:36Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG241840BOSMIA",
-        "awayVol": 340086.1,
-        "homeVol": 312146.72,
-        "awayCents": 54,
-        "homeCents": 47,
-        "awayMult": 1.0895,
-        "homeMult": 0.9178,
-        "maxMult": 1.0895,
-        "totalVol": 652232.82,
-        "highSide": "away",
-        "highMult": 1.0895,
+        "awayVol": 532298.66,
+        "homeVol": 573260.34,
+        "awayCents": 52,
+        "homeCents": 49,
+        "awayMult": 0.9285,
+        "homeMult": 1.077,
+        "maxMult": 1.077,
+        "totalVol": 1105559.0,
+        "highSide": "home",
+        "highMult": 1.077,
         "favoriteSide": "away",
         "tone": "muted"
       }
@@ -7806,116 +7442,116 @@
       "favored": "PHI",
       "odds": {
         "provider": "4casters",
-        "home": "+105",
+        "home": "+107",
         "away": "-108",
         "gameId": "6a8b193edfe281b354c9bbee",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": 104
+              "odds": 107
             },
             {
               "line": -0.5,
-              "odds": 103
+              "odds": 106
             },
             {
               "line": 0.5,
-              "odds": 103
+              "odds": 106
             },
             {
               "line": -1.0,
-              "odds": 166
+              "odds": 172
             },
             {
               "line": 1.0,
-              "odds": -134
+              "odds": -131
             },
             {
               "line": -1.5,
-              "odds": 225
+              "odds": 231
             },
             {
               "line": 1.5,
-              "odds": -175
+              "odds": -166
             },
             {
               "line": 2.0,
-              "odds": -254
+              "odds": -250
             },
             {
               "line": 2.5,
-              "odds": -303
+              "odds": -296
             },
             {
               "line": 3.0,
-              "odds": -450
+              "odds": -441
             },
             {
               "line": 3.5,
-              "odds": -503
+              "odds": -494
             }
           ],
           "away": [
             {
               "line": 0.0,
-              "odds": -107
+              "odds": -110
             },
             {
               "line": -0.5,
-              "odds": -108
+              "odds": -111
             },
             {
               "line": 0.5,
-              "odds": -108
+              "odds": -111
             },
             {
               "line": -1.0,
-              "odds": 129
+              "odds": 126
             },
             {
               "line": 1.0,
-              "odds": -173
+              "odds": -178
             },
             {
               "line": -1.5,
-              "odds": 170
+              "odds": 163
             },
             {
               "line": 1.5,
-              "odds": -237
+              "odds": -243
             },
             {
               "line": -2.0,
-              "odds": 242
+              "odds": 238
             },
             {
               "line": -2.5,
-              "odds": 285
+              "odds": 281
             },
             {
               "line": -3.0,
-              "odds": 424
+              "odds": 417
             },
             {
               "line": -3.5,
-              "odds": 469
+              "odds": 462
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242140PHISEA",
-        "awayVol": 237556.62,
-        "homeVol": 122902.3,
+        "awayVol": 273783.78,
+        "homeVol": 157482.69,
         "awayCents": 52,
         "homeCents": 49,
-        "awayMult": 1.9329,
-        "homeMult": 0.5174,
-        "maxMult": 1.9329,
-        "totalVol": 360458.92,
+        "awayMult": 1.7385,
+        "homeMult": 0.5752,
+        "maxMult": 1.7385,
+        "totalVol": 431266.47,
         "highSide": "away",
-        "highMult": 1.9329,
+        "highMult": 1.7385,
         "favoriteSide": "away",
         "tone": "muted"
       }
@@ -7985,7 +7621,7 @@
           "home": [
             {
               "line": 0.0,
-              "odds": 130
+              "odds": 131
             },
             {
               "line": -0.5,
@@ -7997,7 +7633,7 @@
             },
             {
               "line": -1.0,
-              "odds": 205
+              "odds": 206
             },
             {
               "line": 1.0,
@@ -8005,27 +7641,27 @@
             },
             {
               "line": -1.5,
-              "odds": 260
+              "odds": 262
             },
             {
               "line": 1.5,
-              "odds": -123
+              "odds": -122
             },
             {
               "line": 2.0,
-              "odds": -163
+              "odds": -162
             },
             {
               "line": 2.5,
-              "odds": -195
+              "odds": -194
             },
             {
               "line": 3.0,
-              "odds": -262
+              "odds": -261
             },
             {
               "line": 3.5,
-              "odds": -299
+              "odds": -298
             }
           ],
           "away": [
@@ -8043,7 +7679,7 @@
             },
             {
               "line": -1.0,
-              "odds": -106
+              "odds": -107
             },
             {
               "line": 1.0,
@@ -8051,7 +7687,7 @@
             },
             {
               "line": -1.5,
-              "odds": 120
+              "odds": 119
             },
             {
               "line": 1.5,
@@ -8059,35 +7695,35 @@
             },
             {
               "line": -2.0,
-              "odds": 157
+              "odds": 155
             },
             {
               "line": -2.5,
-              "odds": 185
+              "odds": 184
             },
             {
               "line": -3.0,
-              "odds": 251
+              "odds": 249
             },
             {
               "line": -3.5,
-              "odds": 283
+              "odds": 280
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242140CHCAZ",
-        "awayVol": 144123.84,
-        "homeVol": 46227.59,
+        "awayVol": 163618.91,
+        "homeVol": 56931.01,
         "awayCents": 58,
         "homeCents": 43,
-        "awayMult": 3.1177,
-        "homeMult": 0.3207,
-        "maxMult": 3.1177,
-        "totalVol": 190351.43,
+        "awayMult": 2.874,
+        "homeMult": 0.3479,
+        "maxMult": 2.874,
+        "totalVol": 220549.92,
         "highSide": "away",
-        "highMult": 3.1177,
+        "highMult": 2.874,
         "favoriteSide": "away",
         "tone": "yellow"
       }
@@ -8150,26 +7786,26 @@
       "favored": "CLE",
       "odds": {
         "provider": "4casters",
-        "home": "+150",
-        "away": "-154",
+        "home": "+152",
+        "away": "-153",
         "gameId": "6a8b193edfe281b354c9bbe8",
         "spreads": {
           "home": [
             {
               "line": 0.0,
-              "odds": 150
+              "odds": 151
             },
             {
               "line": -0.5,
-              "odds": 149
+              "odds": 151
             },
             {
               "line": 0.5,
-              "odds": 149
+              "odds": 151
             },
             {
               "line": -1.0,
-              "odds": 248
+              "odds": 249
             },
             {
               "line": 1.0,
@@ -8177,11 +7813,11 @@
             },
             {
               "line": -1.5,
-              "odds": 310
+              "odds": 311
             },
             {
               "line": 1.5,
-              "odds": -112
+              "odds": -113
             },
             {
               "line": 2.0,
@@ -8193,7 +7829,7 @@
             },
             {
               "line": 3.0,
-              "odds": -266
+              "odds": -265
             },
             {
               "line": 3.5,
@@ -8203,7 +7839,7 @@
           "away": [
             {
               "line": 0.0,
-              "odds": -156
+              "odds": -158
             },
             {
               "line": -0.5,
@@ -8215,11 +7851,11 @@
             },
             {
               "line": -1.0,
-              "odds": -121
+              "odds": -122
             },
             {
               "line": 1.0,
-              "odds": -260
+              "odds": -262
             },
             {
               "line": -1.5,
@@ -8227,7 +7863,7 @@
             },
             {
               "line": 1.5,
-              "odds": -328
+              "odds": -329
             },
             {
               "line": -2.0,
@@ -8243,23 +7879,23 @@
             },
             {
               "line": -3.5,
-              "odds": 288
+              "odds": 289
             }
           ]
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26AUG242138CLELAA",
-        "awayVol": 118944.8,
-        "homeVol": 26024.84,
+        "awayVol": 144718.94,
+        "homeVol": 33772.56,
         "awayCents": 61,
         "homeCents": 40,
-        "awayMult": 4.5704,
-        "homeMult": 0.2188,
-        "maxMult": 4.5704,
-        "totalVol": 144969.64,
+        "awayMult": 4.2851,
+        "homeMult": 0.2334,
+        "maxMult": 4.2851,
+        "totalVol": 178491.5,
         "highSide": "away",
-        "highMult": 4.5704,
+        "highMult": 4.2851,
         "favoriteSide": "away",
         "tone": "yellow"
       }
