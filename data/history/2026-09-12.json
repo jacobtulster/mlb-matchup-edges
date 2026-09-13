@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 9,
-        "wins": 4,
+        "n": 10,
+        "wins": 5,
         "losses": 5,
         "pushes": 0,
-        "hitRate": 0.4444,
-        "stakedDollars": 1579.0,
-        "profitDollars": -381.0,
-        "roi": -0.2413
+        "hitRate": 0.5,
+        "stakedDollars": 1812.0,
+        "profitDollars": -281.0,
+        "roi": -0.1551
       },
       "model": {
-        "n": 9,
-        "wins": 5,
+        "n": 10,
+        "wins": 6,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.5556,
+        "hitRate": 0.6,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 9,
-        "wins": 3,
+        "n": 10,
+        "wins": 4,
         "losses": 6,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 9,
+        "n": 10,
         "wins": 2,
-        "losses": 7,
+        "losses": 8,
         "pushes": 0,
-        "hitRate": 0.2222,
-        "stakedDollars": 1504.0,
-        "profitDollars": -781.0,
-        "roi": -0.5193
+        "hitRate": 0.2,
+        "stakedDollars": 1704.0,
+        "profitDollars": -881.0,
+        "roi": -0.517
       },
       "model": {
-        "n": 9,
-        "wins": 5,
+        "n": 10,
+        "wins": 6,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.5556,
+        "hitRate": 0.6,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 9,
-        "wins": 3,
+        "n": 10,
+        "wins": 4,
         "losses": 6,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 9,
+        "n": 10,
         "wins": 2,
-        "losses": 7,
+        "losses": 8,
         "pushes": 0,
-        "hitRate": 0.2222,
-        "stakedDollars": 1504.0,
-        "profitDollars": -781.0,
-        "roi": -0.5193
+        "hitRate": 0.2,
+        "stakedDollars": 1704.0,
+        "profitDollars": -881.0,
+        "roi": -0.517
       },
       "model": {
-        "n": 9,
-        "wins": 5,
+        "n": 10,
+        "wins": 6,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.5556,
+        "hitRate": 0.6,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 9,
-        "wins": 3,
+        "n": 10,
+        "wins": 4,
         "losses": 6,
         "pushes": 0,
-        "hitRate": 0.3333,
+        "hitRate": 0.4,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -5281,12 +5281,174 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 1,
-        "homeScore": 0,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Game Over",
+        "awayScore": 2,
+        "homeScore": 3,
+        "winner": "TB",
+        "grades": {
+          "model": {
+            "pick": "TB",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "HOU",
+            "side": "away",
+            "edgePct": 0.021792,
+            "marketMl": 132.0,
+            "spread": {
+              "line": 1.0,
+              "odds": -117
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 132.0,
+                "stakeDollars": 100.0,
+                "outcome": "loss",
+                "profitDollars": -100.0
+              },
+              {
+                "type": "spread",
+                "line": 1.0,
+                "odds": -117.0,
+                "stakeDollars": 100.0,
+                "outcome": "push",
+                "profitDollars": 0.0
+              }
+            ],
+            "stakeDollars": 200.0,
+            "outcome": "loss",
+            "profitDollars": -100.0
+          },
+          "money": {
+            "pick": "TB",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "TB",
+              "side": "home",
+              "edgePct": 0.008198,
+              "marketMl": -133.0,
+              "spread": {
+                "line": -1.0,
+                "odds": -101
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": -133.0,
+                  "stakeDollars": 133.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                },
+                {
+                  "type": "spread",
+                  "line": -1.0,
+                  "odds": -101.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 233.0,
+              "outcome": "win",
+              "profitDollars": 100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "HOU",
+              "side": "away",
+              "edgePct": 0.021792,
+              "marketMl": 132.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -117
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 132.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -117.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "TB",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "HOU",
+              "side": "away",
+              "edgePct": 0.004621,
+              "marketMl": 132.0,
+              "spread": {
+                "line": 1.0,
+                "odds": -117
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 132.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "loss",
+                  "profitDollars": -100.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.0,
+                  "odds": -117.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "push",
+                  "profitDollars": 0.0
+                }
+              ],
+              "stakeDollars": 200.0,
+              "outcome": "loss",
+              "profitDollars": -100.0
+            },
+            "money": {
+              "pick": "TB",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-09-13T01:05:57Z"
       }
     },
     {
@@ -5551,8 +5713,8 @@
       "result": {
         "status": "Live",
         "detailedState": "In Progress",
-        "awayScore": 0,
-        "homeScore": 0,
+        "awayScore": 5,
+        "homeScore": 13,
         "winner": null,
         "grades": {}
       }
@@ -6015,10 +6177,10 @@
         }
       },
       "result": {
-        "status": "Preview",
-        "detailedState": "Pre-Game",
-        "awayScore": 0,
-        "homeScore": 0,
+        "status": "Live",
+        "detailedState": "In Progress",
+        "awayScore": 1,
+        "homeScore": 4,
         "winner": null,
         "grades": {}
       }
@@ -6602,7 +6764,801 @@
       },
       "result": {
         "status": "Live",
-        "detailedState": "Warmup",
+        "detailedState": "In Progress",
+        "awayScore": 1,
+        "homeScore": 8,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 825035,
+      "away": "TEX",
+      "home": "AZ",
+      "awayName": "Texas Rangers",
+      "homeName": "Arizona Diamondbacks",
+      "gameDate": "2026-09-13T00:10:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-09-13T01:05:57Z",
+      "windows": {
+        "season": {
+          "gamePk": 825035,
+          "away": "TEX",
+          "home": "AZ",
+          "awayName": "Texas Rangers",
+          "homeName": "Arizona Diamondbacks",
+          "gameDate": "2026-09-13T00:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "In Progress",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 19.188,
+            "pitWAR": 14.523,
+            "teamWAR": 33.711,
+            "wRCp": 103.31,
+            "BsR": -1.378,
+            "xwOBA": 0.3085,
+            "xFIP": 4.104,
+            "SIERA": 3.967,
+            "OAA": 18.0
+          },
+          "homeStats": {
+            "batWAR": 17.217,
+            "pitWAR": 11.046,
+            "teamWAR": 28.263,
+            "wRCp": 95.212,
+            "BsR": 2.705,
+            "xwOBA": 0.3119,
+            "xFIP": 4.506,
+            "SIERA": 4.435,
+            "OAA": 43.0
+          },
+          "diffTeamWAR": -5.448,
+          "diffWRCp": -8.098,
+          "diffBsR": 4.083,
+          "diffXwOBA": 0.0034,
+          "diffXFIP": -0.401,
+          "diffSIERA": -0.468,
+          "diffOAA": 25.0,
+          "zTeamWAR": -0.7076,
+          "zWRCp": -1.3153,
+          "zBsR": 0.4995,
+          "zXwOBA": 0.3417,
+          "zXFIP": -0.8185,
+          "zSIERA": -0.9491,
+          "zOAA": 0.5107,
+          "overallEdge": -2.4386,
+          "modelScore": -1.1403,
+          "runDelta": -0.4561,
+          "modelHomeProb": 0.443232,
+          "favored": "TEX",
+          "odds": {
+            "provider": "4casters",
+            "home": "-170",
+            "away": "+122",
+            "gameId": "6aa5774a2fe407c0d5ffac6b",
+            "spreads": {
+              "home": [],
+              "away": []
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122010TEXAZ",
+            "awayVol": 237543.64,
+            "homeVol": 275372.21,
+            "awayCents": 33,
+            "homeCents": 68,
+            "awayMult": 0.8626,
+            "homeMult": 1.1592,
+            "maxMult": 1.1592,
+            "totalVol": 512915.85,
+            "highSide": "home",
+            "highMult": 1.1592,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        },
+        "l7": {
+          "gamePk": 825035,
+          "away": "TEX",
+          "home": "AZ",
+          "awayName": "Texas Rangers",
+          "homeName": "Arizona Diamondbacks",
+          "gameDate": "2026-09-13T00:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "In Progress",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 0.965,
+            "pitWAR": 0.409,
+            "teamWAR": 1.374,
+            "wRCp": 102.426,
+            "BsR": 0.894,
+            "xwOBA": 0.3231,
+            "xFIP": 4.387,
+            "SIERA": 4.281,
+            "OAA": 18.0
+          },
+          "homeStats": {
+            "batWAR": 0.941,
+            "pitWAR": 1.285,
+            "teamWAR": 2.226,
+            "wRCp": 103.006,
+            "BsR": -0.346,
+            "xwOBA": 0.3155,
+            "xFIP": 4.503,
+            "SIERA": 4.222,
+            "OAA": 43.0
+          },
+          "diffTeamWAR": 0.852,
+          "diffWRCp": 0.58,
+          "diffBsR": -1.24,
+          "diffXwOBA": -0.0076,
+          "diffXFIP": -0.116,
+          "diffSIERA": 0.059,
+          "diffOAA": 25.0,
+          "zTeamWAR": 0.7989,
+          "zWRCp": 0.0494,
+          "zBsR": -1.3945,
+          "zXwOBA": -0.2628,
+          "zXFIP": 0.1998,
+          "zSIERA": 0.4987,
+          "zOAA": 0.5107,
+          "overallEdge": 0.4001,
+          "modelScore": 0.468,
+          "runDelta": 0.1872,
+          "modelHomeProb": 0.523385,
+          "favored": "AZ",
+          "odds": {
+            "provider": "4casters",
+            "home": "-170",
+            "away": "+122",
+            "gameId": "6aa5774a2fe407c0d5ffac6b",
+            "spreads": {
+              "home": [],
+              "away": []
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122010TEXAZ",
+            "awayVol": 237543.64,
+            "homeVol": 275372.21,
+            "awayCents": 33,
+            "homeCents": 68,
+            "awayMult": 0.8626,
+            "homeMult": 1.1592,
+            "maxMult": 1.1592,
+            "totalVol": 512915.85,
+            "highSide": "home",
+            "highMult": 1.1592,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        },
+        "blend": {
+          "gamePk": 825035,
+          "away": "TEX",
+          "home": "AZ",
+          "awayName": "Texas Rangers",
+          "homeName": "Arizona Diamondbacks",
+          "gameDate": "2026-09-13T00:10:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "In Progress",
+          "abstractGameState": "Live",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 10.076,
+            "pitWAR": 7.466,
+            "teamWAR": 17.543,
+            "wRCp": 102.868,
+            "BsR": -0.242,
+            "xwOBA": 0.3158,
+            "xFIP": 4.245,
+            "SIERA": 4.124,
+            "OAA": 18.0
+          },
+          "homeStats": {
+            "batWAR": 9.079,
+            "pitWAR": 6.165,
+            "teamWAR": 15.244,
+            "wRCp": 99.109,
+            "BsR": 1.179,
+            "xwOBA": 0.3137,
+            "xFIP": 4.505,
+            "SIERA": 4.329,
+            "OAA": 43.0
+          },
+          "diffTeamWAR": -2.298,
+          "diffWRCp": -3.759,
+          "diffBsR": 1.421,
+          "diffXwOBA": -0.0021,
+          "diffXFIP": -0.259,
+          "diffSIERA": -0.205,
+          "diffOAA": 25.0,
+          "zTeamWAR": -0.5779,
+          "zWRCp": -0.3521,
+          "zBsR": 0.3162,
+          "zXwOBA": -0.1056,
+          "zXFIP": -0.1826,
+          "zSIERA": -0.024,
+          "zOAA": 0.5107,
+          "overallEdge": -0.4152,
+          "modelScore": -0.184,
+          "runDelta": -0.0736,
+          "modelHomeProb": 0.490799,
+          "favored": "TEX",
+          "odds": {
+            "provider": "4casters",
+            "home": "-170",
+            "away": "+122",
+            "gameId": "6aa5774a2fe407c0d5ffac6b",
+            "spreads": {
+              "home": [],
+              "away": []
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122010TEXAZ",
+            "awayVol": 237543.64,
+            "homeVol": 275372.21,
+            "awayCents": 33,
+            "homeCents": 68,
+            "awayMult": 0.8626,
+            "homeMult": 1.1592,
+            "maxMult": 1.1592,
+            "totalVol": 512915.85,
+            "highSide": "home",
+            "highMult": 1.1592,
+            "favoriteSide": "home",
+            "tone": "muted"
+          }
+        }
+      },
+      "result": {
+        "status": "Live",
+        "detailedState": "In Progress",
+        "awayScore": 0,
+        "homeScore": 1,
+        "winner": null,
+        "grades": {}
+      }
+    },
+    {
+      "gamePk": 824955,
+      "away": "SEA",
+      "home": "ATH",
+      "awayName": "Seattle Mariners",
+      "homeName": "Athletics",
+      "gameDate": "2026-09-13T01:40:00Z",
+      "gameNumber": 1,
+      "showGameNumber": false,
+      "isDoubleHeader": false,
+      "frozenAt": "2026-09-13T01:05:57Z",
+      "windows": {
+        "season": {
+          "gamePk": 824955,
+          "away": "SEA",
+          "home": "ATH",
+          "awayName": "Seattle Mariners",
+          "homeName": "Athletics",
+          "gameDate": "2026-09-13T01:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 13.229,
+            "pitWAR": 12.752,
+            "teamWAR": 25.981,
+            "wRCp": 99.722,
+            "BsR": -2.188,
+            "xwOBA": 0.3137,
+            "xFIP": 3.892,
+            "SIERA": 3.788,
+            "OAA": -50.0
+          },
+          "homeStats": {
+            "batWAR": 10.983,
+            "pitWAR": 6.27,
+            "teamWAR": 17.253,
+            "wRCp": 95.374,
+            "BsR": -2.983,
+            "xwOBA": 0.311,
+            "xFIP": 4.544,
+            "SIERA": 4.317,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": -8.728,
+          "diffWRCp": -4.348,
+          "diffBsR": -0.795,
+          "diffXwOBA": -0.0027,
+          "diffXFIP": -0.652,
+          "diffSIERA": -0.529,
+          "diffOAA": 11.0,
+          "zTeamWAR": -1.0001,
+          "zWRCp": -0.8554,
+          "zBsR": -0.2478,
+          "zXwOBA": -0.1416,
+          "zXFIP": -1.3285,
+          "zSIERA": -1.0815,
+          "zOAA": -0.0024,
+          "overallEdge": -4.6575,
+          "modelScore": -2.1213,
+          "runDelta": -0.8485,
+          "modelHomeProb": 0.3955,
+          "favored": "SEA",
+          "odds": {
+            "provider": "4casters",
+            "home": "+141",
+            "away": "-145",
+            "gameId": "6aa425ca2fe407c0d5fe11ba",
+            "spreads": {
+              "home": [
+                {
+                  "line": -0.5,
+                  "odds": 118
+                },
+                {
+                  "line": 0.5,
+                  "odds": 114
+                },
+                {
+                  "line": -1.0,
+                  "odds": 173
+                },
+                {
+                  "line": 1.0,
+                  "odds": -109
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -113
+                },
+                {
+                  "line": 2.0,
+                  "odds": -177
+                },
+                {
+                  "line": 2.5,
+                  "odds": -170
+                },
+                {
+                  "line": 3.0,
+                  "odds": -291
+                },
+                {
+                  "line": 3.5,
+                  "odds": -260
+                },
+                {
+                  "line": 4.5,
+                  "odds": -445
+                }
+              ],
+              "away": [
+                {
+                  "line": -0.5,
+                  "odds": -175
+                },
+                {
+                  "line": 0.5,
+                  "odds": -175
+                },
+                {
+                  "line": -1.0,
+                  "odds": -141
+                },
+                {
+                  "line": -1.5,
+                  "odds": 112
+                },
+                {
+                  "line": 1.5,
+                  "odds": -367
+                },
+                {
+                  "line": -2.0,
+                  "odds": 115
+                },
+                {
+                  "line": -2.5,
+                  "odds": 163
+                },
+                {
+                  "line": -3.0,
+                  "odds": 171
+                },
+                {
+                  "line": -3.5,
+                  "odds": 220
+                },
+                {
+                  "line": -4.5,
+                  "odds": 282
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122140SEAATH",
+            "awayVol": 141493.35,
+            "homeVol": 134296.17,
+            "awayCents": 60,
+            "homeCents": 42,
+            "awayMult": 1.0536,
+            "homeMult": 0.9491,
+            "maxMult": 1.0536,
+            "totalVol": 275789.52,
+            "highSide": "away",
+            "highMult": 1.0536,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "l7": {
+          "gamePk": 824955,
+          "away": "SEA",
+          "home": "ATH",
+          "awayName": "Seattle Mariners",
+          "homeName": "Athletics",
+          "gameDate": "2026-09-13T01:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": -0.242,
+            "pitWAR": 0.113,
+            "teamWAR": -0.129,
+            "wRCp": 70.012,
+            "BsR": 0.351,
+            "xwOBA": 0.285,
+            "xFIP": 3.096,
+            "SIERA": 3.252,
+            "OAA": -50.0
+          },
+          "homeStats": {
+            "batWAR": -0.435,
+            "pitWAR": 0.983,
+            "teamWAR": 0.548,
+            "wRCp": 59.152,
+            "BsR": 0.555,
+            "xwOBA": 0.296,
+            "xFIP": 3.885,
+            "SIERA": 3.899,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": 0.677,
+          "diffWRCp": -10.86,
+          "diffBsR": 0.204,
+          "diffXwOBA": 0.011,
+          "diffXFIP": -0.789,
+          "diffSIERA": -0.647,
+          "diffOAA": 11.0,
+          "zTeamWAR": 0.6549,
+          "zWRCp": -0.4154,
+          "zBsR": 0.3959,
+          "zXwOBA": 0.3741,
+          "zXFIP": -0.5818,
+          "zSIERA": -0.3698,
+          "zOAA": -0.0024,
+          "overallEdge": 0.0555,
+          "modelScore": -0.0314,
+          "runDelta": -0.0125,
+          "modelHomeProb": 0.498432,
+          "favored": "SEA",
+          "odds": {
+            "provider": "4casters",
+            "home": "+141",
+            "away": "-145",
+            "gameId": "6aa425ca2fe407c0d5fe11ba",
+            "spreads": {
+              "home": [
+                {
+                  "line": -0.5,
+                  "odds": 118
+                },
+                {
+                  "line": 0.5,
+                  "odds": 114
+                },
+                {
+                  "line": -1.0,
+                  "odds": 173
+                },
+                {
+                  "line": 1.0,
+                  "odds": -109
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -113
+                },
+                {
+                  "line": 2.0,
+                  "odds": -177
+                },
+                {
+                  "line": 2.5,
+                  "odds": -170
+                },
+                {
+                  "line": 3.0,
+                  "odds": -291
+                },
+                {
+                  "line": 3.5,
+                  "odds": -260
+                },
+                {
+                  "line": 4.5,
+                  "odds": -445
+                }
+              ],
+              "away": [
+                {
+                  "line": -0.5,
+                  "odds": -175
+                },
+                {
+                  "line": 0.5,
+                  "odds": -175
+                },
+                {
+                  "line": -1.0,
+                  "odds": -141
+                },
+                {
+                  "line": -1.5,
+                  "odds": 112
+                },
+                {
+                  "line": 1.5,
+                  "odds": -367
+                },
+                {
+                  "line": -2.0,
+                  "odds": 115
+                },
+                {
+                  "line": -2.5,
+                  "odds": 163
+                },
+                {
+                  "line": -3.0,
+                  "odds": 171
+                },
+                {
+                  "line": -3.5,
+                  "odds": 220
+                },
+                {
+                  "line": -4.5,
+                  "odds": 282
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122140SEAATH",
+            "awayVol": 141493.35,
+            "homeVol": 134296.17,
+            "awayCents": 60,
+            "homeCents": 42,
+            "awayMult": 1.0536,
+            "homeMult": 0.9491,
+            "maxMult": 1.0536,
+            "totalVol": 275789.52,
+            "highSide": "away",
+            "highMult": 1.0536,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        },
+        "blend": {
+          "gamePk": 824955,
+          "away": "SEA",
+          "home": "ATH",
+          "awayName": "Seattle Mariners",
+          "homeName": "Athletics",
+          "gameDate": "2026-09-13T01:40:00Z",
+          "gameNumber": 1,
+          "doubleHeader": "N",
+          "isDoubleHeader": false,
+          "showGameNumber": false,
+          "description": null,
+          "status": "Pre-Game",
+          "abstractGameState": "Preview",
+          "startTimeTBD": false,
+          "awayStats": {
+            "batWAR": 6.493,
+            "pitWAR": 6.433,
+            "teamWAR": 12.926,
+            "wRCp": 84.867,
+            "BsR": -0.919,
+            "xwOBA": 0.2994,
+            "xFIP": 3.494,
+            "SIERA": 3.52,
+            "OAA": -50.0
+          },
+          "homeStats": {
+            "batWAR": 5.274,
+            "pitWAR": 3.626,
+            "teamWAR": 8.9,
+            "wRCp": 77.263,
+            "BsR": -1.214,
+            "xwOBA": 0.3035,
+            "xFIP": 4.214,
+            "SIERA": 4.108,
+            "OAA": -39.0
+          },
+          "diffTeamWAR": -4.025,
+          "diffWRCp": -7.604,
+          "diffBsR": -0.295,
+          "diffXwOBA": 0.0041,
+          "diffXFIP": -0.72,
+          "diffSIERA": -0.588,
+          "diffOAA": 11.0,
+          "zTeamWAR": -0.8645,
+          "zWRCp": -0.6368,
+          "zBsR": -0.1923,
+          "zXwOBA": 0.2804,
+          "zXFIP": -0.9114,
+          "zSIERA": -0.6786,
+          "zOAA": -0.0024,
+          "overallEdge": -3.0056,
+          "modelScore": -1.4113,
+          "runDelta": -0.5645,
+          "modelHomeProb": 0.429897,
+          "favored": "SEA",
+          "odds": {
+            "provider": "4casters",
+            "home": "+141",
+            "away": "-145",
+            "gameId": "6aa425ca2fe407c0d5fe11ba",
+            "spreads": {
+              "home": [
+                {
+                  "line": -0.5,
+                  "odds": 118
+                },
+                {
+                  "line": 0.5,
+                  "odds": 114
+                },
+                {
+                  "line": -1.0,
+                  "odds": 173
+                },
+                {
+                  "line": 1.0,
+                  "odds": -109
+                },
+                {
+                  "line": -1.5,
+                  "odds": 230
+                },
+                {
+                  "line": 1.5,
+                  "odds": -113
+                },
+                {
+                  "line": 2.0,
+                  "odds": -177
+                },
+                {
+                  "line": 2.5,
+                  "odds": -170
+                },
+                {
+                  "line": 3.0,
+                  "odds": -291
+                },
+                {
+                  "line": 3.5,
+                  "odds": -260
+                },
+                {
+                  "line": 4.5,
+                  "odds": -445
+                }
+              ],
+              "away": [
+                {
+                  "line": -0.5,
+                  "odds": -175
+                },
+                {
+                  "line": 0.5,
+                  "odds": -175
+                },
+                {
+                  "line": -1.0,
+                  "odds": -141
+                },
+                {
+                  "line": -1.5,
+                  "odds": 112
+                },
+                {
+                  "line": 1.5,
+                  "odds": -367
+                },
+                {
+                  "line": -2.0,
+                  "odds": 115
+                },
+                {
+                  "line": -2.5,
+                  "odds": 163
+                },
+                {
+                  "line": -3.0,
+                  "odds": 171
+                },
+                {
+                  "line": -3.5,
+                  "odds": 220
+                },
+                {
+                  "line": -4.5,
+                  "odds": 282
+                }
+              ]
+            }
+          },
+          "kalshi": {
+            "eventTicker": "KXMLBGAME-26SEP122140SEAATH",
+            "awayVol": 141493.35,
+            "homeVol": 134296.17,
+            "awayCents": 60,
+            "homeCents": 42,
+            "awayMult": 1.0536,
+            "homeMult": 0.9491,
+            "maxMult": 1.0536,
+            "totalVol": 275789.52,
+            "highSide": "away",
+            "highMult": 1.0536,
+            "favoriteSide": "away",
+            "tone": "muted"
+          }
+        }
+      },
+      "result": {
+        "status": "Preview",
+        "detailedState": "Pre-Game",
         "awayScore": 0,
         "homeScore": 0,
         "winner": null,
@@ -6610,5 +7566,5 @@
       }
     }
   ],
-  "updatedAt": "2026-09-12T23:13:11Z"
+  "updatedAt": "2026-09-13T01:05:57Z"
 }
