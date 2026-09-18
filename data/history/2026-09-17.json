@@ -3,31 +3,31 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 8,
-        "wins": 5,
-        "losses": 2,
-        "pushes": 0,
-        "hitRate": 0.7143,
-        "stakedDollars": 1914.0,
-        "profitDollars": 451.0,
-        "roi": 0.2356
-      },
-      "model": {
-        "n": 8,
+        "n": 9,
         "wins": 6,
         "losses": 2,
         "pushes": 0,
         "hitRate": 0.75,
+        "stakedDollars": 2162.0,
+        "profitDollars": 664.0,
+        "roi": 0.3071
+      },
+      "model": {
+        "n": 9,
+        "wins": 7,
+        "losses": 2,
+        "pushes": 0,
+        "hitRate": 0.7778,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
+        "n": 9,
         "wins": 5,
-        "losses": 3,
+        "losses": 4,
         "pushes": 0,
-        "hitRate": 0.625,
+        "hitRate": 0.5556,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,31 +35,31 @@
     },
     "l7": {
       "edge": {
-        "n": 8,
-        "wins": 1,
+        "n": 9,
+        "wins": 2,
         "losses": 6,
         "pushes": 0,
-        "hitRate": 0.1429,
-        "stakedDollars": 1772.0,
-        "profitDollars": -1071.0,
-        "roi": -0.6044
+        "hitRate": 0.25,
+        "stakedDollars": 2020.0,
+        "profitDollars": -858.0,
+        "roi": -0.4248
       },
       "model": {
-        "n": 8,
-        "wins": 4,
+        "n": 9,
+        "wins": 5,
         "losses": 4,
         "pushes": 0,
-        "hitRate": 0.5,
+        "hitRate": 0.5556,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
+        "n": 9,
         "wins": 5,
-        "losses": 3,
+        "losses": 4,
         "pushes": 0,
-        "hitRate": 0.625,
+        "hitRate": 0.5556,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 8,
-        "wins": 3,
-        "losses": 4,
-        "pushes": 0,
-        "hitRate": 0.4286,
-        "stakedDollars": 1947.0,
-        "profitDollars": -243.0,
-        "roi": -0.1248
-      },
-      "model": {
-        "n": 8,
+        "n": 9,
         "wins": 4,
         "losses": 4,
         "pushes": 0,
         "hitRate": 0.5,
+        "stakedDollars": 2195.0,
+        "profitDollars": -30.0,
+        "roi": -0.0137
+      },
+      "model": {
+        "n": 9,
+        "wins": 5,
+        "losses": 4,
+        "pushes": 0,
+        "hitRate": 0.5556,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 8,
+        "n": 9,
         "wins": 5,
-        "losses": 3,
+        "losses": 4,
         "pushes": 0,
-        "hitRate": 0.625,
+        "hitRate": 0.5556,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -6125,14 +6125,176 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 3,
-        "homeScore": 3,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 4,
+        "homeScore": 5,
+        "winner": "LAA",
+        "grades": {
+          "model": {
+            "pick": "LAA",
+            "outcome": "win"
+          },
+          "value": {
+            "pick": "LAA",
+            "side": "home",
+            "edgePct": 0.13081,
+            "marketMl": 113.0,
+            "spread": {
+              "line": 1.5,
+              "odds": -148
+            },
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 113.0,
+                "stakeDollars": 100.0,
+                "outcome": "win",
+                "profitDollars": 113.0
+              },
+              {
+                "type": "spread",
+                "line": 1.5,
+                "odds": -148.0,
+                "stakeDollars": 148.0,
+                "outcome": "win",
+                "profitDollars": 100.0
+              }
+            ],
+            "stakeDollars": 248.0,
+            "outcome": "win",
+            "profitDollars": 213.0
+          },
+          "money": {
+            "pick": "MIN",
+            "outcome": "loss"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "LAA",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "LAA",
+              "side": "home",
+              "edgePct": 0.071128,
+              "marketMl": 113.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -148
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 113.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 113.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -148.0,
+                  "stakeDollars": 148.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 248.0,
+              "outcome": "win",
+              "profitDollars": 213.0
+            },
+            "money": {
+              "pick": "MIN",
+              "outcome": "loss"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "LAA",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "LAA",
+              "side": "home",
+              "edgePct": 0.13081,
+              "marketMl": 113.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -148
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 113.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 113.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -148.0,
+                  "stakeDollars": 148.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 248.0,
+              "outcome": "win",
+              "profitDollars": 213.0
+            },
+            "money": {
+              "pick": "MIN",
+              "outcome": "loss"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": "LAA",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "LAA",
+              "side": "home",
+              "edgePct": 0.105596,
+              "marketMl": 113.0,
+              "spread": {
+                "line": 1.5,
+                "odds": -148
+              },
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 113.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 113.0
+                },
+                {
+                  "type": "spread",
+                  "line": 1.5,
+                  "odds": -148.0,
+                  "stakeDollars": 148.0,
+                  "outcome": "win",
+                  "profitDollars": 100.0
+                }
+              ],
+              "stakeDollars": 248.0,
+              "outcome": "win",
+              "profitDollars": 213.0
+            },
+            "money": {
+              "pick": "MIN",
+              "outcome": "loss"
+            }
+          }
+        },
+        "gradedAt": "2026-09-18T08:53:22Z"
       }
     }
   ],
-  "updatedAt": "2026-09-18T03:50:13Z"
+  "updatedAt": "2026-09-18T08:53:22Z"
 }
