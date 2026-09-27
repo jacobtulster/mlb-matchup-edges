@@ -2,12 +2,12 @@
   "date": "2026-09-27",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-09-27T15:33:28Z",
+  "updatedAt": "2026-09-27T19:17:57Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 8.622,
@@ -468,22 +468,24 @@
                   "odds": -358
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510COLCWS",
-            "awayVol": 148944.58,
-            "homeVol": 26519.64,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 5.6164,
-            "homeMult": 0.1781,
-            "maxMult": 5.6164,
-            "totalVol": 175464.22,
+            "awayVol": 159755.18,
+            "homeVol": 53653.49,
+            "awayCents": 39,
+            "homeCents": 62,
+            "awayMult": 2.9775,
+            "homeMult": 0.3358,
+            "maxMult": 2.9775,
+            "totalVol": 213408.67,
             "highSide": "away",
-            "highMult": 5.6164,
+            "highMult": 2.9775,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "yellow"
           }
         },
         {
@@ -498,8 +500,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 15.667,
@@ -644,20 +646,22 @@
                   "odds": -310
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510STLMIL",
-            "awayVol": 23502.92,
-            "homeVol": 142831.33,
-            "awayCents": 36,
-            "homeCents": 64,
-            "awayMult": 0.1646,
-            "homeMult": 6.0772,
-            "maxMult": 6.0772,
-            "totalVol": 166334.25,
+            "awayVol": 32882.49,
+            "homeVol": 204407.98,
+            "awayCents": 31,
+            "homeCents": 70,
+            "awayMult": 0.1609,
+            "homeMult": 6.2163,
+            "maxMult": 6.2163,
+            "totalVol": 237290.47,
             "highSide": "home",
-            "highMult": 6.0772,
+            "highMult": 6.2163,
             "favoriteSide": "home",
             "tone": "red"
           }
@@ -674,7 +678,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
+          "status": "Delayed Start",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -719,99 +723,26 @@
           "modelHomeProb": 0.600523,
           "favored": "NYY",
           "odds": {
-            "provider": "4casters",
-            "home": "-110",
-            "away": "+108",
-            "gameId": "6ab92333abf870e88e0857bf",
-            "spreads": {
-              "home": [
-                {
-                  "line": -0.5,
-                  "odds": -135
-                },
-                {
-                  "line": 0.5,
-                  "odds": -120
-                },
-                {
-                  "line": -1.0,
-                  "odds": 121
-                },
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": -2.0,
-                  "odds": 205
-                },
-                {
-                  "line": -2.5,
-                  "odds": 268
-                },
-                {
-                  "line": -3.0,
-                  "odds": 331
-                },
-                {
-                  "line": -3.5,
-                  "odds": 408
-                },
-                {
-                  "line": -4.5,
-                  "odds": 495
-                }
-              ],
-              "away": [
-                {
-                  "line": -0.5,
-                  "odds": -101
-                },
-                {
-                  "line": 0.5,
-                  "odds": -112
-                },
-                {
-                  "line": 1.0,
-                  "odds": -163
-                },
-                {
-                  "line": 1.5,
-                  "odds": -187
-                },
-                {
-                  "line": 2.0,
-                  "odds": -336
-                },
-                {
-                  "line": 2.5,
-                  "odds": -312
-                },
-                {
-                  "line": 3.0,
-                  "odds": -558
-                },
-                {
-                  "line": 3.5,
-                  "odds": -618
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-120",
+            "away": "+100",
+            "espnId": "401817103",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271520BALNYY",
-            "awayVol": 117865.84,
-            "homeVol": 51941.31,
+            "awayVol": 150278.37,
+            "homeVol": 126902.09,
             "awayCents": 48,
             "homeCents": 52,
-            "awayMult": 2.2692,
-            "homeMult": 0.4407,
-            "maxMult": 2.2692,
-            "totalVol": 169807.15,
+            "awayMult": 1.1842,
+            "homeMult": 0.8444,
+            "maxMult": 1.1842,
+            "totalVol": 277180.46,
             "highSide": "away",
-            "highMult": 2.2692,
+            "highMult": 1.1842,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -826,8 +757,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.543,
@@ -976,20 +907,22 @@
                   "odds": -308
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271507CINTOR",
-            "awayVol": 6261.35,
-            "homeVol": 6035.17,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 1.0375,
-            "homeMult": 0.9639,
-            "maxMult": 1.0375,
-            "totalVol": 12296.52,
+            "awayVol": 29855.01,
+            "homeVol": 18243.91,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 1.6364,
+            "homeMult": 0.6111,
+            "maxMult": 1.6364,
+            "totalVol": 48098.92,
             "highSide": "away",
-            "highMult": 1.0375,
+            "highMult": 1.6364,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -1006,8 +939,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.118,
@@ -1156,20 +1089,22 @@
                   "odds": -385
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510LAASEA",
-            "awayVol": 12092.63,
-            "homeVol": 5007.88,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 2.4147,
-            "homeMult": 0.4141,
-            "maxMult": 2.4147,
-            "totalVol": 17100.51,
-            "highSide": "away",
-            "highMult": 2.4147,
+            "awayVol": 25537.02,
+            "homeVol": 59831.6,
+            "awayCents": 36,
+            "homeCents": 65,
+            "awayMult": 0.4268,
+            "homeMult": 2.3429,
+            "maxMult": 2.3429,
+            "totalVol": 85368.62,
+            "highSide": "home",
+            "highMult": 2.3429,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -1186,8 +1121,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 20.614,
@@ -1332,20 +1267,22 @@
                   "odds": 384
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510AZSD",
-            "awayVol": 88556.35,
-            "homeVol": 26192.54,
-            "awayCents": 58,
-            "homeCents": 43,
-            "awayMult": 3.381,
-            "homeMult": 0.2958,
-            "maxMult": 3.381,
-            "totalVol": 114748.89,
+            "awayVol": 187745.17,
+            "homeVol": 89512.2,
+            "awayCents": 55,
+            "homeCents": 46,
+            "awayMult": 2.0974,
+            "homeMult": 0.4768,
+            "maxMult": 2.0974,
+            "totalVol": 277257.37,
             "highSide": "away",
-            "highMult": 3.381,
+            "highMult": 2.0974,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -1362,8 +1299,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 14.773,
@@ -1520,21 +1457,23 @@
                   "odds": -551
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505NYMWSH",
-            "awayVol": 17318.55,
-            "homeVol": 15253.36,
-            "awayCents": 52,
-            "homeCents": 50,
-            "awayMult": 1.1354,
-            "homeMult": 0.8808,
-            "maxMult": 1.1354,
-            "totalVol": 32571.91,
+            "awayVol": 225750.92,
+            "homeVol": 136685.9,
+            "awayCents": 48,
+            "homeCents": 52,
+            "awayMult": 1.6516,
+            "homeMult": 0.6055,
+            "maxMult": 1.6516,
+            "totalVol": 362436.82,
             "highSide": "away",
-            "highMult": 1.1354,
-            "favoriteSide": "away",
+            "highMult": 1.6516,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -1544,14 +1483,14 @@
           "home": "PHI",
           "awayName": "Tampa Bay Rays",
           "homeName": "Philadelphia Phillies",
-          "gameDate": "2026-09-27T19:05:00Z",
+          "gameDate": "2026-09-27T18:30:00Z",
           "gameNumber": 1,
           "doubleHeader": "N",
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 23.702,
@@ -1704,22 +1643,24 @@
                   "odds": -438
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
-            "awayVol": 139001.43,
-            "homeVol": 303590.27,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 0.4579,
-            "homeMult": 2.1841,
-            "maxMult": 2.1841,
-            "totalVol": 442591.7,
-            "highSide": "home",
-            "highMult": 2.1841,
+            "awayVol": 549573.56,
+            "homeVol": 451214.3,
+            "awayCents": 6,
+            "homeCents": 94,
+            "awayMult": 1.218,
+            "homeMult": 0.821,
+            "maxMult": 1.218,
+            "totalVol": 1000787.86,
+            "highSide": "away",
+            "highMult": 1.218,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -1734,8 +1675,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 17.452,
@@ -1896,20 +1837,22 @@
                   "odds": 539
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510ATLMIA",
-            "awayVol": 25979.84,
-            "homeVol": 30844.94,
-            "awayCents": 48,
-            "homeCents": 53,
-            "awayMult": 0.8423,
-            "homeMult": 1.1873,
-            "maxMult": 1.1873,
-            "totalVol": 56824.78,
+            "awayVol": 46502.15,
+            "homeVol": 67343.32,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.6905,
+            "homeMult": 1.4482,
+            "maxMult": 1.4482,
+            "totalVol": 113845.47,
             "highSide": "home",
-            "highMult": 1.1873,
+            "highMult": 1.4482,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -1926,8 +1869,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 18.286,
@@ -2072,20 +2015,22 @@
                   "odds": 484
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510PITDET",
-            "awayVol": 38565.95,
-            "homeVol": 62914.94,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.613,
-            "homeMult": 1.6314,
-            "maxMult": 1.6314,
-            "totalVol": 101480.89,
-            "highSide": "home",
-            "highMult": 1.6314,
+            "awayVol": 93961.3,
+            "homeVol": 75004.12,
+            "awayCents": 55,
+            "homeCents": 45,
+            "awayMult": 1.2527,
+            "homeMult": 0.7982,
+            "maxMult": 1.2527,
+            "totalVol": 168965.42,
+            "highSide": "away",
+            "highMult": 1.2527,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -2102,8 +2047,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 20.387,
@@ -2248,21 +2193,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510TEXMIN",
-            "awayVol": 47734.97,
-            "homeVol": 78198.56,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.6104,
-            "homeMult": 1.6382,
-            "maxMult": 1.6382,
-            "totalVol": 125933.53,
+            "awayVol": 98909.3,
+            "homeVol": 99212.22,
+            "awayCents": 47,
+            "homeCents": 54,
+            "awayMult": 0.9969,
+            "homeMult": 1.0031,
+            "maxMult": 1.0031,
+            "totalVol": 198121.52,
             "highSide": "home",
-            "highMult": 1.6382,
-            "favoriteSide": "away",
+            "highMult": 1.0031,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -2278,8 +2225,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 20.643,
@@ -2428,20 +2375,22 @@
                   "odds": 248
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505HOUATH",
-            "awayVol": 81832.74,
-            "homeVol": 18203.81,
-            "awayCents": 65,
-            "homeCents": 36,
-            "awayMult": 4.4954,
-            "homeMult": 0.2225,
-            "maxMult": 4.4954,
-            "totalVol": 100036.55,
+            "awayVol": 244995.94,
+            "homeVol": 69202.11,
+            "awayCents": 60,
+            "homeCents": 41,
+            "awayMult": 3.5403,
+            "homeMult": 0.2825,
+            "maxMult": 3.5403,
+            "totalVol": 314198.05,
             "highSide": "away",
-            "highMult": 4.4954,
+            "highMult": 3.5403,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -2458,8 +2407,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 19.236,
@@ -2612,21 +2561,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510CLEKC",
-            "awayVol": 174080.61,
-            "homeVol": 254652.52,
-            "awayCents": 51,
-            "homeCents": 50,
-            "awayMult": 0.6836,
-            "homeMult": 1.4628,
-            "maxMult": 1.4628,
-            "totalVol": 428733.13,
+            "awayVol": 256987.39,
+            "homeVol": 290003.08,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.8862,
+            "homeMult": 1.1285,
+            "maxMult": 1.1285,
+            "totalVol": 546990.47,
             "highSide": "home",
-            "highMult": 1.4628,
-            "favoriteSide": "away",
+            "highMult": 1.1285,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -2642,8 +2593,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "at Tropicana Field",
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 37.2,
@@ -2728,7 +2679,9 @@
                   "odds": 564
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": null
         },
@@ -2744,8 +2697,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 26.871,
@@ -2898,20 +2851,22 @@
                   "odds": 341
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505LADSF",
-            "awayVol": 30145.02,
-            "homeVol": 59697.13,
-            "awayCents": 70,
+            "awayVol": 99963.54,
+            "homeVol": 140195.2,
+            "awayCents": 69,
             "homeCents": 32,
-            "awayMult": 0.505,
-            "homeMult": 1.9803,
-            "maxMult": 1.9803,
-            "totalVol": 89842.15,
+            "awayMult": 0.713,
+            "homeMult": 1.4025,
+            "maxMult": 1.4025,
+            "totalVol": 240158.74,
             "highSide": "home",
-            "highMult": 1.9803,
+            "highMult": 1.4025,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -3269,8 +3224,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": -0.172,
@@ -3359,22 +3314,24 @@
                   "odds": -358
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510COLCWS",
-            "awayVol": 148944.58,
-            "homeVol": 26519.64,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 5.6164,
-            "homeMult": 0.1781,
-            "maxMult": 5.6164,
-            "totalVol": 175464.22,
+            "awayVol": 159755.18,
+            "homeVol": 53653.49,
+            "awayCents": 39,
+            "homeCents": 62,
+            "awayMult": 2.9775,
+            "homeMult": 0.3358,
+            "maxMult": 2.9775,
+            "totalVol": 213408.67,
             "highSide": "away",
-            "highMult": 5.6164,
+            "highMult": 2.9775,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "yellow"
           }
         },
         {
@@ -3389,8 +3346,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.188,
@@ -3539,20 +3496,22 @@
                   "odds": -308
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271507CINTOR",
-            "awayVol": 6261.35,
-            "homeVol": 6035.17,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 1.0375,
-            "homeMult": 0.9639,
-            "maxMult": 1.0375,
-            "totalVol": 12296.52,
+            "awayVol": 29855.01,
+            "homeVol": 18243.91,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 1.6364,
+            "homeMult": 0.6111,
+            "maxMult": 1.6364,
+            "totalVol": 48098.92,
             "highSide": "away",
-            "highMult": 1.0375,
+            "highMult": 1.6364,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -3569,8 +3528,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.047,
@@ -3715,21 +3674,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510TEXMIN",
-            "awayVol": 47734.97,
-            "homeVol": 78198.56,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.6104,
-            "homeMult": 1.6382,
-            "maxMult": 1.6382,
-            "totalVol": 125933.53,
+            "awayVol": 98909.3,
+            "homeVol": 99212.22,
+            "awayCents": 47,
+            "homeCents": 54,
+            "awayMult": 0.9969,
+            "homeMult": 1.0031,
+            "maxMult": 1.0031,
+            "totalVol": 198121.52,
             "highSide": "home",
-            "highMult": 1.6382,
-            "favoriteSide": "away",
+            "highMult": 1.0031,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -3745,8 +3706,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": -0.497,
@@ -3891,20 +3852,22 @@
                   "odds": -310
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510STLMIL",
-            "awayVol": 23502.92,
-            "homeVol": 142831.33,
-            "awayCents": 36,
-            "homeCents": 64,
-            "awayMult": 0.1646,
-            "homeMult": 6.0772,
-            "maxMult": 6.0772,
-            "totalVol": 166334.25,
+            "awayVol": 32882.49,
+            "homeVol": 204407.98,
+            "awayCents": 31,
+            "homeCents": 70,
+            "awayMult": 0.1609,
+            "homeMult": 6.2163,
+            "maxMult": 6.2163,
+            "totalVol": 237290.47,
             "highSide": "home",
-            "highMult": 6.0772,
+            "highMult": 6.2163,
             "favoriteSide": "home",
             "tone": "red"
           }
@@ -3921,7 +3884,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
+          "status": "Delayed Start",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -3966,99 +3929,26 @@
           "modelHomeProb": 0.525816,
           "favored": "NYY",
           "odds": {
-            "provider": "4casters",
-            "home": "-110",
-            "away": "+108",
-            "gameId": "6ab92333abf870e88e0857bf",
-            "spreads": {
-              "home": [
-                {
-                  "line": -0.5,
-                  "odds": -135
-                },
-                {
-                  "line": 0.5,
-                  "odds": -120
-                },
-                {
-                  "line": -1.0,
-                  "odds": 121
-                },
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": -2.0,
-                  "odds": 205
-                },
-                {
-                  "line": -2.5,
-                  "odds": 268
-                },
-                {
-                  "line": -3.0,
-                  "odds": 331
-                },
-                {
-                  "line": -3.5,
-                  "odds": 408
-                },
-                {
-                  "line": -4.5,
-                  "odds": 495
-                }
-              ],
-              "away": [
-                {
-                  "line": -0.5,
-                  "odds": -101
-                },
-                {
-                  "line": 0.5,
-                  "odds": -112
-                },
-                {
-                  "line": 1.0,
-                  "odds": -163
-                },
-                {
-                  "line": 1.5,
-                  "odds": -187
-                },
-                {
-                  "line": 2.0,
-                  "odds": -336
-                },
-                {
-                  "line": 2.5,
-                  "odds": -312
-                },
-                {
-                  "line": 3.0,
-                  "odds": -558
-                },
-                {
-                  "line": 3.5,
-                  "odds": -618
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-120",
+            "away": "+100",
+            "espnId": "401817103",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271520BALNYY",
-            "awayVol": 117865.84,
-            "homeVol": 51941.31,
+            "awayVol": 150278.37,
+            "homeVol": 126902.09,
             "awayCents": 48,
             "homeCents": 52,
-            "awayMult": 2.2692,
-            "homeMult": 0.4407,
-            "maxMult": 2.2692,
-            "totalVol": 169807.15,
+            "awayMult": 1.1842,
+            "homeMult": 0.8444,
+            "maxMult": 1.1842,
+            "totalVol": 277180.46,
             "highSide": "away",
-            "highMult": 2.2692,
+            "highMult": 1.1842,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -4073,8 +3963,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": -0.011,
@@ -4235,20 +4125,22 @@
                   "odds": 539
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510ATLMIA",
-            "awayVol": 25979.84,
-            "homeVol": 30844.94,
-            "awayCents": 48,
-            "homeCents": 53,
-            "awayMult": 0.8423,
-            "homeMult": 1.1873,
-            "maxMult": 1.1873,
-            "totalVol": 56824.78,
+            "awayVol": 46502.15,
+            "homeVol": 67343.32,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.6905,
+            "homeMult": 1.4482,
+            "maxMult": 1.4482,
+            "totalVol": 113845.47,
             "highSide": "home",
-            "highMult": 1.1873,
+            "highMult": 1.4482,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -4265,8 +4157,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.8,
@@ -4415,20 +4307,22 @@
                   "odds": -385
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510LAASEA",
-            "awayVol": 12092.63,
-            "homeVol": 5007.88,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 2.4147,
-            "homeMult": 0.4141,
-            "maxMult": 2.4147,
-            "totalVol": 17100.51,
-            "highSide": "away",
-            "highMult": 2.4147,
+            "awayVol": 25537.02,
+            "homeVol": 59831.6,
+            "awayCents": 36,
+            "homeCents": 65,
+            "awayMult": 0.4268,
+            "homeMult": 2.3429,
+            "maxMult": 2.3429,
+            "totalVol": 85368.62,
+            "highSide": "home",
+            "highMult": 2.3429,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -4445,8 +4339,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.155,
@@ -4591,20 +4485,22 @@
                   "odds": 484
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510PITDET",
-            "awayVol": 38565.95,
-            "homeVol": 62914.94,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.613,
-            "homeMult": 1.6314,
-            "maxMult": 1.6314,
-            "totalVol": 101480.89,
-            "highSide": "home",
-            "highMult": 1.6314,
+            "awayVol": 93961.3,
+            "homeVol": 75004.12,
+            "awayCents": 55,
+            "homeCents": 45,
+            "awayMult": 1.2527,
+            "homeMult": 0.7982,
+            "maxMult": 1.2527,
+            "totalVol": 168965.42,
+            "highSide": "away",
+            "highMult": 1.2527,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -4615,14 +4511,14 @@
           "home": "PHI",
           "awayName": "Tampa Bay Rays",
           "homeName": "Philadelphia Phillies",
-          "gameDate": "2026-09-27T19:05:00Z",
+          "gameDate": "2026-09-27T18:30:00Z",
           "gameNumber": 1,
           "doubleHeader": "N",
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.278,
@@ -4775,22 +4671,24 @@
                   "odds": -438
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
-            "awayVol": 139001.43,
-            "homeVol": 303590.27,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 0.4579,
-            "homeMult": 2.1841,
-            "maxMult": 2.1841,
-            "totalVol": 442591.7,
-            "highSide": "home",
-            "highMult": 2.1841,
+            "awayVol": 549573.56,
+            "homeVol": 451214.3,
+            "awayCents": 6,
+            "homeCents": 94,
+            "awayMult": 1.218,
+            "homeMult": 0.821,
+            "maxMult": 1.218,
+            "totalVol": 1000787.86,
+            "highSide": "away",
+            "highMult": 1.218,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -4805,8 +4703,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.599,
@@ -4963,21 +4861,23 @@
                   "odds": -551
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505NYMWSH",
-            "awayVol": 17318.55,
-            "homeVol": 15253.36,
-            "awayCents": 52,
-            "homeCents": 50,
-            "awayMult": 1.1354,
-            "homeMult": 0.8808,
-            "maxMult": 1.1354,
-            "totalVol": 32571.91,
+            "awayVol": 225750.92,
+            "homeVol": 136685.9,
+            "awayCents": 48,
+            "homeCents": 52,
+            "awayMult": 1.6516,
+            "homeMult": 0.6055,
+            "maxMult": 1.6516,
+            "totalVol": 362436.82,
             "highSide": "away",
-            "highMult": 1.1354,
-            "favoriteSide": "away",
+            "highMult": 1.6516,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -4993,8 +4893,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "at Tropicana Field",
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.37,
@@ -5079,7 +4979,9 @@
                   "odds": 564
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": null
         },
@@ -5095,8 +4997,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 1.318,
@@ -5249,21 +5151,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510CLEKC",
-            "awayVol": 174080.61,
-            "homeVol": 254652.52,
-            "awayCents": 51,
-            "homeCents": 50,
-            "awayMult": 0.6836,
-            "homeMult": 1.4628,
-            "maxMult": 1.4628,
-            "totalVol": 428733.13,
+            "awayVol": 256987.39,
+            "homeVol": 290003.08,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.8862,
+            "homeMult": 1.1285,
+            "maxMult": 1.1285,
+            "totalVol": 546990.47,
             "highSide": "home",
-            "highMult": 1.4628,
-            "favoriteSide": "away",
+            "highMult": 1.1285,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -5279,8 +5183,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 2.344,
@@ -5425,20 +5329,22 @@
                   "odds": 384
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510AZSD",
-            "awayVol": 88556.35,
-            "homeVol": 26192.54,
-            "awayCents": 58,
-            "homeCents": 43,
-            "awayMult": 3.381,
-            "homeMult": 0.2958,
-            "maxMult": 3.381,
-            "totalVol": 114748.89,
+            "awayVol": 187745.17,
+            "homeVol": 89512.2,
+            "awayCents": 55,
+            "homeCents": 46,
+            "awayMult": 2.0974,
+            "homeMult": 0.4768,
+            "maxMult": 2.0974,
+            "totalVol": 277257.37,
             "highSide": "away",
-            "highMult": 3.381,
+            "highMult": 2.0974,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5455,8 +5361,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 2.156,
@@ -5605,20 +5511,22 @@
                   "odds": 248
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505HOUATH",
-            "awayVol": 81832.74,
-            "homeVol": 18203.81,
-            "awayCents": 65,
-            "homeCents": 36,
-            "awayMult": 4.4954,
-            "homeMult": 0.2225,
-            "maxMult": 4.4954,
-            "totalVol": 100036.55,
+            "awayVol": 244995.94,
+            "homeVol": 69202.11,
+            "awayCents": 60,
+            "homeCents": 41,
+            "awayMult": 3.5403,
+            "homeMult": 0.2825,
+            "maxMult": 3.5403,
+            "totalVol": 314198.05,
             "highSide": "away",
-            "highMult": 4.4954,
+            "highMult": 3.5403,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -5635,8 +5543,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.744,
@@ -5789,20 +5697,22 @@
                   "odds": 341
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505LADSF",
-            "awayVol": 30145.02,
-            "homeVol": 59697.13,
-            "awayCents": 70,
+            "awayVol": 99963.54,
+            "homeVol": 140195.2,
+            "awayCents": 69,
             "homeCents": 32,
-            "awayMult": 0.505,
-            "homeMult": 1.9803,
-            "maxMult": 1.9803,
-            "totalVol": 89842.15,
+            "awayMult": 0.713,
+            "homeMult": 1.4025,
+            "maxMult": 1.4025,
+            "totalVol": 240158.74,
             "highSide": "home",
-            "highMult": 1.9803,
+            "highMult": 1.4025,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -6160,8 +6070,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 4.225,
@@ -6250,22 +6160,24 @@
                   "odds": -358
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510COLCWS",
-            "awayVol": 148944.58,
-            "homeVol": 26519.64,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 5.6164,
-            "homeMult": 0.1781,
-            "maxMult": 5.6164,
-            "totalVol": 175464.22,
+            "awayVol": 159755.18,
+            "homeVol": 53653.49,
+            "awayCents": 39,
+            "homeCents": 62,
+            "awayMult": 2.9775,
+            "homeMult": 0.3358,
+            "maxMult": 2.9775,
+            "totalVol": 213408.67,
             "highSide": "away",
-            "highMult": 5.6164,
+            "highMult": 2.9775,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "yellow"
           }
         },
         {
@@ -6280,8 +6192,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 5.365,
@@ -6430,20 +6342,22 @@
                   "odds": -308
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271507CINTOR",
-            "awayVol": 6261.35,
-            "homeVol": 6035.17,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 1.0375,
-            "homeMult": 0.9639,
-            "maxMult": 1.0375,
-            "totalVol": 12296.52,
+            "awayVol": 29855.01,
+            "homeVol": 18243.91,
+            "awayCents": 37,
+            "homeCents": 63,
+            "awayMult": 1.6364,
+            "homeMult": 0.6111,
+            "maxMult": 1.6364,
+            "totalVol": 48098.92,
             "highSide": "away",
-            "highMult": 1.0375,
+            "highMult": 1.6364,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -6460,8 +6374,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 7.585,
@@ -6606,20 +6520,22 @@
                   "odds": -310
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510STLMIL",
-            "awayVol": 23502.92,
-            "homeVol": 142831.33,
-            "awayCents": 36,
-            "homeCents": 64,
-            "awayMult": 0.1646,
-            "homeMult": 6.0772,
-            "maxMult": 6.0772,
-            "totalVol": 166334.25,
+            "awayVol": 32882.49,
+            "homeVol": 204407.98,
+            "awayCents": 31,
+            "homeCents": 70,
+            "awayMult": 0.1609,
+            "homeMult": 6.2163,
+            "maxMult": 6.2163,
+            "totalVol": 237290.47,
             "highSide": "home",
-            "highMult": 6.0772,
+            "highMult": 6.2163,
             "favoriteSide": "home",
             "tone": "red"
           }
@@ -6636,7 +6552,7 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
+          "status": "Delayed Start",
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
@@ -6681,99 +6597,26 @@
           "modelHomeProb": 0.559115,
           "favored": "NYY",
           "odds": {
-            "provider": "4casters",
-            "home": "-110",
-            "away": "+108",
-            "gameId": "6ab92333abf870e88e0857bf",
-            "spreads": {
-              "home": [
-                {
-                  "line": -0.5,
-                  "odds": -135
-                },
-                {
-                  "line": 0.5,
-                  "odds": -120
-                },
-                {
-                  "line": -1.0,
-                  "odds": 121
-                },
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": -2.0,
-                  "odds": 205
-                },
-                {
-                  "line": -2.5,
-                  "odds": 268
-                },
-                {
-                  "line": -3.0,
-                  "odds": 331
-                },
-                {
-                  "line": -3.5,
-                  "odds": 408
-                },
-                {
-                  "line": -4.5,
-                  "odds": 495
-                }
-              ],
-              "away": [
-                {
-                  "line": -0.5,
-                  "odds": -101
-                },
-                {
-                  "line": 0.5,
-                  "odds": -112
-                },
-                {
-                  "line": 1.0,
-                  "odds": -163
-                },
-                {
-                  "line": 1.5,
-                  "odds": -187
-                },
-                {
-                  "line": 2.0,
-                  "odds": -336
-                },
-                {
-                  "line": 2.5,
-                  "odds": -312
-                },
-                {
-                  "line": 3.0,
-                  "odds": -558
-                },
-                {
-                  "line": 3.5,
-                  "odds": -618
-                }
-              ]
-            }
+            "provider": "DraftKings",
+            "home": "-120",
+            "away": "+100",
+            "espnId": "401817103",
+            "espnGameNumber": null
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271520BALNYY",
-            "awayVol": 117865.84,
-            "homeVol": 51941.31,
+            "awayVol": 150278.37,
+            "homeVol": 126902.09,
             "awayCents": 48,
             "homeCents": 52,
-            "awayMult": 2.2692,
-            "homeMult": 0.4407,
-            "maxMult": 2.2692,
-            "totalVol": 169807.15,
+            "awayMult": 1.1842,
+            "homeMult": 0.8444,
+            "maxMult": 1.1842,
+            "totalVol": 277180.46,
             "highSide": "away",
-            "highMult": 2.2692,
+            "highMult": 1.1842,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -6788,8 +6631,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 5.459,
@@ -6938,20 +6781,22 @@
                   "odds": -385
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510LAASEA",
-            "awayVol": 12092.63,
-            "homeVol": 5007.88,
-            "awayCents": 40,
-            "homeCents": 61,
-            "awayMult": 2.4147,
-            "homeMult": 0.4141,
-            "maxMult": 2.4147,
-            "totalVol": 17100.51,
-            "highSide": "away",
-            "highMult": 2.4147,
+            "awayVol": 25537.02,
+            "homeVol": 59831.6,
+            "awayCents": 36,
+            "homeCents": 65,
+            "awayMult": 0.4268,
+            "homeMult": 2.3429,
+            "maxMult": 2.3429,
+            "totalVol": 85368.62,
+            "highSide": "home",
+            "highMult": 2.3429,
             "favoriteSide": "home",
             "tone": "yellow"
           }
@@ -6968,8 +6813,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 8.721,
@@ -7130,20 +6975,22 @@
                   "odds": 539
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510ATLMIA",
-            "awayVol": 25979.84,
-            "homeVol": 30844.94,
-            "awayCents": 48,
-            "homeCents": 53,
-            "awayMult": 0.8423,
-            "homeMult": 1.1873,
-            "maxMult": 1.1873,
-            "totalVol": 56824.78,
+            "awayVol": 46502.15,
+            "homeVol": 67343.32,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.6905,
+            "homeMult": 1.4482,
+            "maxMult": 1.4482,
+            "totalVol": 113845.47,
             "highSide": "home",
-            "highMult": 1.1873,
+            "highMult": 1.4482,
             "favoriteSide": "home",
             "tone": "muted"
           }
@@ -7154,14 +7001,14 @@
           "home": "PHI",
           "awayName": "Tampa Bay Rays",
           "homeName": "Philadelphia Phillies",
-          "gameDate": "2026-09-27T19:05:00Z",
+          "gameDate": "2026-09-27T18:30:00Z",
           "gameNumber": 1,
           "doubleHeader": "N",
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 11.99,
@@ -7314,22 +7161,24 @@
                   "odds": -438
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
-            "awayVol": 139001.43,
-            "homeVol": 303590.27,
-            "awayCents": 39,
-            "homeCents": 62,
-            "awayMult": 0.4579,
-            "homeMult": 2.1841,
-            "maxMult": 2.1841,
-            "totalVol": 442591.7,
-            "highSide": "home",
-            "highMult": 2.1841,
+            "awayVol": 549573.56,
+            "homeVol": 451214.3,
+            "awayCents": 6,
+            "homeCents": 94,
+            "awayMult": 1.218,
+            "homeMult": 0.821,
+            "maxMult": 1.218,
+            "totalVol": 1000787.86,
+            "highSide": "away",
+            "highMult": 1.218,
             "favoriteSide": "home",
-            "tone": "yellow"
+            "tone": "muted"
           }
         },
         {
@@ -7344,8 +7193,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.217,
@@ -7490,21 +7339,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510TEXMIN",
-            "awayVol": 47734.97,
-            "homeVol": 78198.56,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.6104,
-            "homeMult": 1.6382,
-            "maxMult": 1.6382,
-            "totalVol": 125933.53,
+            "awayVol": 98909.3,
+            "homeVol": 99212.22,
+            "awayCents": 47,
+            "homeCents": 54,
+            "awayMult": 0.9969,
+            "homeMult": 1.0031,
+            "maxMult": 1.0031,
+            "totalVol": 198121.52,
             "highSide": "home",
-            "highMult": 1.6382,
-            "favoriteSide": "away",
+            "highMult": 1.0031,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -7520,8 +7371,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 7.686,
@@ -7678,21 +7529,23 @@
                   "odds": -551
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505NYMWSH",
-            "awayVol": 17318.55,
-            "homeVol": 15253.36,
-            "awayCents": 52,
-            "homeCents": 50,
-            "awayMult": 1.1354,
-            "homeMult": 0.8808,
-            "maxMult": 1.1354,
-            "totalVol": 32571.91,
+            "awayVol": 225750.92,
+            "homeVol": 136685.9,
+            "awayCents": 48,
+            "homeCents": 52,
+            "awayMult": 1.6516,
+            "homeMult": 0.6055,
+            "maxMult": 1.6516,
+            "totalVol": 362436.82,
             "highSide": "away",
-            "highMult": 1.1354,
-            "favoriteSide": "away",
+            "highMult": 1.6516,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -7708,8 +7561,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 9.221,
@@ -7854,20 +7707,22 @@
                   "odds": 484
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510PITDET",
-            "awayVol": 38565.95,
-            "homeVol": 62914.94,
-            "awayCents": 52,
-            "homeCents": 49,
-            "awayMult": 0.613,
-            "homeMult": 1.6314,
-            "maxMult": 1.6314,
-            "totalVol": 101480.89,
-            "highSide": "home",
-            "highMult": 1.6314,
+            "awayVol": 93961.3,
+            "homeVol": 75004.12,
+            "awayCents": 55,
+            "homeCents": 45,
+            "awayMult": 1.2527,
+            "homeMult": 0.7982,
+            "maxMult": 1.2527,
+            "totalVol": 168965.42,
+            "highSide": "away",
+            "highMult": 1.2527,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -7884,8 +7739,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 11.479,
@@ -8030,20 +7885,22 @@
                   "odds": 384
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510AZSD",
-            "awayVol": 88556.35,
-            "homeVol": 26192.54,
-            "awayCents": 58,
-            "homeCents": 43,
-            "awayMult": 3.381,
-            "homeMult": 0.2958,
-            "maxMult": 3.381,
-            "totalVol": 114748.89,
+            "awayVol": 187745.17,
+            "homeVol": 89512.2,
+            "awayCents": 55,
+            "homeCents": 46,
+            "awayMult": 2.0974,
+            "homeMult": 0.4768,
+            "maxMult": 2.0974,
+            "totalVol": 277257.37,
             "highSide": "away",
-            "highMult": 3.381,
+            "highMult": 2.0974,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -8060,8 +7917,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "at Tropicana Field",
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 18.785,
@@ -8146,7 +8003,9 @@
                   "odds": 564
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": null
         },
@@ -8162,8 +8021,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 11.399,
@@ -8312,20 +8171,22 @@
                   "odds": 248
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505HOUATH",
-            "awayVol": 81832.74,
-            "homeVol": 18203.81,
-            "awayCents": 65,
-            "homeCents": 36,
-            "awayMult": 4.4954,
-            "homeMult": 0.2225,
-            "maxMult": 4.4954,
-            "totalVol": 100036.55,
+            "awayVol": 244995.94,
+            "homeVol": 69202.11,
+            "awayCents": 60,
+            "homeCents": 41,
+            "awayMult": 3.5403,
+            "homeMult": 0.2825,
+            "maxMult": 3.5403,
+            "totalVol": 314198.05,
             "highSide": "away",
-            "highMult": 4.4954,
+            "highMult": 3.5403,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -8342,8 +8203,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.277,
@@ -8496,21 +8357,23 @@
                   "odds": 451
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271510CLEKC",
-            "awayVol": 174080.61,
-            "homeVol": 254652.52,
-            "awayCents": 51,
-            "homeCents": 50,
-            "awayMult": 0.6836,
-            "homeMult": 1.4628,
-            "maxMult": 1.4628,
-            "totalVol": 428733.13,
+            "awayVol": 256987.39,
+            "homeVol": 290003.08,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 0.8862,
+            "homeMult": 1.1285,
+            "maxMult": 1.1285,
+            "totalVol": 546990.47,
             "highSide": "home",
-            "highMult": 1.4628,
-            "favoriteSide": "away",
+            "highMult": 1.1285,
+            "favoriteSide": "home",
             "tone": "muted"
           }
         },
@@ -8526,8 +8389,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": null,
-          "status": "Scheduled",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 13.807,
@@ -8680,20 +8543,22 @@
                   "odds": 341
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-09-27T15:33:28Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26SEP271505LADSF",
-            "awayVol": 30145.02,
-            "homeVol": 59697.13,
-            "awayCents": 70,
+            "awayVol": 99963.54,
+            "homeVol": 140195.2,
+            "awayCents": 69,
             "homeCents": 32,
-            "awayMult": 0.505,
-            "homeMult": 1.9803,
-            "maxMult": 1.9803,
-            "totalVol": 89842.15,
+            "awayMult": 0.713,
+            "homeMult": 1.4025,
+            "maxMult": 1.4025,
+            "totalVol": 240158.74,
             "highSide": "home",
-            "highMult": 1.9803,
+            "highMult": 1.4025,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -9046,8 +8911,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 8.622,
@@ -9136,22 +9001,24 @@
               "odds": -358
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510COLCWS",
-        "awayVol": 148944.58,
-        "homeVol": 26519.64,
-        "awayCents": 40,
-        "homeCents": 61,
-        "awayMult": 5.6164,
-        "homeMult": 0.1781,
-        "maxMult": 5.6164,
-        "totalVol": 175464.22,
+        "awayVol": 159755.18,
+        "homeVol": 53653.49,
+        "awayCents": 39,
+        "homeCents": 62,
+        "awayMult": 2.9775,
+        "homeMult": 0.3358,
+        "maxMult": 2.9775,
+        "totalVol": 213408.67,
         "highSide": "away",
-        "highMult": 5.6164,
+        "highMult": 2.9775,
         "favoriteSide": "home",
-        "tone": "red"
+        "tone": "yellow"
       }
     },
     {
@@ -9166,8 +9033,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 15.667,
@@ -9312,20 +9179,22 @@
               "odds": -310
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510STLMIL",
-        "awayVol": 23502.92,
-        "homeVol": 142831.33,
-        "awayCents": 36,
-        "homeCents": 64,
-        "awayMult": 0.1646,
-        "homeMult": 6.0772,
-        "maxMult": 6.0772,
-        "totalVol": 166334.25,
+        "awayVol": 32882.49,
+        "homeVol": 204407.98,
+        "awayCents": 31,
+        "homeCents": 70,
+        "awayMult": 0.1609,
+        "homeMult": 6.2163,
+        "maxMult": 6.2163,
+        "totalVol": 237290.47,
         "highSide": "home",
-        "highMult": 6.0772,
+        "highMult": 6.2163,
         "favoriteSide": "home",
         "tone": "red"
       }
@@ -9342,7 +9211,7 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
+      "status": "Delayed Start",
       "abstractGameState": "Preview",
       "startTimeTBD": false,
       "awayStats": {
@@ -9387,99 +9256,26 @@
       "modelHomeProb": 0.600523,
       "favored": "NYY",
       "odds": {
-        "provider": "4casters",
-        "home": "-110",
-        "away": "+108",
-        "gameId": "6ab92333abf870e88e0857bf",
-        "spreads": {
-          "home": [
-            {
-              "line": -0.5,
-              "odds": -135
-            },
-            {
-              "line": 0.5,
-              "odds": -120
-            },
-            {
-              "line": -1.0,
-              "odds": 121
-            },
-            {
-              "line": -1.5,
-              "odds": 186
-            },
-            {
-              "line": -2.0,
-              "odds": 205
-            },
-            {
-              "line": -2.5,
-              "odds": 268
-            },
-            {
-              "line": -3.0,
-              "odds": 331
-            },
-            {
-              "line": -3.5,
-              "odds": 408
-            },
-            {
-              "line": -4.5,
-              "odds": 495
-            }
-          ],
-          "away": [
-            {
-              "line": -0.5,
-              "odds": -101
-            },
-            {
-              "line": 0.5,
-              "odds": -112
-            },
-            {
-              "line": 1.0,
-              "odds": -163
-            },
-            {
-              "line": 1.5,
-              "odds": -187
-            },
-            {
-              "line": 2.0,
-              "odds": -336
-            },
-            {
-              "line": 2.5,
-              "odds": -312
-            },
-            {
-              "line": 3.0,
-              "odds": -558
-            },
-            {
-              "line": 3.5,
-              "odds": -618
-            }
-          ]
-        }
+        "provider": "DraftKings",
+        "home": "-120",
+        "away": "+100",
+        "espnId": "401817103",
+        "espnGameNumber": null
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271520BALNYY",
-        "awayVol": 117865.84,
-        "homeVol": 51941.31,
+        "awayVol": 150278.37,
+        "homeVol": 126902.09,
         "awayCents": 48,
         "homeCents": 52,
-        "awayMult": 2.2692,
-        "homeMult": 0.4407,
-        "maxMult": 2.2692,
-        "totalVol": 169807.15,
+        "awayMult": 1.1842,
+        "homeMult": 0.8444,
+        "maxMult": 1.1842,
+        "totalVol": 277180.46,
         "highSide": "away",
-        "highMult": 2.2692,
+        "highMult": 1.1842,
         "favoriteSide": "home",
-        "tone": "yellow"
+        "tone": "muted"
       }
     },
     {
@@ -9494,8 +9290,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 10.543,
@@ -9644,20 +9440,22 @@
               "odds": -308
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271507CINTOR",
-        "awayVol": 6261.35,
-        "homeVol": 6035.17,
-        "awayCents": 39,
-        "homeCents": 62,
-        "awayMult": 1.0375,
-        "homeMult": 0.9639,
-        "maxMult": 1.0375,
-        "totalVol": 12296.52,
+        "awayVol": 29855.01,
+        "homeVol": 18243.91,
+        "awayCents": 37,
+        "homeCents": 63,
+        "awayMult": 1.6364,
+        "homeMult": 0.6111,
+        "maxMult": 1.6364,
+        "totalVol": 48098.92,
         "highSide": "away",
-        "highMult": 1.0375,
+        "highMult": 1.6364,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -9674,8 +9472,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 10.118,
@@ -9824,20 +9622,22 @@
               "odds": -385
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510LAASEA",
-        "awayVol": 12092.63,
-        "homeVol": 5007.88,
-        "awayCents": 40,
-        "homeCents": 61,
-        "awayMult": 2.4147,
-        "homeMult": 0.4141,
-        "maxMult": 2.4147,
-        "totalVol": 17100.51,
-        "highSide": "away",
-        "highMult": 2.4147,
+        "awayVol": 25537.02,
+        "homeVol": 59831.6,
+        "awayCents": 36,
+        "homeCents": 65,
+        "awayMult": 0.4268,
+        "homeMult": 2.3429,
+        "maxMult": 2.3429,
+        "totalVol": 85368.62,
+        "highSide": "home",
+        "highMult": 2.3429,
         "favoriteSide": "home",
         "tone": "yellow"
       }
@@ -9854,8 +9654,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 20.614,
@@ -10000,20 +9800,22 @@
               "odds": 384
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510AZSD",
-        "awayVol": 88556.35,
-        "homeVol": 26192.54,
-        "awayCents": 58,
-        "homeCents": 43,
-        "awayMult": 3.381,
-        "homeMult": 0.2958,
-        "maxMult": 3.381,
-        "totalVol": 114748.89,
+        "awayVol": 187745.17,
+        "homeVol": 89512.2,
+        "awayCents": 55,
+        "homeCents": 46,
+        "awayMult": 2.0974,
+        "homeMult": 0.4768,
+        "maxMult": 2.0974,
+        "totalVol": 277257.37,
         "highSide": "away",
-        "highMult": 3.381,
+        "highMult": 2.0974,
         "favoriteSide": "away",
         "tone": "yellow"
       }
@@ -10030,8 +9832,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 14.773,
@@ -10188,21 +9990,23 @@
               "odds": -551
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271505NYMWSH",
-        "awayVol": 17318.55,
-        "homeVol": 15253.36,
-        "awayCents": 52,
-        "homeCents": 50,
-        "awayMult": 1.1354,
-        "homeMult": 0.8808,
-        "maxMult": 1.1354,
-        "totalVol": 32571.91,
+        "awayVol": 225750.92,
+        "homeVol": 136685.9,
+        "awayCents": 48,
+        "homeCents": 52,
+        "awayMult": 1.6516,
+        "homeMult": 0.6055,
+        "maxMult": 1.6516,
+        "totalVol": 362436.82,
         "highSide": "away",
-        "highMult": 1.1354,
-        "favoriteSide": "away",
+        "highMult": 1.6516,
+        "favoriteSide": "home",
         "tone": "muted"
       }
     },
@@ -10212,14 +10016,14 @@
       "home": "PHI",
       "awayName": "Tampa Bay Rays",
       "homeName": "Philadelphia Phillies",
-      "gameDate": "2026-09-27T19:05:00Z",
+      "gameDate": "2026-09-27T18:30:00Z",
       "gameNumber": 1,
       "doubleHeader": "N",
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 23.702,
@@ -10372,22 +10176,24 @@
               "odds": -438
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271505TBPHI",
-        "awayVol": 139001.43,
-        "homeVol": 303590.27,
-        "awayCents": 39,
-        "homeCents": 62,
-        "awayMult": 0.4579,
-        "homeMult": 2.1841,
-        "maxMult": 2.1841,
-        "totalVol": 442591.7,
-        "highSide": "home",
-        "highMult": 2.1841,
+        "awayVol": 549573.56,
+        "homeVol": 451214.3,
+        "awayCents": 6,
+        "homeCents": 94,
+        "awayMult": 1.218,
+        "homeMult": 0.821,
+        "maxMult": 1.218,
+        "totalVol": 1000787.86,
+        "highSide": "away",
+        "highMult": 1.218,
         "favoriteSide": "home",
-        "tone": "yellow"
+        "tone": "muted"
       }
     },
     {
@@ -10402,8 +10208,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 17.452,
@@ -10564,20 +10370,22 @@
               "odds": 539
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510ATLMIA",
-        "awayVol": 25979.84,
-        "homeVol": 30844.94,
-        "awayCents": 48,
-        "homeCents": 53,
-        "awayMult": 0.8423,
-        "homeMult": 1.1873,
-        "maxMult": 1.1873,
-        "totalVol": 56824.78,
+        "awayVol": 46502.15,
+        "homeVol": 67343.32,
+        "awayCents": 45,
+        "homeCents": 56,
+        "awayMult": 0.6905,
+        "homeMult": 1.4482,
+        "maxMult": 1.4482,
+        "totalVol": 113845.47,
         "highSide": "home",
-        "highMult": 1.1873,
+        "highMult": 1.4482,
         "favoriteSide": "home",
         "tone": "muted"
       }
@@ -10594,8 +10402,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 18.286,
@@ -10740,20 +10548,22 @@
               "odds": 484
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510PITDET",
-        "awayVol": 38565.95,
-        "homeVol": 62914.94,
-        "awayCents": 52,
-        "homeCents": 49,
-        "awayMult": 0.613,
-        "homeMult": 1.6314,
-        "maxMult": 1.6314,
-        "totalVol": 101480.89,
-        "highSide": "home",
-        "highMult": 1.6314,
+        "awayVol": 93961.3,
+        "homeVol": 75004.12,
+        "awayCents": 55,
+        "homeCents": 45,
+        "awayMult": 1.2527,
+        "homeMult": 0.7982,
+        "maxMult": 1.2527,
+        "totalVol": 168965.42,
+        "highSide": "away",
+        "highMult": 1.2527,
         "favoriteSide": "away",
         "tone": "muted"
       }
@@ -10770,8 +10580,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 20.387,
@@ -10916,21 +10726,23 @@
               "odds": 451
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510TEXMIN",
-        "awayVol": 47734.97,
-        "homeVol": 78198.56,
-        "awayCents": 52,
-        "homeCents": 49,
-        "awayMult": 0.6104,
-        "homeMult": 1.6382,
-        "maxMult": 1.6382,
-        "totalVol": 125933.53,
+        "awayVol": 98909.3,
+        "homeVol": 99212.22,
+        "awayCents": 47,
+        "homeCents": 54,
+        "awayMult": 0.9969,
+        "homeMult": 1.0031,
+        "maxMult": 1.0031,
+        "totalVol": 198121.52,
         "highSide": "home",
-        "highMult": 1.6382,
-        "favoriteSide": "away",
+        "highMult": 1.0031,
+        "favoriteSide": "home",
         "tone": "muted"
       }
     },
@@ -10946,8 +10758,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 20.643,
@@ -11096,20 +10908,22 @@
               "odds": 248
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271505HOUATH",
-        "awayVol": 81832.74,
-        "homeVol": 18203.81,
-        "awayCents": 65,
-        "homeCents": 36,
-        "awayMult": 4.4954,
-        "homeMult": 0.2225,
-        "maxMult": 4.4954,
-        "totalVol": 100036.55,
+        "awayVol": 244995.94,
+        "homeVol": 69202.11,
+        "awayCents": 60,
+        "homeCents": 41,
+        "awayMult": 3.5403,
+        "homeMult": 0.2825,
+        "maxMult": 3.5403,
+        "totalVol": 314198.05,
         "highSide": "away",
-        "highMult": 4.4954,
+        "highMult": 3.5403,
         "favoriteSide": "away",
         "tone": "yellow"
       }
@@ -11126,8 +10940,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 19.236,
@@ -11280,21 +11094,23 @@
               "odds": 451
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271510CLEKC",
-        "awayVol": 174080.61,
-        "homeVol": 254652.52,
-        "awayCents": 51,
-        "homeCents": 50,
-        "awayMult": 0.6836,
-        "homeMult": 1.4628,
-        "maxMult": 1.4628,
-        "totalVol": 428733.13,
+        "awayVol": 256987.39,
+        "homeVol": 290003.08,
+        "awayCents": 45,
+        "homeCents": 56,
+        "awayMult": 0.8862,
+        "homeMult": 1.1285,
+        "maxMult": 1.1285,
+        "totalVol": 546990.47,
         "highSide": "home",
-        "highMult": 1.4628,
-        "favoriteSide": "away",
+        "highMult": 1.1285,
+        "favoriteSide": "home",
         "tone": "muted"
       }
     },
@@ -11310,8 +11126,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "at Tropicana Field",
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 37.2,
@@ -11396,7 +11212,9 @@
               "odds": 564
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": null
     },
@@ -11412,8 +11230,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": null,
-      "status": "Scheduled",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 26.871,
@@ -11566,20 +11384,22 @@
               "odds": 341
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-09-27T15:33:28Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26SEP271505LADSF",
-        "awayVol": 30145.02,
-        "homeVol": 59697.13,
-        "awayCents": 70,
+        "awayVol": 99963.54,
+        "homeVol": 140195.2,
+        "awayCents": 69,
         "homeCents": 32,
-        "awayMult": 0.505,
-        "homeMult": 1.9803,
-        "maxMult": 1.9803,
-        "totalVol": 89842.15,
+        "awayMult": 0.713,
+        "homeMult": 1.4025,
+        "maxMult": 1.4025,
+        "totalVol": 240158.74,
         "highSide": "home",
-        "highMult": 1.9803,
+        "highMult": 1.4025,
         "favoriteSide": "away",
         "tone": "muted"
       }
