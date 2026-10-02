@@ -2,12 +2,12 @@
   "date": "2026-10-02",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-02T04:43:41Z",
+  "updatedAt": "2026-10-02T10:45:03Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
+    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -35,9 +35,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 10.629,
-          "pitWAR": 6.035,
-          "teamWAR": 16.664,
+          "batWAR": 10.636,
+          "pitWAR": 5.458,
+          "teamWAR": 16.094,
           "wRCp": 93.629,
           "BsR": -3.367,
           "xwOBA": 0.3091,
@@ -46,9 +46,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 17.472,
-          "pitWAR": 15.592,
-          "teamWAR": 33.064,
+          "batWAR": 17.477,
+          "pitWAR": 15.454,
+          "teamWAR": 32.931,
           "wRCp": 97.303,
           "BsR": -0.835,
           "xwOBA": 0.3152,
@@ -57,9 +57,9 @@
           "OAA": 24.0
         },
         "AZ": {
-          "batWAR": 20.564,
-          "pitWAR": 11.845,
-          "teamWAR": 32.409,
+          "batWAR": 20.606,
+          "pitWAR": 11.571,
+          "teamWAR": 32.178,
           "wRCp": 98.138,
           "BsR": 1.179,
           "xwOBA": 0.3144,
@@ -68,20 +68,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 19.942,
-          "pitWAR": 16.614,
-          "teamWAR": 36.555,
+          "batWAR": 20.053,
+          "pitWAR": 16.145,
+          "teamWAR": 36.198,
           "wRCp": 101.675,
           "BsR": -6.207,
           "xwOBA": 0.3219,
           "xFIP": 4.227,
           "SIERA": 4.17,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
-          "batWAR": 20.382,
-          "pitWAR": 23.277,
-          "teamWAR": 43.659,
+          "batWAR": 20.395,
+          "pitWAR": 22.609,
+          "teamWAR": 43.004,
           "wRCp": 98.646,
           "BsR": -2.987,
           "xwOBA": 0.3089,
@@ -90,9 +90,9 @@
           "OAA": 20.0
         },
         "CHC": {
-          "batWAR": 37.775,
-          "pitWAR": 6.011,
-          "teamWAR": 43.786,
+          "batWAR": 37.776,
+          "pitWAR": 6.099,
+          "teamWAR": 43.875,
           "wRCp": 114.344,
           "BsR": 4.48,
           "xwOBA": 0.3233,
@@ -101,9 +101,9 @@
           "OAA": 74.0
         },
         "CIN": {
-          "batWAR": 10.407,
-          "pitWAR": 7.999,
-          "teamWAR": 18.406,
+          "batWAR": 10.411,
+          "pitWAR": 7.297,
+          "teamWAR": 17.709,
           "wRCp": 91.008,
           "BsR": -1.574,
           "xwOBA": 0.3127,
@@ -113,8 +113,8 @@
         },
         "CLE": {
           "batWAR": 19.43,
-          "pitWAR": 18.725,
-          "teamWAR": 38.155,
+          "pitWAR": 18.849,
+          "teamWAR": 38.279,
           "wRCp": 96.65,
           "BsR": 7.93,
           "xwOBA": 0.3053,
@@ -123,20 +123,20 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 8.37,
-          "pitWAR": 6.63,
-          "teamWAR": 15.0,
+          "batWAR": 8.383,
+          "pitWAR": 6.394,
+          "teamWAR": 14.777,
           "wRCp": 91.152,
           "BsR": -3.508,
           "xwOBA": 0.3078,
           "xFIP": 4.738,
           "SIERA": 4.578,
-          "OAA": -31.0
+          "OAA": -30.0
         },
         "CWS": {
-          "batWAR": 23.647,
-          "pitWAR": 12.902,
-          "teamWAR": 36.548,
+          "batWAR": 23.668,
+          "pitWAR": 12.652,
+          "teamWAR": 36.321,
           "wRCp": 104.363,
           "BsR": -4.248,
           "xwOBA": 0.3184,
@@ -145,20 +145,20 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 18.88,
-          "pitWAR": 15.544,
-          "teamWAR": 34.424,
+          "batWAR": 18.892,
+          "pitWAR": 16.609,
+          "teamWAR": 35.501,
           "wRCp": 101.755,
           "BsR": -6.38,
           "xwOBA": 0.32,
           "xFIP": 4.101,
           "SIERA": 4.024,
-          "OAA": -39.0
+          "OAA": -38.0
         },
         "HOU": {
-          "batWAR": 21.06,
-          "pitWAR": 7.511,
-          "teamWAR": 28.571,
+          "batWAR": 21.076,
+          "pitWAR": 7.329,
+          "teamWAR": 28.406,
           "wRCp": 105.25,
           "BsR": -7.081,
           "xwOBA": 0.3108,
@@ -167,9 +167,9 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 20.548,
-          "pitWAR": 5.064,
-          "teamWAR": 25.611,
+          "batWAR": 20.523,
+          "pitWAR": 5.15,
+          "teamWAR": 25.674,
           "wRCp": 97.714,
           "BsR": 4.726,
           "xwOBA": 0.3148,
@@ -178,9 +178,9 @@
           "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 9.74,
-          "pitWAR": 13.887,
-          "teamWAR": 23.627,
+          "batWAR": 9.694,
+          "pitWAR": 13.477,
+          "teamWAR": 23.171,
           "wRCp": 92.189,
           "BsR": -0.85,
           "xwOBA": 0.3025,
@@ -189,9 +189,9 @@
           "OAA": -41.0
         },
         "LAD": {
-          "batWAR": 26.875,
-          "pitWAR": 26.298,
-          "teamWAR": 53.173,
+          "batWAR": 26.883,
+          "pitWAR": 25.929,
+          "teamWAR": 52.812,
           "wRCp": 110.713,
           "BsR": -3.29,
           "xwOBA": 0.3383,
@@ -201,8 +201,8 @@
         },
         "MIA": {
           "batWAR": 20.695,
-          "pitWAR": 14.115,
-          "teamWAR": 34.81,
+          "pitWAR": 14.872,
+          "teamWAR": 35.567,
           "wRCp": 100.322,
           "BsR": 4.476,
           "xwOBA": 0.3085,
@@ -211,9 +211,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 26.153,
-          "pitWAR": 22.575,
-          "teamWAR": 48.727,
+          "batWAR": 26.114,
+          "pitWAR": 22.202,
+          "teamWAR": 48.315,
           "wRCp": 107.282,
           "BsR": 0.739,
           "xwOBA": 0.3214,
@@ -222,9 +222,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 18.963,
-          "pitWAR": 12.008,
-          "teamWAR": 30.971,
+          "batWAR": 18.971,
+          "pitWAR": 12.43,
+          "teamWAR": 31.401,
           "wRCp": 101.717,
           "BsR": -5.397,
           "xwOBA": 0.3113,
@@ -233,9 +233,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 14.917,
-          "pitWAR": 15.613,
-          "teamWAR": 30.53,
+          "batWAR": 14.922,
+          "pitWAR": 16.143,
+          "teamWAR": 31.065,
           "wRCp": 96.582,
           "BsR": -5.641,
           "xwOBA": 0.3206,
@@ -244,9 +244,9 @@
           "OAA": -22.0
         },
         "NYY": {
-          "batWAR": 21.253,
-          "pitWAR": 21.863,
-          "teamWAR": 43.116,
+          "batWAR": 21.209,
+          "pitWAR": 22.784,
+          "teamWAR": 43.992,
           "wRCp": 101.199,
           "BsR": 2.525,
           "xwOBA": 0.319,
@@ -255,9 +255,9 @@
           "OAA": -5.0
         },
         "PHI": {
-          "batWAR": 11.949,
-          "pitWAR": 23.663,
-          "teamWAR": 35.612,
+          "batWAR": 11.957,
+          "pitWAR": 23.743,
+          "teamWAR": 35.7,
           "wRCp": 91.736,
           "BsR": 5.011,
           "xwOBA": 0.3176,
@@ -266,9 +266,9 @@
           "OAA": -15.0
         },
         "PIT": {
-          "batWAR": 18.207,
-          "pitWAR": 20.955,
-          "teamWAR": 39.163,
+          "batWAR": 18.206,
+          "pitWAR": 21.122,
+          "teamWAR": 39.328,
           "wRCp": 101.086,
           "BsR": 5.294,
           "xwOBA": 0.3162,
@@ -277,9 +277,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 23.386,
-          "pitWAR": 14.966,
-          "teamWAR": 38.352,
+          "batWAR": 23.388,
+          "pitWAR": 14.751,
+          "teamWAR": 38.138,
           "wRCp": 102.274,
           "BsR": 7.074,
           "xwOBA": 0.3178,
@@ -288,20 +288,20 @@
           "OAA": 19.0
         },
         "SEA": {
-          "batWAR": 15.831,
-          "pitWAR": 14.246,
-          "teamWAR": 30.077,
+          "batWAR": 15.841,
+          "pitWAR": 13.94,
+          "teamWAR": 29.781,
           "wRCp": 102.062,
           "BsR": -1.776,
           "xwOBA": 0.3147,
           "xFIP": 3.888,
           "SIERA": 3.798,
-          "OAA": -58.0
+          "OAA": -57.0
         },
         "SF": {
-          "batWAR": 13.071,
-          "pitWAR": 9.804,
-          "teamWAR": 22.875,
+          "batWAR": 13.101,
+          "pitWAR": 9.586,
+          "teamWAR": 22.688,
           "wRCp": 96.516,
           "BsR": -0.905,
           "xwOBA": 0.3074,
@@ -310,9 +310,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 15.624,
-          "pitWAR": 12.857,
-          "teamWAR": 28.481,
+          "batWAR": 15.62,
+          "pitWAR": 12.78,
+          "teamWAR": 28.4,
           "wRCp": 93.278,
           "BsR": 0.755,
           "xwOBA": 0.3188,
@@ -321,20 +321,20 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 23.85,
-          "pitWAR": 16.77,
-          "teamWAR": 40.62,
+          "batWAR": 23.837,
+          "pitWAR": 17.086,
+          "teamWAR": 40.923,
           "wRCp": 103.581,
           "BsR": 1.788,
           "xwOBA": 0.3037,
           "xFIP": 3.973,
           "SIERA": 3.843,
-          "OAA": 7.0
+          "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 20.262,
-          "pitWAR": 15.386,
-          "teamWAR": 35.647,
+          "batWAR": 20.278,
+          "pitWAR": 14.446,
+          "teamWAR": 34.724,
           "wRCp": 102.325,
           "BsR": -2.591,
           "xwOBA": 0.3077,
@@ -343,20 +343,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 19.133,
-          "pitWAR": 16.233,
-          "teamWAR": 35.366,
+          "batWAR": 19.045,
+          "pitWAR": 17.421,
+          "teamWAR": 36.465,
           "wRCp": 94.313,
           "BsR": -0.216,
           "xwOBA": 0.2978,
           "xFIP": 4.073,
           "SIERA": 4.037,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": 20.751,
-          "pitWAR": 4.836,
-          "teamWAR": 25.587,
+          "batWAR": 20.679,
+          "pitWAR": 5.492,
+          "teamWAR": 26.171,
           "wRCp": 102.578,
           "BsR": 10.876,
           "xwOBA": 0.3232,
@@ -376,8 +376,8 @@
       "teams": {
         "ATH": {
           "batWAR": 0.968,
-          "pitWAR": -0.597,
-          "teamWAR": 0.371,
+          "pitWAR": -0.613,
+          "teamWAR": 0.355,
           "wRCp": 113.153,
           "BsR": -0.145,
           "xwOBA": 0.3078,
@@ -386,9 +386,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": -0.127,
-          "pitWAR": 0.005,
-          "teamWAR": -0.123,
+          "batWAR": -0.128,
+          "pitWAR": 0.001,
+          "teamWAR": -0.126,
           "wRCp": 68.457,
           "BsR": 0.336,
           "xwOBA": 0.3087,
@@ -397,9 +397,9 @@
           "OAA": 24.0
         },
         "AZ": {
-          "batWAR": 1.898,
-          "pitWAR": 0.505,
-          "teamWAR": 2.402,
+          "batWAR": 1.901,
+          "pitWAR": 0.494,
+          "teamWAR": 2.396,
           "wRCp": 140.35,
           "BsR": -1.214,
           "xwOBA": 0.3861,
@@ -408,20 +408,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 1.005,
-          "pitWAR": 1.306,
-          "teamWAR": 2.311,
+          "batWAR": 1.007,
+          "pitWAR": 1.285,
+          "teamWAR": 2.292,
           "wRCp": 120.891,
           "BsR": -0.236,
           "xwOBA": 0.3312,
           "xFIP": 3.77,
           "SIERA": 3.802,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
           "batWAR": 0.01,
-          "pitWAR": 1.476,
-          "teamWAR": 1.486,
+          "pitWAR": 1.441,
+          "teamWAR": 1.451,
           "wRCp": 66.894,
           "BsR": 0.513,
           "xwOBA": 0.2793,
@@ -431,8 +431,8 @@
         },
         "CHC": {
           "batWAR": 0.303,
-          "pitWAR": 1.252,
-          "teamWAR": 1.554,
+          "pitWAR": 1.257,
+          "teamWAR": 1.56,
           "wRCp": 77.323,
           "BsR": 0.066,
           "xwOBA": 0.2877,
@@ -442,8 +442,8 @@
         },
         "CIN": {
           "batWAR": 0.272,
-          "pitWAR": 0.782,
-          "teamWAR": 1.054,
+          "pitWAR": 0.754,
+          "teamWAR": 1.026,
           "wRCp": 89.437,
           "BsR": -1.318,
           "xwOBA": 0.282,
@@ -453,8 +453,8 @@
         },
         "CLE": {
           "batWAR": 1.509,
-          "pitWAR": 0.885,
-          "teamWAR": 2.394,
+          "pitWAR": 0.892,
+          "teamWAR": 2.4,
           "wRCp": 122.034,
           "BsR": 0.038,
           "xwOBA": 0.3212,
@@ -464,19 +464,19 @@
         },
         "COL": {
           "batWAR": -0.123,
-          "pitWAR": 0.199,
-          "teamWAR": 0.075,
+          "pitWAR": 0.191,
+          "teamWAR": 0.069,
           "wRCp": 79.253,
           "BsR": -0.859,
           "xwOBA": 0.2962,
           "xFIP": 4.567,
           "SIERA": 4.283,
-          "OAA": -31.0
+          "OAA": -30.0
         },
         "CWS": {
-          "batWAR": 1.856,
-          "pitWAR": 0.688,
-          "teamWAR": 2.544,
+          "batWAR": 1.858,
+          "pitWAR": 0.681,
+          "teamWAR": 2.538,
           "wRCp": 139.239,
           "BsR": 0.032,
           "xwOBA": 0.3603,
@@ -485,20 +485,20 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 1.427,
-          "pitWAR": 0.843,
-          "teamWAR": 2.27,
+          "batWAR": 1.428,
+          "pitWAR": 0.885,
+          "teamWAR": 2.313,
           "wRCp": 125.901,
           "BsR": 0.273,
           "xwOBA": 0.3323,
           "xFIP": 3.203,
           "SIERA": 3.138,
-          "OAA": -39.0
+          "OAA": -38.0
         },
         "HOU": {
-          "batWAR": 2.605,
-          "pitWAR": 0.737,
-          "teamWAR": 3.342,
+          "batWAR": 2.606,
+          "pitWAR": 0.72,
+          "teamWAR": 3.326,
           "wRCp": 164.556,
           "BsR": -0.391,
           "xwOBA": 0.3536,
@@ -507,9 +507,9 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 1.917,
-          "pitWAR": -0.702,
-          "teamWAR": 1.215,
+          "batWAR": 1.916,
+          "pitWAR": -0.693,
+          "teamWAR": 1.223,
           "wRCp": 138.132,
           "BsR": 0.279,
           "xwOBA": 0.3803,
@@ -518,9 +518,9 @@
           "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 1.101,
-          "pitWAR": 0.127,
-          "teamWAR": 1.228,
+          "batWAR": 1.099,
+          "pitWAR": 0.119,
+          "teamWAR": 1.217,
           "wRCp": 113.357,
           "BsR": -0.631,
           "xwOBA": 0.3252,
@@ -530,8 +530,8 @@
         },
         "LAD": {
           "batWAR": 0.598,
-          "pitWAR": 2.563,
-          "teamWAR": 3.162,
+          "pitWAR": 2.554,
+          "teamWAR": 3.152,
           "wRCp": 95.577,
           "BsR": 0.279,
           "xwOBA": 0.3258,
@@ -541,8 +541,8 @@
         },
         "MIA": {
           "batWAR": 0.724,
-          "pitWAR": 1.397,
-          "teamWAR": 2.121,
+          "pitWAR": 1.43,
+          "teamWAR": 2.154,
           "wRCp": 97.985,
           "BsR": 0.061,
           "xwOBA": 0.3358,
@@ -551,9 +551,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 0.819,
-          "pitWAR": 0.961,
-          "teamWAR": 1.78,
+          "batWAR": 0.818,
+          "pitWAR": 0.947,
+          "teamWAR": 1.764,
           "wRCp": 103.866,
           "BsR": -0.38,
           "xwOBA": 0.3141,
@@ -563,8 +563,8 @@
         },
         "MIN": {
           "batWAR": 0.579,
-          "pitWAR": 0.775,
-          "teamWAR": 1.354,
+          "pitWAR": 0.79,
+          "teamWAR": 1.369,
           "wRCp": 99.841,
           "BsR": -0.905,
           "xwOBA": 0.3303,
@@ -574,8 +574,8 @@
         },
         "NYM": {
           "batWAR": 0.768,
-          "pitWAR": 1.109,
-          "teamWAR": 1.876,
+          "pitWAR": 1.128,
+          "teamWAR": 1.895,
           "wRCp": 103.882,
           "BsR": -0.493,
           "xwOBA": 0.3496,
@@ -584,9 +584,9 @@
           "OAA": -22.0
         },
         "NYY": {
-          "batWAR": 0.503,
-          "pitWAR": 1.277,
-          "teamWAR": 1.78,
+          "batWAR": 0.501,
+          "pitWAR": 1.314,
+          "teamWAR": 1.815,
           "wRCp": 91.514,
           "BsR": 0.719,
           "xwOBA": 0.2964,
@@ -596,8 +596,8 @@
         },
         "PHI": {
           "batWAR": -0.076,
-          "pitWAR": 1.191,
-          "teamWAR": 1.115,
+          "pitWAR": 1.192,
+          "teamWAR": 1.116,
           "wRCp": 73.514,
           "BsR": 0.325,
           "xwOBA": 0.3114,
@@ -607,8 +607,8 @@
         },
         "PIT": {
           "batWAR": -0.111,
-          "pitWAR": 1.445,
-          "teamWAR": 1.335,
+          "pitWAR": 1.458,
+          "teamWAR": 1.347,
           "wRCp": 73.567,
           "BsR": 0.136,
           "xwOBA": 0.3087,
@@ -618,8 +618,8 @@
         },
         "SD": {
           "batWAR": 0.785,
-          "pitWAR": 0.375,
-          "teamWAR": 1.16,
+          "pitWAR": 0.371,
+          "teamWAR": 1.156,
           "wRCp": 94.974,
           "BsR": 1.039,
           "xwOBA": 0.2818,
@@ -628,20 +628,20 @@
           "OAA": 19.0
         },
         "SEA": {
-          "batWAR": 0.813,
-          "pitWAR": 0.497,
-          "teamWAR": 1.31,
+          "batWAR": 0.814,
+          "pitWAR": 0.489,
+          "teamWAR": 1.302,
           "wRCp": 108.993,
           "BsR": 0.169,
           "xwOBA": 0.3094,
           "xFIP": 3.701,
           "SIERA": 3.793,
-          "OAA": -58.0
+          "OAA": -57.0
         },
         "SF": {
-          "batWAR": -0.863,
-          "pitWAR": 0.283,
-          "teamWAR": -0.58,
+          "batWAR": -0.862,
+          "pitWAR": 0.247,
+          "teamWAR": -0.616,
           "wRCp": 44.534,
           "BsR": 0.747,
           "xwOBA": 0.2371,
@@ -662,19 +662,19 @@
         },
         "TB": {
           "batWAR": 0.478,
-          "pitWAR": 0.682,
-          "teamWAR": 1.16,
+          "pitWAR": 0.695,
+          "teamWAR": 1.173,
           "wRCp": 82.889,
           "BsR": 0.244,
           "xwOBA": 0.2769,
           "xFIP": 3.891,
           "SIERA": 3.893,
-          "OAA": 7.0
+          "OAA": 6.0
         },
         "TEX": {
           "batWAR": 0.009,
-          "pitWAR": 0.413,
-          "teamWAR": 0.422,
+          "pitWAR": 0.376,
+          "teamWAR": 0.385,
           "wRCp": 75.32,
           "BsR": -1.071,
           "xwOBA": 0.274,
@@ -683,20 +683,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 0.339,
-          "pitWAR": 0.7,
-          "teamWAR": 1.038,
+          "batWAR": 0.337,
+          "pitWAR": 0.742,
+          "teamWAR": 1.078,
           "wRCp": 80.205,
           "BsR": -0.275,
           "xwOBA": 0.3168,
           "xFIP": 3.661,
           "SIERA": 3.404,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": -0.039,
-          "pitWAR": 0.136,
-          "teamWAR": 0.097,
+          "batWAR": -0.041,
+          "pitWAR": 0.158,
+          "teamWAR": 0.116,
           "wRCp": 72.616,
           "BsR": 0.736,
           "xwOBA": 0.2894,
@@ -715,9 +715,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 5.798,
-          "pitWAR": 2.719,
-          "teamWAR": 8.518,
+          "batWAR": 5.802,
+          "pitWAR": 2.423,
+          "teamWAR": 8.224,
           "wRCp": 103.391,
           "BsR": -1.756,
           "xwOBA": 0.3085,
@@ -726,9 +726,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 8.673,
-          "pitWAR": 7.799,
-          "teamWAR": 16.471,
+          "batWAR": 8.675,
+          "pitWAR": 7.728,
+          "teamWAR": 16.402,
           "wRCp": 82.88,
           "BsR": -0.249,
           "xwOBA": 0.3119,
@@ -737,9 +737,9 @@
           "OAA": 24.0
         },
         "AZ": {
-          "batWAR": 11.231,
-          "pitWAR": 6.175,
-          "teamWAR": 17.406,
+          "batWAR": 11.254,
+          "pitWAR": 6.032,
+          "teamWAR": 17.286,
           "wRCp": 119.244,
           "BsR": -0.017,
           "xwOBA": 0.3503,
@@ -748,20 +748,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 10.473,
-          "pitWAR": 8.96,
-          "teamWAR": 19.434,
+          "batWAR": 10.53,
+          "pitWAR": 8.715,
+          "teamWAR": 19.245,
           "wRCp": 111.283,
           "BsR": -3.221,
           "xwOBA": 0.3266,
           "xFIP": 3.998,
           "SIERA": 3.986,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
-          "batWAR": 10.196,
-          "pitWAR": 12.377,
-          "teamWAR": 22.573,
+          "batWAR": 10.203,
+          "pitWAR": 12.025,
+          "teamWAR": 22.227,
           "wRCp": 82.77,
           "BsR": -1.237,
           "xwOBA": 0.2941,
@@ -770,9 +770,9 @@
           "OAA": 20.0
         },
         "CHC": {
-          "batWAR": 19.039,
-          "pitWAR": 3.631,
-          "teamWAR": 22.67,
+          "batWAR": 19.04,
+          "pitWAR": 3.678,
+          "teamWAR": 22.718,
           "wRCp": 95.833,
           "BsR": 2.273,
           "xwOBA": 0.3055,
@@ -781,9 +781,9 @@
           "OAA": 74.0
         },
         "CIN": {
-          "batWAR": 5.34,
-          "pitWAR": 4.39,
-          "teamWAR": 9.73,
+          "batWAR": 5.341,
+          "pitWAR": 4.026,
+          "teamWAR": 9.367,
           "wRCp": 90.222,
           "BsR": -1.446,
           "xwOBA": 0.2974,
@@ -793,8 +793,8 @@
         },
         "CLE": {
           "batWAR": 10.47,
-          "pitWAR": 9.805,
-          "teamWAR": 20.275,
+          "pitWAR": 9.87,
+          "teamWAR": 20.34,
           "wRCp": 109.342,
           "BsR": 3.984,
           "xwOBA": 0.3133,
@@ -803,20 +803,20 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 4.123,
-          "pitWAR": 3.414,
-          "teamWAR": 7.538,
+          "batWAR": 4.13,
+          "pitWAR": 3.292,
+          "teamWAR": 7.422,
           "wRCp": 85.203,
           "BsR": -2.183,
           "xwOBA": 0.302,
           "xFIP": 4.652,
           "SIERA": 4.431,
-          "OAA": -31.0
+          "OAA": -30.0
         },
         "CWS": {
-          "batWAR": 12.752,
-          "pitWAR": 6.795,
-          "teamWAR": 19.547,
+          "batWAR": 12.763,
+          "pitWAR": 6.666,
+          "teamWAR": 19.429,
           "wRCp": 121.801,
           "BsR": -2.108,
           "xwOBA": 0.3394,
@@ -825,20 +825,20 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 10.153,
-          "pitWAR": 8.194,
-          "teamWAR": 18.347,
+          "batWAR": 10.16,
+          "pitWAR": 8.747,
+          "teamWAR": 18.907,
           "wRCp": 113.828,
           "BsR": -3.054,
           "xwOBA": 0.3261,
           "xFIP": 3.652,
           "SIERA": 3.581,
-          "OAA": -39.0
+          "OAA": -38.0
         },
         "HOU": {
-          "batWAR": 11.832,
-          "pitWAR": 4.124,
-          "teamWAR": 15.956,
+          "batWAR": 11.841,
+          "pitWAR": 4.024,
+          "teamWAR": 15.866,
           "wRCp": 134.903,
           "BsR": -3.736,
           "xwOBA": 0.3322,
@@ -847,9 +847,9 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 11.232,
-          "pitWAR": 2.181,
-          "teamWAR": 13.413,
+          "batWAR": 11.22,
+          "pitWAR": 2.229,
+          "teamWAR": 13.448,
           "wRCp": 117.923,
           "BsR": 2.502,
           "xwOBA": 0.3476,
@@ -858,9 +858,9 @@
           "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 5.421,
-          "pitWAR": 7.007,
-          "teamWAR": 12.428,
+          "batWAR": 5.397,
+          "pitWAR": 6.798,
+          "teamWAR": 12.195,
           "wRCp": 102.773,
           "BsR": -0.74,
           "xwOBA": 0.3138,
@@ -869,9 +869,9 @@
           "OAA": -41.0
         },
         "LAD": {
-          "batWAR": 13.736,
-          "pitWAR": 14.43,
-          "teamWAR": 28.167,
+          "batWAR": 13.74,
+          "pitWAR": 14.241,
+          "teamWAR": 27.982,
           "wRCp": 103.145,
           "BsR": -1.506,
           "xwOBA": 0.332,
@@ -881,8 +881,8 @@
         },
         "MIA": {
           "batWAR": 10.71,
-          "pitWAR": 7.756,
-          "teamWAR": 18.465,
+          "pitWAR": 8.151,
+          "teamWAR": 18.861,
           "wRCp": 99.154,
           "BsR": 2.268,
           "xwOBA": 0.3221,
@@ -891,9 +891,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 13.486,
-          "pitWAR": 11.768,
-          "teamWAR": 25.254,
+          "batWAR": 13.466,
+          "pitWAR": 11.575,
+          "teamWAR": 25.041,
           "wRCp": 105.574,
           "BsR": 0.179,
           "xwOBA": 0.3177,
@@ -902,9 +902,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 9.771,
-          "pitWAR": 6.391,
-          "teamWAR": 16.163,
+          "batWAR": 9.775,
+          "pitWAR": 6.61,
+          "teamWAR": 16.385,
           "wRCp": 100.779,
           "BsR": -3.151,
           "xwOBA": 0.3208,
@@ -913,9 +913,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 7.843,
-          "pitWAR": 8.361,
-          "teamWAR": 16.204,
+          "batWAR": 7.845,
+          "pitWAR": 8.636,
+          "teamWAR": 16.48,
           "wRCp": 100.232,
           "BsR": -3.067,
           "xwOBA": 0.3351,
@@ -924,9 +924,9 @@
           "OAA": -22.0
         },
         "NYY": {
-          "batWAR": 10.878,
-          "pitWAR": 11.57,
-          "teamWAR": 22.448,
+          "batWAR": 10.855,
+          "pitWAR": 12.049,
+          "teamWAR": 22.904,
           "wRCp": 96.356,
           "BsR": 1.622,
           "xwOBA": 0.3077,
@@ -935,9 +935,9 @@
           "OAA": -5.0
         },
         "PHI": {
-          "batWAR": 5.936,
-          "pitWAR": 12.427,
-          "teamWAR": 18.363,
+          "batWAR": 5.941,
+          "pitWAR": 12.467,
+          "teamWAR": 18.408,
           "wRCp": 82.625,
           "BsR": 2.668,
           "xwOBA": 0.3145,
@@ -946,9 +946,9 @@
           "OAA": -15.0
         },
         "PIT": {
-          "batWAR": 9.048,
-          "pitWAR": 11.2,
-          "teamWAR": 20.248,
+          "batWAR": 9.047,
+          "pitWAR": 11.29,
+          "teamWAR": 20.337,
           "wRCp": 87.326,
           "BsR": 2.715,
           "xwOBA": 0.3125,
@@ -957,9 +957,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 12.085,
-          "pitWAR": 7.67,
-          "teamWAR": 19.756,
+          "batWAR": 12.087,
+          "pitWAR": 7.561,
+          "teamWAR": 19.648,
           "wRCp": 98.624,
           "BsR": 4.056,
           "xwOBA": 0.2998,
@@ -968,20 +968,20 @@
           "OAA": 19.0
         },
         "SEA": {
-          "batWAR": 8.322,
-          "pitWAR": 7.372,
-          "teamWAR": 15.694,
+          "batWAR": 8.327,
+          "pitWAR": 7.215,
+          "teamWAR": 15.542,
           "wRCp": 105.528,
           "BsR": -0.803,
           "xwOBA": 0.312,
           "xFIP": 3.795,
           "SIERA": 3.796,
-          "OAA": -58.0
+          "OAA": -57.0
         },
         "SF": {
-          "batWAR": 6.104,
-          "pitWAR": 5.043,
-          "teamWAR": 11.148,
+          "batWAR": 6.12,
+          "pitWAR": 4.917,
+          "teamWAR": 11.036,
           "wRCp": 70.525,
           "BsR": -0.079,
           "xwOBA": 0.2722,
@@ -990,9 +990,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 7.476,
-          "pitWAR": 6.8,
-          "teamWAR": 14.275,
+          "batWAR": 7.473,
+          "pitWAR": 6.761,
+          "teamWAR": 14.234,
           "wRCp": 68.388,
           "BsR": 0.365,
           "xwOBA": 0.2962,
@@ -1001,20 +1001,20 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 12.164,
-          "pitWAR": 8.726,
-          "teamWAR": 20.89,
+          "batWAR": 12.158,
+          "pitWAR": 8.89,
+          "teamWAR": 21.048,
           "wRCp": 93.235,
           "BsR": 1.016,
           "xwOBA": 0.2903,
           "xFIP": 3.932,
           "SIERA": 3.868,
-          "OAA": 7.0
+          "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 10.136,
-          "pitWAR": 7.899,
-          "teamWAR": 18.035,
+          "batWAR": 10.143,
+          "pitWAR": 7.411,
+          "teamWAR": 17.554,
           "wRCp": 88.822,
           "BsR": -1.831,
           "xwOBA": 0.2908,
@@ -1023,20 +1023,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 9.736,
-          "pitWAR": 8.466,
-          "teamWAR": 18.203,
+          "batWAR": 9.691,
+          "pitWAR": 9.082,
+          "teamWAR": 18.773,
           "wRCp": 87.259,
           "BsR": -0.245,
           "xwOBA": 0.3073,
           "xFIP": 3.867,
           "SIERA": 3.72,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": 10.356,
-          "pitWAR": 2.486,
-          "teamWAR": 12.842,
+          "batWAR": 10.319,
+          "pitWAR": 2.825,
+          "teamWAR": 13.144,
           "wRCp": 87.597,
           "BsR": 5.806,
           "xwOBA": 0.3063,
@@ -1050,9 +1050,9 @@
   },
   "teams": {
     "ATH": {
-      "batWAR": 10.629,
-      "pitWAR": 6.035,
-      "teamWAR": 16.664,
+      "batWAR": 10.636,
+      "pitWAR": 5.458,
+      "teamWAR": 16.094,
       "wRCp": 93.629,
       "BsR": -3.367,
       "xwOBA": 0.3091,
@@ -1061,9 +1061,9 @@
       "OAA": -44.0
     },
     "ATL": {
-      "batWAR": 17.472,
-      "pitWAR": 15.592,
-      "teamWAR": 33.064,
+      "batWAR": 17.477,
+      "pitWAR": 15.454,
+      "teamWAR": 32.931,
       "wRCp": 97.303,
       "BsR": -0.835,
       "xwOBA": 0.3152,
@@ -1072,9 +1072,9 @@
       "OAA": 24.0
     },
     "AZ": {
-      "batWAR": 20.564,
-      "pitWAR": 11.845,
-      "teamWAR": 32.409,
+      "batWAR": 20.606,
+      "pitWAR": 11.571,
+      "teamWAR": 32.178,
       "wRCp": 98.138,
       "BsR": 1.179,
       "xwOBA": 0.3144,
@@ -1083,20 +1083,20 @@
       "OAA": 44.0
     },
     "BAL": {
-      "batWAR": 19.942,
-      "pitWAR": 16.614,
-      "teamWAR": 36.555,
+      "batWAR": 20.053,
+      "pitWAR": 16.145,
+      "teamWAR": 36.198,
       "wRCp": 101.675,
       "BsR": -6.207,
       "xwOBA": 0.3219,
       "xFIP": 4.227,
       "SIERA": 4.17,
-      "OAA": -15.0
+      "OAA": -14.0
     },
     "BOS": {
-      "batWAR": 20.382,
-      "pitWAR": 23.277,
-      "teamWAR": 43.659,
+      "batWAR": 20.395,
+      "pitWAR": 22.609,
+      "teamWAR": 43.004,
       "wRCp": 98.646,
       "BsR": -2.987,
       "xwOBA": 0.3089,
@@ -1105,9 +1105,9 @@
       "OAA": 20.0
     },
     "CHC": {
-      "batWAR": 37.775,
-      "pitWAR": 6.011,
-      "teamWAR": 43.786,
+      "batWAR": 37.776,
+      "pitWAR": 6.099,
+      "teamWAR": 43.875,
       "wRCp": 114.344,
       "BsR": 4.48,
       "xwOBA": 0.3233,
@@ -1116,9 +1116,9 @@
       "OAA": 74.0
     },
     "CIN": {
-      "batWAR": 10.407,
-      "pitWAR": 7.999,
-      "teamWAR": 18.406,
+      "batWAR": 10.411,
+      "pitWAR": 7.297,
+      "teamWAR": 17.709,
       "wRCp": 91.008,
       "BsR": -1.574,
       "xwOBA": 0.3127,
@@ -1128,8 +1128,8 @@
     },
     "CLE": {
       "batWAR": 19.43,
-      "pitWAR": 18.725,
-      "teamWAR": 38.155,
+      "pitWAR": 18.849,
+      "teamWAR": 38.279,
       "wRCp": 96.65,
       "BsR": 7.93,
       "xwOBA": 0.3053,
@@ -1138,20 +1138,20 @@
       "OAA": 11.0
     },
     "COL": {
-      "batWAR": 8.37,
-      "pitWAR": 6.63,
-      "teamWAR": 15.0,
+      "batWAR": 8.383,
+      "pitWAR": 6.394,
+      "teamWAR": 14.777,
       "wRCp": 91.152,
       "BsR": -3.508,
       "xwOBA": 0.3078,
       "xFIP": 4.738,
       "SIERA": 4.578,
-      "OAA": -31.0
+      "OAA": -30.0
     },
     "CWS": {
-      "batWAR": 23.647,
-      "pitWAR": 12.902,
-      "teamWAR": 36.548,
+      "batWAR": 23.668,
+      "pitWAR": 12.652,
+      "teamWAR": 36.321,
       "wRCp": 104.363,
       "BsR": -4.248,
       "xwOBA": 0.3184,
@@ -1160,20 +1160,20 @@
       "OAA": 17.0
     },
     "DET": {
-      "batWAR": 18.88,
-      "pitWAR": 15.544,
-      "teamWAR": 34.424,
+      "batWAR": 18.892,
+      "pitWAR": 16.609,
+      "teamWAR": 35.501,
       "wRCp": 101.755,
       "BsR": -6.38,
       "xwOBA": 0.32,
       "xFIP": 4.101,
       "SIERA": 4.024,
-      "OAA": -39.0
+      "OAA": -38.0
     },
     "HOU": {
-      "batWAR": 21.06,
-      "pitWAR": 7.511,
-      "teamWAR": 28.571,
+      "batWAR": 21.076,
+      "pitWAR": 7.329,
+      "teamWAR": 28.406,
       "wRCp": 105.25,
       "BsR": -7.081,
       "xwOBA": 0.3108,
@@ -1182,9 +1182,9 @@
       "OAA": -11.0
     },
     "KC": {
-      "batWAR": 20.548,
-      "pitWAR": 5.064,
-      "teamWAR": 25.611,
+      "batWAR": 20.523,
+      "pitWAR": 5.15,
+      "teamWAR": 25.674,
       "wRCp": 97.714,
       "BsR": 4.726,
       "xwOBA": 0.3148,
@@ -1193,9 +1193,9 @@
       "OAA": 20.0
     },
     "LAA": {
-      "batWAR": 9.74,
-      "pitWAR": 13.887,
-      "teamWAR": 23.627,
+      "batWAR": 9.694,
+      "pitWAR": 13.477,
+      "teamWAR": 23.171,
       "wRCp": 92.189,
       "BsR": -0.85,
       "xwOBA": 0.3025,
@@ -1204,9 +1204,9 @@
       "OAA": -41.0
     },
     "LAD": {
-      "batWAR": 26.875,
-      "pitWAR": 26.298,
-      "teamWAR": 53.173,
+      "batWAR": 26.883,
+      "pitWAR": 25.929,
+      "teamWAR": 52.812,
       "wRCp": 110.713,
       "BsR": -3.29,
       "xwOBA": 0.3383,
@@ -1216,8 +1216,8 @@
     },
     "MIA": {
       "batWAR": 20.695,
-      "pitWAR": 14.115,
-      "teamWAR": 34.81,
+      "pitWAR": 14.872,
+      "teamWAR": 35.567,
       "wRCp": 100.322,
       "BsR": 4.476,
       "xwOBA": 0.3085,
@@ -1226,9 +1226,9 @@
       "OAA": 10.0
     },
     "MIL": {
-      "batWAR": 26.153,
-      "pitWAR": 22.575,
-      "teamWAR": 48.727,
+      "batWAR": 26.114,
+      "pitWAR": 22.202,
+      "teamWAR": 48.315,
       "wRCp": 107.282,
       "BsR": 0.739,
       "xwOBA": 0.3214,
@@ -1237,9 +1237,9 @@
       "OAA": 19.0
     },
     "MIN": {
-      "batWAR": 18.963,
-      "pitWAR": 12.008,
-      "teamWAR": 30.971,
+      "batWAR": 18.971,
+      "pitWAR": 12.43,
+      "teamWAR": 31.401,
       "wRCp": 101.717,
       "BsR": -5.397,
       "xwOBA": 0.3113,
@@ -1248,9 +1248,9 @@
       "OAA": -15.0
     },
     "NYM": {
-      "batWAR": 14.917,
-      "pitWAR": 15.613,
-      "teamWAR": 30.53,
+      "batWAR": 14.922,
+      "pitWAR": 16.143,
+      "teamWAR": 31.065,
       "wRCp": 96.582,
       "BsR": -5.641,
       "xwOBA": 0.3206,
@@ -1259,9 +1259,9 @@
       "OAA": -22.0
     },
     "NYY": {
-      "batWAR": 21.253,
-      "pitWAR": 21.863,
-      "teamWAR": 43.116,
+      "batWAR": 21.209,
+      "pitWAR": 22.784,
+      "teamWAR": 43.992,
       "wRCp": 101.199,
       "BsR": 2.525,
       "xwOBA": 0.319,
@@ -1270,9 +1270,9 @@
       "OAA": -5.0
     },
     "PHI": {
-      "batWAR": 11.949,
-      "pitWAR": 23.663,
-      "teamWAR": 35.612,
+      "batWAR": 11.957,
+      "pitWAR": 23.743,
+      "teamWAR": 35.7,
       "wRCp": 91.736,
       "BsR": 5.011,
       "xwOBA": 0.3176,
@@ -1281,9 +1281,9 @@
       "OAA": -15.0
     },
     "PIT": {
-      "batWAR": 18.207,
-      "pitWAR": 20.955,
-      "teamWAR": 39.163,
+      "batWAR": 18.206,
+      "pitWAR": 21.122,
+      "teamWAR": 39.328,
       "wRCp": 101.086,
       "BsR": 5.294,
       "xwOBA": 0.3162,
@@ -1292,9 +1292,9 @@
       "OAA": -21.0
     },
     "SD": {
-      "batWAR": 23.386,
-      "pitWAR": 14.966,
-      "teamWAR": 38.352,
+      "batWAR": 23.388,
+      "pitWAR": 14.751,
+      "teamWAR": 38.138,
       "wRCp": 102.274,
       "BsR": 7.074,
       "xwOBA": 0.3178,
@@ -1303,20 +1303,20 @@
       "OAA": 19.0
     },
     "SEA": {
-      "batWAR": 15.831,
-      "pitWAR": 14.246,
-      "teamWAR": 30.077,
+      "batWAR": 15.841,
+      "pitWAR": 13.94,
+      "teamWAR": 29.781,
       "wRCp": 102.062,
       "BsR": -1.776,
       "xwOBA": 0.3147,
       "xFIP": 3.888,
       "SIERA": 3.798,
-      "OAA": -58.0
+      "OAA": -57.0
     },
     "SF": {
-      "batWAR": 13.071,
-      "pitWAR": 9.804,
-      "teamWAR": 22.875,
+      "batWAR": 13.101,
+      "pitWAR": 9.586,
+      "teamWAR": 22.688,
       "wRCp": 96.516,
       "BsR": -0.905,
       "xwOBA": 0.3074,
@@ -1325,9 +1325,9 @@
       "OAA": -17.0
     },
     "STL": {
-      "batWAR": 15.624,
-      "pitWAR": 12.857,
-      "teamWAR": 28.481,
+      "batWAR": 15.62,
+      "pitWAR": 12.78,
+      "teamWAR": 28.4,
       "wRCp": 93.278,
       "BsR": 0.755,
       "xwOBA": 0.3188,
@@ -1336,20 +1336,20 @@
       "OAA": 38.0
     },
     "TB": {
-      "batWAR": 23.85,
-      "pitWAR": 16.77,
-      "teamWAR": 40.62,
+      "batWAR": 23.837,
+      "pitWAR": 17.086,
+      "teamWAR": 40.923,
       "wRCp": 103.581,
       "BsR": 1.788,
       "xwOBA": 0.3037,
       "xFIP": 3.973,
       "SIERA": 3.843,
-      "OAA": 7.0
+      "OAA": 6.0
     },
     "TEX": {
-      "batWAR": 20.262,
-      "pitWAR": 15.386,
-      "teamWAR": 35.647,
+      "batWAR": 20.278,
+      "pitWAR": 14.446,
+      "teamWAR": 34.724,
       "wRCp": 102.325,
       "BsR": -2.591,
       "xwOBA": 0.3077,
@@ -1358,20 +1358,20 @@
       "OAA": 21.0
     },
     "TOR": {
-      "batWAR": 19.133,
-      "pitWAR": 16.233,
-      "teamWAR": 35.366,
+      "batWAR": 19.045,
+      "pitWAR": 17.421,
+      "teamWAR": 36.465,
       "wRCp": 94.313,
       "BsR": -0.216,
       "xwOBA": 0.2978,
       "xFIP": 4.073,
       "SIERA": 4.037,
-      "OAA": 15.0
+      "OAA": 14.0
     },
     "WSH": {
-      "batWAR": 20.751,
-      "pitWAR": 4.836,
-      "teamWAR": 25.587,
+      "batWAR": 20.679,
+      "pitWAR": 5.492,
+      "teamWAR": 26.171,
       "wRCp": 102.578,
       "BsR": 10.876,
       "xwOBA": 0.3232,
