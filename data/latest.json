@@ -2,12 +2,12 @@
   "date": "2026-10-08",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-08T05:10:51Z",
+  "updatedAt": "2026-10-08T12:03:30Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
+    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -35,9 +35,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 10.623,
+          "batWAR": 10.634,
           "pitWAR": 6.035,
-          "teamWAR": 16.658,
+          "teamWAR": 16.67,
           "wRCp": 93.629,
           "BsR": -3.367,
           "xwOBA": 0.3091,
@@ -46,9 +46,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 17.469,
+          "batWAR": 17.472,
           "pitWAR": 15.592,
-          "teamWAR": 33.061,
+          "teamWAR": 33.064,
           "wRCp": 97.303,
           "BsR": -0.835,
           "xwOBA": 0.3152,
@@ -57,9 +57,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 20.569,
+          "batWAR": 20.605,
           "pitWAR": 11.845,
-          "teamWAR": 32.413,
+          "teamWAR": 32.45,
           "wRCp": 98.138,
           "BsR": 1.179,
           "xwOBA": 0.3144,
@@ -68,20 +68,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 19.939,
+          "batWAR": 20.054,
           "pitWAR": 16.614,
-          "teamWAR": 36.553,
+          "teamWAR": 36.668,
           "wRCp": 101.675,
           "BsR": -6.207,
           "xwOBA": 0.3219,
           "xFIP": 4.227,
           "SIERA": 4.17,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
-          "batWAR": 20.381,
+          "batWAR": 20.395,
           "pitWAR": 23.277,
-          "teamWAR": 43.658,
+          "teamWAR": 43.672,
           "wRCp": 98.646,
           "BsR": -2.987,
           "xwOBA": 0.3089,
@@ -90,9 +90,9 @@
           "OAA": 20.0
         },
         "CHC": {
-          "batWAR": 37.778,
+          "batWAR": 37.781,
           "pitWAR": 6.011,
-          "teamWAR": 43.788,
+          "teamWAR": 43.792,
           "wRCp": 114.344,
           "BsR": 4.48,
           "xwOBA": 0.3233,
@@ -101,9 +101,9 @@
           "OAA": 74.0
         },
         "CIN": {
-          "batWAR": 10.403,
+          "batWAR": 10.407,
           "pitWAR": 7.999,
-          "teamWAR": 18.402,
+          "teamWAR": 18.407,
           "wRCp": 91.008,
           "BsR": -1.574,
           "xwOBA": 0.3127,
@@ -112,9 +112,9 @@
           "OAA": 1.0
         },
         "CLE": {
-          "batWAR": 19.424,
+          "batWAR": 19.43,
           "pitWAR": 18.725,
-          "teamWAR": 38.149,
+          "teamWAR": 38.155,
           "wRCp": 96.65,
           "BsR": 7.93,
           "xwOBA": 0.3053,
@@ -123,9 +123,9 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 8.37,
+          "batWAR": 8.376,
           "pitWAR": 6.63,
-          "teamWAR": 15.0,
+          "teamWAR": 15.006,
           "wRCp": 91.152,
           "BsR": -3.508,
           "xwOBA": 0.3078,
@@ -134,9 +134,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 23.636,
+          "batWAR": 23.667,
           "pitWAR": 12.902,
-          "teamWAR": 36.538,
+          "teamWAR": 36.569,
           "wRCp": 104.363,
           "BsR": -4.248,
           "xwOBA": 0.3184,
@@ -145,9 +145,9 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 18.88,
+          "batWAR": 18.894,
           "pitWAR": 15.544,
-          "teamWAR": 34.425,
+          "teamWAR": 34.438,
           "wRCp": 101.755,
           "BsR": -6.38,
           "xwOBA": 0.32,
@@ -156,9 +156,9 @@
           "OAA": -39.0
         },
         "HOU": {
-          "batWAR": 21.066,
+          "batWAR": 21.078,
           "pitWAR": 7.511,
-          "teamWAR": 28.577,
+          "teamWAR": 28.589,
           "wRCp": 105.25,
           "BsR": -7.081,
           "xwOBA": 0.3108,
@@ -167,31 +167,31 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 20.536,
+          "batWAR": 20.519,
           "pitWAR": 5.064,
-          "teamWAR": 25.599,
+          "teamWAR": 25.582,
           "wRCp": 97.714,
           "BsR": 4.726,
           "xwOBA": 0.3148,
           "xFIP": 4.579,
           "SIERA": 4.524,
-          "OAA": 20.0
+          "OAA": 19.0
         },
         "LAA": {
-          "batWAR": 9.73,
+          "batWAR": 9.628,
           "pitWAR": 13.887,
-          "teamWAR": 23.617,
+          "teamWAR": 23.515,
           "wRCp": 92.189,
           "BsR": -0.85,
           "xwOBA": 0.3025,
           "xFIP": 4.169,
           "SIERA": 4.112,
-          "OAA": -41.0
+          "OAA": -42.0
         },
         "LAD": {
-          "batWAR": 26.883,
+          "batWAR": 26.889,
           "pitWAR": 26.298,
-          "teamWAR": 53.181,
+          "teamWAR": 53.187,
           "wRCp": 110.713,
           "BsR": -3.29,
           "xwOBA": 0.3383,
@@ -200,9 +200,9 @@
           "OAA": 14.0
         },
         "MIA": {
-          "batWAR": 20.691,
+          "batWAR": 20.695,
           "pitWAR": 14.115,
-          "teamWAR": 34.806,
+          "teamWAR": 34.81,
           "wRCp": 100.322,
           "BsR": 4.476,
           "xwOBA": 0.3086,
@@ -211,9 +211,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 26.15,
+          "batWAR": 26.106,
           "pitWAR": 22.575,
-          "teamWAR": 48.725,
+          "teamWAR": 48.68,
           "wRCp": 107.282,
           "BsR": 0.739,
           "xwOBA": 0.3214,
@@ -222,9 +222,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 18.96,
+          "batWAR": 18.973,
           "pitWAR": 12.008,
-          "teamWAR": 30.968,
+          "teamWAR": 30.981,
           "wRCp": 101.717,
           "BsR": -5.397,
           "xwOBA": 0.3113,
@@ -233,9 +233,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 14.919,
+          "batWAR": 14.922,
           "pitWAR": 15.613,
-          "teamWAR": 30.531,
+          "teamWAR": 30.534,
           "wRCp": 96.582,
           "BsR": -5.641,
           "xwOBA": 0.3206,
@@ -244,20 +244,20 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 21.244,
+          "batWAR": 21.203,
           "pitWAR": 21.863,
-          "teamWAR": 43.107,
+          "teamWAR": 43.066,
           "wRCp": 101.199,
           "BsR": 2.525,
           "xwOBA": 0.3191,
           "xFIP": 3.766,
           "SIERA": 3.725,
-          "OAA": -5.0
+          "OAA": -6.0
         },
         "PHI": {
-          "batWAR": 11.95,
+          "batWAR": 11.959,
           "pitWAR": 23.663,
-          "teamWAR": 35.613,
+          "teamWAR": 35.622,
           "wRCp": 91.736,
           "BsR": 5.011,
           "xwOBA": 0.3176,
@@ -277,9 +277,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 23.384,
+          "batWAR": 23.386,
           "pitWAR": 14.966,
-          "teamWAR": 38.35,
+          "teamWAR": 38.352,
           "wRCp": 102.274,
           "BsR": 7.074,
           "xwOBA": 0.3178,
@@ -288,9 +288,9 @@
           "OAA": 18.0
         },
         "SEA": {
-          "batWAR": 15.831,
+          "batWAR": 15.844,
           "pitWAR": 14.246,
-          "teamWAR": 30.076,
+          "teamWAR": 30.089,
           "wRCp": 102.062,
           "BsR": -1.776,
           "xwOBA": 0.3147,
@@ -299,9 +299,9 @@
           "OAA": -58.0
         },
         "SF": {
-          "batWAR": 13.076,
+          "batWAR": 13.118,
           "pitWAR": 9.804,
-          "teamWAR": 22.88,
+          "teamWAR": 22.922,
           "wRCp": 96.516,
           "BsR": -0.905,
           "xwOBA": 0.3074,
@@ -310,9 +310,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 15.623,
+          "batWAR": 15.617,
           "pitWAR": 12.857,
-          "teamWAR": 28.48,
+          "teamWAR": 28.474,
           "wRCp": 93.278,
           "BsR": 0.755,
           "xwOBA": 0.3188,
@@ -321,9 +321,9 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 23.851,
+          "batWAR": 23.84,
           "pitWAR": 16.77,
-          "teamWAR": 40.621,
+          "teamWAR": 40.61,
           "wRCp": 103.581,
           "BsR": 1.788,
           "xwOBA": 0.3037,
@@ -332,9 +332,9 @@
           "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 20.254,
+          "batWAR": 20.276,
           "pitWAR": 15.386,
-          "teamWAR": 35.639,
+          "teamWAR": 35.661,
           "wRCp": 102.325,
           "BsR": -2.591,
           "xwOBA": 0.3077,
@@ -343,26 +343,26 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 19.194,
+          "batWAR": 19.115,
           "pitWAR": 16.233,
-          "teamWAR": 35.427,
+          "teamWAR": 35.348,
           "wRCp": 94.313,
           "BsR": -0.216,
           "xwOBA": 0.2978,
           "xFIP": 4.073,
           "SIERA": 4.037,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": 20.75,
+          "batWAR": 20.681,
           "pitWAR": 4.836,
-          "teamWAR": 25.585,
+          "teamWAR": 25.516,
           "wRCp": 102.578,
           "BsR": 10.876,
           "xwOBA": 0.3232,
           "xFIP": 4.473,
           "SIERA": 4.327,
-          "OAA": -21.0
+          "OAA": -22.0
         }
       },
       "matchups": [
@@ -382,9 +382,9 @@
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
-            "batWAR": 19.424,
+            "batWAR": 19.43,
             "pitWAR": 18.725,
-            "teamWAR": 38.149,
+            "teamWAR": 38.155,
             "wRCp": 96.65,
             "BsR": 7.93,
             "xwOBA": 0.3053,
@@ -393,9 +393,9 @@
             "OAA": 11.0
           },
           "homeStats": {
-            "batWAR": 23.636,
+            "batWAR": 23.667,
             "pitWAR": 12.902,
-            "teamWAR": 36.538,
+            "teamWAR": 36.569,
             "wRCp": 104.363,
             "BsR": -4.248,
             "xwOBA": 0.3184,
@@ -403,7 +403,7 @@
             "SIERA": 4.153,
             "OAA": 17.0
           },
-          "diffTeamWAR": -1.612,
+          "diffTeamWAR": -1.587,
           "diffWRCp": 7.714,
           "diffBsR": -12.179,
           "diffXwOBA": 0.0131,
@@ -423,24 +423,117 @@
           "modelHomeProb": 0.5,
           "favored": "EVEN",
           "odds": {
-            "provider": "DraftKings",
-            "home": "-105",
-            "away": "-114",
-            "espnId": "401907993",
-            "espnGameNumber": 4
+            "provider": "4casters",
+            "home": "+104",
+            "away": "-108",
+            "gameId": "6ac6873ba9b018a40fa14723",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 102
+                },
+                {
+                  "line": -0.5,
+                  "odds": 101
+                },
+                {
+                  "line": 0.5,
+                  "odds": 101
+                },
+                {
+                  "line": -1.0,
+                  "odds": 161
+                },
+                {
+                  "line": 1.0,
+                  "odds": -135
+                },
+                {
+                  "line": -1.5,
+                  "odds": 217
+                },
+                {
+                  "line": 1.5,
+                  "odds": -171
+                },
+                {
+                  "line": 2.0,
+                  "odds": -243
+                },
+                {
+                  "line": 2.5,
+                  "odds": -285
+                },
+                {
+                  "line": 3.0,
+                  "odds": -409
+                },
+                {
+                  "line": 3.5,
+                  "odds": -456
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -107
+                },
+                {
+                  "line": -0.5,
+                  "odds": -108
+                },
+                {
+                  "line": 0.5,
+                  "odds": -108
+                },
+                {
+                  "line": -1.0,
+                  "odds": 129
+                },
+                {
+                  "line": 1.0,
+                  "odds": -170
+                },
+                {
+                  "line": -1.5,
+                  "odds": 164
+                },
+                {
+                  "line": 1.5,
+                  "odds": -225
+                },
+                {
+                  "line": -2.0,
+                  "odds": 228
+                },
+                {
+                  "line": -2.5,
+                  "odds": 264
+                },
+                {
+                  "line": -3.0,
+                  "odds": 380
+                },
+                {
+                  "line": -3.5,
+                  "odds": 419
+                }
+              ]
+            }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT081700CLECWS",
-            "awayVol": 23687.67,
-            "homeVol": 78932.75,
-            "awayCents": 53,
+            "awayVol": 64519.26,
+            "homeVol": 237402.24,
+            "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.3001,
-            "homeMult": 3.3322,
-            "maxMult": 3.3322,
-            "totalVol": 102620.42,
+            "awayMult": 0.2718,
+            "homeMult": 3.6796,
+            "maxMult": 3.6796,
+            "totalVol": 301921.5,
             "highSide": "home",
-            "highMult": 3.3322,
+            "highMult": 3.6796,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -455,7 +548,7 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 0.967,
+          "batWAR": 0.968,
           "pitWAR": -0.597,
           "teamWAR": 0.371,
           "wRCp": 113.153,
@@ -477,9 +570,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 1.898,
+          "batWAR": 1.901,
           "pitWAR": 0.505,
-          "teamWAR": 2.403,
+          "teamWAR": 2.406,
           "wRCp": 140.35,
           "BsR": -1.214,
           "xwOBA": 0.3861,
@@ -488,20 +581,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 1.005,
+          "batWAR": 1.007,
           "pitWAR": 1.306,
-          "teamWAR": 2.31,
+          "teamWAR": 2.313,
           "wRCp": 120.891,
           "BsR": -0.236,
           "xwOBA": 0.3312,
           "xFIP": 3.77,
           "SIERA": 3.802,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
           "batWAR": 0.01,
           "pitWAR": 1.476,
-          "teamWAR": 1.486,
+          "teamWAR": 1.487,
           "wRCp": 66.894,
           "BsR": 0.513,
           "xwOBA": 0.2793,
@@ -512,7 +605,7 @@
         "CHC": {
           "batWAR": 0.303,
           "pitWAR": 1.252,
-          "teamWAR": 1.554,
+          "teamWAR": 1.555,
           "wRCp": 77.323,
           "BsR": 0.066,
           "xwOBA": 0.2877,
@@ -545,7 +638,7 @@
         "COL": {
           "batWAR": -0.123,
           "pitWAR": 0.199,
-          "teamWAR": 0.075,
+          "teamWAR": 0.076,
           "wRCp": 79.253,
           "BsR": -0.859,
           "xwOBA": 0.2962,
@@ -554,9 +647,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 1.856,
+          "batWAR": 1.857,
           "pitWAR": 0.688,
-          "teamWAR": 2.544,
+          "teamWAR": 2.545,
           "wRCp": 139.239,
           "BsR": 0.032,
           "xwOBA": 0.3603,
@@ -565,7 +658,7 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 1.427,
+          "batWAR": 1.428,
           "pitWAR": 0.843,
           "teamWAR": 2.27,
           "wRCp": 125.901,
@@ -576,9 +669,9 @@
           "OAA": -39.0
         },
         "HOU": {
-          "batWAR": 2.605,
+          "batWAR": 2.606,
           "pitWAR": 0.737,
-          "teamWAR": 3.342,
+          "teamWAR": 3.343,
           "wRCp": 164.556,
           "BsR": -0.391,
           "xwOBA": 0.3536,
@@ -587,29 +680,29 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 1.917,
+          "batWAR": 1.916,
           "pitWAR": -0.702,
-          "teamWAR": 1.215,
+          "teamWAR": 1.214,
           "wRCp": 138.132,
           "BsR": 0.279,
           "xwOBA": 0.3803,
           "xFIP": 5.549,
           "SIERA": 5.152,
-          "OAA": 20.0
+          "OAA": 19.0
         },
         "LAA": {
-          "batWAR": 1.1,
+          "batWAR": 1.096,
           "pitWAR": 0.127,
-          "teamWAR": 1.227,
+          "teamWAR": 1.223,
           "wRCp": 113.357,
           "BsR": -0.631,
           "xwOBA": 0.3252,
           "xFIP": 4.992,
           "SIERA": 4.852,
-          "OAA": -41.0
+          "OAA": -42.0
         },
         "LAD": {
-          "batWAR": 0.598,
+          "batWAR": 0.599,
           "pitWAR": 2.563,
           "teamWAR": 3.162,
           "wRCp": 95.577,
@@ -622,7 +715,7 @@
         "MIA": {
           "batWAR": 0.724,
           "pitWAR": 1.397,
-          "teamWAR": 2.12,
+          "teamWAR": 2.121,
           "wRCp": 97.985,
           "BsR": 0.061,
           "xwOBA": 0.3361,
@@ -631,9 +724,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 0.819,
+          "batWAR": 0.817,
           "pitWAR": 0.961,
-          "teamWAR": 1.78,
+          "teamWAR": 1.778,
           "wRCp": 103.866,
           "BsR": -0.38,
           "xwOBA": 0.3141,
@@ -642,9 +735,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 0.579,
+          "batWAR": 0.58,
           "pitWAR": 0.775,
-          "teamWAR": 1.354,
+          "teamWAR": 1.355,
           "wRCp": 99.841,
           "BsR": -0.905,
           "xwOBA": 0.3303,
@@ -664,15 +757,15 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 0.502,
+          "batWAR": 0.501,
           "pitWAR": 1.277,
-          "teamWAR": 1.779,
+          "teamWAR": 1.778,
           "wRCp": 91.514,
           "BsR": 0.719,
           "xwOBA": 0.2965,
           "xFIP": 3.582,
           "SIERA": 3.698,
-          "OAA": -5.0
+          "OAA": -6.0
         },
         "PHI": {
           "batWAR": -0.076,
@@ -730,7 +823,7 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": -0.673,
+          "batWAR": -0.674,
           "pitWAR": 0.742,
           "teamWAR": 0.069,
           "wRCp": 43.497,
@@ -754,7 +847,7 @@
         "TEX": {
           "batWAR": 0.009,
           "pitWAR": 0.413,
-          "teamWAR": 0.422,
+          "teamWAR": 0.423,
           "wRCp": 75.32,
           "BsR": -1.071,
           "xwOBA": 0.274,
@@ -763,26 +856,26 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 0.34,
+          "batWAR": 0.339,
           "pitWAR": 0.7,
-          "teamWAR": 1.04,
+          "teamWAR": 1.038,
           "wRCp": 80.205,
           "BsR": -0.275,
           "xwOBA": 0.3168,
           "xFIP": 3.661,
           "SIERA": 3.404,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": -0.039,
+          "batWAR": -0.041,
           "pitWAR": 0.136,
-          "teamWAR": 0.097,
+          "teamWAR": 0.095,
           "wRCp": 72.616,
           "BsR": 0.736,
           "xwOBA": 0.2894,
           "xFIP": 4.338,
           "SIERA": 4.211,
-          "OAA": -21.0
+          "OAA": -22.0
         }
       },
       "matchups": [
@@ -813,9 +906,9 @@
             "OAA": 11.0
           },
           "homeStats": {
-            "batWAR": 1.856,
+            "batWAR": 1.857,
             "pitWAR": 0.688,
-            "teamWAR": 2.544,
+            "teamWAR": 2.545,
             "wRCp": 139.239,
             "BsR": 0.032,
             "xwOBA": 0.3603,
@@ -823,7 +916,7 @@
             "SIERA": 3.575,
             "OAA": 17.0
           },
-          "diffTeamWAR": 0.15,
+          "diffTeamWAR": 0.152,
           "diffWRCp": 17.205,
           "diffBsR": -0.006,
           "diffXwOBA": 0.0392,
@@ -843,24 +936,117 @@
           "modelHomeProb": 0.5,
           "favored": "EVEN",
           "odds": {
-            "provider": "DraftKings",
-            "home": "-105",
-            "away": "-114",
-            "espnId": "401907993",
-            "espnGameNumber": 4
+            "provider": "4casters",
+            "home": "+104",
+            "away": "-108",
+            "gameId": "6ac6873ba9b018a40fa14723",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 102
+                },
+                {
+                  "line": -0.5,
+                  "odds": 101
+                },
+                {
+                  "line": 0.5,
+                  "odds": 101
+                },
+                {
+                  "line": -1.0,
+                  "odds": 161
+                },
+                {
+                  "line": 1.0,
+                  "odds": -135
+                },
+                {
+                  "line": -1.5,
+                  "odds": 217
+                },
+                {
+                  "line": 1.5,
+                  "odds": -171
+                },
+                {
+                  "line": 2.0,
+                  "odds": -243
+                },
+                {
+                  "line": 2.5,
+                  "odds": -285
+                },
+                {
+                  "line": 3.0,
+                  "odds": -409
+                },
+                {
+                  "line": 3.5,
+                  "odds": -456
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -107
+                },
+                {
+                  "line": -0.5,
+                  "odds": -108
+                },
+                {
+                  "line": 0.5,
+                  "odds": -108
+                },
+                {
+                  "line": -1.0,
+                  "odds": 129
+                },
+                {
+                  "line": 1.0,
+                  "odds": -170
+                },
+                {
+                  "line": -1.5,
+                  "odds": 164
+                },
+                {
+                  "line": 1.5,
+                  "odds": -225
+                },
+                {
+                  "line": -2.0,
+                  "odds": 228
+                },
+                {
+                  "line": -2.5,
+                  "odds": 264
+                },
+                {
+                  "line": -3.0,
+                  "odds": 380
+                },
+                {
+                  "line": -3.5,
+                  "odds": 419
+                }
+              ]
+            }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT081700CLECWS",
-            "awayVol": 23687.67,
-            "homeVol": 78932.75,
-            "awayCents": 53,
+            "awayVol": 64519.26,
+            "homeVol": 237402.24,
+            "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.3001,
-            "homeMult": 3.3322,
-            "maxMult": 3.3322,
-            "totalVol": 102620.42,
+            "awayMult": 0.2718,
+            "homeMult": 3.6796,
+            "maxMult": 3.6796,
+            "totalVol": 301921.5,
             "highSide": "home",
-            "highMult": 3.3322,
+            "highMult": 3.6796,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -875,9 +1061,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 5.795,
+          "batWAR": 5.801,
           "pitWAR": 2.719,
-          "teamWAR": 8.514,
+          "teamWAR": 8.52,
           "wRCp": 103.391,
           "BsR": -1.756,
           "xwOBA": 0.3085,
@@ -886,9 +1072,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 8.671,
+          "batWAR": 8.672,
           "pitWAR": 7.799,
-          "teamWAR": 16.469,
+          "teamWAR": 16.471,
           "wRCp": 82.88,
           "BsR": -0.249,
           "xwOBA": 0.3119,
@@ -897,9 +1083,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 11.233,
+          "batWAR": 11.253,
           "pitWAR": 6.175,
-          "teamWAR": 17.409,
+          "teamWAR": 17.428,
           "wRCp": 119.244,
           "BsR": -0.017,
           "xwOBA": 0.3503,
@@ -908,20 +1094,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 10.472,
+          "batWAR": 10.53,
           "pitWAR": 8.96,
-          "teamWAR": 19.432,
+          "teamWAR": 19.491,
           "wRCp": 111.283,
           "BsR": -3.221,
           "xwOBA": 0.3266,
           "xFIP": 3.998,
           "SIERA": 3.986,
-          "OAA": -15.0
+          "OAA": -14.0
         },
         "BOS": {
-          "batWAR": 10.196,
+          "batWAR": 10.203,
           "pitWAR": 12.377,
-          "teamWAR": 22.572,
+          "teamWAR": 22.579,
           "wRCp": 82.77,
           "BsR": -1.237,
           "xwOBA": 0.2941,
@@ -930,9 +1116,9 @@
           "OAA": 20.0
         },
         "CHC": {
-          "batWAR": 19.04,
+          "batWAR": 19.042,
           "pitWAR": 3.631,
-          "teamWAR": 22.672,
+          "teamWAR": 22.673,
           "wRCp": 95.833,
           "BsR": 2.273,
           "xwOBA": 0.3055,
@@ -941,9 +1127,9 @@
           "OAA": 74.0
         },
         "CIN": {
-          "batWAR": 5.338,
+          "batWAR": 5.34,
           "pitWAR": 4.39,
-          "teamWAR": 9.728,
+          "teamWAR": 9.73,
           "wRCp": 90.222,
           "BsR": -1.446,
           "xwOBA": 0.2974,
@@ -952,9 +1138,9 @@
           "OAA": 1.0
         },
         "CLE": {
-          "batWAR": 10.466,
+          "batWAR": 10.469,
           "pitWAR": 9.805,
-          "teamWAR": 20.271,
+          "teamWAR": 20.274,
           "wRCp": 109.342,
           "BsR": 3.984,
           "xwOBA": 0.3133,
@@ -963,9 +1149,9 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 4.123,
+          "batWAR": 4.127,
           "pitWAR": 3.414,
-          "teamWAR": 7.538,
+          "teamWAR": 7.541,
           "wRCp": 85.203,
           "BsR": -2.183,
           "xwOBA": 0.302,
@@ -974,9 +1160,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 12.746,
+          "batWAR": 12.762,
           "pitWAR": 6.795,
-          "teamWAR": 19.541,
+          "teamWAR": 19.557,
           "wRCp": 121.801,
           "BsR": -2.108,
           "xwOBA": 0.3394,
@@ -985,9 +1171,9 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 10.153,
+          "batWAR": 10.161,
           "pitWAR": 8.194,
-          "teamWAR": 18.347,
+          "teamWAR": 18.355,
           "wRCp": 113.828,
           "BsR": -3.054,
           "xwOBA": 0.3261,
@@ -996,9 +1182,9 @@
           "OAA": -39.0
         },
         "HOU": {
-          "batWAR": 11.835,
+          "batWAR": 11.842,
           "pitWAR": 4.124,
-          "teamWAR": 15.959,
+          "teamWAR": 15.966,
           "wRCp": 134.903,
           "BsR": -3.736,
           "xwOBA": 0.3322,
@@ -1007,31 +1193,31 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 11.227,
+          "batWAR": 11.217,
           "pitWAR": 2.181,
-          "teamWAR": 13.408,
+          "teamWAR": 13.398,
           "wRCp": 117.923,
           "BsR": 2.502,
           "xwOBA": 0.3476,
           "xFIP": 5.064,
           "SIERA": 4.838,
-          "OAA": 20.0
+          "OAA": 19.0
         },
         "LAA": {
-          "batWAR": 5.415,
+          "batWAR": 5.362,
           "pitWAR": 7.007,
-          "teamWAR": 12.422,
+          "teamWAR": 12.369,
           "wRCp": 102.773,
           "BsR": -0.74,
           "xwOBA": 0.3138,
           "xFIP": 4.58,
           "SIERA": 4.482,
-          "OAA": -41.0
+          "OAA": -42.0
         },
         "LAD": {
-          "batWAR": 13.74,
+          "batWAR": 13.744,
           "pitWAR": 14.43,
-          "teamWAR": 28.171,
+          "teamWAR": 28.174,
           "wRCp": 103.145,
           "BsR": -1.506,
           "xwOBA": 0.332,
@@ -1040,9 +1226,9 @@
           "OAA": 14.0
         },
         "MIA": {
-          "batWAR": 10.707,
+          "batWAR": 10.71,
           "pitWAR": 7.756,
-          "teamWAR": 18.463,
+          "teamWAR": 18.465,
           "wRCp": 99.154,
           "BsR": 2.268,
           "xwOBA": 0.3224,
@@ -1051,9 +1237,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 13.484,
+          "batWAR": 13.462,
           "pitWAR": 11.768,
-          "teamWAR": 25.252,
+          "teamWAR": 25.23,
           "wRCp": 105.574,
           "BsR": 0.179,
           "xwOBA": 0.3177,
@@ -1062,9 +1248,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 9.77,
+          "batWAR": 9.776,
           "pitWAR": 6.391,
-          "teamWAR": 16.161,
+          "teamWAR": 16.168,
           "wRCp": 100.779,
           "BsR": -3.151,
           "xwOBA": 0.3208,
@@ -1073,9 +1259,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 7.844,
+          "batWAR": 7.845,
           "pitWAR": 8.361,
-          "teamWAR": 16.205,
+          "teamWAR": 16.206,
           "wRCp": 100.232,
           "BsR": -3.067,
           "xwOBA": 0.3351,
@@ -1084,20 +1270,20 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 10.873,
+          "batWAR": 10.852,
           "pitWAR": 11.57,
-          "teamWAR": 22.443,
+          "teamWAR": 22.422,
           "wRCp": 96.356,
           "BsR": 1.622,
           "xwOBA": 0.3078,
           "xFIP": 3.674,
           "SIERA": 3.712,
-          "OAA": -5.0
+          "OAA": -6.0
         },
         "PHI": {
-          "batWAR": 5.937,
+          "batWAR": 5.941,
           "pitWAR": 12.427,
-          "teamWAR": 18.364,
+          "teamWAR": 18.368,
           "wRCp": 82.625,
           "BsR": 2.668,
           "xwOBA": 0.3145,
@@ -1119,7 +1305,7 @@
         "SD": {
           "batWAR": 12.085,
           "pitWAR": 7.67,
-          "teamWAR": 19.755,
+          "teamWAR": 19.756,
           "wRCp": 98.624,
           "BsR": 4.056,
           "xwOBA": 0.2998,
@@ -1128,9 +1314,9 @@
           "OAA": 18.0
         },
         "SEA": {
-          "batWAR": 8.322,
+          "batWAR": 8.329,
           "pitWAR": 7.372,
-          "teamWAR": 15.694,
+          "teamWAR": 15.7,
           "wRCp": 105.528,
           "BsR": -0.803,
           "xwOBA": 0.312,
@@ -1139,9 +1325,9 @@
           "OAA": -58.0
         },
         "SF": {
-          "batWAR": 6.107,
+          "batWAR": 6.128,
           "pitWAR": 5.043,
-          "teamWAR": 11.151,
+          "teamWAR": 11.171,
           "wRCp": 70.525,
           "BsR": -0.079,
           "xwOBA": 0.2722,
@@ -1150,9 +1336,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 7.475,
+          "batWAR": 7.472,
           "pitWAR": 6.8,
-          "teamWAR": 14.274,
+          "teamWAR": 14.271,
           "wRCp": 68.388,
           "BsR": 0.365,
           "xwOBA": 0.2962,
@@ -1161,9 +1347,9 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 12.165,
+          "batWAR": 12.159,
           "pitWAR": 8.726,
-          "teamWAR": 20.89,
+          "teamWAR": 20.885,
           "wRCp": 93.235,
           "BsR": 1.016,
           "xwOBA": 0.2903,
@@ -1172,9 +1358,9 @@
           "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 10.132,
+          "batWAR": 10.143,
           "pitWAR": 7.899,
-          "teamWAR": 18.031,
+          "teamWAR": 18.042,
           "wRCp": 88.822,
           "BsR": -1.831,
           "xwOBA": 0.2908,
@@ -1183,26 +1369,26 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 9.767,
+          "batWAR": 9.727,
           "pitWAR": 8.466,
-          "teamWAR": 18.233,
+          "teamWAR": 18.194,
           "wRCp": 87.259,
           "BsR": -0.245,
           "xwOBA": 0.3073,
           "xFIP": 3.867,
           "SIERA": 3.72,
-          "OAA": 15.0
+          "OAA": 14.0
         },
         "WSH": {
-          "batWAR": 10.355,
+          "batWAR": 10.32,
           "pitWAR": 2.486,
-          "teamWAR": 12.841,
+          "teamWAR": 12.806,
           "wRCp": 87.597,
           "BsR": 5.806,
           "xwOBA": 0.3063,
           "xFIP": 4.405,
           "SIERA": 4.269,
-          "OAA": -21.0
+          "OAA": -22.0
         }
       },
       "matchups": [
@@ -1222,9 +1408,9 @@
           "abstractGameState": "Preview",
           "startTimeTBD": false,
           "awayStats": {
-            "batWAR": 10.466,
+            "batWAR": 10.469,
             "pitWAR": 9.805,
-            "teamWAR": 20.271,
+            "teamWAR": 20.274,
             "wRCp": 109.342,
             "BsR": 3.984,
             "xwOBA": 0.3133,
@@ -1233,9 +1419,9 @@
             "OAA": 11.0
           },
           "homeStats": {
-            "batWAR": 12.746,
+            "batWAR": 12.762,
             "pitWAR": 6.795,
-            "teamWAR": 19.541,
+            "teamWAR": 19.557,
             "wRCp": 121.801,
             "BsR": -2.108,
             "xwOBA": 0.3394,
@@ -1243,7 +1429,7 @@
             "SIERA": 3.864,
             "OAA": 17.0
           },
-          "diffTeamWAR": -0.73,
+          "diffTeamWAR": -0.717,
           "diffWRCp": 12.459,
           "diffBsR": -6.092,
           "diffXwOBA": 0.0261,
@@ -1263,24 +1449,117 @@
           "modelHomeProb": 0.5,
           "favored": "EVEN",
           "odds": {
-            "provider": "DraftKings",
-            "home": "-105",
-            "away": "-114",
-            "espnId": "401907993",
-            "espnGameNumber": 4
+            "provider": "4casters",
+            "home": "+104",
+            "away": "-108",
+            "gameId": "6ac6873ba9b018a40fa14723",
+            "spreads": {
+              "home": [
+                {
+                  "line": 0.0,
+                  "odds": 102
+                },
+                {
+                  "line": -0.5,
+                  "odds": 101
+                },
+                {
+                  "line": 0.5,
+                  "odds": 101
+                },
+                {
+                  "line": -1.0,
+                  "odds": 161
+                },
+                {
+                  "line": 1.0,
+                  "odds": -135
+                },
+                {
+                  "line": -1.5,
+                  "odds": 217
+                },
+                {
+                  "line": 1.5,
+                  "odds": -171
+                },
+                {
+                  "line": 2.0,
+                  "odds": -243
+                },
+                {
+                  "line": 2.5,
+                  "odds": -285
+                },
+                {
+                  "line": 3.0,
+                  "odds": -409
+                },
+                {
+                  "line": 3.5,
+                  "odds": -456
+                }
+              ],
+              "away": [
+                {
+                  "line": 0.0,
+                  "odds": -107
+                },
+                {
+                  "line": -0.5,
+                  "odds": -108
+                },
+                {
+                  "line": 0.5,
+                  "odds": -108
+                },
+                {
+                  "line": -1.0,
+                  "odds": 129
+                },
+                {
+                  "line": 1.0,
+                  "odds": -170
+                },
+                {
+                  "line": -1.5,
+                  "odds": 164
+                },
+                {
+                  "line": 1.5,
+                  "odds": -225
+                },
+                {
+                  "line": -2.0,
+                  "odds": 228
+                },
+                {
+                  "line": -2.5,
+                  "odds": 264
+                },
+                {
+                  "line": -3.0,
+                  "odds": 380
+                },
+                {
+                  "line": -3.5,
+                  "odds": 419
+                }
+              ]
+            }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT081700CLECWS",
-            "awayVol": 23687.67,
-            "homeVol": 78932.75,
-            "awayCents": 53,
+            "awayVol": 64519.26,
+            "homeVol": 237402.24,
+            "awayCents": 52,
             "homeCents": 49,
-            "awayMult": 0.3001,
-            "homeMult": 3.3322,
-            "maxMult": 3.3322,
-            "totalVol": 102620.42,
+            "awayMult": 0.2718,
+            "homeMult": 3.6796,
+            "maxMult": 3.6796,
+            "totalVol": 301921.5,
             "highSide": "home",
-            "highMult": 3.3322,
+            "highMult": 3.6796,
             "favoriteSide": "away",
             "tone": "yellow"
           }
@@ -1290,9 +1569,9 @@
   },
   "teams": {
     "ATH": {
-      "batWAR": 10.623,
+      "batWAR": 10.634,
       "pitWAR": 6.035,
-      "teamWAR": 16.658,
+      "teamWAR": 16.67,
       "wRCp": 93.629,
       "BsR": -3.367,
       "xwOBA": 0.3091,
@@ -1301,9 +1580,9 @@
       "OAA": -44.0
     },
     "ATL": {
-      "batWAR": 17.469,
+      "batWAR": 17.472,
       "pitWAR": 15.592,
-      "teamWAR": 33.061,
+      "teamWAR": 33.064,
       "wRCp": 97.303,
       "BsR": -0.835,
       "xwOBA": 0.3152,
@@ -1312,9 +1591,9 @@
       "OAA": 23.0
     },
     "AZ": {
-      "batWAR": 20.569,
+      "batWAR": 20.605,
       "pitWAR": 11.845,
-      "teamWAR": 32.413,
+      "teamWAR": 32.45,
       "wRCp": 98.138,
       "BsR": 1.179,
       "xwOBA": 0.3144,
@@ -1323,20 +1602,20 @@
       "OAA": 44.0
     },
     "BAL": {
-      "batWAR": 19.939,
+      "batWAR": 20.054,
       "pitWAR": 16.614,
-      "teamWAR": 36.553,
+      "teamWAR": 36.668,
       "wRCp": 101.675,
       "BsR": -6.207,
       "xwOBA": 0.3219,
       "xFIP": 4.227,
       "SIERA": 4.17,
-      "OAA": -15.0
+      "OAA": -14.0
     },
     "BOS": {
-      "batWAR": 20.381,
+      "batWAR": 20.395,
       "pitWAR": 23.277,
-      "teamWAR": 43.658,
+      "teamWAR": 43.672,
       "wRCp": 98.646,
       "BsR": -2.987,
       "xwOBA": 0.3089,
@@ -1345,9 +1624,9 @@
       "OAA": 20.0
     },
     "CHC": {
-      "batWAR": 37.778,
+      "batWAR": 37.781,
       "pitWAR": 6.011,
-      "teamWAR": 43.788,
+      "teamWAR": 43.792,
       "wRCp": 114.344,
       "BsR": 4.48,
       "xwOBA": 0.3233,
@@ -1356,9 +1635,9 @@
       "OAA": 74.0
     },
     "CIN": {
-      "batWAR": 10.403,
+      "batWAR": 10.407,
       "pitWAR": 7.999,
-      "teamWAR": 18.402,
+      "teamWAR": 18.407,
       "wRCp": 91.008,
       "BsR": -1.574,
       "xwOBA": 0.3127,
@@ -1367,9 +1646,9 @@
       "OAA": 1.0
     },
     "CLE": {
-      "batWAR": 19.424,
+      "batWAR": 19.43,
       "pitWAR": 18.725,
-      "teamWAR": 38.149,
+      "teamWAR": 38.155,
       "wRCp": 96.65,
       "BsR": 7.93,
       "xwOBA": 0.3053,
@@ -1378,9 +1657,9 @@
       "OAA": 11.0
     },
     "COL": {
-      "batWAR": 8.37,
+      "batWAR": 8.376,
       "pitWAR": 6.63,
-      "teamWAR": 15.0,
+      "teamWAR": 15.006,
       "wRCp": 91.152,
       "BsR": -3.508,
       "xwOBA": 0.3078,
@@ -1389,9 +1668,9 @@
       "OAA": -31.0
     },
     "CWS": {
-      "batWAR": 23.636,
+      "batWAR": 23.667,
       "pitWAR": 12.902,
-      "teamWAR": 36.538,
+      "teamWAR": 36.569,
       "wRCp": 104.363,
       "BsR": -4.248,
       "xwOBA": 0.3184,
@@ -1400,9 +1679,9 @@
       "OAA": 17.0
     },
     "DET": {
-      "batWAR": 18.88,
+      "batWAR": 18.894,
       "pitWAR": 15.544,
-      "teamWAR": 34.425,
+      "teamWAR": 34.438,
       "wRCp": 101.755,
       "BsR": -6.38,
       "xwOBA": 0.32,
@@ -1411,9 +1690,9 @@
       "OAA": -39.0
     },
     "HOU": {
-      "batWAR": 21.066,
+      "batWAR": 21.078,
       "pitWAR": 7.511,
-      "teamWAR": 28.577,
+      "teamWAR": 28.589,
       "wRCp": 105.25,
       "BsR": -7.081,
       "xwOBA": 0.3108,
@@ -1422,31 +1701,31 @@
       "OAA": -11.0
     },
     "KC": {
-      "batWAR": 20.536,
+      "batWAR": 20.519,
       "pitWAR": 5.064,
-      "teamWAR": 25.599,
+      "teamWAR": 25.582,
       "wRCp": 97.714,
       "BsR": 4.726,
       "xwOBA": 0.3148,
       "xFIP": 4.579,
       "SIERA": 4.524,
-      "OAA": 20.0
+      "OAA": 19.0
     },
     "LAA": {
-      "batWAR": 9.73,
+      "batWAR": 9.628,
       "pitWAR": 13.887,
-      "teamWAR": 23.617,
+      "teamWAR": 23.515,
       "wRCp": 92.189,
       "BsR": -0.85,
       "xwOBA": 0.3025,
       "xFIP": 4.169,
       "SIERA": 4.112,
-      "OAA": -41.0
+      "OAA": -42.0
     },
     "LAD": {
-      "batWAR": 26.883,
+      "batWAR": 26.889,
       "pitWAR": 26.298,
-      "teamWAR": 53.181,
+      "teamWAR": 53.187,
       "wRCp": 110.713,
       "BsR": -3.29,
       "xwOBA": 0.3383,
@@ -1455,9 +1734,9 @@
       "OAA": 14.0
     },
     "MIA": {
-      "batWAR": 20.691,
+      "batWAR": 20.695,
       "pitWAR": 14.115,
-      "teamWAR": 34.806,
+      "teamWAR": 34.81,
       "wRCp": 100.322,
       "BsR": 4.476,
       "xwOBA": 0.3086,
@@ -1466,9 +1745,9 @@
       "OAA": 10.0
     },
     "MIL": {
-      "batWAR": 26.15,
+      "batWAR": 26.106,
       "pitWAR": 22.575,
-      "teamWAR": 48.725,
+      "teamWAR": 48.68,
       "wRCp": 107.282,
       "BsR": 0.739,
       "xwOBA": 0.3214,
@@ -1477,9 +1756,9 @@
       "OAA": 19.0
     },
     "MIN": {
-      "batWAR": 18.96,
+      "batWAR": 18.973,
       "pitWAR": 12.008,
-      "teamWAR": 30.968,
+      "teamWAR": 30.981,
       "wRCp": 101.717,
       "BsR": -5.397,
       "xwOBA": 0.3113,
@@ -1488,9 +1767,9 @@
       "OAA": -15.0
     },
     "NYM": {
-      "batWAR": 14.919,
+      "batWAR": 14.922,
       "pitWAR": 15.613,
-      "teamWAR": 30.531,
+      "teamWAR": 30.534,
       "wRCp": 96.582,
       "BsR": -5.641,
       "xwOBA": 0.3206,
@@ -1499,20 +1778,20 @@
       "OAA": -23.0
     },
     "NYY": {
-      "batWAR": 21.244,
+      "batWAR": 21.203,
       "pitWAR": 21.863,
-      "teamWAR": 43.107,
+      "teamWAR": 43.066,
       "wRCp": 101.199,
       "BsR": 2.525,
       "xwOBA": 0.3191,
       "xFIP": 3.766,
       "SIERA": 3.725,
-      "OAA": -5.0
+      "OAA": -6.0
     },
     "PHI": {
-      "batWAR": 11.95,
+      "batWAR": 11.959,
       "pitWAR": 23.663,
-      "teamWAR": 35.613,
+      "teamWAR": 35.622,
       "wRCp": 91.736,
       "BsR": 5.011,
       "xwOBA": 0.3176,
@@ -1532,9 +1811,9 @@
       "OAA": -21.0
     },
     "SD": {
-      "batWAR": 23.384,
+      "batWAR": 23.386,
       "pitWAR": 14.966,
-      "teamWAR": 38.35,
+      "teamWAR": 38.352,
       "wRCp": 102.274,
       "BsR": 7.074,
       "xwOBA": 0.3178,
@@ -1543,9 +1822,9 @@
       "OAA": 18.0
     },
     "SEA": {
-      "batWAR": 15.831,
+      "batWAR": 15.844,
       "pitWAR": 14.246,
-      "teamWAR": 30.076,
+      "teamWAR": 30.089,
       "wRCp": 102.062,
       "BsR": -1.776,
       "xwOBA": 0.3147,
@@ -1554,9 +1833,9 @@
       "OAA": -58.0
     },
     "SF": {
-      "batWAR": 13.076,
+      "batWAR": 13.118,
       "pitWAR": 9.804,
-      "teamWAR": 22.88,
+      "teamWAR": 22.922,
       "wRCp": 96.516,
       "BsR": -0.905,
       "xwOBA": 0.3074,
@@ -1565,9 +1844,9 @@
       "OAA": -17.0
     },
     "STL": {
-      "batWAR": 15.623,
+      "batWAR": 15.617,
       "pitWAR": 12.857,
-      "teamWAR": 28.48,
+      "teamWAR": 28.474,
       "wRCp": 93.278,
       "BsR": 0.755,
       "xwOBA": 0.3188,
@@ -1576,9 +1855,9 @@
       "OAA": 38.0
     },
     "TB": {
-      "batWAR": 23.851,
+      "batWAR": 23.84,
       "pitWAR": 16.77,
-      "teamWAR": 40.621,
+      "teamWAR": 40.61,
       "wRCp": 103.581,
       "BsR": 1.788,
       "xwOBA": 0.3037,
@@ -1587,9 +1866,9 @@
       "OAA": 6.0
     },
     "TEX": {
-      "batWAR": 20.254,
+      "batWAR": 20.276,
       "pitWAR": 15.386,
-      "teamWAR": 35.639,
+      "teamWAR": 35.661,
       "wRCp": 102.325,
       "BsR": -2.591,
       "xwOBA": 0.3077,
@@ -1598,26 +1877,26 @@
       "OAA": 21.0
     },
     "TOR": {
-      "batWAR": 19.194,
+      "batWAR": 19.115,
       "pitWAR": 16.233,
-      "teamWAR": 35.427,
+      "teamWAR": 35.348,
       "wRCp": 94.313,
       "BsR": -0.216,
       "xwOBA": 0.2978,
       "xFIP": 4.073,
       "SIERA": 4.037,
-      "OAA": 15.0
+      "OAA": 14.0
     },
     "WSH": {
-      "batWAR": 20.75,
+      "batWAR": 20.681,
       "pitWAR": 4.836,
-      "teamWAR": 25.585,
+      "teamWAR": 25.516,
       "wRCp": 102.578,
       "BsR": 10.876,
       "xwOBA": 0.3232,
       "xFIP": 4.473,
       "SIERA": 4.327,
-      "OAA": -21.0
+      "OAA": -22.0
     }
   },
   "matchups": [
@@ -1637,9 +1916,9 @@
       "abstractGameState": "Preview",
       "startTimeTBD": false,
       "awayStats": {
-        "batWAR": 19.424,
+        "batWAR": 19.43,
         "pitWAR": 18.725,
-        "teamWAR": 38.149,
+        "teamWAR": 38.155,
         "wRCp": 96.65,
         "BsR": 7.93,
         "xwOBA": 0.3053,
@@ -1648,9 +1927,9 @@
         "OAA": 11.0
       },
       "homeStats": {
-        "batWAR": 23.636,
+        "batWAR": 23.667,
         "pitWAR": 12.902,
-        "teamWAR": 36.538,
+        "teamWAR": 36.569,
         "wRCp": 104.363,
         "BsR": -4.248,
         "xwOBA": 0.3184,
@@ -1658,7 +1937,7 @@
         "SIERA": 4.153,
         "OAA": 17.0
       },
-      "diffTeamWAR": -1.612,
+      "diffTeamWAR": -1.587,
       "diffWRCp": 7.714,
       "diffBsR": -12.179,
       "diffXwOBA": 0.0131,
@@ -1678,24 +1957,117 @@
       "modelHomeProb": 0.5,
       "favored": "EVEN",
       "odds": {
-        "provider": "DraftKings",
-        "home": "-105",
-        "away": "-114",
-        "espnId": "401907993",
-        "espnGameNumber": 4
+        "provider": "4casters",
+        "home": "+104",
+        "away": "-108",
+        "gameId": "6ac6873ba9b018a40fa14723",
+        "spreads": {
+          "home": [
+            {
+              "line": 0.0,
+              "odds": 102
+            },
+            {
+              "line": -0.5,
+              "odds": 101
+            },
+            {
+              "line": 0.5,
+              "odds": 101
+            },
+            {
+              "line": -1.0,
+              "odds": 161
+            },
+            {
+              "line": 1.0,
+              "odds": -135
+            },
+            {
+              "line": -1.5,
+              "odds": 217
+            },
+            {
+              "line": 1.5,
+              "odds": -171
+            },
+            {
+              "line": 2.0,
+              "odds": -243
+            },
+            {
+              "line": 2.5,
+              "odds": -285
+            },
+            {
+              "line": 3.0,
+              "odds": -409
+            },
+            {
+              "line": 3.5,
+              "odds": -456
+            }
+          ],
+          "away": [
+            {
+              "line": 0.0,
+              "odds": -107
+            },
+            {
+              "line": -0.5,
+              "odds": -108
+            },
+            {
+              "line": 0.5,
+              "odds": -108
+            },
+            {
+              "line": -1.0,
+              "odds": 129
+            },
+            {
+              "line": 1.0,
+              "odds": -170
+            },
+            {
+              "line": -1.5,
+              "odds": 164
+            },
+            {
+              "line": 1.5,
+              "odds": -225
+            },
+            {
+              "line": -2.0,
+              "odds": 228
+            },
+            {
+              "line": -2.5,
+              "odds": 264
+            },
+            {
+              "line": -3.0,
+              "odds": 380
+            },
+            {
+              "line": -3.5,
+              "odds": 419
+            }
+          ]
+        }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26OCT081700CLECWS",
-        "awayVol": 23687.67,
-        "homeVol": 78932.75,
-        "awayCents": 53,
+        "awayVol": 64519.26,
+        "homeVol": 237402.24,
+        "awayCents": 52,
         "homeCents": 49,
-        "awayMult": 0.3001,
-        "homeMult": 3.3322,
-        "maxMult": 3.3322,
-        "totalVol": 102620.42,
+        "awayMult": 0.2718,
+        "homeMult": 3.6796,
+        "maxMult": 3.6796,
+        "totalVol": 301921.5,
         "highSide": "home",
-        "highMult": 3.3322,
+        "highMult": 3.6796,
         "favoriteSide": "away",
         "tone": "yellow"
       }
