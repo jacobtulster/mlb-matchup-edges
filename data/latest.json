@@ -2,7 +2,7 @@
   "date": "2026-10-12",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-12T20:10:34Z",
+  "updatedAt": "2026-10-13T02:01:43Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "NLCS Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Final",
+          "abstractGameState": "Final",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 26.875,
@@ -524,22 +524,24 @@
                   "odds": 516
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-12T20:10:34Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000LADMIL",
-            "awayVol": 3570958.11,
-            "homeVol": 539825.24,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 6.615,
-            "homeMult": 0.1512,
-            "maxMult": 6.615,
-            "totalVol": 4110783.35,
+            "awayVol": 17054007.91,
+            "homeVol": 8129050.6,
+            "awayCents": 1,
+            "homeCents": 99,
+            "awayMult": 2.0979,
+            "homeMult": 0.4767,
+            "maxMult": 2.0979,
+            "totalVol": 25183058.51,
             "highSide": "away",
-            "highMult": 6.615,
-            "favoriteSide": "away",
-            "tone": "red"
+            "highMult": 2.0979,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -554,8 +556,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 1",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 19.437,
@@ -600,126 +602,28 @@
           "favored": "CLE",
           "odds": {
             "provider": "4casters",
-            "home": "-158",
-            "away": "+155",
-            "gameId": "6acb17f4b29da91e8f7e56ab",
+            "home": "-160",
+            "away": "+144",
+            "gameId": "6acd07a4b29da91e8f82449a",
             "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -158
-                },
-                {
-                  "line": -0.5,
-                  "odds": -158
-                },
-                {
-                  "line": 0.5,
-                  "odds": -158
-                },
-                {
-                  "line": -1.0,
-                  "odds": -108
-                },
-                {
-                  "line": 1.0,
-                  "odds": -233
-                },
-                {
-                  "line": -1.5,
-                  "odds": 137
-                },
-                {
-                  "line": 1.5,
-                  "odds": -279
-                },
-                {
-                  "line": -2.0,
-                  "odds": 190
-                },
-                {
-                  "line": -2.5,
-                  "odds": 231
-                },
-                {
-                  "line": -3.0,
-                  "odds": 329
-                },
-                {
-                  "line": -3.5,
-                  "odds": 368
-                },
-                {
-                  "line": -4.5,
-                  "odds": 484
-                },
-                {
-                  "line": -5.5,
-                  "odds": 650
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 152
-                },
-                {
-                  "line": -0.5,
-                  "odds": 150
-                },
-                {
-                  "line": 0.5,
-                  "odds": 150
-                },
-                {
-                  "line": -1.0,
-                  "odds": 219
-                },
-                {
-                  "line": 1.0,
-                  "odds": 103
-                },
-                {
-                  "line": -1.5,
-                  "odds": 264
-                },
-                {
-                  "line": 1.5,
-                  "odds": -138
-                },
-                {
-                  "line": 2.0,
-                  "odds": -199
-                },
-                {
-                  "line": 2.5,
-                  "odds": -241
-                },
-                {
-                  "line": 3.0,
-                  "odds": -348
-                },
-                {
-                  "line": 3.5,
-                  "odds": -391
-                }
-              ]
+              "home": [],
+              "away": []
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000CLETB",
-            "awayVol": 120093.7,
-            "homeVol": 790679.05,
-            "awayCents": 40,
-            "homeCents": 60,
-            "awayMult": 0.1519,
-            "homeMult": 6.5839,
-            "maxMult": 6.5839,
-            "totalVol": 910772.75,
-            "highSide": "home",
-            "highMult": 6.5839,
+            "awayVol": 3282476.57,
+            "homeVol": 3194662.95,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 1.0275,
+            "homeMult": 0.9732,
+            "maxMult": 1.0275,
+            "totalVol": 6477139.52,
+            "highSide": "away",
+            "highMult": 1.0275,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "muted"
           }
         }
       ]
@@ -1075,8 +979,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 1",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 1.509,
@@ -1121,126 +1025,28 @@
           "favored": "TB",
           "odds": {
             "provider": "4casters",
-            "home": "-158",
-            "away": "+155",
-            "gameId": "6acb17f4b29da91e8f7e56ab",
+            "home": "-160",
+            "away": "+144",
+            "gameId": "6acd07a4b29da91e8f82449a",
             "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -158
-                },
-                {
-                  "line": -0.5,
-                  "odds": -158
-                },
-                {
-                  "line": 0.5,
-                  "odds": -158
-                },
-                {
-                  "line": -1.0,
-                  "odds": -108
-                },
-                {
-                  "line": 1.0,
-                  "odds": -233
-                },
-                {
-                  "line": -1.5,
-                  "odds": 137
-                },
-                {
-                  "line": 1.5,
-                  "odds": -279
-                },
-                {
-                  "line": -2.0,
-                  "odds": 190
-                },
-                {
-                  "line": -2.5,
-                  "odds": 231
-                },
-                {
-                  "line": -3.0,
-                  "odds": 329
-                },
-                {
-                  "line": -3.5,
-                  "odds": 368
-                },
-                {
-                  "line": -4.5,
-                  "odds": 484
-                },
-                {
-                  "line": -5.5,
-                  "odds": 650
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 152
-                },
-                {
-                  "line": -0.5,
-                  "odds": 150
-                },
-                {
-                  "line": 0.5,
-                  "odds": 150
-                },
-                {
-                  "line": -1.0,
-                  "odds": 219
-                },
-                {
-                  "line": 1.0,
-                  "odds": 103
-                },
-                {
-                  "line": -1.5,
-                  "odds": 264
-                },
-                {
-                  "line": 1.5,
-                  "odds": -138
-                },
-                {
-                  "line": 2.0,
-                  "odds": -199
-                },
-                {
-                  "line": 2.5,
-                  "odds": -241
-                },
-                {
-                  "line": 3.0,
-                  "odds": -348
-                },
-                {
-                  "line": 3.5,
-                  "odds": -391
-                }
-              ]
+              "home": [],
+              "away": []
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000CLETB",
-            "awayVol": 120093.7,
-            "homeVol": 790679.05,
-            "awayCents": 40,
-            "homeCents": 60,
-            "awayMult": 0.1519,
-            "homeMult": 6.5839,
-            "maxMult": 6.5839,
-            "totalVol": 910772.75,
-            "highSide": "home",
-            "highMult": 6.5839,
+            "awayVol": 3282476.57,
+            "homeVol": 3194662.95,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 1.0275,
+            "homeMult": 0.9732,
+            "maxMult": 1.0275,
+            "totalVol": 6477139.52,
+            "highSide": "away",
+            "highMult": 1.0275,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "muted"
           }
         },
         {
@@ -1255,8 +1061,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "NLCS Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Final",
+          "abstractGameState": "Final",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.598,
@@ -1401,22 +1207,24 @@
                   "odds": 516
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-12T20:10:34Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000LADMIL",
-            "awayVol": 3570958.11,
-            "homeVol": 539825.24,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 6.615,
-            "homeMult": 0.1512,
-            "maxMult": 6.615,
-            "totalVol": 4110783.35,
+            "awayVol": 17054007.91,
+            "homeVol": 8129050.6,
+            "awayCents": 1,
+            "homeCents": 99,
+            "awayMult": 2.0979,
+            "homeMult": 0.4767,
+            "maxMult": 2.0979,
+            "totalVol": 25183058.51,
             "highSide": "away",
-            "highMult": 6.615,
-            "favoriteSide": "away",
-            "tone": "red"
+            "highMult": 2.0979,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         }
       ]
@@ -1772,8 +1580,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "NLCS Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "Final",
+          "abstractGameState": "Final",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 13.736,
@@ -1918,22 +1726,24 @@
                   "odds": 516
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-12T20:10:34Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000LADMIL",
-            "awayVol": 3570958.11,
-            "homeVol": 539825.24,
-            "awayCents": 56,
-            "homeCents": 45,
-            "awayMult": 6.615,
-            "homeMult": 0.1512,
-            "maxMult": 6.615,
-            "totalVol": 4110783.35,
+            "awayVol": 17054007.91,
+            "homeVol": 8129050.6,
+            "awayCents": 1,
+            "homeCents": 99,
+            "awayMult": 2.0979,
+            "homeMult": 0.4767,
+            "maxMult": 2.0979,
+            "totalVol": 25183058.51,
             "highSide": "away",
-            "highMult": 6.615,
-            "favoriteSide": "away",
-            "tone": "red"
+            "highMult": 2.0979,
+            "favoriteSide": "home",
+            "tone": "yellow"
           }
         },
         {
@@ -1948,8 +1758,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 1",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 10.473,
@@ -1994,126 +1804,28 @@
           "favored": "EVEN",
           "odds": {
             "provider": "4casters",
-            "home": "-158",
-            "away": "+155",
-            "gameId": "6acb17f4b29da91e8f7e56ab",
+            "home": "-160",
+            "away": "+144",
+            "gameId": "6acd07a4b29da91e8f82449a",
             "spreads": {
-              "home": [
-                {
-                  "line": 0.0,
-                  "odds": -158
-                },
-                {
-                  "line": -0.5,
-                  "odds": -158
-                },
-                {
-                  "line": 0.5,
-                  "odds": -158
-                },
-                {
-                  "line": -1.0,
-                  "odds": -108
-                },
-                {
-                  "line": 1.0,
-                  "odds": -233
-                },
-                {
-                  "line": -1.5,
-                  "odds": 137
-                },
-                {
-                  "line": 1.5,
-                  "odds": -279
-                },
-                {
-                  "line": -2.0,
-                  "odds": 190
-                },
-                {
-                  "line": -2.5,
-                  "odds": 231
-                },
-                {
-                  "line": -3.0,
-                  "odds": 329
-                },
-                {
-                  "line": -3.5,
-                  "odds": 368
-                },
-                {
-                  "line": -4.5,
-                  "odds": 484
-                },
-                {
-                  "line": -5.5,
-                  "odds": 650
-                }
-              ],
-              "away": [
-                {
-                  "line": 0.0,
-                  "odds": 152
-                },
-                {
-                  "line": -0.5,
-                  "odds": 150
-                },
-                {
-                  "line": 0.5,
-                  "odds": 150
-                },
-                {
-                  "line": -1.0,
-                  "odds": 219
-                },
-                {
-                  "line": 1.0,
-                  "odds": 103
-                },
-                {
-                  "line": -1.5,
-                  "odds": 264
-                },
-                {
-                  "line": 1.5,
-                  "odds": -138
-                },
-                {
-                  "line": 2.0,
-                  "odds": -199
-                },
-                {
-                  "line": 2.5,
-                  "odds": -241
-                },
-                {
-                  "line": 3.0,
-                  "odds": -348
-                },
-                {
-                  "line": 3.5,
-                  "odds": -391
-                }
-              ]
+              "home": [],
+              "away": []
             }
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT122000CLETB",
-            "awayVol": 120093.7,
-            "homeVol": 790679.05,
-            "awayCents": 40,
-            "homeCents": 60,
-            "awayMult": 0.1519,
-            "homeMult": 6.5839,
-            "maxMult": 6.5839,
-            "totalVol": 910772.75,
-            "highSide": "home",
-            "highMult": 6.5839,
+            "awayVol": 3282476.57,
+            "homeVol": 3194662.95,
+            "awayCents": 45,
+            "homeCents": 56,
+            "awayMult": 1.0275,
+            "homeMult": 0.9732,
+            "maxMult": 1.0275,
+            "totalVol": 6477139.52,
+            "highSide": "away",
+            "highMult": 1.0275,
             "favoriteSide": "home",
-            "tone": "red"
+            "tone": "muted"
           }
         }
       ]
@@ -2464,8 +2176,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "NLCS Game 2",
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "Final",
+      "abstractGameState": "Final",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 26.875,
@@ -2610,22 +2322,24 @@
               "odds": 516
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-10-12T20:10:34Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26OCT122000LADMIL",
-        "awayVol": 3570958.11,
-        "homeVol": 539825.24,
-        "awayCents": 56,
-        "homeCents": 45,
-        "awayMult": 6.615,
-        "homeMult": 0.1512,
-        "maxMult": 6.615,
-        "totalVol": 4110783.35,
+        "awayVol": 17054007.91,
+        "homeVol": 8129050.6,
+        "awayCents": 1,
+        "homeCents": 99,
+        "awayMult": 2.0979,
+        "homeMult": 0.4767,
+        "maxMult": 2.0979,
+        "totalVol": 25183058.51,
         "highSide": "away",
-        "highMult": 6.615,
-        "favoriteSide": "away",
-        "tone": "red"
+        "highMult": 2.0979,
+        "favoriteSide": "home",
+        "tone": "yellow"
       }
     },
     {
@@ -2640,8 +2354,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "ALCS Game 1",
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 19.437,
@@ -2686,126 +2400,28 @@
       "favored": "CLE",
       "odds": {
         "provider": "4casters",
-        "home": "-158",
-        "away": "+155",
-        "gameId": "6acb17f4b29da91e8f7e56ab",
+        "home": "-160",
+        "away": "+144",
+        "gameId": "6acd07a4b29da91e8f82449a",
         "spreads": {
-          "home": [
-            {
-              "line": 0.0,
-              "odds": -158
-            },
-            {
-              "line": -0.5,
-              "odds": -158
-            },
-            {
-              "line": 0.5,
-              "odds": -158
-            },
-            {
-              "line": -1.0,
-              "odds": -108
-            },
-            {
-              "line": 1.0,
-              "odds": -233
-            },
-            {
-              "line": -1.5,
-              "odds": 137
-            },
-            {
-              "line": 1.5,
-              "odds": -279
-            },
-            {
-              "line": -2.0,
-              "odds": 190
-            },
-            {
-              "line": -2.5,
-              "odds": 231
-            },
-            {
-              "line": -3.0,
-              "odds": 329
-            },
-            {
-              "line": -3.5,
-              "odds": 368
-            },
-            {
-              "line": -4.5,
-              "odds": 484
-            },
-            {
-              "line": -5.5,
-              "odds": 650
-            }
-          ],
-          "away": [
-            {
-              "line": 0.0,
-              "odds": 152
-            },
-            {
-              "line": -0.5,
-              "odds": 150
-            },
-            {
-              "line": 0.5,
-              "odds": 150
-            },
-            {
-              "line": -1.0,
-              "odds": 219
-            },
-            {
-              "line": 1.0,
-              "odds": 103
-            },
-            {
-              "line": -1.5,
-              "odds": 264
-            },
-            {
-              "line": 1.5,
-              "odds": -138
-            },
-            {
-              "line": 2.0,
-              "odds": -199
-            },
-            {
-              "line": 2.5,
-              "odds": -241
-            },
-            {
-              "line": 3.0,
-              "odds": -348
-            },
-            {
-              "line": 3.5,
-              "odds": -391
-            }
-          ]
+          "home": [],
+          "away": []
         }
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26OCT122000CLETB",
-        "awayVol": 120093.7,
-        "homeVol": 790679.05,
-        "awayCents": 40,
-        "homeCents": 60,
-        "awayMult": 0.1519,
-        "homeMult": 6.5839,
-        "maxMult": 6.5839,
-        "totalVol": 910772.75,
-        "highSide": "home",
-        "highMult": 6.5839,
+        "awayVol": 3282476.57,
+        "homeVol": 3194662.95,
+        "awayCents": 45,
+        "homeCents": 56,
+        "awayMult": 1.0275,
+        "homeMult": 0.9732,
+        "maxMult": 1.0275,
+        "totalVol": 6477139.52,
+        "highSide": "away",
+        "highMult": 1.0275,
         "favoriteSide": "home",
-        "tone": "red"
+        "tone": "muted"
       }
     }
   ],
