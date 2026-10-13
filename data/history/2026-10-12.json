@@ -3,18 +3,18 @@
   "summary": {
     "season": {
       "edge": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
-        "stakedDollars": 245.0,
-        "profitDollars": 222.0,
-        "roi": 0.9061
+        "stakedDollars": 345.0,
+        "profitDollars": 366.0,
+        "roi": 1.0609
       },
       "model": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
@@ -23,11 +23,11 @@
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 0,
+        "n": 2,
+        "wins": 1,
         "losses": 1,
         "pushes": 0,
-        "hitRate": 0.0,
+        "hitRate": 0.5,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -35,19 +35,19 @@
     },
     "l7": {
       "edge": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
-        "stakedDollars": 245.0,
-        "profitDollars": 222.0,
-        "roi": 0.9061
+        "stakedDollars": 345.0,
+        "profitDollars": 366.0,
+        "roi": 1.0609
       },
       "model": {
-        "n": 1,
+        "n": 2,
         "wins": 0,
-        "losses": 1,
+        "losses": 2,
         "pushes": 0,
         "hitRate": 0.0,
         "stakedDollars": 0.0,
@@ -55,11 +55,11 @@
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 0,
+        "n": 2,
+        "wins": 1,
         "losses": 1,
         "pushes": 0,
-        "hitRate": 0.0,
+        "hitRate": 0.5,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -67,31 +67,31 @@
     },
     "blend": {
       "edge": {
-        "n": 1,
-        "wins": 1,
+        "n": 2,
+        "wins": 2,
         "losses": 0,
         "pushes": 0,
         "hitRate": 1.0,
-        "stakedDollars": 245.0,
-        "profitDollars": 222.0,
-        "roi": 0.9061
+        "stakedDollars": 345.0,
+        "profitDollars": 366.0,
+        "roi": 1.0609
       },
       "model": {
         "n": 0,
         "wins": 0,
         "losses": 0,
-        "pushes": 1,
+        "pushes": 2,
         "hitRate": null,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
       },
       "money": {
-        "n": 1,
-        "wins": 0,
+        "n": 2,
+        "wins": 1,
         "losses": 1,
         "pushes": 0,
-        "hitRate": 0.0,
+        "hitRate": 0.5,
         "stakedDollars": 0.0,
         "profitDollars": 0.0,
         "roi": null
@@ -1077,14 +1077,132 @@
         }
       },
       "result": {
-        "status": "Live",
-        "detailedState": "In Progress",
-        "awayScore": 2,
-        "homeScore": 2,
-        "winner": null,
-        "grades": {}
+        "status": "Final",
+        "detailedState": "Final",
+        "awayScore": 7,
+        "homeScore": 3,
+        "winner": "CLE",
+        "grades": {
+          "model": {
+            "pick": "TB",
+            "outcome": "loss"
+          },
+          "value": {
+            "pick": "CLE",
+            "side": "away",
+            "edgePct": 0.066962,
+            "marketMl": 144.0,
+            "spread": null,
+            "legs": [
+              {
+                "type": "moneyline",
+                "odds": 144.0,
+                "stakeDollars": 100.0,
+                "outcome": "win",
+                "profitDollars": 144.0
+              }
+            ],
+            "stakeDollars": 100.0,
+            "outcome": "win",
+            "profitDollars": 144.0
+          },
+          "money": {
+            "pick": "CLE",
+            "outcome": "win"
+          }
+        },
+        "gradesByWindow": {
+          "season": {
+            "model": {
+              "pick": "CLE",
+              "outcome": "win"
+            },
+            "value": {
+              "pick": "CLE",
+              "side": "away",
+              "edgePct": 0.13353,
+              "marketMl": 144.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 144.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 144.0
+                }
+              ],
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 144.0
+            },
+            "money": {
+              "pick": "CLE",
+              "outcome": "win"
+            }
+          },
+          "l7": {
+            "model": {
+              "pick": "TB",
+              "outcome": "loss"
+            },
+            "value": {
+              "pick": "CLE",
+              "side": "away",
+              "edgePct": 0.066962,
+              "marketMl": 144.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 144.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 144.0
+                }
+              ],
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 144.0
+            },
+            "money": {
+              "pick": "CLE",
+              "outcome": "win"
+            }
+          },
+          "blend": {
+            "model": {
+              "pick": null,
+              "outcome": "push"
+            },
+            "value": {
+              "pick": "CLE",
+              "side": "away",
+              "edgePct": 0.100246,
+              "marketMl": 144.0,
+              "spread": null,
+              "legs": [
+                {
+                  "type": "moneyline",
+                  "odds": 144.0,
+                  "stakeDollars": 100.0,
+                  "outcome": "win",
+                  "profitDollars": 144.0
+                }
+              ],
+              "stakeDollars": 100.0,
+              "outcome": "win",
+              "profitDollars": 144.0
+            },
+            "money": {
+              "pick": "CLE",
+              "outcome": "win"
+            }
+          }
+        },
+        "gradedAt": "2026-10-13T06:02:25Z"
       }
     }
   ],
-  "updatedAt": "2026-10-13T02:01:43Z"
+  "updatedAt": "2026-10-13T06:02:25Z"
 }
