@@ -2,12 +2,12 @@
   "date": "2026-10-18",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-18T19:35:16Z",
+  "updatedAt": "2026-10-18T21:54:11Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 5, Makeup of 10/16",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 23.826,
@@ -472,7 +472,9 @@
                   "odds": 372
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-18T19:35:16Z"
           },
           "kalshi": null
         }
@@ -829,8 +831,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 5, Makeup of 10/16",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.477,
@@ -923,7 +925,9 @@
                   "odds": 372
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-18T19:35:16Z"
           },
           "kalshi": null
         }
@@ -1280,8 +1284,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "ALCS Game 5, Makeup of 10/16",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 12.152,
@@ -1374,7 +1378,9 @@
                   "odds": 372
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-18T19:35:16Z"
           },
           "kalshi": null
         }
@@ -1726,8 +1732,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "ALCS Game 5, Makeup of 10/16",
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 23.826,
@@ -1820,7 +1826,9 @@
               "odds": 372
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-10-18T19:35:16Z"
       },
       "kalshi": null
     }
