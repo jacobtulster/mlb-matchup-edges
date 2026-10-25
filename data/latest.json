@@ -2,12 +2,12 @@
   "date": "2026-10-24",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-24T22:17:44Z",
+  "updatedAt": "2026-10-25T00:27:08Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 23.829,
@@ -480,21 +480,23 @@
                   "odds": -658
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-24T22:17:44Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 845208.13,
-            "homeVol": 1380270.13,
-            "awayCents": 48,
-            "homeCents": 54,
-            "awayMult": 0.6123,
-            "homeMult": 1.6331,
-            "maxMult": 1.6331,
-            "totalVol": 2225478.26,
+            "awayVol": 2830816.38,
+            "homeVol": 4802850.52,
+            "awayCents": 83,
+            "homeCents": 17,
+            "awayMult": 0.5894,
+            "homeMult": 1.6966,
+            "maxMult": 1.6966,
+            "totalVol": 7633666.9,
             "highSide": "home",
-            "highMult": 1.6331,
-            "favoriteSide": "home",
+            "highMult": 1.6966,
+            "favoriteSide": "away",
             "tone": "muted"
           }
         }
@@ -851,8 +853,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.477,
@@ -953,21 +955,23 @@
                   "odds": -658
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-24T22:17:44Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 845208.13,
-            "homeVol": 1380270.13,
-            "awayCents": 48,
-            "homeCents": 54,
-            "awayMult": 0.6123,
-            "homeMult": 1.6331,
-            "maxMult": 1.6331,
-            "totalVol": 2225478.26,
+            "awayVol": 2830816.38,
+            "homeVol": 4802850.52,
+            "awayCents": 83,
+            "homeCents": 17,
+            "awayMult": 0.5894,
+            "homeMult": 1.6966,
+            "maxMult": 1.6966,
+            "totalVol": 7633666.9,
             "highSide": "home",
-            "highMult": 1.6331,
-            "favoriteSide": "home",
+            "highMult": 1.6966,
+            "favoriteSide": "away",
             "tone": "muted"
           }
         }
@@ -1324,8 +1328,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 2",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 12.153,
@@ -1426,21 +1430,23 @@
                   "odds": -658
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-24T22:17:44Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 845208.13,
-            "homeVol": 1380270.13,
-            "awayCents": 48,
-            "homeCents": 54,
-            "awayMult": 0.6123,
-            "homeMult": 1.6331,
-            "maxMult": 1.6331,
-            "totalVol": 2225478.26,
+            "awayVol": 2830816.38,
+            "homeVol": 4802850.52,
+            "awayCents": 83,
+            "homeCents": 17,
+            "awayMult": 0.5894,
+            "homeMult": 1.6966,
+            "maxMult": 1.6966,
+            "totalVol": 7633666.9,
             "highSide": "home",
-            "highMult": 1.6331,
-            "favoriteSide": "home",
+            "highMult": 1.6966,
+            "favoriteSide": "away",
             "tone": "muted"
           }
         }
@@ -1792,8 +1798,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "World Series Game 2",
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 23.829,
@@ -1894,21 +1900,23 @@
               "odds": -658
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-10-24T22:17:44Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-        "awayVol": 845208.13,
-        "homeVol": 1380270.13,
-        "awayCents": 48,
-        "homeCents": 54,
-        "awayMult": 0.6123,
-        "homeMult": 1.6331,
-        "maxMult": 1.6331,
-        "totalVol": 2225478.26,
+        "awayVol": 2830816.38,
+        "homeVol": 4802850.52,
+        "awayCents": 83,
+        "homeCents": 17,
+        "awayMult": 0.5894,
+        "homeMult": 1.6966,
+        "maxMult": 1.6966,
+        "totalVol": 7633666.9,
         "highSide": "home",
-        "highMult": 1.6331,
-        "favoriteSide": "home",
+        "highMult": 1.6966,
+        "favoriteSide": "away",
         "tone": "muted"
       }
     }
