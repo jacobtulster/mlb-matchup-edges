@@ -1,13 +1,13 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-25T03:48:12Z",
+  "updatedAt": "2026-10-25T09:00:28Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
+    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -35,9 +35,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 10.641,
+          "batWAR": 10.644,
           "pitWAR": 6.048,
-          "teamWAR": 16.689,
+          "teamWAR": 16.691,
           "wRCp": 93.629,
           "BsR": -3.367,
           "xwOBA": 0.3091,
@@ -46,9 +46,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 17.472,
+          "batWAR": 17.469,
           "pitWAR": 15.587,
-          "teamWAR": 33.059,
+          "teamWAR": 33.056,
           "wRCp": 97.297,
           "BsR": -0.835,
           "xwOBA": 0.3152,
@@ -57,9 +57,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 20.601,
+          "batWAR": 20.569,
           "pitWAR": 11.844,
-          "teamWAR": 32.446,
+          "teamWAR": 32.414,
           "wRCp": 98.131,
           "BsR": 1.179,
           "xwOBA": 0.3144,
@@ -68,20 +68,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 19.98,
+          "batWAR": 19.875,
           "pitWAR": 16.611,
-          "teamWAR": 36.591,
+          "teamWAR": 36.486,
           "wRCp": 101.573,
           "BsR": -6.201,
           "xwOBA": 0.3219,
           "xFIP": 4.226,
           "SIERA": 4.169,
-          "OAA": -14.0
+          "OAA": -15.0
         },
         "BOS": {
-          "batWAR": 20.466,
+          "batWAR": 20.454,
           "pitWAR": 23.278,
-          "teamWAR": 43.744,
+          "teamWAR": 43.733,
           "wRCp": 98.747,
           "BsR": -2.992,
           "xwOBA": 0.3089,
@@ -101,9 +101,9 @@
           "OAA": 73.0
         },
         "CIN": {
-          "batWAR": 10.412,
+          "batWAR": 10.405,
           "pitWAR": 8.003,
-          "teamWAR": 18.414,
+          "teamWAR": 18.407,
           "wRCp": 91.002,
           "BsR": -1.574,
           "xwOBA": 0.3127,
@@ -112,9 +112,9 @@
           "OAA": 2.0
         },
         "CLE": {
-          "batWAR": 19.438,
+          "batWAR": 19.426,
           "pitWAR": 18.735,
-          "teamWAR": 38.173,
+          "teamWAR": 38.161,
           "wRCp": 96.65,
           "BsR": 7.931,
           "xwOBA": 0.3053,
@@ -123,9 +123,9 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 8.366,
+          "batWAR": 8.36,
           "pitWAR": 6.624,
-          "teamWAR": 14.991,
+          "teamWAR": 14.984,
           "wRCp": 91.146,
           "BsR": -3.508,
           "xwOBA": 0.3078,
@@ -134,9 +134,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 23.676,
+          "batWAR": 23.641,
           "pitWAR": 12.906,
-          "teamWAR": 36.583,
+          "teamWAR": 36.547,
           "wRCp": 104.363,
           "BsR": -4.248,
           "xwOBA": 0.3184,
@@ -145,9 +145,9 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 18.885,
+          "batWAR": 18.869,
           "pitWAR": 15.544,
-          "teamWAR": 34.43,
+          "teamWAR": 34.413,
           "wRCp": 101.756,
           "BsR": -6.38,
           "xwOBA": 0.32,
@@ -156,7 +156,7 @@
           "OAA": -39.0
         },
         "HOU": {
-          "batWAR": 21.057,
+          "batWAR": 21.058,
           "pitWAR": 7.501,
           "teamWAR": 28.559,
           "wRCp": 105.25,
@@ -167,20 +167,20 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 20.594,
+          "batWAR": 20.621,
           "pitWAR": 5.06,
-          "teamWAR": 25.654,
+          "teamWAR": 25.681,
           "wRCp": 97.816,
           "BsR": 4.72,
           "xwOBA": 0.3148,
           "xFIP": 4.578,
           "SIERA": 4.523,
-          "OAA": 19.0
+          "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 9.635,
+          "batWAR": 9.672,
           "pitWAR": 13.881,
-          "teamWAR": 23.517,
+          "teamWAR": 23.554,
           "wRCp": 92.189,
           "BsR": -0.85,
           "xwOBA": 0.3025,
@@ -189,9 +189,9 @@
           "OAA": -42.0
         },
         "LAD": {
-          "batWAR": 26.881,
+          "batWAR": 26.878,
           "pitWAR": 26.301,
-          "teamWAR": 53.182,
+          "teamWAR": 53.179,
           "wRCp": 110.706,
           "BsR": -3.29,
           "xwOBA": 0.3383,
@@ -200,9 +200,9 @@
           "OAA": 14.0
         },
         "MIA": {
-          "batWAR": 20.707,
+          "batWAR": 20.7,
           "pitWAR": 14.113,
-          "teamWAR": 34.82,
+          "teamWAR": 34.813,
           "wRCp": 100.315,
           "BsR": 4.477,
           "xwOBA": 0.3086,
@@ -211,9 +211,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 26.104,
+          "batWAR": 26.138,
           "pitWAR": 22.572,
-          "teamWAR": 48.676,
+          "teamWAR": 48.71,
           "wRCp": 107.275,
           "BsR": 0.74,
           "xwOBA": 0.3214,
@@ -222,9 +222,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 18.979,
+          "batWAR": 18.974,
           "pitWAR": 12.009,
-          "teamWAR": 30.988,
+          "teamWAR": 30.983,
           "wRCp": 101.718,
           "BsR": -5.397,
           "xwOBA": 0.3114,
@@ -233,9 +233,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 14.995,
+          "batWAR": 14.992,
           "pitWAR": 15.615,
-          "teamWAR": 30.611,
+          "teamWAR": 30.608,
           "wRCp": 96.674,
           "BsR": -5.647,
           "xwOBA": 0.3206,
@@ -244,20 +244,20 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 21.194,
+          "batWAR": 21.254,
           "pitWAR": 21.873,
-          "teamWAR": 43.067,
+          "teamWAR": 43.126,
           "wRCp": 101.199,
           "BsR": 2.525,
           "xwOBA": 0.3191,
           "xFIP": 3.765,
           "SIERA": 3.724,
-          "OAA": -6.0
+          "OAA": -5.0
         },
         "PHI": {
-          "batWAR": 11.961,
+          "batWAR": 11.954,
           "pitWAR": 23.668,
-          "teamWAR": 35.629,
+          "teamWAR": 35.622,
           "wRCp": 91.73,
           "BsR": 5.012,
           "xwOBA": 0.3176,
@@ -268,7 +268,7 @@
         "PIT": {
           "batWAR": 18.207,
           "pitWAR": 20.958,
-          "teamWAR": 39.165,
+          "teamWAR": 39.164,
           "wRCp": 101.079,
           "BsR": 5.295,
           "xwOBA": 0.3162,
@@ -277,9 +277,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 23.39,
+          "batWAR": 23.38,
           "pitWAR": 14.957,
-          "teamWAR": 38.347,
+          "teamWAR": 38.337,
           "wRCp": 102.268,
           "BsR": 7.074,
           "xwOBA": 0.3178,
@@ -288,9 +288,9 @@
           "OAA": 18.0
         },
         "SEA": {
-          "batWAR": 15.843,
+          "batWAR": 15.829,
           "pitWAR": 14.247,
-          "teamWAR": 30.09,
+          "teamWAR": 30.076,
           "wRCp": 102.062,
           "BsR": -1.776,
           "xwOBA": 0.3147,
@@ -299,9 +299,9 @@
           "OAA": -58.0
         },
         "SF": {
-          "batWAR": 13.103,
+          "batWAR": 13.089,
           "pitWAR": 9.801,
-          "teamWAR": 22.903,
+          "teamWAR": 22.889,
           "wRCp": 96.51,
           "BsR": -0.904,
           "xwOBA": 0.3075,
@@ -310,9 +310,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 15.611,
+          "batWAR": 15.608,
           "pitWAR": 12.856,
-          "teamWAR": 28.467,
+          "teamWAR": 28.464,
           "wRCp": 93.271,
           "BsR": 0.756,
           "xwOBA": 0.3188,
@@ -321,9 +321,9 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 23.829,
+          "batWAR": 23.845,
           "pitWAR": 16.766,
-          "teamWAR": 40.595,
+          "teamWAR": 40.611,
           "wRCp": 103.581,
           "BsR": 1.788,
           "xwOBA": 0.3037,
@@ -332,9 +332,9 @@
           "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 20.284,
+          "batWAR": 20.267,
           "pitWAR": 15.385,
-          "teamWAR": 35.67,
+          "teamWAR": 35.653,
           "wRCp": 102.325,
           "BsR": -2.591,
           "xwOBA": 0.3077,
@@ -343,20 +343,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 19.046,
+          "batWAR": 19.12,
           "pitWAR": 16.242,
-          "teamWAR": 35.288,
+          "teamWAR": 35.361,
           "wRCp": 94.21,
           "BsR": -0.211,
           "xwOBA": 0.2978,
           "xFIP": 4.072,
           "SIERA": 4.036,
-          "OAA": 14.0
+          "OAA": 16.0
         },
         "WSH": {
-          "batWAR": 20.69,
+          "batWAR": 20.752,
           "pitWAR": 4.827,
-          "teamWAR": 25.518,
+          "teamWAR": 25.579,
           "wRCp": 102.571,
           "BsR": 10.876,
           "xwOBA": 0.3232,
@@ -365,142 +365,7 @@
           "OAA": -21.0
         }
       },
-      "matchups": [
-        {
-          "gamePk": 849802,
-          "away": "TB",
-          "home": "MIL",
-          "awayName": "Tampa Bay Rays",
-          "homeName": "Milwaukee Brewers",
-          "gameDate": "2026-10-25T00:00:00Z",
-          "gameNumber": 1,
-          "doubleHeader": "N",
-          "isDoubleHeader": false,
-          "showGameNumber": false,
-          "description": "World Series Game 2",
-          "status": "In Progress",
-          "abstractGameState": "Live",
-          "startTimeTBD": false,
-          "awayStats": {
-            "batWAR": 23.829,
-            "pitWAR": 16.766,
-            "teamWAR": 40.595,
-            "wRCp": 103.581,
-            "BsR": 1.788,
-            "xwOBA": 0.3037,
-            "xFIP": 3.972,
-            "SIERA": 3.842,
-            "OAA": 6.0
-          },
-          "homeStats": {
-            "batWAR": 26.104,
-            "pitWAR": 22.572,
-            "teamWAR": 48.676,
-            "wRCp": 107.275,
-            "BsR": 0.74,
-            "xwOBA": 0.3214,
-            "xFIP": 3.756,
-            "SIERA": 3.63,
-            "OAA": 19.0
-          },
-          "diffTeamWAR": 8.081,
-          "diffWRCp": 3.694,
-          "diffBsR": -1.048,
-          "diffXwOBA": 0.0177,
-          "diffXFIP": 0.216,
-          "diffSIERA": 0.212,
-          "diffOAA": 13.0,
-          "zTeamWAR": 0.0,
-          "zWRCp": 0.0,
-          "zBsR": 0.0,
-          "zXwOBA": 0.0,
-          "zXFIP": 0.0,
-          "zSIERA": 0.0,
-          "zOAA": 0.0,
-          "overallEdge": 0.0,
-          "modelScore": 0.0,
-          "runDelta": 0.0,
-          "modelHomeProb": 0.5,
-          "favored": "EVEN",
-          "odds": {
-            "provider": "4casters",
-            "home": "-112",
-            "away": "+110",
-            "gameId": "6adbf412b775ff92b35e9743",
-            "spreads": {
-              "home": [
-                {
-                  "line": -1.5,
-                  "odds": 198
-                },
-                {
-                  "line": 1.5,
-                  "odds": -213
-                },
-                {
-                  "line": -2.5,
-                  "odds": 331
-                },
-                {
-                  "line": 2.5,
-                  "odds": -349
-                },
-                {
-                  "line": -3.5,
-                  "odds": 496
-                },
-                {
-                  "line": 3.5,
-                  "odds": -711
-                }
-              ],
-              "away": [
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": 1.5,
-                  "odds": -204
-                },
-                {
-                  "line": -2.5,
-                  "odds": 293
-                },
-                {
-                  "line": 2.5,
-                  "odds": -350
-                },
-                {
-                  "line": -3.5,
-                  "odds": 487
-                },
-                {
-                  "line": 3.5,
-                  "odds": -658
-                }
-              ]
-            },
-            "fromCache": true,
-            "cachedAt": "2026-10-25T00:27:08Z"
-          },
-          "kalshi": {
-            "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 9636969.98,
-            "homeVol": 15974507.54,
-            "awayCents": 1,
-            "homeCents": 99,
-            "awayMult": 0.6033,
-            "homeMult": 1.6576,
-            "maxMult": 1.6576,
-            "totalVol": 25611477.52,
-            "highSide": "home",
-            "highMult": 1.6576,
-            "favoriteSide": "home",
-            "tone": "muted"
-          }
-        }
-      ]
+      "matchups": []
     },
     "l7": {
       "id": "l7",
@@ -532,9 +397,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 1.901,
+          "batWAR": 1.898,
           "pitWAR": 0.505,
-          "teamWAR": 2.406,
+          "teamWAR": 2.403,
           "wRCp": 140.343,
           "BsR": -1.214,
           "xwOBA": 0.3861,
@@ -543,18 +408,18 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 0.934,
+          "batWAR": 0.933,
           "pitWAR": 1.307,
-          "teamWAR": 2.241,
+          "teamWAR": 2.239,
           "wRCp": 117.495,
           "BsR": -0.23,
           "xwOBA": 0.3312,
           "xFIP": 3.769,
           "SIERA": 3.801,
-          "OAA": -14.0
+          "OAA": -15.0
         },
         "BOS": {
-          "batWAR": 0.083,
+          "batWAR": 0.082,
           "pitWAR": 1.477,
           "teamWAR": 1.559,
           "wRCp": 69.851,
@@ -598,9 +463,9 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": -0.123,
+          "batWAR": -0.124,
           "pitWAR": 0.199,
-          "teamWAR": 0.076,
+          "teamWAR": 0.075,
           "wRCp": 79.247,
           "BsR": -0.859,
           "xwOBA": 0.2962,
@@ -609,9 +474,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 1.858,
+          "batWAR": 1.856,
           "pitWAR": 0.688,
-          "teamWAR": 2.545,
+          "teamWAR": 2.544,
           "wRCp": 139.241,
           "BsR": 0.032,
           "xwOBA": 0.3603,
@@ -622,7 +487,7 @@
         "DET": {
           "batWAR": 1.427,
           "pitWAR": 0.843,
-          "teamWAR": 2.271,
+          "teamWAR": 2.27,
           "wRCp": 125.902,
           "BsR": 0.273,
           "xwOBA": 0.3323,
@@ -642,20 +507,20 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 1.989,
+          "batWAR": 1.99,
           "pitWAR": -0.702,
-          "teamWAR": 1.286,
+          "teamWAR": 1.287,
           "wRCp": 140.845,
           "BsR": 0.273,
           "xwOBA": 0.3803,
           "xFIP": 5.548,
           "SIERA": 5.151,
-          "OAA": 19.0
+          "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 1.097,
+          "batWAR": 1.099,
           "pitWAR": 0.128,
-          "teamWAR": 1.224,
+          "teamWAR": 1.227,
           "wRCp": 113.357,
           "BsR": -0.631,
           "xwOBA": 0.3252,
@@ -664,7 +529,7 @@
           "OAA": -42.0
         },
         "LAD": {
-          "batWAR": 0.598,
+          "batWAR": 0.599,
           "pitWAR": 2.563,
           "teamWAR": 3.161,
           "wRCp": 95.571,
@@ -686,9 +551,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 0.817,
+          "batWAR": 0.819,
           "pitWAR": 0.961,
-          "teamWAR": 1.778,
+          "teamWAR": 1.78,
           "wRCp": 103.859,
           "BsR": -0.38,
           "xwOBA": 0.3141,
@@ -697,9 +562,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 0.58,
+          "batWAR": 0.579,
           "pitWAR": 0.776,
-          "teamWAR": 1.355,
+          "teamWAR": 1.354,
           "wRCp": 99.841,
           "BsR": -0.905,
           "xwOBA": 0.3303,
@@ -719,15 +584,15 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 0.501,
+          "batWAR": 0.503,
           "pitWAR": 1.277,
-          "teamWAR": 1.778,
+          "teamWAR": 1.78,
           "wRCp": 91.513,
           "BsR": 0.719,
           "xwOBA": 0.2965,
           "xFIP": 3.582,
           "SIERA": 3.697,
-          "OAA": -6.0
+          "OAA": -5.0
         },
         "PHI": {
           "batWAR": -0.076,
@@ -752,9 +617,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 0.785,
+          "batWAR": 0.784,
           "pitWAR": 0.375,
-          "teamWAR": 1.16,
+          "teamWAR": 1.159,
           "wRCp": 94.967,
           "BsR": 1.039,
           "xwOBA": 0.2818,
@@ -763,9 +628,9 @@
           "OAA": 18.0
         },
         "SEA": {
-          "batWAR": 0.814,
+          "batWAR": 0.813,
           "pitWAR": 0.497,
-          "teamWAR": 1.311,
+          "teamWAR": 1.31,
           "wRCp": 108.994,
           "BsR": 0.169,
           "xwOBA": 0.3094,
@@ -774,9 +639,9 @@
           "OAA": -58.0
         },
         "SF": {
-          "batWAR": -0.863,
+          "batWAR": -0.862,
           "pitWAR": 0.283,
-          "teamWAR": -0.58,
+          "teamWAR": -0.579,
           "wRCp": 44.529,
           "BsR": 0.747,
           "xwOBA": 0.2371,
@@ -796,9 +661,9 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 0.477,
+          "batWAR": 0.478,
           "pitWAR": 0.682,
-          "teamWAR": 1.159,
+          "teamWAR": 1.16,
           "wRCp": 82.889,
           "BsR": 0.244,
           "xwOBA": 0.2769,
@@ -807,9 +672,9 @@
           "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 0.01,
+          "batWAR": 0.009,
           "pitWAR": 0.413,
-          "teamWAR": 0.423,
+          "teamWAR": 0.422,
           "wRCp": 75.319,
           "BsR": -1.071,
           "xwOBA": 0.274,
@@ -818,20 +683,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 0.266,
+          "batWAR": 0.268,
           "pitWAR": 0.701,
-          "teamWAR": 0.967,
+          "teamWAR": 0.968,
           "wRCp": 77.274,
           "BsR": -0.27,
           "xwOBA": 0.3168,
           "xFIP": 3.66,
           "SIERA": 3.403,
-          "OAA": 14.0
+          "OAA": 16.0
         },
         "WSH": {
-          "batWAR": -0.041,
+          "batWAR": -0.039,
           "pitWAR": 0.136,
-          "teamWAR": 0.095,
+          "teamWAR": 0.097,
           "wRCp": 72.61,
           "BsR": 0.736,
           "xwOBA": 0.2894,
@@ -840,142 +705,7 @@
           "OAA": -21.0
         }
       },
-      "matchups": [
-        {
-          "gamePk": 849802,
-          "away": "TB",
-          "home": "MIL",
-          "awayName": "Tampa Bay Rays",
-          "homeName": "Milwaukee Brewers",
-          "gameDate": "2026-10-25T00:00:00Z",
-          "gameNumber": 1,
-          "doubleHeader": "N",
-          "isDoubleHeader": false,
-          "showGameNumber": false,
-          "description": "World Series Game 2",
-          "status": "In Progress",
-          "abstractGameState": "Live",
-          "startTimeTBD": false,
-          "awayStats": {
-            "batWAR": 0.477,
-            "pitWAR": 0.682,
-            "teamWAR": 1.159,
-            "wRCp": 82.889,
-            "BsR": 0.244,
-            "xwOBA": 0.2769,
-            "xFIP": 3.89,
-            "SIERA": 3.892,
-            "OAA": 6.0
-          },
-          "homeStats": {
-            "batWAR": 0.817,
-            "pitWAR": 0.961,
-            "teamWAR": 1.778,
-            "wRCp": 103.859,
-            "BsR": -0.38,
-            "xwOBA": 0.3141,
-            "xFIP": 3.893,
-            "SIERA": 3.707,
-            "OAA": 19.0
-          },
-          "diffTeamWAR": 0.618,
-          "diffWRCp": 20.97,
-          "diffBsR": -0.624,
-          "diffXwOBA": 0.0372,
-          "diffXFIP": -0.003,
-          "diffSIERA": 0.185,
-          "diffOAA": 13.0,
-          "zTeamWAR": 0.0,
-          "zWRCp": 0.0,
-          "zBsR": 0.0,
-          "zXwOBA": 0.0,
-          "zXFIP": 0.0,
-          "zSIERA": 0.0,
-          "zOAA": 0.0,
-          "overallEdge": 0.0,
-          "modelScore": 0.0,
-          "runDelta": 0.0,
-          "modelHomeProb": 0.5,
-          "favored": "EVEN",
-          "odds": {
-            "provider": "4casters",
-            "home": "-112",
-            "away": "+110",
-            "gameId": "6adbf412b775ff92b35e9743",
-            "spreads": {
-              "home": [
-                {
-                  "line": -1.5,
-                  "odds": 198
-                },
-                {
-                  "line": 1.5,
-                  "odds": -213
-                },
-                {
-                  "line": -2.5,
-                  "odds": 331
-                },
-                {
-                  "line": 2.5,
-                  "odds": -349
-                },
-                {
-                  "line": -3.5,
-                  "odds": 496
-                },
-                {
-                  "line": 3.5,
-                  "odds": -711
-                }
-              ],
-              "away": [
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": 1.5,
-                  "odds": -204
-                },
-                {
-                  "line": -2.5,
-                  "odds": 293
-                },
-                {
-                  "line": 2.5,
-                  "odds": -350
-                },
-                {
-                  "line": -3.5,
-                  "odds": 487
-                },
-                {
-                  "line": 3.5,
-                  "odds": -658
-                }
-              ]
-            },
-            "fromCache": true,
-            "cachedAt": "2026-10-25T00:27:08Z"
-          },
-          "kalshi": {
-            "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 9636969.98,
-            "homeVol": 15974507.54,
-            "awayCents": 1,
-            "homeCents": 99,
-            "awayMult": 0.6033,
-            "homeMult": 1.6576,
-            "maxMult": 1.6576,
-            "totalVol": 25611477.52,
-            "highSide": "home",
-            "highMult": 1.6576,
-            "favoriteSide": "home",
-            "tone": "muted"
-          }
-        }
-      ]
+      "matchups": []
     },
     "blend": {
       "id": "blend",
@@ -985,9 +715,9 @@
       "teamCount": 30,
       "teams": {
         "ATH": {
-          "batWAR": 5.804,
+          "batWAR": 5.806,
           "pitWAR": 2.726,
-          "teamWAR": 8.53,
+          "teamWAR": 8.532,
           "wRCp": 103.391,
           "BsR": -1.756,
           "xwOBA": 0.3085,
@@ -996,9 +726,9 @@
           "OAA": -44.0
         },
         "ATL": {
-          "batWAR": 8.672,
+          "batWAR": 8.671,
           "pitWAR": 7.796,
-          "teamWAR": 16.468,
+          "teamWAR": 16.466,
           "wRCp": 82.874,
           "BsR": -0.249,
           "xwOBA": 0.3119,
@@ -1007,9 +737,9 @@
           "OAA": 23.0
         },
         "AZ": {
-          "batWAR": 11.251,
+          "batWAR": 11.233,
           "pitWAR": 6.175,
-          "teamWAR": 17.425,
+          "teamWAR": 17.408,
           "wRCp": 119.237,
           "BsR": -0.017,
           "xwOBA": 0.3503,
@@ -1018,20 +748,20 @@
           "OAA": 44.0
         },
         "BAL": {
-          "batWAR": 10.457,
+          "batWAR": 10.404,
           "pitWAR": 8.959,
-          "teamWAR": 19.416,
+          "teamWAR": 19.363,
           "wRCp": 109.534,
           "BsR": -3.216,
           "xwOBA": 0.3266,
           "xFIP": 3.998,
           "SIERA": 3.985,
-          "OAA": -14.0
+          "OAA": -15.0
         },
         "BOS": {
-          "batWAR": 10.274,
+          "batWAR": 10.268,
           "pitWAR": 12.377,
-          "teamWAR": 22.652,
+          "teamWAR": 22.645,
           "wRCp": 84.299,
           "BsR": -1.242,
           "xwOBA": 0.2941,
@@ -1051,9 +781,9 @@
           "OAA": 73.0
         },
         "CIN": {
-          "batWAR": 5.342,
+          "batWAR": 5.338,
           "pitWAR": 4.393,
-          "teamWAR": 9.735,
+          "teamWAR": 9.731,
           "wRCp": 90.216,
           "BsR": -1.446,
           "xwOBA": 0.2974,
@@ -1062,9 +792,9 @@
           "OAA": 2.0
         },
         "CLE": {
-          "batWAR": 10.473,
+          "batWAR": 10.467,
           "pitWAR": 9.81,
-          "teamWAR": 20.284,
+          "teamWAR": 20.277,
           "wRCp": 109.343,
           "BsR": 3.985,
           "xwOBA": 0.3133,
@@ -1073,9 +803,9 @@
           "OAA": 11.0
         },
         "COL": {
-          "batWAR": 4.122,
+          "batWAR": 4.118,
           "pitWAR": 3.411,
-          "teamWAR": 7.533,
+          "teamWAR": 7.529,
           "wRCp": 85.197,
           "BsR": -2.183,
           "xwOBA": 0.302,
@@ -1084,9 +814,9 @@
           "OAA": -31.0
         },
         "CWS": {
-          "batWAR": 12.767,
+          "batWAR": 12.748,
           "pitWAR": 6.797,
-          "teamWAR": 19.564,
+          "teamWAR": 19.546,
           "wRCp": 121.802,
           "BsR": -2.108,
           "xwOBA": 0.3394,
@@ -1095,9 +825,9 @@
           "OAA": 17.0
         },
         "DET": {
-          "batWAR": 10.156,
+          "batWAR": 10.148,
           "pitWAR": 8.194,
-          "teamWAR": 18.349,
+          "teamWAR": 18.341,
           "wRCp": 113.829,
           "BsR": -3.054,
           "xwOBA": 0.3261,
@@ -1106,7 +836,7 @@
           "OAA": -39.0
         },
         "HOU": {
-          "batWAR": 11.831,
+          "batWAR": 11.832,
           "pitWAR": 4.119,
           "teamWAR": 15.95,
           "wRCp": 134.904,
@@ -1117,20 +847,20 @@
           "OAA": -11.0
         },
         "KC": {
-          "batWAR": 11.292,
+          "batWAR": 11.305,
           "pitWAR": 2.179,
-          "teamWAR": 13.471,
+          "teamWAR": 13.484,
           "wRCp": 119.331,
           "BsR": 2.496,
           "xwOBA": 0.3476,
           "xFIP": 5.063,
           "SIERA": 4.837,
-          "OAA": 19.0
+          "OAA": 20.0
         },
         "LAA": {
-          "batWAR": 5.366,
+          "batWAR": 5.386,
           "pitWAR": 7.005,
-          "teamWAR": 12.37,
+          "teamWAR": 12.39,
           "wRCp": 102.773,
           "BsR": -0.74,
           "xwOBA": 0.3138,
@@ -1141,7 +871,7 @@
         "LAD": {
           "batWAR": 13.739,
           "pitWAR": 14.432,
-          "teamWAR": 28.171,
+          "teamWAR": 28.17,
           "wRCp": 103.138,
           "BsR": -1.506,
           "xwOBA": 0.332,
@@ -1150,9 +880,9 @@
           "OAA": 14.0
         },
         "MIA": {
-          "batWAR": 10.716,
+          "batWAR": 10.713,
           "pitWAR": 7.755,
-          "teamWAR": 18.471,
+          "teamWAR": 18.467,
           "wRCp": 99.147,
           "BsR": 2.269,
           "xwOBA": 0.3224,
@@ -1161,9 +891,9 @@
           "OAA": 10.0
         },
         "MIL": {
-          "batWAR": 13.46,
+          "batWAR": 13.479,
           "pitWAR": 11.766,
-          "teamWAR": 25.227,
+          "teamWAR": 25.245,
           "wRCp": 105.567,
           "BsR": 0.18,
           "xwOBA": 0.3177,
@@ -1172,9 +902,9 @@
           "OAA": 19.0
         },
         "MIN": {
-          "batWAR": 9.779,
+          "batWAR": 9.777,
           "pitWAR": 6.393,
-          "teamWAR": 16.172,
+          "teamWAR": 16.169,
           "wRCp": 100.779,
           "BsR": -3.151,
           "xwOBA": 0.3208,
@@ -1183,9 +913,9 @@
           "OAA": -15.0
         },
         "NYM": {
-          "batWAR": 7.917,
+          "batWAR": 7.916,
           "pitWAR": 8.362,
-          "teamWAR": 16.279,
+          "teamWAR": 16.278,
           "wRCp": 101.545,
           "BsR": -3.073,
           "xwOBA": 0.3351,
@@ -1194,20 +924,20 @@
           "OAA": -23.0
         },
         "NYY": {
-          "batWAR": 10.848,
+          "batWAR": 10.879,
           "pitWAR": 11.575,
-          "teamWAR": 22.422,
+          "teamWAR": 22.454,
           "wRCp": 96.356,
           "BsR": 1.622,
           "xwOBA": 0.3078,
           "xFIP": 3.673,
           "SIERA": 3.711,
-          "OAA": -6.0
+          "OAA": -5.0
         },
         "PHI": {
-          "batWAR": 5.942,
+          "batWAR": 5.939,
           "pitWAR": 12.429,
-          "teamWAR": 18.372,
+          "teamWAR": 18.368,
           "wRCp": 82.619,
           "BsR": 2.668,
           "xwOBA": 0.3145,
@@ -1227,9 +957,9 @@
           "OAA": -21.0
         },
         "SD": {
-          "batWAR": 12.088,
+          "batWAR": 12.082,
           "pitWAR": 7.666,
-          "teamWAR": 19.754,
+          "teamWAR": 19.748,
           "wRCp": 98.618,
           "BsR": 4.056,
           "xwOBA": 0.2998,
@@ -1238,9 +968,9 @@
           "OAA": 18.0
         },
         "SEA": {
-          "batWAR": 8.329,
+          "batWAR": 8.321,
           "pitWAR": 7.372,
-          "teamWAR": 15.7,
+          "teamWAR": 15.693,
           "wRCp": 105.528,
           "BsR": -0.803,
           "xwOBA": 0.312,
@@ -1249,9 +979,9 @@
           "OAA": -58.0
         },
         "SF": {
-          "batWAR": 6.12,
+          "batWAR": 6.114,
           "pitWAR": 5.042,
-          "teamWAR": 11.162,
+          "teamWAR": 11.155,
           "wRCp": 70.52,
           "BsR": -0.079,
           "xwOBA": 0.2723,
@@ -1260,9 +990,9 @@
           "OAA": -17.0
         },
         "STL": {
-          "batWAR": 7.469,
+          "batWAR": 7.467,
           "pitWAR": 6.799,
-          "teamWAR": 14.268,
+          "teamWAR": 14.266,
           "wRCp": 68.382,
           "BsR": 0.366,
           "xwOBA": 0.2962,
@@ -1271,9 +1001,9 @@
           "OAA": 38.0
         },
         "TB": {
-          "batWAR": 12.153,
+          "batWAR": 12.162,
           "pitWAR": 8.724,
-          "teamWAR": 20.877,
+          "teamWAR": 20.886,
           "wRCp": 93.235,
           "BsR": 1.016,
           "xwOBA": 0.2903,
@@ -1282,9 +1012,9 @@
           "OAA": 6.0
         },
         "TEX": {
-          "batWAR": 10.147,
+          "batWAR": 10.138,
           "pitWAR": 7.899,
-          "teamWAR": 18.046,
+          "teamWAR": 18.037,
           "wRCp": 88.822,
           "BsR": -1.831,
           "xwOBA": 0.2908,
@@ -1293,20 +1023,20 @@
           "OAA": 21.0
         },
         "TOR": {
-          "batWAR": 9.656,
+          "batWAR": 9.694,
           "pitWAR": 8.472,
-          "teamWAR": 18.127,
+          "teamWAR": 18.166,
           "wRCp": 85.742,
           "BsR": -0.24,
           "xwOBA": 0.3073,
           "xFIP": 3.866,
           "SIERA": 3.72,
-          "OAA": 14.0
+          "OAA": 16.0
         },
         "WSH": {
-          "batWAR": 10.325,
+          "batWAR": 10.356,
           "pitWAR": 2.482,
-          "teamWAR": 12.806,
+          "teamWAR": 12.838,
           "wRCp": 87.59,
           "BsR": 5.806,
           "xwOBA": 0.3063,
@@ -1315,149 +1045,14 @@
           "OAA": -21.0
         }
       },
-      "matchups": [
-        {
-          "gamePk": 849802,
-          "away": "TB",
-          "home": "MIL",
-          "awayName": "Tampa Bay Rays",
-          "homeName": "Milwaukee Brewers",
-          "gameDate": "2026-10-25T00:00:00Z",
-          "gameNumber": 1,
-          "doubleHeader": "N",
-          "isDoubleHeader": false,
-          "showGameNumber": false,
-          "description": "World Series Game 2",
-          "status": "In Progress",
-          "abstractGameState": "Live",
-          "startTimeTBD": false,
-          "awayStats": {
-            "batWAR": 12.153,
-            "pitWAR": 8.724,
-            "teamWAR": 20.877,
-            "wRCp": 93.235,
-            "BsR": 1.016,
-            "xwOBA": 0.2903,
-            "xFIP": 3.931,
-            "SIERA": 3.867,
-            "OAA": 6.0
-          },
-          "homeStats": {
-            "batWAR": 13.46,
-            "pitWAR": 11.766,
-            "teamWAR": 25.227,
-            "wRCp": 105.567,
-            "BsR": 0.18,
-            "xwOBA": 0.3177,
-            "xFIP": 3.824,
-            "SIERA": 3.668,
-            "OAA": 19.0
-          },
-          "diffTeamWAR": 4.35,
-          "diffWRCp": 12.332,
-          "diffBsR": -0.836,
-          "diffXwOBA": 0.0274,
-          "diffXFIP": 0.107,
-          "diffSIERA": 0.199,
-          "diffOAA": 13.0,
-          "zTeamWAR": 0.0,
-          "zWRCp": 0.0,
-          "zBsR": 0.0,
-          "zXwOBA": 0.0,
-          "zXFIP": 0.0,
-          "zSIERA": 0.0,
-          "zOAA": 0.0,
-          "overallEdge": 0.0,
-          "modelScore": 0.0,
-          "runDelta": 0.0,
-          "modelHomeProb": 0.5,
-          "favored": "EVEN",
-          "odds": {
-            "provider": "4casters",
-            "home": "-112",
-            "away": "+110",
-            "gameId": "6adbf412b775ff92b35e9743",
-            "spreads": {
-              "home": [
-                {
-                  "line": -1.5,
-                  "odds": 198
-                },
-                {
-                  "line": 1.5,
-                  "odds": -213
-                },
-                {
-                  "line": -2.5,
-                  "odds": 331
-                },
-                {
-                  "line": 2.5,
-                  "odds": -349
-                },
-                {
-                  "line": -3.5,
-                  "odds": 496
-                },
-                {
-                  "line": 3.5,
-                  "odds": -711
-                }
-              ],
-              "away": [
-                {
-                  "line": -1.5,
-                  "odds": 186
-                },
-                {
-                  "line": 1.5,
-                  "odds": -204
-                },
-                {
-                  "line": -2.5,
-                  "odds": 293
-                },
-                {
-                  "line": 2.5,
-                  "odds": -350
-                },
-                {
-                  "line": -3.5,
-                  "odds": 487
-                },
-                {
-                  "line": 3.5,
-                  "odds": -658
-                }
-              ]
-            },
-            "fromCache": true,
-            "cachedAt": "2026-10-25T00:27:08Z"
-          },
-          "kalshi": {
-            "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-            "awayVol": 9636969.98,
-            "homeVol": 15974507.54,
-            "awayCents": 1,
-            "homeCents": 99,
-            "awayMult": 0.6033,
-            "homeMult": 1.6576,
-            "maxMult": 1.6576,
-            "totalVol": 25611477.52,
-            "highSide": "home",
-            "highMult": 1.6576,
-            "favoriteSide": "home",
-            "tone": "muted"
-          }
-        }
-      ]
+      "matchups": []
     }
   },
   "teams": {
     "ATH": {
-      "batWAR": 10.641,
+      "batWAR": 10.644,
       "pitWAR": 6.048,
-      "teamWAR": 16.689,
+      "teamWAR": 16.691,
       "wRCp": 93.629,
       "BsR": -3.367,
       "xwOBA": 0.3091,
@@ -1466,9 +1061,9 @@
       "OAA": -44.0
     },
     "ATL": {
-      "batWAR": 17.472,
+      "batWAR": 17.469,
       "pitWAR": 15.587,
-      "teamWAR": 33.059,
+      "teamWAR": 33.056,
       "wRCp": 97.297,
       "BsR": -0.835,
       "xwOBA": 0.3152,
@@ -1477,9 +1072,9 @@
       "OAA": 23.0
     },
     "AZ": {
-      "batWAR": 20.601,
+      "batWAR": 20.569,
       "pitWAR": 11.844,
-      "teamWAR": 32.446,
+      "teamWAR": 32.414,
       "wRCp": 98.131,
       "BsR": 1.179,
       "xwOBA": 0.3144,
@@ -1488,20 +1083,20 @@
       "OAA": 44.0
     },
     "BAL": {
-      "batWAR": 19.98,
+      "batWAR": 19.875,
       "pitWAR": 16.611,
-      "teamWAR": 36.591,
+      "teamWAR": 36.486,
       "wRCp": 101.573,
       "BsR": -6.201,
       "xwOBA": 0.3219,
       "xFIP": 4.226,
       "SIERA": 4.169,
-      "OAA": -14.0
+      "OAA": -15.0
     },
     "BOS": {
-      "batWAR": 20.466,
+      "batWAR": 20.454,
       "pitWAR": 23.278,
-      "teamWAR": 43.744,
+      "teamWAR": 43.733,
       "wRCp": 98.747,
       "BsR": -2.992,
       "xwOBA": 0.3089,
@@ -1521,9 +1116,9 @@
       "OAA": 73.0
     },
     "CIN": {
-      "batWAR": 10.412,
+      "batWAR": 10.405,
       "pitWAR": 8.003,
-      "teamWAR": 18.414,
+      "teamWAR": 18.407,
       "wRCp": 91.002,
       "BsR": -1.574,
       "xwOBA": 0.3127,
@@ -1532,9 +1127,9 @@
       "OAA": 2.0
     },
     "CLE": {
-      "batWAR": 19.438,
+      "batWAR": 19.426,
       "pitWAR": 18.735,
-      "teamWAR": 38.173,
+      "teamWAR": 38.161,
       "wRCp": 96.65,
       "BsR": 7.931,
       "xwOBA": 0.3053,
@@ -1543,9 +1138,9 @@
       "OAA": 11.0
     },
     "COL": {
-      "batWAR": 8.366,
+      "batWAR": 8.36,
       "pitWAR": 6.624,
-      "teamWAR": 14.991,
+      "teamWAR": 14.984,
       "wRCp": 91.146,
       "BsR": -3.508,
       "xwOBA": 0.3078,
@@ -1554,9 +1149,9 @@
       "OAA": -31.0
     },
     "CWS": {
-      "batWAR": 23.676,
+      "batWAR": 23.641,
       "pitWAR": 12.906,
-      "teamWAR": 36.583,
+      "teamWAR": 36.547,
       "wRCp": 104.363,
       "BsR": -4.248,
       "xwOBA": 0.3184,
@@ -1565,9 +1160,9 @@
       "OAA": 17.0
     },
     "DET": {
-      "batWAR": 18.885,
+      "batWAR": 18.869,
       "pitWAR": 15.544,
-      "teamWAR": 34.43,
+      "teamWAR": 34.413,
       "wRCp": 101.756,
       "BsR": -6.38,
       "xwOBA": 0.32,
@@ -1576,7 +1171,7 @@
       "OAA": -39.0
     },
     "HOU": {
-      "batWAR": 21.057,
+      "batWAR": 21.058,
       "pitWAR": 7.501,
       "teamWAR": 28.559,
       "wRCp": 105.25,
@@ -1587,20 +1182,20 @@
       "OAA": -11.0
     },
     "KC": {
-      "batWAR": 20.594,
+      "batWAR": 20.621,
       "pitWAR": 5.06,
-      "teamWAR": 25.654,
+      "teamWAR": 25.681,
       "wRCp": 97.816,
       "BsR": 4.72,
       "xwOBA": 0.3148,
       "xFIP": 4.578,
       "SIERA": 4.523,
-      "OAA": 19.0
+      "OAA": 20.0
     },
     "LAA": {
-      "batWAR": 9.635,
+      "batWAR": 9.672,
       "pitWAR": 13.881,
-      "teamWAR": 23.517,
+      "teamWAR": 23.554,
       "wRCp": 92.189,
       "BsR": -0.85,
       "xwOBA": 0.3025,
@@ -1609,9 +1204,9 @@
       "OAA": -42.0
     },
     "LAD": {
-      "batWAR": 26.881,
+      "batWAR": 26.878,
       "pitWAR": 26.301,
-      "teamWAR": 53.182,
+      "teamWAR": 53.179,
       "wRCp": 110.706,
       "BsR": -3.29,
       "xwOBA": 0.3383,
@@ -1620,9 +1215,9 @@
       "OAA": 14.0
     },
     "MIA": {
-      "batWAR": 20.707,
+      "batWAR": 20.7,
       "pitWAR": 14.113,
-      "teamWAR": 34.82,
+      "teamWAR": 34.813,
       "wRCp": 100.315,
       "BsR": 4.477,
       "xwOBA": 0.3086,
@@ -1631,9 +1226,9 @@
       "OAA": 10.0
     },
     "MIL": {
-      "batWAR": 26.104,
+      "batWAR": 26.138,
       "pitWAR": 22.572,
-      "teamWAR": 48.676,
+      "teamWAR": 48.71,
       "wRCp": 107.275,
       "BsR": 0.74,
       "xwOBA": 0.3214,
@@ -1642,9 +1237,9 @@
       "OAA": 19.0
     },
     "MIN": {
-      "batWAR": 18.979,
+      "batWAR": 18.974,
       "pitWAR": 12.009,
-      "teamWAR": 30.988,
+      "teamWAR": 30.983,
       "wRCp": 101.718,
       "BsR": -5.397,
       "xwOBA": 0.3114,
@@ -1653,9 +1248,9 @@
       "OAA": -15.0
     },
     "NYM": {
-      "batWAR": 14.995,
+      "batWAR": 14.992,
       "pitWAR": 15.615,
-      "teamWAR": 30.611,
+      "teamWAR": 30.608,
       "wRCp": 96.674,
       "BsR": -5.647,
       "xwOBA": 0.3206,
@@ -1664,20 +1259,20 @@
       "OAA": -23.0
     },
     "NYY": {
-      "batWAR": 21.194,
+      "batWAR": 21.254,
       "pitWAR": 21.873,
-      "teamWAR": 43.067,
+      "teamWAR": 43.126,
       "wRCp": 101.199,
       "BsR": 2.525,
       "xwOBA": 0.3191,
       "xFIP": 3.765,
       "SIERA": 3.724,
-      "OAA": -6.0
+      "OAA": -5.0
     },
     "PHI": {
-      "batWAR": 11.961,
+      "batWAR": 11.954,
       "pitWAR": 23.668,
-      "teamWAR": 35.629,
+      "teamWAR": 35.622,
       "wRCp": 91.73,
       "BsR": 5.012,
       "xwOBA": 0.3176,
@@ -1688,7 +1283,7 @@
     "PIT": {
       "batWAR": 18.207,
       "pitWAR": 20.958,
-      "teamWAR": 39.165,
+      "teamWAR": 39.164,
       "wRCp": 101.079,
       "BsR": 5.295,
       "xwOBA": 0.3162,
@@ -1697,9 +1292,9 @@
       "OAA": -21.0
     },
     "SD": {
-      "batWAR": 23.39,
+      "batWAR": 23.38,
       "pitWAR": 14.957,
-      "teamWAR": 38.347,
+      "teamWAR": 38.337,
       "wRCp": 102.268,
       "BsR": 7.074,
       "xwOBA": 0.3178,
@@ -1708,9 +1303,9 @@
       "OAA": 18.0
     },
     "SEA": {
-      "batWAR": 15.843,
+      "batWAR": 15.829,
       "pitWAR": 14.247,
-      "teamWAR": 30.09,
+      "teamWAR": 30.076,
       "wRCp": 102.062,
       "BsR": -1.776,
       "xwOBA": 0.3147,
@@ -1719,9 +1314,9 @@
       "OAA": -58.0
     },
     "SF": {
-      "batWAR": 13.103,
+      "batWAR": 13.089,
       "pitWAR": 9.801,
-      "teamWAR": 22.903,
+      "teamWAR": 22.889,
       "wRCp": 96.51,
       "BsR": -0.904,
       "xwOBA": 0.3075,
@@ -1730,9 +1325,9 @@
       "OAA": -17.0
     },
     "STL": {
-      "batWAR": 15.611,
+      "batWAR": 15.608,
       "pitWAR": 12.856,
-      "teamWAR": 28.467,
+      "teamWAR": 28.464,
       "wRCp": 93.271,
       "BsR": 0.756,
       "xwOBA": 0.3188,
@@ -1741,9 +1336,9 @@
       "OAA": 38.0
     },
     "TB": {
-      "batWAR": 23.829,
+      "batWAR": 23.845,
       "pitWAR": 16.766,
-      "teamWAR": 40.595,
+      "teamWAR": 40.611,
       "wRCp": 103.581,
       "BsR": 1.788,
       "xwOBA": 0.3037,
@@ -1752,9 +1347,9 @@
       "OAA": 6.0
     },
     "TEX": {
-      "batWAR": 20.284,
+      "batWAR": 20.267,
       "pitWAR": 15.385,
-      "teamWAR": 35.67,
+      "teamWAR": 35.653,
       "wRCp": 102.325,
       "BsR": -2.591,
       "xwOBA": 0.3077,
@@ -1763,20 +1358,20 @@
       "OAA": 21.0
     },
     "TOR": {
-      "batWAR": 19.046,
+      "batWAR": 19.12,
       "pitWAR": 16.242,
-      "teamWAR": 35.288,
+      "teamWAR": 35.361,
       "wRCp": 94.21,
       "BsR": -0.211,
       "xwOBA": 0.2978,
       "xFIP": 4.072,
       "SIERA": 4.036,
-      "OAA": 14.0
+      "OAA": 16.0
     },
     "WSH": {
-      "batWAR": 20.69,
+      "batWAR": 20.752,
       "pitWAR": 4.827,
-      "teamWAR": 25.518,
+      "teamWAR": 25.579,
       "wRCp": 102.571,
       "BsR": 10.876,
       "xwOBA": 0.3232,
@@ -1785,141 +1380,6 @@
       "OAA": -21.0
     }
   },
-  "matchups": [
-    {
-      "gamePk": 849802,
-      "away": "TB",
-      "home": "MIL",
-      "awayName": "Tampa Bay Rays",
-      "homeName": "Milwaukee Brewers",
-      "gameDate": "2026-10-25T00:00:00Z",
-      "gameNumber": 1,
-      "doubleHeader": "N",
-      "isDoubleHeader": false,
-      "showGameNumber": false,
-      "description": "World Series Game 2",
-      "status": "In Progress",
-      "abstractGameState": "Live",
-      "startTimeTBD": false,
-      "awayStats": {
-        "batWAR": 23.829,
-        "pitWAR": 16.766,
-        "teamWAR": 40.595,
-        "wRCp": 103.581,
-        "BsR": 1.788,
-        "xwOBA": 0.3037,
-        "xFIP": 3.972,
-        "SIERA": 3.842,
-        "OAA": 6.0
-      },
-      "homeStats": {
-        "batWAR": 26.104,
-        "pitWAR": 22.572,
-        "teamWAR": 48.676,
-        "wRCp": 107.275,
-        "BsR": 0.74,
-        "xwOBA": 0.3214,
-        "xFIP": 3.756,
-        "SIERA": 3.63,
-        "OAA": 19.0
-      },
-      "diffTeamWAR": 8.081,
-      "diffWRCp": 3.694,
-      "diffBsR": -1.048,
-      "diffXwOBA": 0.0177,
-      "diffXFIP": 0.216,
-      "diffSIERA": 0.212,
-      "diffOAA": 13.0,
-      "zTeamWAR": 0.0,
-      "zWRCp": 0.0,
-      "zBsR": 0.0,
-      "zXwOBA": 0.0,
-      "zXFIP": 0.0,
-      "zSIERA": 0.0,
-      "zOAA": 0.0,
-      "overallEdge": 0.0,
-      "modelScore": 0.0,
-      "runDelta": 0.0,
-      "modelHomeProb": 0.5,
-      "favored": "EVEN",
-      "odds": {
-        "provider": "4casters",
-        "home": "-112",
-        "away": "+110",
-        "gameId": "6adbf412b775ff92b35e9743",
-        "spreads": {
-          "home": [
-            {
-              "line": -1.5,
-              "odds": 198
-            },
-            {
-              "line": 1.5,
-              "odds": -213
-            },
-            {
-              "line": -2.5,
-              "odds": 331
-            },
-            {
-              "line": 2.5,
-              "odds": -349
-            },
-            {
-              "line": -3.5,
-              "odds": 496
-            },
-            {
-              "line": 3.5,
-              "odds": -711
-            }
-          ],
-          "away": [
-            {
-              "line": -1.5,
-              "odds": 186
-            },
-            {
-              "line": 1.5,
-              "odds": -204
-            },
-            {
-              "line": -2.5,
-              "odds": 293
-            },
-            {
-              "line": 2.5,
-              "odds": -350
-            },
-            {
-              "line": -3.5,
-              "odds": 487
-            },
-            {
-              "line": 3.5,
-              "odds": -658
-            }
-          ]
-        },
-        "fromCache": true,
-        "cachedAt": "2026-10-25T00:27:08Z"
-      },
-      "kalshi": {
-        "eventTicker": "KXMLBGAME-26OCT242000TBMIL",
-        "awayVol": 9636969.98,
-        "homeVol": 15974507.54,
-        "awayCents": 1,
-        "homeCents": 99,
-        "awayMult": 0.6033,
-        "homeMult": 1.6576,
-        "maxMult": 1.6576,
-        "totalVol": 25611477.52,
-        "highSide": "home",
-        "highMult": 1.6576,
-        "favoriteSide": "home",
-        "tone": "muted"
-      }
-    }
-  ],
+  "matchups": [],
   "dateRange": "2026-01-01 and 2026-12-31"
 }
