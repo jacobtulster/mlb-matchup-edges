@@ -2,12 +2,12 @@
   "date": "2026-10-28",
   "timezone": "America/New_York",
   "season": 2026,
-  "updatedAt": "2026-10-28T21:39:21Z",
+  "updatedAt": "2026-10-29T01:15:00Z",
   "defaultWindow": "l7",
   "source": {
     "fangraphs": "leaders/major-league team splits (type=8) bat+pit+fld; month=0 season, month=1 last 7 days; blend=equal-weight avg",
     "mlb": "statsapi.mlb.com schedule",
-    "odds": "4casters MLB orderbook (api.4casters.io); ESPN DraftKings moneylines as fallback",
+    "odds": "ESPN scoreboard DraftKings moneylines (site.api.espn.com); 4casters unavailable",
     "kalshi": "Kalshi MLB Game Winner markets (api.elections.kalshi.com) volume_fp per side"
   },
   "formulas": {
@@ -378,8 +378,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 5",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 26.106,
@@ -488,20 +488,22 @@
                   "odds": -1234
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-28T21:39:21Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT282000MILTB",
-            "awayVol": 2185054.83,
-            "homeVol": 2410858.05,
-            "awayCents": 57,
-            "homeCents": 44,
-            "awayMult": 0.9063,
-            "homeMult": 1.1033,
-            "maxMult": 1.1033,
-            "totalVol": 4595912.88,
-            "highSide": "home",
-            "highMult": 1.1033,
+            "awayVol": 6710717.03,
+            "homeVol": 5450532.06,
+            "awayCents": 69,
+            "homeCents": 32,
+            "awayMult": 1.2312,
+            "homeMult": 0.8122,
+            "maxMult": 1.2312,
+            "totalVol": 12161249.09,
+            "highSide": "away",
+            "highMult": 1.2312,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -859,8 +861,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 5",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 0.817,
@@ -969,20 +971,22 @@
                   "odds": -1234
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-28T21:39:21Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT282000MILTB",
-            "awayVol": 2185054.83,
-            "homeVol": 2410858.05,
-            "awayCents": 57,
-            "homeCents": 44,
-            "awayMult": 0.9063,
-            "homeMult": 1.1033,
-            "maxMult": 1.1033,
-            "totalVol": 4595912.88,
-            "highSide": "home",
-            "highMult": 1.1033,
+            "awayVol": 6710717.03,
+            "homeVol": 5450532.06,
+            "awayCents": 69,
+            "homeCents": 32,
+            "awayMult": 1.2312,
+            "homeMult": 0.8122,
+            "maxMult": 1.2312,
+            "totalVol": 12161249.09,
+            "highSide": "away",
+            "highMult": 1.2312,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -1340,8 +1344,8 @@
           "isDoubleHeader": false,
           "showGameNumber": false,
           "description": "World Series Game 5",
-          "status": "Pre-Game",
-          "abstractGameState": "Preview",
+          "status": "In Progress",
+          "abstractGameState": "Live",
           "startTimeTBD": false,
           "awayStats": {
             "batWAR": 13.462,
@@ -1450,20 +1454,22 @@
                   "odds": -1234
                 }
               ]
-            }
+            },
+            "fromCache": true,
+            "cachedAt": "2026-10-28T21:39:21Z"
           },
           "kalshi": {
             "eventTicker": "KXMLBGAME-26OCT282000MILTB",
-            "awayVol": 2185054.83,
-            "homeVol": 2410858.05,
-            "awayCents": 57,
-            "homeCents": 44,
-            "awayMult": 0.9063,
-            "homeMult": 1.1033,
-            "maxMult": 1.1033,
-            "totalVol": 4595912.88,
-            "highSide": "home",
-            "highMult": 1.1033,
+            "awayVol": 6710717.03,
+            "homeVol": 5450532.06,
+            "awayCents": 69,
+            "homeCents": 32,
+            "awayMult": 1.2312,
+            "homeMult": 0.8122,
+            "maxMult": 1.2312,
+            "totalVol": 12161249.09,
+            "highSide": "away",
+            "highMult": 1.2312,
             "favoriteSide": "away",
             "tone": "muted"
           }
@@ -1816,8 +1822,8 @@
       "isDoubleHeader": false,
       "showGameNumber": false,
       "description": "World Series Game 5",
-      "status": "Pre-Game",
-      "abstractGameState": "Preview",
+      "status": "In Progress",
+      "abstractGameState": "Live",
       "startTimeTBD": false,
       "awayStats": {
         "batWAR": 26.106,
@@ -1926,20 +1932,22 @@
               "odds": -1234
             }
           ]
-        }
+        },
+        "fromCache": true,
+        "cachedAt": "2026-10-28T21:39:21Z"
       },
       "kalshi": {
         "eventTicker": "KXMLBGAME-26OCT282000MILTB",
-        "awayVol": 2185054.83,
-        "homeVol": 2410858.05,
-        "awayCents": 57,
-        "homeCents": 44,
-        "awayMult": 0.9063,
-        "homeMult": 1.1033,
-        "maxMult": 1.1033,
-        "totalVol": 4595912.88,
-        "highSide": "home",
-        "highMult": 1.1033,
+        "awayVol": 6710717.03,
+        "homeVol": 5450532.06,
+        "awayCents": 69,
+        "homeCents": 32,
+        "awayMult": 1.2312,
+        "homeMult": 0.8122,
+        "maxMult": 1.2312,
+        "totalVol": 12161249.09,
+        "highSide": "away",
+        "highMult": 1.2312,
         "favoriteSide": "away",
         "tone": "muted"
       }
